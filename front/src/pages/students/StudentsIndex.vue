@@ -39,32 +39,27 @@
     </q-table>
 <!--    <pre>{{students}}</pre>-->
     <q-dialog v-model="studentDialog" persistent>
-      <q-card style="width: 250px;max-width: 90vw;">
+      <q-card style="width: 750px;max-width: 90vw;">
         <q-card-section class="row items-center q-pb-none">
-          <div class="text-h6">{{ student.id ? 'Editar' : 'Agregar' }} Cliente</div>
+          <div class="text-h6">{{ student.id ? 'Editar' : 'Agregar' }} Studiante</div>
           <q-space />
           <q-btn flat dense icon="close" @click="studentDialog = false" />
         </q-card-section>
         <q-form @submit="studentSave">
         <q-card-section>
           <div class="row">
-            <div class="col-12">
-              <q-input v-model="student.name" label="Nombre" outlined dense :rules="[val => !!val || 'Campo requerido']" />
+<!--            ['rut', 'name', 'birthdate', 'year_PIE', 'course', 'year', 'address', 'phone', 'sex'];-->
+
+            <div class="col-12 col-md-4">
+              <q-input v-model="student.rut" label="Rut" outlined dense :rules="[val => !!val || 'Campo requerido']" />
             </div>
-            <div class="col-12">
-              <q-input v-model="student.studentname" label="Usuario" outlined dense :rules="[val => !!val || 'Campo requerido']" />
+            <div class="col-12 col-md-8">
+              <q-input v-model="student.name" label="Nombre Completo" outlined dense :rules="[val => !!val || 'Campo requerido']" />
             </div>
-            <div class="col-12">
-              <q-input v-model="student.password" label="Contraseña" outlined dense
-                       :rules="[val => !!val || 'Campo requerido']" :type="passwordShow ? 'text' : 'password'"
-                       v-if="!student.id"
-              >
-                <template v-slot:append>
-                  <q-icon :name="passwordShow ? 'visibility' : 'visibility_off'" @click="passwordShow = !passwordShow" />
-                </template>
-              </q-input>
+            <div class="col-12 col-md-3">
+              <q-input v-model="student.birthdate" label="Fecha de Nacimiento" type="date" outlined dense :rules="[val => !!val || 'Campo requerido']" />
             </div>
-            <div class="col-12">
+            <div class="col-12 col-md-6">
               <q-select v-model="student.role" label="Rol" outlined dense
                         :options="[{label: 'Admin', value: 'ADMIN'}, {label: 'Tutor', value: 'ATTORNEY'}, {label: 'Profesor', value: 'TEACHER'}, {label: 'Doctor', value: 'DOCTOR'}]"
                         :rules="[val => !!val || 'Campo requerido']"
