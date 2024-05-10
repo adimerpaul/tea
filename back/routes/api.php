@@ -16,6 +16,12 @@ Route::group(['middleware' => 'auth:sanctum'], function(){
     Route::put('/users/{id}', [\App\Http\Controllers\UserController::class, 'update']);
     Route::delete('/users/{id}', [\App\Http\Controllers\UserController::class, 'delete']);
     Route::put('/passwordUpdate/{id}', [\App\Http\Controllers\UserController::class, 'passwordUpdate']);
+
+    Route::get('/students', [\App\Http\Controllers\StudentController::class, 'index']);
+    Route::post('/students', [\App\Http\Controllers\StudentController::class, 'store']);
+    Route::put('/students/{id}', [\App\Http\Controllers\StudentController::class, 'update']);
+    Route::delete('/students/{id}', [\App\Http\Controllers\StudentController::class, 'delete']);
+    Route::get('/students/{id}', [\App\Http\Controllers\StudentController::class, 'show']);
 });
 
 Route::get('/compromiso/{loan_id}', [\App\Http\Controllers\ReportController::class, 'compromiso']);
