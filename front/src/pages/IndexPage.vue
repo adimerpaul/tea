@@ -37,7 +37,7 @@ export default defineComponent({
     }
   },
   mounted() {
-    this.getDashboard();
+    // this.getDashboard();
   },
   methods: {
     getDashboard() {

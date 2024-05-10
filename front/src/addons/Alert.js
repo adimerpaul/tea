@@ -46,6 +46,27 @@ export class Alert {
     })
   }
 
+  static promptPassword (message) {
+    return Dialog.create({
+      title: 'Confirmación',
+      message,
+      prompt: {
+        model: '',
+        type: 'password',
+        placeholder: 'Escribe algo',
+      },
+      color: 'positive',
+      ok: {
+        label: 'Aceptar',
+        color: 'positive'
+      },
+      cancel: {
+        label: 'Cancelar',
+        color: 'negative'
+      },
+    })
+  }
+
   static error (message) {
     Notify.create({
       progress: true,

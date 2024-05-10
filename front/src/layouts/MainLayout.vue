@@ -66,7 +66,12 @@
                   <q-img src="/logo.png" />
                 </q-item-section>
                 <q-item-section>
-                  <q-item-label class="text-white text-bold">Bienvenido</q-item-label>
+                  <q-item-label class="text-white text-bold">
+                    <q-chip label="Admin" color="primary" text-color="white" v-if="$store.user?.role === 'ADMIN'" icon="account_circle"/>
+                    <q-chip label="Tutor" color="indigo" text-color="white" v-if="$store.user?.role === 'ATTORNEY'" icon="account_circle"/>
+                    <q-chip label="Profesor" color="green" text-color="white" v-if="$store.user?.role === 'TEACHER'" icon="account_circle"/>
+                    <q-chip label="Doctor" color="red" text-color="white" v-if="$store.user?.role === 'DOCTOR'" icon="account_circle"/>
+                  </q-item-label>
                   <q-item-label caption class="text-white">{{ $store.user.name }}</q-item-label>
                 </q-item-section>
               </q-item>
@@ -108,15 +113,22 @@ export default {
       leftDrawerOpen: false,
       essentialLinks: [
         { title: 'Inicio', icon: 'home', to: '/' },
-        { title: 'Prestamos', icon: 'account_balance', to: '/prestamos' },
-        { title: 'Clientes', icon: 'person_search', to: '/clients' },
-        { title: 'Deudores', icon: 'people', to: '/debtors' },
-        { title: 'Pagos', icon: 'payment', to: '/payments' },
-        { title: 'Prestamos Finalizados', icon: 'done_all', to: '/finished-loans' },
+        { title: 'Usuarios', icon: 'people', to: '/users' },
+        { title: 'Historiales', icon: 'history', to: '/history' },
+        { title: 'Estudiantes', icon: 'school', to: '/students' },
+        // { title: 'Cursos', icon: 'class', to: '/courses' },
+        // { title: 'Matriculas', icon: 'assignment', to: '/enrollments' },
+        // { title: 'Pagos', icon: 'payment', to: '/payments' },
+        { title: 'Reportes', icon: 'description', to: '/reports' },
       ],
     };
   },
   methods: {
+    textCapitalize(text) {
+      if (!text) return '';
+      const lower = text.toLowerCase();
+      return text.charAt(0).toUpperCase() + lower.slice(1);
+    },
     toggleLeftDrawer() {
       this.leftDrawerOpen = !this.leftDrawerOpen;
     },
