@@ -9,22 +9,10 @@
             <q-btn flat dense icon="delete" @click="studentDelete(props.row)" >
               <q-tooltip>Eliminar</q-tooltip>
             </q-btn>
-            <q-btn flat dense icon="vpn_key" @click="studentChangePassword(props.row)" >
-              <q-tooltip>Cambiar Contraseña</q-tooltip>
+            <q-btn flat dense icon="history" @click="studentHistory(props.row)" >
+              <q-tooltip>Historial</q-tooltip>
             </q-btn>
-
-<!--            <q-btn flat dense icon="history" @click="studentHistory(props.row)" >-->
-<!--              <q-tooltip>Historial</q-tooltip>-->
-<!--            </q-btn>-->
           </q-td>
-      </template>
-      <template v-slot:body-cell-role="props">
-        <q-td :props="props">
-          <q-chip dense label="Admin" color="primary" text-color="white" v-if="props.row.role === 'ADMIN'" />
-          <q-chip dense label="Tutor" color="indigo" text-color="white" v-if="props.row.role === 'ATTORNEY'" />
-          <q-chip dense label="Profesor" color="green" text-color="white" v-if="props.row.role === 'TEACHER'" />
-          <q-chip dense label="Doctor" color="red" text-color="white" v-if="props.row.role === 'DOCTOR'" />
-        </q-td>
       </template>
       <template v-slot:top-right>
         <q-btn outline dense icon="add_circle" @click="studentAdd" label="Agregar" no-caps :loading="loading">
@@ -82,7 +70,7 @@
               <q-radio v-model="student.sex" val="M" label="Masculino" />
               <q-radio v-model="student.sex" val="F" label="Femenino" />
             </div>
-            <pre>{{student}}</pre>
+<!--            <pre>{{student}}</pre>-->
           </div>
         </q-card-section>
         <q-card-actions align="right">
@@ -158,6 +146,9 @@ export default {
           this.loading = false
         })
       })
+    },
+    studentHistory (student) {
+      this.$router.push('/students/history/' + student.id)
     },
     studentDelete (student) {
       this.$alert.confirm('¿Está seguro de eliminar este studente?').onOk(() => {

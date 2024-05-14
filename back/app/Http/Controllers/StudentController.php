@@ -13,7 +13,7 @@ class StudentController extends Controller{
         return Student::create($request->all());
     }
     public function show($id){
-        return Student::find($id);
+        return Student::with(['histories', 'diagnoses'])->find($id);
     }
     public function update(Request $request, $id){
         $student = Student::find($id);

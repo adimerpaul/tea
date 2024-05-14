@@ -18,6 +18,19 @@ export default boot(({ app, router }) => {
   app.config.globalProperties.$url = import.meta.env.VITE_API_BACK
   app.config.globalProperties.$alert = Alert
   app.config.globalProperties.$store = useCounterStore()
+  app.config.globalProperties.$filters = {
+    currency: function (value) {
+      return new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'EUR' }).format(value)
+    },
+    date: function (value) {
+      return new Intl.DateTimeFormat('es-ES').format(new Date(value))
+    },
+    formatdMY: function (value) {
+      const meses = ['ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sep', 'oct', 'nov', 'dic']
+      const date = new Date(value)
+      return `${date.getDate()} ${meses[date.getMonth()]} ${date.getFullYear()}`
+    }
+  }
   const token = localStorage.getItem('tokenPrestamos')
   if (token) {
     app.config.globalProperties.$axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
