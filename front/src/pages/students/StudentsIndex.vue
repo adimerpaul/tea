@@ -41,15 +41,13 @@
     <q-dialog v-model="studentDialog" persistent>
       <q-card style="width: 750px;max-width: 90vw;">
         <q-card-section class="row items-center q-pb-none">
-          <div class="text-h6">{{ student.id ? 'Editar' : 'Agregar' }} Studiante</div>
+          <div class="text-h6">{{ student.id ? 'Editar' : 'Agregar' }} Estudiante</div>
           <q-space />
           <q-btn flat dense icon="close" @click="studentDialog = false" />
         </q-card-section>
         <q-form @submit="studentSave">
         <q-card-section>
           <div class="row">
-<!--            ['rut', 'name', 'birthdate', 'year_PIE', 'course', 'year', 'address', 'phone', 'sex'];-->
-
             <div class="col-12 col-md-4">
               <q-input v-model="student.rut" label="Rut" outlined dense :rules="[val => !!val || 'Campo requerido']" />
             </div>
@@ -59,14 +57,32 @@
             <div class="col-12 col-md-3">
               <q-input v-model="student.birthdate" label="Fecha de Nacimiento" type="date" outlined dense :rules="[val => !!val || 'Campo requerido']" />
             </div>
-            <div class="col-12 col-md-6">
-              <q-select v-model="student.role" label="Rol" outlined dense
-                        :options="[{label: 'Admin', value: 'ADMIN'}, {label: 'Tutor', value: 'ATTORNEY'}, {label: 'Profesor', value: 'TEACHER'}, {label: 'Doctor', value: 'DOCTOR'}]"
-                        :rules="[val => !!val || 'Campo requerido']"
-                        emit-value map-options
-              />
+            <div class="col-12 col-md-3">
+              <q-input v-model="student.year_PIE" label="Año ingreso PIE" outlined dense :rules="[val => !!val || 'Campo requerido']" />
             </div>
-<!--            <pre>{{student}}</pre>-->
+            <div class="col-12 col-md-3">
+              <q-input v-model="student.course" label="Curso" outlined dense :rules="[val => !!val || 'Campo requerido']" />
+            </div>
+            <div class="col-12 col-md-3">
+              <q-input v-model="student.year" label="Año" outlined dense :rules="[val => !!val || 'Campo requerido']" />
+            </div>
+            <div class="col-12">
+              <q-input v-model="student.address" label="Dirección" outlined dense :rules="[val => !!val || 'Campo requerido']" />
+            </div>
+            <div class="col-12 col-md-6">
+              <q-input v-model="student.phone" label="Celular" outlined dense :rules="[val => !!val || 'Campo requerido']" />
+            </div>
+            <div class="col-12 col-md-6">
+<!--              <q-select v-model="student.sex" label="Sexo" outlined dense-->
+<!--                        :options="[{label: 'Masculino', value: 'M'}, {label: 'Femenino', value: 'F'}]"-->
+<!--                        :rules="[val => !!val || 'Campo requerido']"-->
+<!--                        emit-value map-options-->
+<!--              />-->
+<!--              sexo en radio button-->
+              <q-radio v-model="student.sex" val="M" label="Masculino" />
+              <q-radio v-model="student.sex" val="F" label="Femenino" />
+            </div>
+            <pre>{{student}}</pre>
           </div>
         </q-card-section>
         <q-card-actions align="right">
@@ -86,9 +102,14 @@ export default {
       columns: [
         { name: 'option', label: 'Opciones', align: 'left', field: row => row.option },
         { name: 'id', label: 'ID', align: 'left', field: row => row.id },
+        { name: 'rut', label: 'Rut', align: 'left', field: row => row.rut },
         { name: 'name', label: 'Nombre', align: 'left', field: row => row.name },
-        { name: 'studentname', label: 'Usuario', align: 'left', field: row => row.studentname },
-        { name: 'role', label: 'Rol', align: 'left', field: row => row.role }
+        { name: 'birthdate', label: 'Fecha de Nacimiento', align: 'left', field: row => row.birthdate },
+        { name: 'year_PIE', label: 'Año PIE', align: 'left', field: row => row.year_PIE },
+        { name: 'course', label: 'Curso', align: 'left', field: row => row.course },
+        { name: 'year', label: 'Año', align: 'left', field: row => row.year },
+        { name: 'address', label: 'Dirección', align: 'left', field: row => row.address },
+        { name: 'phone', label: 'Celular', align: 'left', field: row => row.phone },
       ],
       loading: false,
       students: [],
@@ -159,7 +180,14 @@ export default {
       this.studentDialog = true
       this.student = {
         name: '',
-        ci: ''
+        ci: '',
+        birthdate: '',
+        year_PIE: '',
+        cource: '',
+        year: '',
+        address: '',
+        phone: '',
+        sex: 'M'
       }
     },
     studentGet () {
