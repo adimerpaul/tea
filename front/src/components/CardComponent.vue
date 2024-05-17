@@ -1,5 +1,5 @@
 <template>
-  <q-card bordered :class="'bg-' + color + ' q-ma-xs cursor-pointer'" @click="$router.push(to)">
+  <q-card :class="'bg-' + color + ' q-ma-xs cursor-pointer'" @click="$router.push(to)" >
     <q-card-section class="q-pa-md">
       <div class="row">
         <div class="col-12">

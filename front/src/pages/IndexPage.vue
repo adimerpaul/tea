@@ -2,20 +2,20 @@
   <q-page class="q-pa-md">
     <div class="row">
       <div class="col-12 col-md-4">
-        <CardComponent title="Prestamos" icon="o_account_balance" to="/prestamos" color="indigo" :amount="prestamos" />
+        <CardComponent title="Usuarios" icon="o_people" to="/users" color="indigo" :amount="prestamos" />
       </div>
-      <div class="col-12 col-md-4">
-        <CardComponent title="Clientes" icon="o_people" to="/clients" color="green" :amount="clientes" />
-      </div>
-      <div class="col-12 col-md-4">
-        <CardComponent title="Deudores" icon="o_people" to="/debtors" color="red" :amount="deudores" />
-      </div>
-      <div class="col-12 col-md-4">
-        <CardComponent title="Pagos" icon="o_payment" to="/payments" color="blue" :amount="pagos" />
-      </div>
-      <div class="col-12 col-md-4">
-        <CardComponent title="Prestamos Finalizados" icon="o_done_all" to="/finished-loans" color="purple" :amount="prestamosFinalizados" />
-      </div>
+<!--      <div class="col-12 col-md-4">-->
+<!--        <CardComponent title="Clientes" icon="o_people" to="/clients" color="green" :amount="clientes" />-->
+<!--      </div>-->
+<!--      <div class="col-12 col-md-4">-->
+<!--        <CardComponent title="Deudores" icon="o_people" to="/debtors" color="red" :amount="deudores" />-->
+<!--      </div>-->
+<!--      <div class="col-12 col-md-4">-->
+<!--        <CardComponent title="Pagos" icon="o_payment" to="/payments" color="blue" :amount="pagos" />-->
+<!--      </div>-->
+<!--      <div class="col-12 col-md-4">-->
+<!--        <CardComponent title="Prestamos Finalizados" icon="o_done_all" to="/finished-loans" color="purple" :amount="prestamosFinalizados" />-->
+<!--      </div>-->
     </div>
   </q-page>
 </template>

@@ -43,10 +43,14 @@
       </q-card-section>
     </q-card>
     <div class="row">
-      <div class="col-12 col-md-6">
+      <div class="col-12 col-md-8">
         <q-card>
           <q-card-section>
-            <div class="text-h6">Historial</div>
+            <div class="row items-center">
+              <div class="text-h6">Historial</div>
+              <q-space />
+              <q-btn icon="add_circle_outline" @click="addHistory" label="Agregar" no-caps color="green" dense size="10px" />
+            </div>
             <q-markup-table dense wrap-cells>
               <thead>
                 <tr>
@@ -59,7 +63,7 @@
           </q-card-section>
         </q-card>
       </div>
-      <div class="col-12 col-md-6">
+      <div class="col-12 col-md-4">
         <q-card>
           <q-card-section>
             <div class="text-h6">Diagnósticos</div>
@@ -128,6 +132,17 @@ export default {
     this.studentGet()
   },
   methods: {
+    addHistory() {
+      this.$q.dialog({
+        component: () => import('pages/IndexPage.vue'),
+        parent: this,
+        on: {
+          submit: data => {
+            console.log(data)
+          }
+        }
+      })
+    },
     handleDrop(event) {
       event.preventDefault();
       const files = event.dataTransfer.files;
