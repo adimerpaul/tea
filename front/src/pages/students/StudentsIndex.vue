@@ -70,6 +70,12 @@
             <div class="col-12 col-md-8">
               <q-input v-model="student.name" label="Nombre Completo" outlined dense :rules="[val => !!val || 'Campo requerido']" />
             </div>
+            <div class="col-12 col-md-4">
+              <q-input v-model="student.tutorRut" label="Rut Tutor" outlined dense :rules="[val => !!val || 'Campo requerido']" />
+            </div>
+            <div class="col-12 col-md-8">
+              <q-input v-model="student.tutorName" label="Nombre Completo Tutor" outlined dense :rules="[val => !!val || 'Campo requerido']" />
+            </div>
             <div class="col-12 col-md-3">
               <q-input v-model="student.birthdate" label="Fecha de Nacimiento" type="date" outlined dense :rules="[val => !!val || 'Campo requerido']" />
             </div>
@@ -77,7 +83,7 @@
               <q-input v-model="student.year_PIE" label="Año ingreso PIE" outlined dense :rules="[val => !!val || 'Campo requerido']" />
             </div>
             <div class="col-12 col-md-3">
-              <q-input v-model="student.course" label="Curso" outlined dense :rules="[val => !!val || 'Campo requerido']" />
+              <q-select v-model="student.course" label="Curso" outlined dense :options="cursos" :rules="[val => !!val || 'Campo requerido']" />
             </div>
             <div class="col-12 col-md-3">
               <q-input v-model="student.year" label="Año" outlined dense :rules="[val => !!val || 'Campo requerido']" />
@@ -86,7 +92,7 @@
               <q-input v-model="student.address" label="Dirección" outlined dense :rules="[val => !!val || 'Campo requerido']" />
             </div>
             <div class="col-12 col-md-6">
-              <q-input v-model="student.phone" label="Celular" outlined dense :rules="[val => !!val || 'Campo requerido']" />
+              <q-input v-model="student.phone" type="number" label="Celular" outlined dense :rules="[val => !!val || 'Campo requerido']" />
             </div>
             <div class="col-12 col-md-6">
 <!--              <q-select v-model="student.sex" label="Sexo" outlined dense-->
@@ -115,6 +121,22 @@ export default {
   name: 'StudentsIndex.vue',
   data () {
     return {
+      cursos: [
+        'PREKINDER',
+        'KINDER',
+        '1ER BASICO',
+        '2DO BASICO',
+        '3ER BASICO',
+        '4TO BASICO',
+        '5TO BASICO',
+        '6TO BASICO',
+        '7MO BASICO',
+        '8VO BASICO',
+        '1ER SECUNDARIA',
+        '2DO SECUNDARIA',
+        '3ER SECUNDARIA',
+        '4TO SECUNDARIA',
+      ],
       columns: [
         { name: 'option', label: 'Opciones', align: 'left', field: row => row.option },
         { name: 'id', label: 'ID', align: 'left', field: row => row.id },

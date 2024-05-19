@@ -12,6 +12,14 @@
             <div>{{student.name}}</div>
           </div>
           <div class="col-6 col-md-3">
+            <label class="text-bold">Rut Tutor</label>
+            <div>{{student.tutorRut}}</div>
+          </div>
+          <div class="col-6 col-md-9">
+            <label class="text-bold">Nombre Tutor</label>
+            <div>{{student.tutorName}}</div>
+          </div>
+          <div class="col-6 col-md-3">
             <label class="text-bold">Fecha de Nacimiento</label>
             <div>{{student.birthdate}}</div>
           </div>
