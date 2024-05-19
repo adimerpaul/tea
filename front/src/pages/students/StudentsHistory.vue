@@ -93,11 +93,14 @@
                 </q-card-section>
               </q-card>
               <q-card v-for="diagnosis in student.diagnoses" :key="diagnosis.id" flat bordered class="q-ma-sm">
-                <q-card-section class="q-pa-none">
-                  <q-item>
-                    <q-item-section>
-                      <q-item-label>{{$filters.formatdMY(diagnosis.created_at)}}</q-item-label>
-                      <q-item-label>{{diagnosis.name}}</q-item-label>
+                <q-card-section class="q-pa-none bg-grey-3">
+                  <q-item class="cursor-pointer">
+                    <q-item-section clickable @click="downloadFile(diagnosis.id)">
+                      <q-item-label class="text-bold">
+                        {{$filters.formatdMY(diagnosis.created_at)}}
+                        <q-btn flat icon="fa-regular fa-file-pdf" dense class="q-pa-none" color="red" size="10px" />
+                      </q-item-label>
+                      <q-item-label class="text-capitalize text-caption">{{diagnosis.name}}</q-item-label>
                     </q-item-section>
                     <q-item-section side>
                       <q-btn flat icon="delete" @click="deleteDiagnosis(diagnosis.id)" color="red" :loading="loading" />
@@ -188,6 +191,20 @@ export default {
       }).catch(error => {
         this.$alert.error(error.response.data.message)
       })
+    },
+    downloadFile(id) {
+      this.$axios.get(`diagnoses/${id}/download`, { responseType: 'blob' }).then(response => {
+        const url = window.URL.createObjectURL(new Blob([response.data], { type: response.headers['content-type'] }));
+        const link = document.createElement('a');
+        link.href = url;
+        link.setAttribute('download', 'diagnosis.pdf'); // Aquí puedes poner el nombre que quieras para el archivo
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+        window.URL.revokeObjectURL(url);
+      }).catch(error => {
+        this.$alert.error(error.response.data.message);
+      });
     },
     deleteDiagnosis(id) {
       this.$alert.confirm('¿Está seguro de eliminar este diagnóstico?').onOk(() => {

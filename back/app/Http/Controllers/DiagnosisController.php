@@ -6,6 +6,14 @@ use App\Models\Diagnosis;
 use Illuminate\Http\Request;
 
 class DiagnosisController extends Controller{
+    public function download($id){
+        $diagnosis = Diagnosis::find($id);
+        if ($diagnosis) {
+            $pathToFile = public_path($diagnosis->url_diagnosis);
+            return response()->download($pathToFile);
+        }
+        return response()->json(['message' => 'Diagnosis not found'], 404);
+    }
     public function store(Request $request){
         $request->validate([
             'file' => 'required|file|mimes:pdf|max:10240',

@@ -23,7 +23,10 @@ Route::group(['middleware' => 'auth:sanctum'], function(){
     Route::delete('/students/{id}', [\App\Http\Controllers\StudentController::class, 'destroy']);
     Route::get('/students/{id}', [\App\Http\Controllers\StudentController::class, 'show']);
     Route::post('/students/{id}/diagnoses', [\App\Http\Controllers\DiagnosisController::class, 'store']);
+
     Route::delete('/diagnoses/{id}', [\App\Http\Controllers\DiagnosisController::class, 'destroy']);
+    //download
+    Route::get('/diagnoses/{id}/download', [\App\Http\Controllers\DiagnosisController::class, 'download']);
 });
 
 Route::get('/compromiso/{loan_id}', [\App\Http\Controllers\ReportController::class, 'compromiso']);

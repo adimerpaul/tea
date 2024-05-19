@@ -3,15 +3,43 @@
     <q-table :rows="students" :columns="columns" title="Clientes" :rows-per-page-options="[0]" row-key="id" dense :filter="filter" :loading="loading">
       <template v-slot:body-cell-option="props">
           <q-td auto-width>
-            <q-btn flat dense icon="edit" @click="studentEdit(props.row)" >
-              <q-tooltip>Editar</q-tooltip>
-            </q-btn>
-            <q-btn flat dense icon="delete" @click="studentDelete(props.row)" >
-              <q-tooltip>Eliminar</q-tooltip>
-            </q-btn>
-            <q-btn flat dense icon="history" @click="studentHistory(props.row)" >
-              <q-tooltip>Historial</q-tooltip>
-            </q-btn>
+            <q-btn-dropdown size="sm" label="Opciones" no-caps color="primary">
+              <q-list>
+                <q-item clickable v-close-popup @click="studentEdit(props.row)">
+                  <q-item-section avatar>
+                    <q-icon name="edit" />
+                  </q-item-section>
+                  <q-item-section>
+                    <q-item-label>Editar</q-item-label>
+                  </q-item-section>
+                </q-item>
+                <q-item clickable v-close-popup @click="studentDelete(props.row)">
+                  <q-item-section avatar>
+                    <q-icon name="delete" />
+                  </q-item-section>
+                  <q-item-section>
+                    <q-item-label>Eliminar</q-item-label>
+                  </q-item-section>
+                </q-item>
+                <q-item clickable v-close-popup @click="studentHistory(props.row)">
+                  <q-item-section avatar>
+                    <q-icon name="history" />
+                  </q-item-section>
+                  <q-item-section>
+                    <q-item-label>Historial</q-item-label>
+                  </q-item-section>
+                </q-item>
+              </q-list>
+            </q-btn-dropdown>
+<!--            <q-btn flat dense icon="edit" @click="studentEdit(props.row)" label="Editar" no-caps :loading="loading" size="sm">-->
+<!--              <q-tooltip>Editar</q-tooltip>-->
+<!--            </q-btn>-->
+<!--            <q-btn flat dense icon="delete" @click="studentDelete(props.row)" label="Eliminar" no-caps :loading="loading" size="sm">-->
+<!--              <q-tooltip>Eliminar</q-tooltip>-->
+<!--            </q-btn>-->
+<!--            <q-btn flat dense icon="history" @click="studentHistory(props.row)" label="Historial" no-caps :loading="loading" size="sm">-->
+<!--              <q-tooltip>Historial</q-tooltip>-->
+<!--            </q-btn>-->
           </q-td>
       </template>
       <template v-slot:top-right>
