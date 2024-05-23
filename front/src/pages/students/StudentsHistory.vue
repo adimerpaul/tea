@@ -52,40 +52,47 @@
     </q-card>
     <div class="row">
       <div class="col-12 col-md-8">
-        <q-card>
-          <q-card-section>
-            <div class="row items-center">
-              <div class="text-h6">Historial</div>
-              <q-space />
-              <q-btn icon="add_circle_outline" @click="addHistory" label="Agregar" no-caps color="green" dense size="10px" />
-            </div>
-            <q-markup-table dense wrap-cells>
-              <thead>
-                <tr>
-                  <th>Opciones</th>
-                  <th>Fecha</th>
-                  <th>Descripción</th>
-                  <th>Usuario</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr v-for="history in student.histories" :key="history.id">
-                  <td>
-                    <q-btn-group rounded>
-                      <q-btn flat icon="edit" class="q-pa-xs" size="10px" @click="historyClick(history)" />
-                      <q-btn flat icon="delete" class="q-pa-xs" size="10px" @click="deleteHistory(history.id)" />
-                    </q-btn-group>
-                  </td>
-                  <td>
-                    {{$filters.formatdMY(history.date)}}
-                  </td>
-                  <td>{{history.description}}</td>
-                  <td>{{history.user?.name}}</td>
-                </tr>
-              </tbody>
-            </q-markup-table>
-          </q-card-section>
-        </q-card>
+        <div class="row">
+          <div class="col-12">
+            <q-card>
+              <q-card-section>
+                <div class="row items-center">
+                  <div class="text-h6 text-bold">Historial</div>
+                  <q-space />
+                  <q-btn icon="add_circle_outline" @click="addHistory" label="Agregar" no-caps color="green" dense size="10px" />
+                </div>
+                <q-markup-table dense wrap-cells>
+                  <thead>
+                  <tr>
+                    <th>Opciones</th>
+                    <th>Fecha</th>
+                    <th>Descripción</th>
+                    <th>Usuario</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr v-for="history in student.histories" :key="history.id">
+                    <td>
+                      <q-btn-group rounded>
+                        <q-btn flat icon="edit" class="q-pa-xs" size="10px" @click="historyClick(history)" />
+                        <q-btn flat icon="delete" class="q-pa-xs" size="10px" @click="deleteHistory(history.id)" />
+                      </q-btn-group>
+                    </td>
+                    <td>
+                      {{$filters.formatdMY(history.date)}}
+                    </td>
+                    <td>{{history.description}}</td>
+                    <td>{{history.user?.name}}</td>
+                  </tr>
+                  </tbody>
+                </q-markup-table>
+              </q-card-section>
+            </q-card>
+          </div>
+          <div class="col-12">
+            <StudentsDocuments :student="student" />
+          </div>
+        </div>
       </div>
       <div class="col-12 col-md-4">
         <q-card>
@@ -164,8 +171,12 @@
   </q-page>
 </template>
 <script>
+import StudentsDocuments from './StudentsDocuments.vue'
 export default {
   name: 'StudentsHistory',
+  components: {
+    StudentsDocuments
+  },
   data() {
     return {
       student_id: this.$route.params.id,
