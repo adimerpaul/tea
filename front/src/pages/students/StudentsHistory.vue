@@ -90,7 +90,7 @@
             </q-card>
           </div>
           <div class="col-12">
-            <StudentsDocuments :student="student" />
+            <StudentsDocuments :student_id="parseInt(student_id)" />
           </div>
         </div>
       </div>

@@ -4,7 +4,7 @@
       <div class="row items-center">
         <div class="text-h6 text-bold">Documentos</div>
         <q-space />
-        <q-btn icon="add_circle_outline" @click="addDocument" label="Agregar" no-caps color="indigo" dense size="10px" />
+        <q-btn icon="add_circle_outline" @click="addDocument" label="Agregar" no-caps color="indigo" dense size="10px" :loading="loading" />
       </div>
       <q-markup-table dense wrap-cells>
         <thead>
@@ -16,23 +16,100 @@
         </tr>
         </thead>
         <tbody>
+        <tr v-for="document in documents" :key="document.id">
+          <td>
+<!--            <q-btn icon="delete" flat round dense color="negative" @click="documentDelete(document)" :loading="loading" />-->
+          </td>
+          <td>{{ $filters.formatdMYHMS(document.date) }}</td>
+          <td>{{ document.name }}</td>
+          <td>{{ document.user?.name }}</td>
+        </tr>
         </tbody>
       </q-markup-table>
+      <pre>{{documents}}</pre>
     </q-card-section>
+    <q-dialog v-model="documentDialog" persistent>
+      <q-card style="width: 750px;max-width: 90vw;height: 90vh;max-height: 90vh;">
+            <q-card-section class="row items-center q-pb-none">
+              <div class="text-h6 text-bold">Agregar Documento</div>
+              <q-space />
+              <q-btn icon="close" flat round dense @click="documentDialog = false" />
+            </q-card-section>
+            <q-card-section>
+              <q-select v-model="document.name" :options="documentsSelect" label="Seleccionar Documento" outlined dense />
+              <q-form @submit="documentForm">
+                <template v-if="document.name === 'AUTORIZACIÓN PARA EL ABORDAJE DEC.'">
+                  <q-input label="Descripción" v-model="document.description" outlined dense type="textarea" />
+                </template>
+                <q-card-actions align="right">
+                  <q-btn label="Cancelar" color="negative" @click="documentDialog = false" :loading="loading" icon="close" no-caps />
+                  <q-btn label="Guardar" color="primary" type="submit" :loading="loading" icon="save" no-caps />
+                </q-card-actions>
+              </q-form>
+            </q-card-section>
+      </q-card>
+    </q-dialog>
   </q-card>
 </template>
 <script>
 export default {
-  data () {
-    return {
-      student: {
-        id: 1
-      }
+  props: {
+    student_id: {
+      type: Number,
+      required: true
     }
   },
+  data () {
+    return {
+      loading: false,
+      documentsSelect: [
+        'AUTORIZACIÓN PARA EL ABORDAJE DEC.',
+        'CERTIFICADO PARA EL EMPLEADOR',
+        'CONTRATO DE CONTIGENCIAS',
+        'FICHA DEL PLAN DE APOYO INDIVIDUALIZADO (PAI) PARA ESTUDIANTES CON TEA',
+        'PLAN DE ACOMPAÑAMIENTO EMOCIONAL Y CONDUCTUAL',
+        'FICHA DE SEGUIMIENTO INDIVIDUALIZADA PARA DESREGULACIÓN EMOCIONAL'
+      ],
+      documentDialog: false,
+      document: {},
+      documents : []
+    }
+  },
+  mounted() {
+    this.documentsGet()
+  },
   methods: {
+    documentsGet () {
+      this.loading = true
+      this.$axios.get('documents', {
+        params: {
+          student_id: this.student_id
+        }
+      }).then(response => {
+        this.documents = response.data
+        console.log(this.documents)
+      }).catch(error => {
+        this.$alert.error(error.response.data.message)
+      }).finally(() => {
+        this.loading = false
+      })
+    },
+    documentForm () {
+      this.loading = true
+      this.$axios.post('documents', {
+        student_id: this.student_id,
+        document: this.document
+      }).then(response => {
+        this.$alert.success('Documento agregado')
+      }).catch(error => {
+        this.$alert.error(error.response.data.message)
+      }).finally(() => {
+        this.loading = false
+      })
+    },
     addDocument () {
-      console.log('addDocument')
+      this.documentDialog = true
+      this.document = {}
     }
   }
 }

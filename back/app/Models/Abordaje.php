@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Abordaje extends Model
 {
     use HasFactory;
+    protected $fillable = ['description'];
+    protected $hidden = ['created_at', 'updated_at'];
 }

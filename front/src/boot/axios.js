@@ -29,6 +29,11 @@ export default boot(({ app, router }) => {
       const meses = ['ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sep', 'oct', 'nov', 'dic']
       const date = new Date(value)
       return `${date.getDate()} ${meses[date.getMonth()]} ${date.getFullYear()}`
+    },
+    formatdMYHMS: function (value) {
+      const meses = ['ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sep', 'oct', 'nov', 'dic']
+      const date = new Date(value)
+      return `${date.getDate()} ${meses[date.getMonth()]} ${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}`
     }
   }
   const token = localStorage.getItem('tokenPrestamos')
