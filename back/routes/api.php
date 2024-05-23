@@ -25,8 +25,11 @@ Route::group(['middleware' => 'auth:sanctum'], function(){
     Route::post('/students/{id}/diagnoses', [\App\Http\Controllers\DiagnosisController::class, 'store']);
 
     Route::delete('/diagnoses/{id}', [\App\Http\Controllers\DiagnosisController::class, 'destroy']);
-    //download
     Route::get('/diagnoses/{id}/download', [\App\Http\Controllers\DiagnosisController::class, 'download']);
+
+    Route::post('/history', [\App\Http\Controllers\HistoryController::class, 'store']);
+    Route::put('/history/{id}', [\App\Http\Controllers\HistoryController::class, 'update']);
+    Route::delete('/history/{id}', [\App\Http\Controllers\HistoryController::class, 'destroy']);
 });
 
 Route::get('/compromiso/{loan_id}', [\App\Http\Controllers\ReportController::class, 'compromiso']);

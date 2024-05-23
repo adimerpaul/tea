@@ -62,11 +62,27 @@
             <q-markup-table dense wrap-cells>
               <thead>
                 <tr>
+                  <th>Opciones</th>
                   <th>Fecha</th>
                   <th>Descripción</th>
                   <th>Usuario</th>
                 </tr>
               </thead>
+              <tbody>
+                <tr v-for="history in student.histories" :key="history.id">
+                  <td>
+                    <q-btn-group rounded>
+                      <q-btn flat icon="edit" class="q-pa-xs" size="10px" @click="historyClick(history)" />
+                      <q-btn flat icon="delete" class="q-pa-xs" size="10px" @click="deleteHistory(history.id)" />
+                    </q-btn-group>
+                  </td>
+                  <td>
+                    {{$filters.formatdMY(history.date)}}
+                  </td>
+                  <td>{{history.description}}</td>
+                  <td>{{history.user?.name}}</td>
+                </tr>
+              </tbody>
             </q-markup-table>
           </q-card-section>
         </q-card>
@@ -103,7 +119,7 @@
               <q-card v-for="diagnosis in student.diagnoses" :key="diagnosis.id" flat bordered class="q-ma-sm">
                 <q-card-section class="q-pa-none bg-grey-3">
                   <q-item class="cursor-pointer">
-                    <q-item-section clickable @click="downloadFile(diagnosis.id)">
+                    <q-item-section clickable @click="downloadFile(diagnosis)">
                       <q-item-label class="text-bold">
                         {{$filters.formatdMY(diagnosis.created_at)}}
                         <q-btn flat icon="fa-regular fa-file-pdf" dense class="q-pa-none" color="red" size="10px" />
@@ -122,7 +138,28 @@
       </div>
     </div>
 
-    <pre>{{student}}</pre>
+    <q-dialog v-model="historyDialog">
+      <q-card style="width: 400px; max-width: 90vw;">
+        <q-card-section class="row items-center q-pb-none">
+          <div class="text-h6">
+            {{history.id ? 'Editar' : 'Agregar'}}
+            Historial
+          </div>
+          <q-space />
+          <q-btn flat icon="close" @click="historyDialog = false" />
+        </q-card-section>
+        <q-card-section>
+          <q-form class="q-gutter-md" @submit="historyForm">
+            <q-input type="textarea" v-model="history.description" label="Descripción" outlined :rules="[val => !!val || 'Campo requerido']" />
+            <q-card-actions align="right">
+              <q-btn label="Cancelar" color="red" @click="historyDialog = false" no-caps icon="close" :loading="loading" />
+              <q-btn label="Guardar" color="green" type="submit" no-caps icon="save" :loading="loading" v-if="history.id === undefined" />
+              <q-btn label="Modificar" color="orange" type="submit" no-caps icon="save" :loading="loading" v-else />
+            </q-card-actions>
+          </q-form>
+        </q-card-section>
+      </q-card>
+    </q-dialog>
 
   </q-page>
 </template>
@@ -135,7 +172,11 @@ export default {
       student: {},
       process: 0,
       textProcess: '',
-      loading: false
+      loading: false,
+      historyDialog: false,
+      history: {
+        description: ''
+      }
     }
   },
   mounted() {
@@ -143,16 +184,51 @@ export default {
     this.studentGet()
   },
   methods: {
-    addHistory() {
-      this.$q.dialog({
-        component: () => import('pages/IndexPage.vue'),
-        parent: this,
-        on: {
-          submit: data => {
-            console.log(data)
-          }
-        }
+    deleteHistory(id) {
+      this.$alert.confirm('¿Está seguro de eliminar este historial?').onOk(() => {
+        this.loading = true
+        this.$axios.delete(`history/${id}`).then(response => {
+          const index = this.student.histories.findIndex(history => history.id === id)
+          this.student.histories.splice(index, 1)
+        }).catch(error => {
+          this.$alert.error(error.response.data.message)
+        }).finally(() => {
+          this.loading = false
+        })
       })
+    },
+    historyClick(history) {
+      this.history = { ...history }
+      this.historyDialog = true
+    },
+    historyForm() {
+      this.loading = true
+      this.history.student_id = this.student_id
+      if (this.history.id) {
+        this.$axios.put(`history/${this.history.id}`, this.history).then(response => {
+          const index = this.student.histories.findIndex(history => history.id === this.history.id)
+          this.student.histories.splice(index, 1, response.data)
+          this.historyDialog = false
+        }).catch(error => {
+          this.$alert.error(error.response.data.message)
+        }).finally(() => {
+          this.loading = false
+        })
+      } else {
+        this.$axios.post(`history/`, this.history).then(response => {
+          this.student.histories.unshift(response.data)
+          this.historyDialog = false
+        }).catch(error => {
+          this.$alert.error(error.response.data.message)
+        }).finally(() => {
+          this.loading = false
+        })
+      }
+    },
+    addHistory() {
+      this.historyDialog = true
+      this.history.id = undefined
+      this.history.description = ''
     },
     handleDrop(event) {
       event.preventDefault();
@@ -200,12 +276,12 @@ export default {
         this.$alert.error(error.response.data.message)
       })
     },
-    downloadFile(id) {
-      this.$axios.get(`diagnoses/${id}/download`, { responseType: 'blob' }).then(response => {
+    downloadFile(diagnosis) {
+      this.$axios.get(`diagnoses/${diagnosis.id}/download`, { responseType: 'blob' }).then(response => {
         const url = window.URL.createObjectURL(new Blob([response.data], { type: response.headers['content-type'] }));
         const link = document.createElement('a');
         link.href = url;
-        link.setAttribute('download', 'diagnosis.pdf'); // Aquí puedes poner el nombre que quieras para el archivo
+        link.setAttribute('download', diagnosis.name);
         document.body.appendChild(link);
         link.click();
         link.remove();

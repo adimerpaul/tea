@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class History extends Model
 {
     use HasFactory;
+    protected $fillable = ['student_id', 'user_id', 'description','date'];
+    public function student(){
+        return $this->belongsTo(Student::class);
+    }
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
+    protected $hidden = ['created_at', 'updated_at'];
 }
