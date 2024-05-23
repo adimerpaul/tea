@@ -16,9 +16,16 @@ class DocumentController extends Controller{
             ->get();
     }
     public function download($id){
-//        $document = Document::find($id);
-        $pdf = Pdf::loadView('pdf.abordajes');
-        return $pdf->download('abordajes.pdf');
+        $document = Document::find($id);
+        $data = [
+            'document' => $document,
+            'user' => $document->user,
+            'student' => $document->student,
+            'documentable' => $document->documentable
+        ];
+        $pdf = Pdf::loadView('pdf.abordajes', $data);
+//        return $pdf->download('abordajes.pdf');
+        return $pdf->stream();
     }
     public function store(Request $request){
         $user_id = $request->user()->id;

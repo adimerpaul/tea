@@ -125,11 +125,11 @@
               </q-card>
               <q-card v-for="diagnosis in student.diagnoses" :key="diagnosis.id" flat bordered class="q-ma-sm">
                 <q-card-section class="q-pa-none bg-grey-3">
-                  <q-item class="cursor-pointer">
-                    <q-item-section clickable @click="downloadFile(diagnosis)">
+                  <q-item>
+                    <q-item-section clickable >
                       <q-item-label class="text-bold">
                         {{$filters.formatdMY(diagnosis.created_at)}}
-                        <q-btn flat icon="fa-regular fa-file-pdf" dense class="q-pa-none" color="red" size="10px" />
+                        <q-btn flat icon="fa-regular fa-file-pdf" dense class="q-pa-none" color="red" size="10px" @click="downloadFile(diagnosis)" :loading="loading" />
                       </q-item-label>
                       <q-item-label class="text-capitalize text-caption">{{diagnosis.name}}</q-item-label>
                     </q-item-section>
