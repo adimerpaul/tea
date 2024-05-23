@@ -21,12 +21,16 @@
 <!--            <q-btn icon="delete" flat round dense color="negative" @click="documentDelete(document)" :loading="loading" />-->
           </td>
           <td>{{ $filters.formatdMYHMS(document.date) }}</td>
-          <td>{{ document.name }}</td>
+          <td>
+<!--            show open documents-->
+            <q-btn flat dense @click="documentOpen(document)" icon="fa-solid fa-file" size="12px" color="blue-9" :loading="loading" />
+            {{ document.description }}
+          </td>
           <td>{{ document.user?.name }}</td>
         </tr>
         </tbody>
       </q-markup-table>
-      <pre>{{documents}}</pre>
+<!--      <pre>{{documents}}</pre>-->
     </q-card-section>
     <q-dialog v-model="documentDialog" persistent>
       <q-card style="width: 750px;max-width: 90vw;height: 90vh;max-height: 90vh;">
@@ -79,6 +83,25 @@ export default {
     this.documentsGet()
   },
   methods: {
+    documentOpen(document) {
+      this.loading = true
+      this.$axios.get(`documents/${document.id}/download`, {
+        responseType: 'blob'
+      }).then(response => {
+        const url = window.URL.createObjectURL(new Blob([response.data], { type: 'application/pdf' }));
+        const link = window.document.createElement('a'); // Usa window.document para evitar conflictos
+        link.href = url;
+        link.setAttribute('download', `${document.description}.pdf`); // Asegúrate de agregar la extensión
+        window.document.body.appendChild(link);
+        link.click();
+        link.remove(); // Elimina el elemento del DOM
+        window.URL.revokeObjectURL(url); // Libera el URL del blob
+      }).catch(error => {
+        this.$alert.error(error.response.data.message);
+      }).finally(() => {
+        this.loading = false
+      })
+    },
     documentsGet () {
       this.loading = true
       this.$axios.get('documents', {

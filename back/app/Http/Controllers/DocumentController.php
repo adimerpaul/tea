@@ -4,12 +4,21 @@ namespace App\Http\Controllers;
 
 use App\Models\Abordaje;
 use App\Models\Document;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 
 class DocumentController extends Controller{
     public function index(Request $request){
         $student_id = $request->input('student_id');
-        return Document::where('student_id', $student_id)->orderBy('date', 'desc')->get();
+        return Document::where('student_id', $student_id)
+            ->orderBy('date', 'desc')
+            ->with('user')
+            ->get();
+    }
+    public function download($id){
+//        $document = Document::find($id);
+        $pdf = Pdf::loadView('pdf.abordajes');
+        return $pdf->download('abordajes.pdf');
     }
     public function store(Request $request){
         $user_id = $request->user()->id;

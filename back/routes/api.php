@@ -33,6 +33,8 @@ Route::group(['middleware' => 'auth:sanctum'], function(){
 
     Route::get('/documents', [\App\Http\Controllers\DocumentController::class, 'index']);
     Route::post('/documents', [\App\Http\Controllers\DocumentController::class, 'store']);
+
 });
+Route::get('/documents/{id}/download', [\App\Http\Controllers\DocumentController::class, 'download']);
 
 Route::get('/compromiso/{loan_id}', [\App\Http\Controllers\ReportController::class, 'compromiso']);

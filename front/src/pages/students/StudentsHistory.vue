@@ -288,6 +288,7 @@ export default {
       })
     },
     downloadFile(diagnosis) {
+      this.loading = true
       this.$axios.get(`diagnoses/${diagnosis.id}/download`, { responseType: 'blob' }).then(response => {
         const url = window.URL.createObjectURL(new Blob([response.data], { type: response.headers['content-type'] }));
         const link = document.createElement('a');
@@ -299,7 +300,9 @@ export default {
         window.URL.revokeObjectURL(url);
       }).catch(error => {
         this.$alert.error(error.response.data.message);
-      });
+      }).finally(() => {
+        this.loading = false
+      })
     },
     deleteDiagnosis(id) {
       this.$alert.confirm('¿Está seguro de eliminar este diagnóstico?').onOk(() => {

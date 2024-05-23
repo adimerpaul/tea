@@ -13,4 +13,10 @@ class Document extends Model
     public function documentable(){
         return $this->morphTo();
     }
+    public function student(){
+        return $this->belongsTo(Student::class);
+    }
+    public function user(){
+        return $this->belongsTo(User::class)->select('id', 'name');
+    }
 }
