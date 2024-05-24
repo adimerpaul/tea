@@ -22,7 +22,6 @@
           </td>
           <td>{{ $filters.formatdMYHMS(document.date) }}</td>
           <td>
-<!--            show open documents-->
             <q-btn flat dense @click="documentOpen(document)" icon="fa-solid fa-file" size="12px" color="blue-9" :loading="loading" />
             {{ document.description }}
           </td>
@@ -45,6 +44,35 @@
                 <template v-if="document.name === 'AUTORIZACIÓN PARA EL ABORDAJE DEC.'">
                   <q-input label="Descripción" v-model="document.description" outlined dense type="textarea" />
                 </template>
+                <template v-else-if="document.name === 'CERTIFICADO PARA EL EMPLEADOR'">
+                  <div class="row">
+                    <div class="col-12">
+                      <q-input label="Descripción" v-model="document.description" outlined dense type="textarea" />
+                    </div>
+                    <div class="col-12 col-md-4">
+                      <q-input label="Etapa Inicial" v-model="document.etapa_inial" outlined dense type="textarea" />
+                    </div>
+                    <div class="col-12 col-md-4">
+                      <q-input label="Aumento" v-model="document.aumento" outlined dense type="textarea" />
+                    </div>
+                    <div class="col-12 col-md-4">
+                      <q-input label="Crisis" v-model="document.crisis" outlined dense type="textarea" />
+                    </div>
+                    <div class="col-6 col-md-3">
+                      <q-input label="Hora Inicio" v-model="document.hora_inicio" outlined dense type="time" />
+                    </div>
+                    <div class="col-6 col-md-3">
+                      <q-input label="Hora Llamada" v-model="document.hora_llamada" outlined dense type="time" />
+                    </div>
+                    <div class="col-6 col-md-3">
+                      <q-input label="Hora Llegada" v-model="document.hora_llegada" outlined dense type="time" />
+                    </div>
+                    <div class="col-6 col-md-3">
+                      <q-input label="Hora Termino" v-model="document.hora_termino" outlined dense type="time" />
+                    </div>
+                  </div>
+                </template>
+                <pre>{{document}}</pre>
                 <q-card-actions align="right">
                   <q-btn label="Cancelar" color="negative" @click="documentDialog = false" :loading="loading" icon="close" no-caps />
                   <q-btn label="Guardar" color="primary" type="submit" :loading="loading" icon="save" no-caps />
@@ -124,6 +152,8 @@ export default {
         document: this.document
       }).then(response => {
         this.$alert.success('Documento agregado')
+        this.documentDialog = false
+        this.documentsGet()
       }).catch(error => {
         this.$alert.error(error.response.data.message)
       }).finally(() => {

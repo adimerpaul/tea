@@ -13,14 +13,14 @@ return new class extends Migration
     {
         Schema::create('certificados', function (Blueprint $table) {
             $table->id();
-            $table->string('description')->nullable();
-            $table->string('etapa_inial')->nullable();
-            $table->string('aumento')->nullable();
-            $table->string('crisis')->nullable();
-            $table->dateTime('hora_inicio')->nullable();
-            $table->dateTime('hora_llamada')->nullable();
-            $table->dateTime('hora_llegada')->nullable();
-            $table->dateTime('hora_termino')->nullable();
+            $table->text('description')->nullable();
+            $table->text('etapa_inial')->nullable();
+            $table->text('aumento')->nullable();
+            $table->text('crisis')->nullable();
+            $table->time('hora_inicio')->nullable();
+            $table->time('hora_llamada')->nullable();
+            $table->time('hora_llegada')->nullable();
+            $table->time('hora_termino')->nullable();
             $table->timestamps();
         });
     }
