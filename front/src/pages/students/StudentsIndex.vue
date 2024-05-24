@@ -204,7 +204,7 @@ export default {
       this.$alert.confirm('¿Está seguro de eliminar este studente?').onOk(() => {
         this.loading = true
         this.$axios.delete(`students/${student.id}`).then(response => {
-          const index = this.students.findIndex(student => student.id === student.id)
+          const index = this.students.findIndex(s => s.id === student.id)
           this.students.splice(index, 1)
         }).catch(error => {
           this.$alert.error(error.response.data.message)

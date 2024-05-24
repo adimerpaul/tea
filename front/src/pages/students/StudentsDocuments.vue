@@ -73,7 +73,7 @@
                     </div>
                   </div>
                 </template>
-                <pre>{{document}}</pre>
+<!--                <pre>{{document}}</pre>-->
                 <q-card-actions align="right">
                   <q-btn label="Cancelar" color="negative" @click="documentDialog = false" :loading="loading" icon="close" no-caps />
                   <q-btn label="Guardar" color="primary" type="submit" :loading="loading" icon="save" no-caps />
