@@ -226,7 +226,7 @@ export default {
           this.loading = false
         })
       } else {
-        this.$axios.post(`history/`, this.history).then(response => {
+        this.$axios.post(`history`, this.history).then(response => {
           this.student.histories.unshift(response.data)
           this.historyDialog = false
         }).catch(error => {
