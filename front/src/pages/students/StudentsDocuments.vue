@@ -18,7 +18,8 @@
         <tbody>
         <tr v-for="document in documents" :key="document.id">
           <td>
-<!--            <q-btn icon="delete" flat round dense color="negative" @click="documentDelete(document)" :loading="loading" />-->
+            <q-btn icon="edit" flat round dense color="primary" :loading="loading" />
+            <q-btn icon="delete" flat round dense color="negative" @click="documentDelete(document)" :loading="loading" />
           </td>
           <td>{{ $filters.formatdMYHMS(document.date) }}</td>
           <td>
@@ -111,6 +112,19 @@ export default {
     this.documentsGet()
   },
   methods: {
+    documentDelete (document) {
+      this.$alert.confirm('¿Está seguro de eliminar este document?').onOk(() => {
+        this.loading = true
+        this.$axios.delete(`documents/${document.id}`).then(response => {
+          this.$alert.success('Documento eliminado')
+          this.documentsGet()
+        }).catch(error => {
+          this.$alert.error(error.response.data.message)
+        }).finally(() => {
+          this.loading = false
+        })
+      })
+    },
     documentOpen(document) {
       this.loading = true
       this.$axios.get(`documents/${document.id}/download`, {

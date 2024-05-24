@@ -85,4 +85,9 @@ class DocumentController extends Controller{
         $document->save();
         return $document;
     }
+    public function destroy($id){
+        $document = Document::find($id);
+        $document->delete();
+        return $document;
+    }
 }
