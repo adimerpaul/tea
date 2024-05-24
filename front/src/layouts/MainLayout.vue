@@ -114,7 +114,7 @@ export default {
       essentialLinks: [
         { title: 'Inicio', icon: 'home', to: '/' },
         { title: 'Usuarios', icon: 'people', to: '/users' },
-        { title: 'Historiales', icon: 'history', to: '/history' },
+        // { title: 'Historiales', icon: 'history', to: '/history' },
         { title: 'Estudiantes', icon: 'school', to: '/students' },
         // { title: 'Cursos', icon: 'class', to: '/courses' },
         // { title: 'Matriculas', icon: 'assignment', to: '/enrollments' },
