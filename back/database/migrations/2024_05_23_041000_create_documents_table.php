@@ -22,6 +22,7 @@ return new class extends Migration
             $table->unsignedBigInteger('documentable_id');
             $table->string('documentable_type');
             $table->string('codigo')->nullable();
+            $table->text('html')->nullable();
             $table->timestamps();
         });
     }

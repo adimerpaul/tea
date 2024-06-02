@@ -83,7 +83,7 @@
               <q-btn icon="close" flat round dense @click="documentDialog = false" />
             </q-card-section>
             <q-card-section>
-              <q-select v-model="document.name" :options="documentsSelect" label="Seleccionar Documento" outlined dense />
+              <q-select v-model="document.name" :options="documentsSelect" label="Seleccionar Documento" outlined dense @update:modelValue="restoreHtml" />
               <q-form @submit="documentForm">
                 <template v-if="document.name === 'AUTORIZACIÓN PARA EL ABORDAJE DEC.'">
                   <q-input label="Descripción" v-model="document.description" outlined dense type="textarea" />
@@ -116,7 +116,19 @@
                     </div>
                   </div>
                 </template>
-<!--                <pre>{{document}}</pre>-->
+                <template v-else-if="document.name === 'CONTRATO DE CONTIGENCIAS'">
+                  <div class="row">
+                    <div class="col-12">
+                      <q-editor
+                        v-model="document.html"
+                        :dense="$q.screen.lt.md"
+                        :toolbar="toolbar"
+                        :fonts="fonts"
+                      />
+                    </div>
+                  </div>
+                </template>
+                <pre>{{document}}</pre>
                 <q-card-actions align="right">
                   <q-btn label="Cancelar" color="negative" @click="documentDialog = false" :loading="loading" icon="close" no-caps />
                   <q-btn label="Guardar" color="primary" type="submit" :loading="loading" icon="save" no-caps />
@@ -144,6 +156,8 @@
   </q-card>
 </template>
 <script>
+import {Documentos} from "src/utils/Documentos";
+
 export default {
   props: {
     student_id: {
@@ -154,6 +168,92 @@ export default {
   data () {
     return {
       loading: false,
+      qeditor: ``,
+      fonts:{
+        arial: 'Arial',
+        arial_black: 'Arial Black',
+        comic_sans: 'Comic Sans MS',
+        courier_new: 'Courier New',
+        impact: 'Impact',
+        lucida_grande: 'Lucida Grande',
+        times_new_roman: 'Times New Roman',
+        verdana: 'Verdana'
+      },
+      toolbar: [
+        [
+          {
+            label: this.$q.lang.editor.align,
+            icon: this.$q.iconSet.editor.align,
+            fixedLabel: true,
+            list: 'only-icons',
+            options: ['left', 'center', 'right', 'justify']
+          },
+          {
+            label: this.$q.lang.editor.align,
+            icon: this.$q.iconSet.editor.align,
+            fixedLabel: true,
+            options: ['left', 'center', 'right', 'justify']
+          }
+        ],
+        ['bold', 'italic', 'strike', 'underline', 'subscript', 'superscript'],
+        ['token', 'hr', 'link', 'custom_btn'],
+        ['print', 'fullscreen'],
+        [
+          {
+            label: this.$q.lang.editor.formatting,
+            icon: this.$q.iconSet.editor.formatting,
+            list: 'no-icons',
+            options: [
+              'p',
+              'h1',
+              'h2',
+              'h3',
+              'h4',
+              'h5',
+              'h6',
+              'code'
+            ]
+          },
+          {
+            label: this.$q.lang.editor.fontSize,
+            icon: this.$q.iconSet.editor.fontSize,
+            fixedLabel: true,
+            fixedIcon: true,
+            list: 'no-icons',
+            options: [
+              'size-1',
+              'size-2',
+              'size-3',
+              'size-4',
+              'size-5',
+              'size-6',
+              'size-7'
+            ]
+          },
+          {
+            label: this.$q.lang.editor.defaultFont,
+            icon: this.$q.iconSet.editor.font,
+            fixedIcon: true,
+            list: 'no-icons',
+            options: [
+              'default_font',
+              'arial',
+              'arial_black',
+              'comic_sans',
+              'courier_new',
+              'impact',
+              'lucida_grande',
+              'times_new_roman',
+              'verdana'
+            ]
+          },
+          'removeFormat'
+        ],
+        ['quote', 'unordered', 'ordered', 'outdent', 'indent'],
+
+        ['undo', 'redo'],
+        ['viewsource']
+      ],
       documentsSelect: [
         'AUTORIZACIÓN PARA EL ABORDAJE DEC.',
         'CERTIFICADO PARA EL EMPLEADOR',
@@ -173,6 +273,9 @@ export default {
     this.documentsGet()
   },
   methods: {
+    restoreHtml () {
+      this.document.html = Documentos.contratoContigencia()
+    },
     documentShowMobile (document) {
       window.open(this.$url+'documents/'+document.codigo+'/show', '_blank')
     },
@@ -252,7 +355,9 @@ export default {
     },
     addDocument () {
       this.documentDialog = true
-      this.document = {}
+      this.document = {
+        html: '',
+      }
     }
   }
 }

@@ -111,6 +111,11 @@ class DocumentController extends Controller{
             $document->description = $documento['name'];
             $document->documentable_id = $certificado->id;
             $document->documentable_type = 'App\Models\Certificado';
+        }else{
+            $document->description = $documento['name'];
+            $document->documentable_id = 0;
+            $document->documentable_type = '';
+            $document->html = isset($documento['html']) ? $documento['html'] : '';
         }
 
         $document->date = date('Y-m-d H:i:s');
