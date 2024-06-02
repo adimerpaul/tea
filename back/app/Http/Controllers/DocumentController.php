@@ -32,6 +32,41 @@ class DocumentController extends Controller{
 //        return $pdf->download('abordajes.pdf');
         return $pdf->stream();
     }
+    public function showMobile($codigo){
+        $document = Document::where('codigo', $codigo)->first();
+        if (!$document){
+            return response()->json(['message' => 'No se encontró el documento'], 404);
+        }
+        $data = [
+            'document' => $document,
+            'user' => $document->user,
+            'student' => $document->student,
+            'documentable' => $document->documentable
+        ];
+        if ($document->description == 'AUTORIZACIÓN PARA EL ABORDAJE DEC.'){
+            $pdf = Pdf::loadView('pdf.abordajes', $data);
+        }elseif ($document->description == 'CERTIFICADO PARA EL EMPLEADOR'){
+            $pdf = Pdf::loadView('pdf.certificados', $data);
+        }
+//        return $pdf->download('abordajes.pdf');
+        return $pdf->stream();
+    }
+    public function download64($id){
+        $document = Document::find($id);
+        $data = [
+            'document' => $document,
+            'user' => $document->user,
+            'student' => $document->student,
+            'documentable' => $document->documentable
+        ];
+        if ($document->description == 'AUTORIZACIÓN PARA EL ABORDAJE DEC.'){
+            $pdf = Pdf::loadView('pdf.abordajes', $data);
+        }elseif ($document->description == 'CERTIFICADO PARA EL EMPLEADOR'){
+            $pdf = Pdf::loadView('pdf.certificados', $data);
+        }
+        $pdf64 = base64_encode($pdf->output());
+        return response()->json(['pdf' => $pdf64]);
+    }
     public function store(Request $request){
         $validated = $request->validate([
             'student_id' => 'required',
@@ -81,7 +116,8 @@ class DocumentController extends Controller{
         $document->date = date('Y-m-d H:i:s');
         $document->student_id = $student_id;
         $document->user_id = $user_id;
-
+        $codigo10caracteres = substr(md5(uniqid(rand())),0,10);
+        $document->codigo = $codigo10caracteres;
         $document->save();
         return $document;
     }

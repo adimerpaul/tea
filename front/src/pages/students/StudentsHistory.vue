@@ -57,7 +57,7 @@
             <q-card>
               <q-card-section>
                 <div class="row items-center">
-                  <div class="text-h6 text-bold">Historial</div>
+                  <div class="text-h6 text-bold">Antecedentes</div>
                   <q-space />
                   <q-btn icon="add_circle_outline" @click="addHistory" label="Agregar" no-caps color="green" dense size="10px" />
                 </div>
@@ -73,7 +73,7 @@
                   <tbody>
                   <tr v-for="history in student.histories" :key="history.id">
                     <td>
-                      <q-btn-group rounded>
+                      <q-btn-group>
                         <q-btn flat icon="edit" class="q-pa-xs" size="10px" @click="historyClick(history)" />
                         <q-btn flat icon="delete" class="q-pa-xs" size="10px" @click="deleteHistory(history.id)" />
                       </q-btn-group>
@@ -148,9 +148,9 @@
     <q-dialog v-model="historyDialog">
       <q-card style="width: 400px; max-width: 90vw;">
         <q-card-section class="row items-center q-pb-none">
-          <div class="text-h6">
+          <div class="text-h6 text-bold">
             {{history.id ? 'Editar' : 'Agregar'}}
-            Historial
+            Antecedentes
           </div>
           <q-space />
           <q-btn flat icon="close" @click="historyDialog = false" />

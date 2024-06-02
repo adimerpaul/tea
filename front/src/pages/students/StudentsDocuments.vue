@@ -18,12 +18,55 @@
         <tbody>
         <tr v-for="document in documents" :key="document.id">
           <td>
-            <q-btn icon="edit" flat round dense color="primary" :loading="loading" />
-            <q-btn icon="delete" flat round dense color="negative" @click="documentDelete(document)" :loading="loading" />
+<!--            <q-btn-group>-->
+<!--              <q-btn icon="edit" flat round dense size="10px" color="primary" :loading="loading" />-->
+<!--              <q-btn icon="delete" flat round dense size="10px" color="negative" @click="documentDelete(document)" :loading="loading" />-->
+<!--              <q-btn flat dense @click="documentOpen(document)" icon="fa-solid fa-file-arrow-down" size="10px" color="green" :loading="loading" />-->
+<!--              <q-btn flat dense @click="documentShow(document)" icon="fa-solid fa-eye" size="10px" color="blue" :loading="loading" />-->
+<!--            </q-btn-group>-->
+            <q-btn-dropdown
+              size="10px"
+              color="primary"
+              :loading="loading"
+              auto-close
+              class="q-mr-sm"
+              label="Opciones"
+              no-caps
+            >
+              <q-item clickable v-close-popup @click="documentOpen(document)">
+                <q-item-section avatar>
+                  <q-icon name="fa-solid fa-file-arrow-down" />
+                </q-item-section>
+                <q-item-section>Descargar</q-item-section>
+              </q-item>
+              <q-item clickable v-close-popup @click="documentShow(document)">
+                <q-item-section avatar>
+                  <q-icon name="fa-solid fa-eye" />
+                </q-item-section>
+                <q-item-section>Ver</q-item-section>
+              </q-item>
+<!--              <q-item clickable v-close-popup @click="documentShowMobile(document)">-->
+<!--                <q-item-section avatar>-->
+<!--                  <q-icon name="fa-regular fa-eye" />-->
+<!--                </q-item-section>-->
+<!--                <q-item-section>Ver Mobil</q-item-section>-->
+<!--              </q-item>-->
+              <q-item clickable v-close-popup @click="documentDelete(document)">
+                <q-item-section avatar>
+                  <q-icon name="delete" />
+                </q-item-section>
+                <q-item-section>Eliminar</q-item-section>
+              </q-item>
+              <q-item clickable v-close-popup @click="documentDelete(document)">
+                <q-item-section avatar>
+                  <q-icon name="edit" />
+                </q-item-section>
+                <q-item-section>Editar</q-item-section>
+              </q-item>
+            </q-btn-dropdown>
           </td>
           <td>{{ $filters.formatdMYHMS(document.date) }}</td>
           <td>
-            <q-btn flat dense @click="documentOpen(document)" icon="fa-solid fa-file" size="12px" color="blue-9" :loading="loading" />
             {{ document.description }}
           </td>
           <td>{{ document.user?.name }}</td>
@@ -82,6 +125,22 @@
             </q-card-section>
       </q-card>
     </q-dialog>
+    <q-dialog v-model="documentDialogPdf" >
+      <q-card style="width: 750px;max-width: 90vw;">
+        <q-card-section class="row items-center q-pb-none">
+          <div class="text-h6 text-bold">Documento</div>
+          <q-space />
+          <q-btn icon="close" flat round dense @click="documentDialogPdf = false" />
+        </q-card-section>
+        <q-card-section>
+          <div class="row">
+            <div class="col-12">
+              <iframe :src="iframe" width="100%" height="500px"></iframe>
+            </div>
+          </div>
+        </q-card-section>
+      </q-card>
+    </q-dialog>
   </q-card>
 </template>
 <script>
@@ -104,6 +163,8 @@ export default {
         'FICHA DE SEGUIMIENTO INDIVIDUALIZADA PARA DESREGULACIÓN EMOCIONAL'
       ],
       documentDialog: false,
+      documentDialogPdf: false,
+      iframe: false,
       document: {},
       documents : []
     }
@@ -112,6 +173,21 @@ export default {
     this.documentsGet()
   },
   methods: {
+    documentShowMobile (document) {
+      window.open(this.$url+'documents/'+document.codigo+'/show', '_blank')
+    },
+    documentShow (document) {
+      this.loading = true
+      this.$axios.get(`documents/${document.id}/download64`).then(response => {
+        this.document = response.data
+        this.documentDialogPdf = true
+        this.iframe = `data:application/pdf;base64,${this.document.pdf}`
+      }).catch(error => {
+        this.$alert.error(error.response.data.message)
+      }).finally(() => {
+        this.loading = false
+      })
+    },
     documentDelete (document) {
       this.$alert.confirm('¿Está seguro de eliminar este document?').onOk(() => {
         this.loading = true

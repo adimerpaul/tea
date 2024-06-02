@@ -21,6 +21,7 @@ return new class extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             $table->unsignedBigInteger('documentable_id');
             $table->string('documentable_type');
+            $table->string('codigo')->nullable();
             $table->timestamps();
         });
     }

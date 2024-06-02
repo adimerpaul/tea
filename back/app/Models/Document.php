@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Document extends Model
 {
     use HasFactory;
-    protected $fillable = ['description', 'date', 'student_id', 'user_id', 'documentable_id', 'documentable_type'];
+    protected $fillable = ['description', 'date', 'student_id', 'user_id', 'documentable_id', 'documentable_type','codigo'];
     protected $hidden = ['created_at', 'updated_at'];
     public function documentable(){
         return $this->morphTo();
