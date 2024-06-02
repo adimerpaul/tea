@@ -74,6 +74,7 @@
         </tbody>
       </q-markup-table>
 <!--      <pre>{{documents}}</pre>-->
+<!--      <pre>{{student}}</pre>-->
     </q-card-section>
     <q-dialog v-model="documentDialog" persistent>
       <q-card style="width: 750px;max-width: 90vw;height: 90vh;max-height: 90vh;">
@@ -85,41 +86,10 @@
             <q-card-section>
               <q-select v-model="document.name" :options="documentsSelect" label="Seleccionar Documento" outlined dense @update:modelValue="restoreHtml" />
               <q-form @submit="documentForm">
-                <template v-if="document.name === 'AUTORIZACIÓN PARA EL ABORDAJE DEC.'">
-                  <q-input label="Descripción" v-model="document.description" outlined dense type="textarea" />
-                </template>
-                <template v-else-if="document.name === 'CERTIFICADO PARA EL EMPLEADOR'">
-                  <div class="row">
-                    <div class="col-12">
-                      <q-input label="Descripción" v-model="document.description" outlined dense type="textarea" />
-                    </div>
-                    <div class="col-12 col-md-4">
-                      <q-input label="Etapa Inicial" v-model="document.etapa_inial" outlined dense type="textarea" />
-                    </div>
-                    <div class="col-12 col-md-4">
-                      <q-input label="Aumento" v-model="document.aumento" outlined dense type="textarea" />
-                    </div>
-                    <div class="col-12 col-md-4">
-                      <q-input label="Crisis" v-model="document.crisis" outlined dense type="textarea" />
-                    </div>
-                    <div class="col-6 col-md-3">
-                      <q-input label="Hora Inicio" v-model="document.hora_inicio" outlined dense type="time" />
-                    </div>
-                    <div class="col-6 col-md-3">
-                      <q-input label="Hora Llamada" v-model="document.hora_llamada" outlined dense type="time" />
-                    </div>
-                    <div class="col-6 col-md-3">
-                      <q-input label="Hora Llegada" v-model="document.hora_llegada" outlined dense type="time" />
-                    </div>
-                    <div class="col-6 col-md-3">
-                      <q-input label="Hora Termino" v-model="document.hora_termino" outlined dense type="time" />
-                    </div>
-                  </div>
-                </template>
-                <template v-else-if="document.name === 'CONTRATO DE CONTIGENCIAS'">
                   <div class="row">
                     <div class="col-12">
                       <q-editor
+                        v-if="document.html !== ''"
                         v-model="document.html"
                         :dense="$q.screen.lt.md"
                         :toolbar="toolbar"
@@ -127,8 +97,7 @@
                       />
                     </div>
                   </div>
-                </template>
-                <pre>{{document}}</pre>
+<!--                <pre>{{document}}</pre>-->
                 <q-card-actions align="right">
                   <q-btn label="Cancelar" color="negative" @click="documentDialog = false" :loading="loading" icon="close" no-caps />
                   <q-btn label="Guardar" color="primary" type="submit" :loading="loading" icon="save" no-caps />
@@ -157,11 +126,17 @@
 </template>
 <script>
 import {Documentos} from "src/utils/Documentos";
+import moment from "moment";
 
 export default {
+  name: 'StudentsDocuments',
   props: {
     student_id: {
       type: Number,
+      required: true
+    },
+    student: {
+      type: Object,
       required: true
     }
   },
@@ -274,7 +249,9 @@ export default {
   },
   methods: {
     restoreHtml () {
-      this.document.html = Documentos.contratoContigencia()
+      // nombreEstudiante, nombreApoderado, nombreRepresentanteEstablecimiento, fecha
+      const date = moment().format('DD/MM/YYYY HH:mm:ss')
+      this.document.html = Documentos.contratoContigencia( this.student.name, this.student.tutorName, '', date)
     },
     documentShowMobile (document) {
       window.open(this.$url+'documents/'+document.codigo+'/show', '_blank')
@@ -331,7 +308,7 @@ export default {
         }
       }).then(response => {
         this.documents = response.data
-        console.log(this.documents)
+        // console.log(this.documents)
       }).catch(error => {
         this.$alert.error(error.response.data.message)
       }).finally(() => {
