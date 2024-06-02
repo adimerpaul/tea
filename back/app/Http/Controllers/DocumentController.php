@@ -22,12 +22,15 @@ class DocumentController extends Controller{
             'document' => $document,
             'user' => $document->user,
             'student' => $document->student,
-            'documentable' => $document->documentable
+            'documentable' => $document->documentable_id == 0 ? null : $document->documentable
         ];
+//        return $data;
         if ($document->description == 'AUTORIZACIÓN PARA EL ABORDAJE DEC.'){
             $pdf = Pdf::loadView('pdf.abordajes', $data);
         }elseif ($document->description == 'CERTIFICADO PARA EL EMPLEADOR'){
             $pdf = Pdf::loadView('pdf.certificados', $data);
+        }else{
+            $pdf = Pdf::loadView('pdf.html', $data);
         }
 //        return $pdf->download('abordajes.pdf');
         return $pdf->stream();

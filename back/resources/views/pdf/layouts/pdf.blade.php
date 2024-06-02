@@ -61,7 +61,7 @@
 
     </style>
 </head>
-<body>
+<body style="padding: 20px;">
 <div style="text-align: right;font-size: 10px;">
     {{$document->date}}
     <br>
