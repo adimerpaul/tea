@@ -275,7 +275,7 @@ export default {
         this.document.html = Documentos.planAcompanamiento( this.student.name, this.student.rut, age, this.student.course, this.student.tutorName,this.student.phone)
       }
       if (this.document.name === 'FICHA DE SEGUIMIENTO INDIVIDUALIZADA PARA DESREGULACIÓN EMOCIONAL')
-        this.document.html = Documentos.fichaSeguimiento( this.student.name, this.student.tutorName, this.student.tutorRut, this.student.course, date)
+        this.document.html = Documentos.fichaSeguimiento( this.student.name, date)
     },
     documentShowMobile (document) {
       window.open(this.$url+'documents/'+document.codigo+'/show', '_blank')
