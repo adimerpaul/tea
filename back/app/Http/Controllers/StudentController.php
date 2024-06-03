@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class StudentController extends Controller{
     public function index(){
-        return Student::select('id', 'rut', 'name', 'birthdate', 'course')->orderBy('id', 'desc')->get();
+        return Student::orderBy('id', 'desc')->get();
     }
     public function store(Request $request){
         return Student::create($request->all());
