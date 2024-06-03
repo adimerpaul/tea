@@ -33,6 +33,7 @@ Route::group(['middleware' => 'auth:sanctum'], function(){
 
     Route::get('/documents', [\App\Http\Controllers\DocumentController::class, 'index']);
     Route::post('/documents', [\App\Http\Controllers\DocumentController::class, 'store']);
+    Route::put('/documents/{id}', [\App\Http\Controllers\DocumentController::class, 'update']);
     Route::get('/documents/{id}/download', [\App\Http\Controllers\DocumentController::class, 'download']);
     Route::get('/documents/{id}/download64', [\App\Http\Controllers\DocumentController::class, 'download64']);
 

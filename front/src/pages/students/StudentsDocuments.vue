@@ -57,7 +57,7 @@
                 </q-item-section>
                 <q-item-section>Eliminar</q-item-section>
               </q-item>
-              <q-item clickable v-close-popup @click="documentDelete(document)">
+              <q-item clickable v-close-popup @click="documentClickEdit(document)">
                 <q-item-section avatar>
                   <q-icon name="edit" />
                 </q-item-section>
@@ -79,7 +79,10 @@
     <q-dialog v-model="documentDialog" persistent>
       <q-card style="width: 750px;max-width: 90vw;height: 90vh;max-height: 90vh;">
             <q-card-section class="row items-center q-pb-none">
-              <div class="text-h6 text-bold">Agregar Documento</div>
+              <div class="text-h6 text-bold">
+                {{ document.id ? 'Editar' : 'Agregar' }}
+                Documento
+              </div>
               <q-space />
               <q-btn icon="close" flat round dense @click="documentDialog = false" />
             </q-card-section>
@@ -100,7 +103,12 @@
 <!--                <pre>{{document}}</pre>-->
                 <q-card-actions align="right">
                   <q-btn label="Cancelar" color="negative" @click="documentDialog = false" :loading="loading" icon="close" no-caps />
-                  <q-btn label="Guardar" color="primary" type="submit" :loading="loading" icon="save" no-caps />
+                  <q-btn
+                    :label="document.id ? 'Editar' : 'Agregar'"
+                    :color="document.id ? 'orange' : 'green'"
+                    type="submit" :loading="loading"
+                    :icon="document.id ? 'edit' : 'save'"
+                    no-caps v-if="document.html !== ''" />
                 </q-card-actions>
               </q-form>
             </q-card-section>
@@ -273,6 +281,10 @@ export default {
         this.loading = false
       })
     },
+    documentClickEdit (document) {
+      this.document = document
+      this.documentDialog = true
+    },
     documentDelete (document) {
       this.$alert.confirm('¿Está seguro de eliminar este document?').onOk(() => {
         this.loading = true
@@ -320,7 +332,7 @@ export default {
         this.loading = false
       })
     },
-    documentForm () {
+    documentCreate() {
       this.loading = true
       this.$axios.post('documents', {
         student_id: this.student_id,
@@ -334,6 +346,25 @@ export default {
       }).finally(() => {
         this.loading = false
       })
+    },
+    documentUpdate() {
+      this.loading = true
+      this.$axios.put(`documents/${this.document.id}`, this.document).then(response => {
+        this.$alert.success('Documento actualizado')
+        this.documentDialog = false
+        this.documentsGet()
+      }).catch(error => {
+        this.$alert.error(error.response.data.message)
+      }).finally(() => {
+        this.loading = false
+      })
+    },
+    documentForm () {
+      if (this.document.id) {
+        this.documentUpdate()
+      } else {
+        this.documentCreate()
+      }
     },
     addDocument () {
       this.documentDialog = true

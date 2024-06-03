@@ -60,15 +60,26 @@ class DocumentController extends Controller{
             'document' => $document,
             'user' => $document->user,
             'student' => $document->student,
-            'documentable' => $document->documentable
+            'documentable' => $document->documentable_id == 0 ? null : $document->documentable
         ];
-        if ($document->description == 'AUTORIZACIÓN PARA EL ABORDAJE DEC.'){
-            $pdf = Pdf::loadView('pdf.abordajes', $data);
-        }elseif ($document->description == 'CERTIFICADO PARA EL EMPLEADOR'){
-            $pdf = Pdf::loadView('pdf.certificados', $data);
-        }
+//        if ($document->description == 'AUTORIZACIÓN PARA EL ABORDAJE DEC.'){
+//            $pdf = Pdf::loadView('pdf.abordajes', $data);
+//        }elseif ($document->description == 'CERTIFICADO PARA EL EMPLEADOR'){
+//            $pdf = Pdf::loadView('pdf.certificados', $data);
+//        }
+        $pdf = Pdf::loadView('pdf.html', $data);
         $pdf64 = base64_encode($pdf->output());
         return response()->json(['pdf' => $pdf64]);
+    }
+    public function show($id){
+        $document = Document::find($id);
+        return $document;
+    }
+    public function update(Request $request, $id){
+        $document = Document::find($id);
+        $document->html = $request->html;
+        $document->save();
+        return $document;
     }
     public function store(Request $request){
         $validated = $request->validate([
