@@ -251,7 +251,12 @@ export default {
     restoreHtml () {
       // nombreEstudiante, nombreApoderado, nombreRepresentanteEstablecimiento, fecha
       const date = moment().format('DD/MM/YYYY HH:mm:ss')
-      this.document.html = Documentos.contratoContigencia( this.student.name, this.student.tutorName, '', date)
+      if (this.document.name === 'AUTORIZACIÓN PARA EL ABORDAJE DEC.')
+        this.document.html = Documentos.autorizacionAbordajeDec( this.student.tutorName, this.student.tutorRut, this.student.name, this.student.course)
+      if (this.document.name === 'CERTIFICADO PARA EL EMPLEADOR')
+        this.document.html = Documentos.certificadoEmpleador( this.student.name, this.student.tutorName, '', date)
+      if (this.document.name === 'CONTRATO DE CONTIGENCIAS')
+        this.document.html = Documentos.contratoContigencia( this.student.name, this.student.tutorName, '', date)
     },
     documentShowMobile (document) {
       window.open(this.$url+'documents/'+document.codigo+'/show', '_blank')

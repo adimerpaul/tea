@@ -1,5 +1,5 @@
 export class Documentos {
-  static contratoContigencia(nombreEstudiante, nombreApoderado, nombreRepresentanteEstablecimiento, fecha) {
+  static contratoContigencia(nombreEstudiante, nombreTutor, nombreRepresentanteEstablecimiento, fecha) {
     return `<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:center;'><strong><span style='font-family:"Calibri Light",sans-serif;'>CONTRATO DE CONTINGENCIAS</span></strong></p>
 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:center;'><strong><span style='font-family:"Calibri Light",sans-serif;'>Aplicaci&oacute;n del protocolo integral para la gesti&oacute;n de la desregulaci&oacute;n emocional y/o conductual</span></strong></p>
 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;'><strong><span style='font-family:"Calibri Light",sans-serif;'>Objetivo general:</span></strong><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;Establecer de manera transparente medidas acordadas entre el apoderado/a y el establecimiento escolar en caso que el estudiante presente una desregulaci&oacute;n emocional y/o conductual en el contexto escolar, propiciando un abordaje preventivo y siempre resguardando la integridad del mismo y del resto de integrantes de la comunidad educativa.</span></p>
@@ -19,7 +19,7 @@ export class Documentos {
                 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;'><strong><span style='font-family:"Calibri Light",sans-serif;'>Nombre del apoderado/a</span></strong></p>
             </td>
             <td style="width: 229pt;border-top: none;border-left: none;border-bottom: 1pt solid black;border-right: 1pt solid black;padding: 0cm 5.4pt;vertical-align: top;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;'><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;${nombreApoderado}</span></p>
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;'><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;${nombreTutor}</span></p>
             </td>
         </tr>
         <tr>
@@ -127,6 +127,41 @@ export class Documentos {
             </td>
             <td style="width: 147.15pt;border-right: none;border-bottom: none;border-left: none;border-image: initial;border-top: 1pt solid black;padding: 0cm 5.4pt;vertical-align: top;">
                 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:center;'><strong><span style='font-family:"Calibri Light",sans-serif;'>Firma y timbre representante establecimiento</span></strong></p>
+            </td>
+        </tr>
+    </tbody>
+</table>`
+  }
+  static autorizacionAbordajeDec(nombretutor, rut, nombreestudiante, curso) {
+    return `<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:center;'><strong><span style='font-size:19px;line-height:107%;font-family:"Calibri Light",sans-serif;'>AUTORIZACI&Oacute;N</span></strong></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:center;'><strong><span style='font-size:19px;line-height:107%;font-family:"Calibri Light",sans-serif;'>Aplicaci&oacute;n del protocolo integral para la gesti&oacute;n de la desregulaci&oacute;n emocional y/o conductual</span></strong></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:center;'><strong><span style='font-size:19px;line-height:107%;font-family:"Calibri Light",sans-serif;'>&nbsp;</span></strong></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;'><span style='font-size:19px;line-height:107%;font-family:"Calibri Light",sans-serif;'>Yo ${nombretutor}, RUT:&nbsp; ${rut}</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;'><span style='font-size:19px;line-height:107%;font-family:"Calibri Light",sans-serif;'>apoderado/a de ${nombreestudiante} estudiante del curso ${curso}. Estoy en conocimiento del protocolo integral para la gesti&oacute;n de la desregulaci&oacute;n emocional y/o conductual de estudiantes, por lo cual, autorizo al personal especializado o SOS del establecimiento para que brinde la contenci&oacute;n emocional y f&iacute;sica presente en el protocolo, en caso que mi pupilo presente una desregulaci&oacute;n emocional y/o conductual en el establecimiento.</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;'><span style='font-size:19px;line-height:107%;font-family:"Calibri Light",sans-serif;'>Adem&aacute;s, para facilitar su manejo, informo las siguientes estrategias para su contenci&oacute;n:</span></p>
+<table style="border-collapse:collapse;border:none;">
+    <tbody>
+        <tr>
+            <td style="width: 441.4pt;border: 1pt solid windowtext;padding: 0cm 5.4pt;height: 211.25pt;vertical-align: top;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;line-height:  normal;'><span style='font-size:19px;font-family:"Calibri Light",sans-serif;'>&nbsp;</span></p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;'><span style='font-size:19px;line-height:107%;font-family:"Calibri Light",sans-serif;'>&nbsp;</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;'><span style='font-size:19px;line-height:107%;font-family:"Calibri Light",sans-serif;'>&nbsp;</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;'><span style='font-size:19px;line-height:107%;font-family:"Calibri Light",sans-serif;'>&nbsp;</span></p>
+<table style="width: 4.4e+2pt;border-collapse:collapse;border:none;">
+    <tbody>
+        <tr>
+            <td style="width: 147.1pt;border-right: none;border-bottom: none;border-left: none;border-image: initial;border-top: 1pt solid black;padding: 0cm 5.4pt;vertical-align: top;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:center;'><strong><span style='font-size:19px;line-height:107%;font-family:"Calibri Light",sans-serif;'>Firma apoderado/a</span></strong></p>
+            </td>
+            <td style="width: 147.15pt;border: none;padding: 0cm 5.4pt;vertical-align: top;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:center;'><strong><span style='font-size:19px;line-height:107%;font-family:"Calibri Light",sans-serif;'>&nbsp;</span></strong></p>
+            </td>
+            <td style="width: 147.15pt;border-right: none;border-bottom: none;border-left: none;border-image: initial;border-top: 1pt solid black;padding: 0cm 5.4pt;vertical-align: top;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:center;'><strong><span style='font-size:19px;line-height:107%;font-family:"Calibri Light",sans-serif;'>Firma y timbre representante establecimiento.</span></strong></p>
             </td>
         </tr>
     </tbody>

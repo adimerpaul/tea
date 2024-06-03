@@ -25,13 +25,13 @@ class DocumentController extends Controller{
             'documentable' => $document->documentable_id == 0 ? null : $document->documentable
         ];
 //        return $data;
-        if ($document->description == 'AUTORIZACIÓN PARA EL ABORDAJE DEC.'){
-            $pdf = Pdf::loadView('pdf.abordajes', $data);
-        }elseif ($document->description == 'CERTIFICADO PARA EL EMPLEADOR'){
-            $pdf = Pdf::loadView('pdf.certificados', $data);
-        }else{
+//        if ($document->description == 'AUTORIZACIÓN PARA EL ABORDAJE DEC.'){
+//            $pdf = Pdf::loadView('pdf.abordajes', $data);
+//        }elseif ($document->description == 'CERTIFICADO PARA EL EMPLEADOR'){
+//            $pdf = Pdf::loadView('pdf.certificados', $data);
+//        }else{
             $pdf = Pdf::loadView('pdf.html', $data);
-        }
+//        }
 //        return $pdf->download('abordajes.pdf');
         return $pdf->stream();
     }
@@ -89,37 +89,37 @@ class DocumentController extends Controller{
 //            'FICHA DE SEGUIMIENTO INDIVIDUALIZADA PARA DESREGULACIÓN EMOCIONAL'
 //        ],
         $document = new Document();
-        if ($documento['name'] == 'AUTORIZACIÓN PARA EL ABORDAJE DEC.'){
-            $abordaje = new Abordaje();
-            $abordaje->description = isset($documento['description']) ? $documento['description'] : '';
-            $abordaje->save();
-
-            $document->description = $documento['name'];
-            $document->documentable_id = $abordaje->id;
-            $document->documentable_type = 'App\Models\Abordaje';
-
-        }elseif ($documento['name'] == 'CERTIFICADO PARA EL EMPLEADOR') {
-            $certificado = new Certificado();
-
-            $certificado->description = isset($documento['description']) ? $documento['description'] : '';
-            $certificado->etapa_inial = isset($documento['etapa_inial']) ? $documento['etapa_inial'] : '';
-            $certificado->aumento = isset($documento['aumento']) ? $documento['aumento'] : '';
-            $certificado->crisis = isset($documento['crisis']) ? $documento['crisis'] : '';
-            $certificado->hora_inicio = isset($documento['hora_inicio']) ? $documento['hora_inicio'] : null;
-            $certificado->hora_llamada = isset($documento['hora_llamada']) ? $documento['hora_llamada'] : null;
-            $certificado->hora_llegada = isset($documento['hora_llegada']) ? $documento['hora_llegada'] : null;
-            $certificado->hora_termino = isset($documento['hora_termino']) ? $documento['hora_termino'] : null;
-            $certificado->save();
-
-            $document->description = $documento['name'];
-            $document->documentable_id = $certificado->id;
-            $document->documentable_type = 'App\Models\Certificado';
-        }else{
+//        if ($documento['name'] == 'AUTORIZACIÓN PARA EL ABORDAJE DEC.'){
+//            $abordaje = new Abordaje();
+//            $abordaje->description = isset($documento['description']) ? $documento['description'] : '';
+//            $abordaje->save();
+//
+//            $document->description = $documento['name'];
+//            $document->documentable_id = $abordaje->id;
+//            $document->documentable_type = 'App\Models\Abordaje';
+//
+//        }elseif ($documento['name'] == 'CERTIFICADO PARA EL EMPLEADOR') {
+//            $certificado = new Certificado();
+//
+//            $certificado->description = isset($documento['description']) ? $documento['description'] : '';
+//            $certificado->etapa_inial = isset($documento['etapa_inial']) ? $documento['etapa_inial'] : '';
+//            $certificado->aumento = isset($documento['aumento']) ? $documento['aumento'] : '';
+//            $certificado->crisis = isset($documento['crisis']) ? $documento['crisis'] : '';
+//            $certificado->hora_inicio = isset($documento['hora_inicio']) ? $documento['hora_inicio'] : null;
+//            $certificado->hora_llamada = isset($documento['hora_llamada']) ? $documento['hora_llamada'] : null;
+//            $certificado->hora_llegada = isset($documento['hora_llegada']) ? $documento['hora_llegada'] : null;
+//            $certificado->hora_termino = isset($documento['hora_termino']) ? $documento['hora_termino'] : null;
+//            $certificado->save();
+//
+//            $document->description = $documento['name'];
+//            $document->documentable_id = $certificado->id;
+//            $document->documentable_type = 'App\Models\Certificado';
+//        }else{
             $document->description = $documento['name'];
             $document->documentable_id = 0;
             $document->documentable_type = '';
             $document->html = isset($documento['html']) ? $documento['html'] : '';
-        }
+//        }
 
         $document->date = date('Y-m-d H:i:s');
         $document->student_id = $student_id;
