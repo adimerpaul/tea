@@ -265,6 +265,12 @@ export default {
         this.document.html = Documentos.certificadoEmpleador( this.student.name, this.student.tutorName, this.student.course, this.student.tutorRut)
       if (this.document.name === 'CONTRATO DE CONTIGENCIAS')
         this.document.html = Documentos.contratoContigencia( this.student.name, this.student.tutorName, '', date)
+      if (this.document.name === 'FICHA DEL PLAN DE APOYO INDIVIDUALIZADO (PAI) PARA ESTUDIANTES CON TEA')
+        this.document.html = Documentos.fichaPai( this.student.name, this.student.course, this.student.birthdate, date)
+      if (this.document.name === 'PLAN DE ACOMPAÑAMIENTO EMOCIONAL Y CONDUCTUAL')
+        this.document.html = Documentos.planAcompanamiento( this.student.name, this.student.tutorName, this.student.tutorRut, this.student.course, date)
+      if (this.document.name === 'FICHA DE SEGUIMIENTO INDIVIDUALIZADA PARA DESREGULACIÓN EMOCIONAL')
+        this.document.html = Documentos.fichaSeguimiento( this.student.name, this.student.tutorName, this.student.tutorRut, this.student.course, date)
     },
     documentShowMobile (document) {
       window.open(this.$url+'documents/'+document.codigo+'/show', '_blank')

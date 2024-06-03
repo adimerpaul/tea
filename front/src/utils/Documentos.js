@@ -1,4 +1,159 @@
 export class Documentos {
+  static fichaPai( nombreEstudiante, course, birthdate, date){
+    return `<p><strong>Ficha del Plan de Apoyo Individualizado (PAI) para Estudiantes con TEA </strong></p>
+<p><strong>Informaci&oacute;n del Estudiante: </strong></p>
+<ul>
+<li>Nombre: ${nombreEstudiante}</li>
+<li>Curso: ${course}</li>
+<li>Fecha de Nacimiento: ${birthdate}</li>
+<li>Diagn&oacute;stico de TEA:</li>
+<li>Fecha de Diagn&oacute;stico: ${date}</li>
+</ul>
+<p><strong>Equipo Interdisciplinario: </strong></p>
+<ul>
+<li>Psic&oacute;logo/a:</li>
+<li>Educador/a Diferencial:</li>
+<li>Orientador/a:</li>
+<li>Otros/as (especificar):</li>
+</ul>
+<p><strong>Necesidades y Desaf&iacute;os: </strong></p>
+<p>Descripci&oacute;n de las desregulaciones emocionales y conductuales observadas: Factores desencadenantes identificados:</p>
+<p><strong>Objetivos del PAI: </strong></p>
+<p>Objetivo 1: (Ejemplo: Mejorar la autorregulaci&oacute;n emocional del estudiante en el aula.)</p>
+<p><strong>Ejemplos Metas espec&iacute;ficas: </strong></p>
+<ol>
+<li><em> Mejorar la autorregulaci&oacute;n emocional del estudiante en el aula </em><em>2. El estudiante identificar&aacute; al menos tres estrategias de autorregulaci&oacute;n</em><em> emocional que pueda utilizar durante situaciones de conflicto en el aula. 3. El estudiante demostrar&aacute; la aplicaci&oacute;n efectiva de al menos una estrategia de autorregulaci&oacute;n emocional en al menos el 80% de las situaciones de desaf&iacute;o emocional en el aula durante el mes. </em></li>
+<li><em>El estudiante ser&aacute; capaz de solicitar ayuda de un adulto o compa&ntilde;ero de clase de manera verbal o no verbal cuando experimente dificultades emocionales, al menos dos veces por semana.</em></li>
+</ol>
+<p>&nbsp;</p>
+<p>Objetivo 2: (Ejemplo: Fomentar la participaci&oacute;n activa del estudiante en las actividades escolares).</p>
+<p><strong>Ejemplos Metas espec&iacute;ficas: </strong></p>
+<ol>
+<li><em> El estudiante participar&aacute; en al menos tres actividades grupales durante la</em><em> semana escolar, manteniendo una actitud positiva y cooperativa. 2. El estudiante iniciar&aacute; al menos una interacci&oacute;n social con un compa&ntilde;ero de clase cada d&iacute;a escolar. </em></li>
+<li><em> El estudiante mostrar&aacute; un aumento del 20% en el tiempo de participaci&oacute;n</em><em> activa en las actividades escolares dentro de un per&iacute;odo de tres meses, seg&uacute;n lo registrado por el docente. </em></li>
+</ol>
+<p><strong>Estrategias y Adaptaciones: </strong></p>
+<p>Estrategias para regular emociones y comportamientos:</p>
+<p>(Ejemplo: Implementaci&oacute;n de horarios visuales y sistemas de</p>
+<p>recompensas).</p>
+<ol>
+<li><strong><em>Visualizaci&oacute;n de emociones: </em></strong><em>Proporcionar im&aacute;genes o tarjetas con representaciones visuales de diferentes emociones (alegr&iacute;a, tristeza, enojo, etc.) y ense&ntilde;ar al estudiante a identificarlas tanto en ellos mismos como en los dem&aacute;s. Esto puede ayudarles a comprender y expresar sus propias emociones de manera m&aacute;s efectiva. </em></li>
+<li><strong><em>Tiempo de calma</em></strong><em>: Establecer un rinc&oacute;n tranquilo en el aula o en otro lugar designado donde el estudiante pueda retirarse cuando se sienta abrumado o emocionalmente desregulado. Este espacio debe estar equipado con materiales sensoriales o actividades calmantes, como almohadas, mantas pesadas, libros o rompecabezas, que ayuden al estudiante a relajarse. </em></li>
+<li><strong><em>T&eacute;cnicas de respiraci&oacute;n: </em></strong><em>Ense&ntilde;ar al estudiante t&eacute;cnicas de respiraci&oacute;n profunda y consciente para ayudarles a calmarse en momentos de ansiedad o estr&eacute;s. Pueden practicar la respiraci&oacute;n abdominal, inhalar y exhalar profundamente contando hasta cinco en cada fase. </em></li>
+<li><strong><em>Planificaci&oacute;n visual del d&iacute;a: </em></strong><em>Utilizar un horario visual o un calendario para ayudar al estudiante a comprender y anticipar las actividades y cambios en la rutina diaria. Esto puede reducir la ansiedad asociada con las transiciones y proporcionar una sensaci&oacute;n de seguridad y previsibilidad. </em></li>
+<li><strong><em>Apoyo social: </em></strong><em>Facilitar oportunidades para que el estudiante interact&uacute;e con sus compa&ntilde;eros en situaciones estructuradas y de apoyo. Por ejemplo, asignar un compa&ntilde;ero de juego durante el recreo o emparejar al estudiante con un mentor para actividades espec&iacute;ficas.</em></li>
+<li><strong><em>Caja de herramientas de autorregulaci&oacute;n: </em></strong><em>Crear una "caja de herramientas" con estrategias de autorregulaci&oacute;n que el estudiante pueda utilizar cuando se sienta abrumado. Esto puede incluir tarjetas de visualizaci&oacute;n con pasos para calmarse, objetos sensoriales para manipular, una lista de personas de apoyo a las que pueden recurrir, entre otros recursos. </em></li>
+<li><strong><em>Reforzar positivamente los comportamientos deseables: </em></strong><em>Reconocer y elogiar al estudiante cuando demuestre comportamientos positivos de regulaci&oacute;n emocional y conductual. Utilizar refuerzos tangibles o sociales, como el elogio verbal, las pegatinas o puntos de recompensa, para motivar al estudiante a utilizar las estrategias aprendidas. </em></li>
+</ol>
+<p>Estas estrategias deben adaptarse seg&uacute;n las necesidades individuales del estudiante y pueden ser implementadas tanto en el hogar como en el entorno escolar para apoyar su desarrollo emocional y conductual.</p>
+<p><strong>Adaptaciones curriculares: </strong></p>
+<ul>
+<li>(Ejemplo: Reducci&oacute;n de est&iacute;mulos en el entorno de aprendizaje).</li>
+</ul>
+<p>Descripci&oacute;n: Algunos estudiantes con TEA pueden beneficiarse enormemente del uso de materiales visuales para comprender y procesar la informaci&oacute;n. Esta adaptaci&oacute;n implica proporcionar al estudiante materiales visuales como apoyo durante las actividades de aprendizaje.</p>
+<p><strong>Ejemplo de aplicaci&oacute;n: </strong></p>
+<ul>
+<li><em> <strong>Materiales visuales para instrucciones: </strong>En lugar de dar instrucciones</em><em> verbales &uacute;nicamente, se pueden acompa&ntilde;ar con tarjetas o im&aacute;genes que representen las acciones o tareas a realizar. Por ejemplo, para una actividad de matem&aacute;ticas, se podr&iacute;a proporcionar una serie de im&aacute;genes que representen cada paso del proceso. </em></li>
+<li><em> <strong>Horarios visuales: </strong>Se puede utilizar un horario visual o un calendario con</em><em> im&aacute;genes para mostrar la secuencia de actividades y eventos durante el d&iacute;a escolar. Esto ayuda al estudiante a anticipar los cambios y reduce la ansiedad asociada con las transiciones. </em></li>
+<li><em> <strong>Apoyo visual para la comunicaci&oacute;n: </strong>Para los estudiantes que tienen</em><em> dificultades con el lenguaje oral, se pueden utilizar sistemas de comunicaci&oacute;n aumentativa y alternativa (CAA) que incluyan im&aacute;genes, pictogramas o tableros de comunicaci&oacute;n para facilitar la expresi&oacute;n de sus necesidades y deseos.</em></li>
+<li><em> <strong>Organizaci&oacute;n visual del espacio: </strong>Utilizar etiquetas, se&ntilde;alizaciones o</em><em> im&aacute;genes para organizar el entorno de aprendizaje y ayudar al estudiante a comprender las expectativas y las rutinas. Por ejemplo, etiquetar los estantes con im&aacute;genes de los tipos de materiales que contienen o colocar se&ntilde;ales visuales que indiquen d&oacute;nde sentarse durante las actividades grupales. </em></li>
+</ul>
+<p>Beneficios: Esta adaptaci&oacute;n proporciona un medio de acceso m&aacute;s efectivo a la informaci&oacute;n para los estudiantes con TEA, ya que aprovecha sus fortalezas visuales y les ayuda a comprender mejor las instrucciones, procesar la informaci&oacute;n y participar de manera m&aacute;s activa en las actividades escolares. Adem&aacute;s, puede reducir la ansiedad al proporcionar una estructura clara y predecible en el entorno de aprendizaje.</p>
+<p><strong>Recursos y Apoyos: </strong></p>
+<p><strong>Apoyo individual durante episodios de desregulaci&oacute;n: </strong>(Ejemplo: Designaci&oacute;n de un/a profesional para intervenir cuando sea necesario).</p>
+<p>Descripci&oacute;n: Designaci&oacute;n de un/a profesional para intervenir cuando sea necesario durante episodios de desregulaci&oacute;n emocional o conductual en estudiantes con TEA.</p>
+<p><strong>Ejemplos de aplicaci&oacute;n: </strong></p>
+<ol>
+<li><em> <strong>Creaci&oacute;n de un plan de intervenci&oacute;n individualizado: </strong>Desarrollar un plan</em><em> de intervenci&oacute;n espec&iacute;fico para cada estudiante con TEA que incluya estrategias para manejar los episodios de desregulaci&oacute;n emocional. Este plan puede ser elaborado en colaboraci&oacute;n con profesionales especializados en TEA, padres, maestros y el estudiante, si es apropiado. </em></li>
+<li><em> <strong>Designaci&oacute;n de un/a profesional de apoyo: </strong>Asignar un/a profesional de</em><em> apoyo, como un/a psic&oacute;logo/a escolar, consejero/a escolar o educador/a especializado/a en TEA, para intervenir cuando el estudiante experimente episodios de desregulaci&oacute;n emocional o conductual. Este profesional puede proporcionar apoyo individualizado al estudiante, utilizando estrategias espec&iacute;ficas para ayudarlo a regular sus emociones y comportamientos. </em></li>
+<li><em> <strong>Establecimiento de se&ntilde;ales de alerta: </strong>Implementar un sistema de se&ntilde;ales</em><em> de alerta para identificar los signos tempranos de desregulaci&oacute;n emocional en el estudiante. Por ejemplo, el/la docente o el/a profesional de apoyo puede tener una se&ntilde;al convenida con el estudiante para indicar que es hora de tomarse un descanso o utilizar una estrategia de autorregulaci&oacute;n. </em></li>
+<li><em> <strong>Entrenamiento en t&eacute;cnicas de autorregulaci&oacute;n: </strong>Ense&ntilde;ar al estudiante</em><em> t&eacute;cnicas de autorregulaci&oacute;n, como la respiraci&oacute;n profunda, la visualizaci&oacute;n o el uso de palabras clave, para ayudarlo a calmarse durante los episodios de desregulaci&oacute;n emocional. Estas t&eacute;cnicas pueden ser practicadas regularmente durante momentos de calma para que el estudiante pueda utilizarlas de manera efectiva cuando sea necesario. </em></li>
+<li><strong><em>Comunicaci&oacute;n con los padres/tutores: </em></strong><em>Mantener una comunicaci&oacute;n abierta</em><em> y regular con los padres o tutores del estudiante para compartir informaci&oacute;n sobre los episodios de desregulaci&oacute;n emocional y colaborar en el desarrollo de estrategias de apoyo consistentes entre el hogar y la escuela</em>.</li>
+</ol>
+<p>Estos ejemplos de apoyo individual durante episodios de desregulaci&oacute;n pueden adaptarse seg&uacute;n las necesidades espec&iacute;ficas de cada estudiante con TEA y deben ser implementados de manera colaborativa con el equipo educativo y los padres/tutores del estudiante.</p>
+<p><strong>Herramientas y materiales de apoyo: </strong>(Ejemplo: Uso de fichas de comunicaci&oacute;n visual).</p>
+<p>Descripci&oacute;n: Utilizaci&oacute;n de recursos espec&iacute;ficos dise&ntilde;ados para apoyar las necesidades de comunicaci&oacute;n, organizaci&oacute;n y autorregulaci&oacute;n de los estudiantes con TEA.</p>
+<p><strong>Ejemplos de aplicaci&oacute;n:</strong></p>
+<ol>
+<li><em> <strong>Fichas de comunicaci&oacute;n visual: </strong>Emplear fichas de comunicaci&oacute;n visual que</em><em> contengan im&aacute;genes o s&iacute;mbolos representativos de diferentes actividades, emociones o necesidades del estudiante. Estas fichas pueden ayudar al estudiante a expresarse de manera m&aacute;s efectiva y a comprender mejor las instrucciones y expectativas del entorno escolar. </em></li>
+<li><em> <strong>Tableros de comunicaci&oacute;n: </strong>Crear tableros de comunicaci&oacute;n con s&iacute;mbolos o</em><em> im&aacute;genes que representen palabras o frases comunes utilizadas en el entorno escolar, como "quiero", "necesito", "me siento" o "termin&eacute;". Estos tableros pueden facilitar la comunicaci&oacute;n receptiva y expresiva del estudiante y promover su participaci&oacute;n en actividades escolares. </em></li>
+<li><em> <strong>Planificadores visuales: </strong>Implementar planificadores visuales que ayuden al</em><em> estudiante a organizar su d&iacute;a escolar, las tareas asignadas y las expectativas de comportamiento. Estos planificadores pueden incluir im&aacute;genes o s&iacute;mbolos que representen las diferentes actividades y proporcionar una estructura visual clara para el estudiante. </em></li>
+<li><em> <strong>Tarjetas de apoyo emocional: </strong>Proporcionar tarjetas de apoyo emocional</em><em> que contengan estrategias de autorregulaci&oacute;n, como "respirar profundamente", "contar hasta diez" o "pedir ayuda", que el estudiante pueda utilizar durante los momentos de desregulaci&oacute;n emocional. </em></li>
+<li><em> <strong>Zonas de calma: </strong>Establecer zonas de calma en el aula o en otros espacios</em><em> escolares donde el estudiante pueda retirarse temporalmente para calmarse durante los episodios de desregulaci&oacute;n emocional. Estas zonas pueden estar equipadas con materiales de relajaci&oacute;n, como almohadas, mantas ponderadas o juguetes sensoriales. </em></li>
+<li><em> <strong>Aplicaciones tecnol&oacute;gicas: </strong>Utilizar aplicaciones tecnol&oacute;gicas dise&ntilde;adas</em><em> espec&iacute;ficamente para apoyar las necesidades de los estudiantes con TEA, como aplicaciones de comunicaci&oacute;n aumentativa y alternativa (CAA) o aplicaciones de organizaci&oacute;n y planificaci&oacute;n. </em></li>
+</ol>
+<p>Estas herramientas y materiales de apoyo pueden ser adaptados seg&uacute;n las necesidades individuales de cada estudiante con TEA y deben ser utilizados de manera consistente y colaborativa por todo el equipo educativo para maximizar su efectividad.</p>
+<p><strong>Procedimientos de Intervenci&oacute;n: </strong></p>
+<p>Procedimiento para intervenir durante episodios de desregulaci&oacute;n: (Ejemplo: Implementaci&oacute;n de t&eacute;cnicas de desescalada y apoyo emocional).</p>
+<p><strong>Procedimiento para intervenir durante episodios de desregulaci&oacute;n: </strong></p>
+<p>Objetivo: Proporcionar apoyo efectivo y seguro a estudiantes con TEA durante episodios de desregulaci&oacute;n emocional o conductual.</p>
+<p>Responsable: Personal designado para la intervenci&oacute;n durante episodios de desregulaci&oacute;n, como psic&oacute;logos escolares, consejeros, educadores especializados en TEA o profesionales capacitados.</p>
+<p><strong>Pasos a seguir: </strong></p>
+<ol>
+<li><strong>Identificaci&oacute;n de signos de desregulaci&oacute;n: </strong>El personal educativo y los compa&ntilde;eros de clase deben estar capacitados para identificar los signos tempranos de desregulaci&oacute;n emocional en el estudiante, como aumento de la agitaci&oacute;n, cambios en el tono de voz o comportamientos repetitivos.</li>
+<li><strong>Activaci&oacute;n del plan de intervenci&oacute;n individualizado: </strong>Si el estudiante tiene un plan de intervenci&oacute;n individualizado para episodios de desregulaci&oacute;n, el personal responsable debe activarlo de inmediato.</li>
+<li><strong>Aproximaci&oacute;n calma y respetuosa: </strong>El profesional designado debe aproximarse al estudiante de manera calmada y respetuosa, manteniendo un tono de voz tranquilo y lenguaje corporal relajado para evitar aumentar su agitaci&oacute;n.</li>
+<li><strong>Establecimiento de l&iacute;mites claros y seguros: </strong>Se deben establecer l&iacute;mites claros y seguros para proteger la seguridad del estudiante y de quienes lo rodean, evitando el uso de t&aacute;cticas coercitivas o punitivas que puedan aumentar su ansiedad.</li>
+<li><strong>Implementaci&oacute;n de t&eacute;cnicas de desescalada: </strong>Utilizar t&eacute;cnicas de desescalada, como la respiraci&oacute;n profunda, la reducci&oacute;n de est&iacute;mulos sensoriales o la distracci&oacute;n con actividades calmantes, para ayudar al estudiante a recuperar la calma.</li>
+<li><strong>Ofrecimiento de apoyo emocional: </strong>Proporcionar apoyo emocional al estudiante, mostr&aacute;ndole comprensi&oacute;n, empat&iacute;a y aceptaci&oacute;n incondicional durante el episodio de desregulaci&oacute;n.</li>
+<li><strong>Fomento de la autorregulaci&oacute;n: </strong>Ense&ntilde;ar al estudiante estrategias de autorregulaci&oacute;n, como identificar sus emociones, expresar sus necesidades de manera adecuada o utilizar palabras clave para solicitar ayuda durante momentos de desregulaci&oacute;n.</li>
+<li><strong>Comunicaci&oacute;n con el equipo de apoyo: </strong>Mantener una comunicaci&oacute;n abierta y colaborativa con otros miembros del equipo de apoyo del estudiante, incluidos padres, terapeutas y profesionales de la salud mental, para coordinar estrategias de intervenci&oacute;n consistentes.</li>
+<li><strong>Seguimiento y evaluaci&oacute;n: </strong>Realizar un seguimiento posterior al episodio de desregulaci&oacute;n para evaluar la efectividad de las estrategias de intervenci&oacute;n y ajustar el plan de apoyo seg&uacute;n sea necesario para futuras situaciones similares.</li>
+</ol>
+<p>Este procedimiento debe ser practicado y revisado regularmente por el personal educativo y de apoyo para garantizar una respuesta efectiva y segura durante episodios de desregulaci&oacute;n en estudiantes con TEA.</p>
+<p><strong>&nbsp;</strong></p>
+<p><strong>Procedimiento para comunicar el progreso a las familias: </strong>(Ejemplo: Reuniones regulares con los padres para revisar el avance del estudiante).</p>
+<p><strong>Procedimiento para comunicar el progreso a las familias: </strong></p>
+<p><strong>Objetivo: </strong>Mantener a las familias informadas sobre el progreso acad&eacute;mico, social y emocional de los estudiantes con TEA de manera regular y efectiva.</p>
+<p><strong>Responsable: </strong>Personal designado del establecimiento educativo, como docentes, psic&oacute;logos escolares, coordinadores de apoyo o directores.</p>
+<p><strong>Pasos a seguir: </strong></p>
+<ol>
+<li><strong>Programaci&oacute;n de reuniones regulares: </strong>Establecer un calendario de reuniones regulares con las familias de los estudiantes con TEA para revisar su progreso. Estas reuniones pueden ser mensuales, trimestrales o seg&uacute;n lo acordado entre las partes involucradas.</li>
+<li><strong>Invitaci&oacute;n a las familias: </strong>Enviar invitaciones formales a las familias con anticipaci&oacute;n para programar las reuniones, proporcionando opciones de horarios flexibles para garantizar la asistencia de todos los miembros de la familia que deseen participar.</li>
+<li><strong>Preparaci&oacute;n de material informativo: </strong>Preparar material informativo relevante, como informes de progreso acad&eacute;mico, registros de comportamiento, muestras de trabajo y observaciones del personal educativo y de apoyo, para compartir con las familias durante las reuniones.</li>
+<li><strong>Facilitaci&oacute;n de la reuni&oacute;n: </strong>Durante la reuni&oacute;n, facilitar un ambiente acogedor y colaborativo donde las familias se sientan c&oacute;modas para expresar sus inquietudes, hacer preguntas y contribuir con sus observaciones sobre el progreso de su hijo/a.</li>
+<li><strong>Revisi&oacute;n del progreso del estudiante: </strong>Compartir informaci&oacute;n detallada sobre el progreso acad&eacute;mico, social y emocional del estudiante, destacando sus fortalezas, &aacute;reas de mejora y metas espec&iacute;ficas establecidas en su plan individualizado.</li>
+<li><strong>Discusi&oacute;n de estrategias de apoyo: </strong>Colaborar con las familias para identificar y discutir estrategias efectivas de apoyo que puedan implementarse tanto en el hogar como en el entorno escolar para promover el &eacute;xito del estudiante.</li>
+<li><strong>Establecimiento de metas futuras: </strong>Trabajar en conjunto para establecer metas realistas y alcanzables para el estudiante, asegur&aacute;ndose de que est&eacute;n alineadas con sus necesidades individuales y sus aspiraciones acad&eacute;micas y personales.</li>
+<li><strong>Documentaci&oacute;n de la reuni&oacute;n: </strong>Registrar las discusiones, decisiones y acuerdos alcanzados durante la reuni&oacute;n en un documento formal, que puede incluir un resumen de los puntos principales y los pasos a seguir acordados.</li>
+<li><strong>Seguimiento y retroalimentaci&oacute;n continua: </strong>Mantener una comunicaci&oacute;n abierta y continua con las familias entre las reuniones programadas, proporcionando actualizaciones peri&oacute;dicas sobre el progreso del estudiante y solicitando retroalimentaci&oacute;n sobre la efectividad de las estrategias implementadas.</li>
+</ol>
+<p>Este procedimiento garantiza una comunicaci&oacute;n clara, transparente y colaborativa entre el personal educativo y las familias de los estudiantes con TEA, promoviendo una asociaci&oacute;n efectiva para apoyar el &eacute;xito acad&eacute;mico y personal del estudiante.</p>
+<p>&nbsp;</p>
+<p>Seguimiento y Evaluaci&oacute;n:</p>
+<p><strong>Frecuencia de seguimiento:</strong>(Ejemplo: Evaluaci&oacute;n mensual del progreso del estudiante).</p>
+<p><strong>Descripci&oacute;n: </strong></p>
+<ol>
+<li><strong>Definici&oacute;n de la frecuencia: </strong>Se establece que la evaluaci&oacute;n del progreso del estudiante se llevar&aacute; a cabo cada dos semanas (quincenalmente) para garantizar un seguimiento cercano y oportuno de su rendimiento acad&eacute;mico, social y emocional.</li>
+<li><strong>Justificaci&oacute;n: </strong>La evaluaci&oacute;n quincenal permite identificar r&aacute;pidamente cualquier cambio significativo en el progreso del estudiante, lo que permite una intervenci&oacute;n temprana y la ajuste de estrategias de apoyo si es necesario. Adem&aacute;s, esta frecuencia proporciona una oportunidad regular para revisar el impacto de las adaptaciones y estrategias implementadas.</li>
+<li><strong>Proceso de evaluaci&oacute;n: </strong>Durante las semanas intermedias entre las evaluaciones quincenales, se llevan a cabo observaciones diarias por parte del personal educativo y de apoyo, as&iacute; como la recopilaci&oacute;n continua de datos relevantes sobre el comportamiento y el desempe&ntilde;o acad&eacute;mico del estudiante.</li>
+<li><strong>Reuniones de seguimiento: </strong>Despu&eacute;s de cada evaluaci&oacute;n quincenal, se programan reuniones de seguimiento con el equipo de apoyo del estudiante, que incluye a los docentes, especialistas en educaci&oacute;n especial, psic&oacute;logos escolares y otros profesionales involucrados, para revisar los resultados y discutir los pr&oacute;ximos pasos.</li>
+<li><strong>Comunicaci&oacute;n con las familias: </strong>Se informa a las familias sobre el progreso del estudiante durante las evaluaciones quincenales, proporcion&aacute;ndoles actualizaciones detalladas y oportunas sobre su rendimiento acad&eacute;mico y emocional, as&iacute; como recomendaciones para apoyar su aprendizaje en casa.</li>
+</ol>
+<p>Esta frecuencia de seguimiento quincenal asegura una supervisi&oacute;n regular y sistem&aacute;tica del progreso del estudiante con TEA, facilitando una respuesta proactiva a sus necesidades cambiantes y promoviendo su &eacute;xito acad&eacute;mico y personal.</p>
+<p><strong>Indicadores de &eacute;xito: </strong>(Ejemplo: Reducci&oacute;n en la frecuencia y duraci&oacute;n de los episodios de desregulaci&oacute;n).</p>
+<p>Aqu&iacute; tienes un ejemplo de indicadores de &eacute;xito relacionados con la reducci&oacute;n en la frecuencia y duraci&oacute;n de los episodios de desregulaci&oacute;n:</p>
+<p>Indicadores de &eacute;xito:</p>
+<p><strong>Reducci&oacute;n en la frecuencia de los episodios de desregulaci&oacute;n: </strong></p>
+<ol>
+<li>Definici&oacute;n: Se establece como indicador de &eacute;xito el n&uacute;mero total de episodios de desregulaci&oacute;n experimentados por el estudiante en un per&iacute;odo determinado, comparado con el per&iacute;odo anterior.</li>
+<li>M&eacute;todo de medici&oacute;n: Se lleva un registro detallado de cada episodio de desregulaci&oacute;n, incluyendo la fecha, hora, duraci&oacute;n y descripci&oacute;n de las circunstancias que lo desencadenaron.</li>
+<li>Meta: Se establece una meta espec&iacute;fica de reducci&oacute;n en el n&uacute;mero de episodios de desregulaci&oacute;n, por ejemplo, una disminuci&oacute;n del 20% en comparaci&oacute;n con el per&iacute;odo anterior.</li>
+<li>Periodicidad de evaluaci&oacute;n: Los episodios de desregulaci&oacute;n se monitorean y registran diariamente por el personal educativo y de apoyo, y se analizan peri&oacute;dicamente para evaluar el progreso hacia la meta establecida.</li>
+</ol>
+<p><strong>Reducci&oacute;n en la duraci&oacute;n de los episodios de desregulaci&oacute;n: </strong></p>
+<ol>
+<li>Definici&oacute;n: Se define como la disminuci&oacute;n en el tiempo total que dura cada episodio de desregulaci&oacute;n, medido en minutos u horas.</li>
+<li>M&eacute;todo de medici&oacute;n: Se registra la duraci&oacute;n de cada episodio de desregulaci&oacute;n, desde su inicio hasta su finalizaci&oacute;n, utilizando un sistema de cronometraje preciso.</li>
+<li>Meta: Se establece una meta espec&iacute;fica de reducci&oacute;n en la duraci&oacute;n promedio de los episodios de desregulaci&oacute;n, por ejemplo, una disminuci&oacute;n del 30% en comparaci&oacute;n con el per&iacute;odo anterior.</li>
+<li>Periodicidad de evaluaci&oacute;n: La duraci&oacute;n de los episodios de desregulaci&oacute;n se registra y analiza junto con la frecuencia de los episodios, evaluando el progreso hacia la meta en cada evaluaci&oacute;n quincenal.</li>
+</ol>
+<p>Estos indicadores de &eacute;xito proporcionan una medida objetiva y cuantificable del progreso del estudiante en el manejo de sus emociones y comportamientos, permitiendo una evaluaci&oacute;n continua de la eficacia de las estrategias de intervenci&oacute;n implementadas.</p>
+<p>Fecha de Elaboraci&oacute;n del PAI:</p>
+<p>Fecha de Revisi&oacute;n del PAI:</p>
+<p>Firma del Equipo Interdisciplinario:</p>
+<p>Esta ficha del PAI proporciona un marco estructurado para planificar, implementar y evaluar el apoyo individualizado para estudiantes con TEA que presentan desregulaci&oacute;n emocional y conductual en el entorno escolar.</p>`
+  }
   static contratoContigencia(nombreEstudiante, nombreTutor, nombreRepresentanteEstablecimiento, fecha) {
     return `<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:center;'><strong><span style='font-family:"Calibri Light",sans-serif;'>CONTRATO DE CONTINGENCIAS</span></strong></p>
 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:center;'><strong><span style='font-family:"Calibri Light",sans-serif;'>Aplicaci&oacute;n del protocolo integral para la gesti&oacute;n de la desregulaci&oacute;n emocional y/o conductual</span></strong></p>

@@ -53,7 +53,7 @@
         </q-input>
       </template>
     </q-table>
-    <pre>{{students}}</pre>
+<!--    <pre>{{students}}</pre>-->
     <q-dialog v-model="studentDialog" persistent>
       <q-card style="width: 750px;max-width: 90vw;">
         <q-card-section class="row items-center q-pb-none">
