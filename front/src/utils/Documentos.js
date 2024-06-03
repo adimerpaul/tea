@@ -132,6 +132,159 @@ export class Documentos {
     </tbody>
 </table>`
   }
+  static certificadoEmpleador(nombreEstudiante, course, nombreTutor,rut) {
+    return `<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:center;'><strong><span style='font-family:"Calibri Light",sans-serif;'>CERTIFICADO</span></strong></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:center;'><strong><span style='font-family:"Calibri Light",sans-serif;'>Aplicaci&oacute;n del protocolo integral para la gesti&oacute;n de la desregulaci&oacute;n emocional y/o conductual</span></strong></p>
+<table style="width: 4.4e+2pt;border-collapse:collapse;border:none;">
+    <tbody>
+        <tr>
+            <td style="width: 148.6pt;border: 1pt solid rgb(142, 170, 219);background: rgb(217, 226, 243);padding: 0cm 5.4pt;vertical-align: top;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;line-height:  normal;'><span style='font-family:"Calibri Light",sans-serif;color:black;'>NOMBRE DEL ESTUDIANTE</span></p>
+            </td>
+            <td style="width: 292.8pt;border-top: 1pt solid rgb(142, 170, 219);border-right: 1pt solid rgb(142, 170, 219);border-bottom: 1pt solid rgb(142, 170, 219);border-image: initial;border-left: none;background: rgb(217, 226, 243);padding: 0cm 5.4pt;vertical-align: top;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;line-height:  normal;'><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;${nombreEstudiante}</span></p>
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 148.6pt;border-right: 1pt solid rgb(142, 170, 219);border-bottom: 1pt solid rgb(142, 170, 219);border-left: 1pt solid rgb(142, 170, 219);border-image: initial;border-top: none;padding: 0cm 5.4pt;vertical-align: top;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;line-height:  normal;'><span style='font-family:"Calibri Light",sans-serif;'>CURSO&nbsp;</span></p>
+            </td>
+            <td style="width: 292.8pt;border-top: none;border-left: none;border-bottom: 1pt solid rgb(142, 170, 219);border-right: 1pt solid rgb(142, 170, 219);padding: 0cm 5.4pt;vertical-align: top;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;line-height:  normal;'><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;${course}</span></p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;'><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;</span></p>
+<table style="width: 4.4e+2pt;border-collapse:collapse;border:none;">
+    <tbody>
+        <tr>
+            <td style="width: 148.6pt;border: 1pt solid rgb(142, 170, 219);background: rgb(217, 226, 243);padding: 0cm 5.4pt;vertical-align: top;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;line-height:  normal;'><span style='font-family:"Calibri Light",sans-serif;color:black;'>NOMBRE APODERADO/A</span></p>
+            </td>
+            <td style="width: 292.8pt;border-top: 1pt solid rgb(142, 170, 219);border-right: 1pt solid rgb(142, 170, 219);border-bottom: 1pt solid rgb(142, 170, 219);border-image: initial;border-left: none;background: rgb(217, 226, 243);padding: 0cm 5.4pt;vertical-align: top;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;line-height:  normal;'><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;${nombreTutor}</span></p>
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 148.6pt;border-right: 1pt solid rgb(142, 170, 219);border-bottom: 1pt solid rgb(142, 170, 219);border-left: 1pt solid rgb(142, 170, 219);border-image: initial;border-top: none;padding: 0cm 5.4pt;vertical-align: top;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;line-height:  normal;'><span style='font-family:"Calibri Light",sans-serif;'>RUT APODERADO/A</span></p>
+            </td>
+            <td style="width: 292.8pt;border-top: none;border-left: none;border-bottom: 1pt solid rgb(142, 170, 219);border-right: 1pt solid rgb(142, 170, 219);padding: 0cm 5.4pt;vertical-align: top;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;line-height:  normal;'><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;${rut}</span></p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;'><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;</span></p>
+<table style="width: 4.4e+2pt;border-collapse:collapse;border:none;">
+    <tbody>
+        <tr>
+            <td style="width: 441.4pt;border: 1pt solid rgb(142, 170, 219);background: rgb(217, 226, 243);padding: 0cm 5.4pt;vertical-align: top;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:center;line-height:normal;'><span style='font-family:  "Calibri Light",sans-serif;color:black;'>DESCRIPICI&Oacute;N DE LA DEC (antecedentes relevantes, lugar, duraci&oacute;n, entre otros)</span></p>
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 441.4pt;border-right: 1pt solid rgb(142, 170, 219);border-bottom: 1pt solid rgb(142, 170, 219);border-left: 1pt solid rgb(142, 170, 219);border-image: initial;border-top: none;padding: 0cm 5.4pt;vertical-align: top;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;line-height:  normal;'><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;</span></p>
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;line-height:  normal;'><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;</span></p>
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;line-height:  normal;'><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;</span></p>
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;line-height:  normal;'><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;</span></p>
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;line-height:  normal;'><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;</span></p>
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;line-height:  normal;'><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;</span></p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;'><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;</span></p>
+<table style="width: 4.4e+2pt;border-collapse:collapse;border:none;">
+    <tbody>
+        <tr>
+            <td colspan="3" style="width: 441.4pt;border: 1pt solid rgb(142, 170, 219);background: rgb(217, 226, 243);padding: 0cm 5.4pt;vertical-align: top;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:center;line-height:normal;'><span style='font-family:  "Calibri Light",sans-serif;color:black;'>PERSONAL QUE INTERVIENE EN LA DEC</span></p>
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 147.1pt;border-right: 1pt solid rgb(142, 170, 219);border-bottom: 1pt solid rgb(142, 170, 219);border-left: 1pt solid rgb(142, 170, 219);border-image: initial;border-top: none;padding: 0cm 5.4pt;vertical-align: top;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:center;line-height:normal;'><span style='font-family:"Calibri Light",sans-serif;'>Etapa inicial</span></p>
+            </td>
+            <td style="width: 147.15pt;border-top: none;border-left: none;border-bottom: 1pt solid rgb(142, 170, 219);border-right: 1pt solid rgb(142, 170, 219);padding: 0cm 5.4pt;vertical-align: top;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:center;line-height:normal;'><span style='font-family:"Calibri Light",sans-serif;'>Etapa de aumento de la desregulaci&oacute;n emocional y conductual, con riesgo para s&iacute; mismo/a o terceros</span></p>
+            </td>
+            <td style="width: 147.15pt;border-top: none;border-left: none;border-bottom: 1pt solid rgb(142, 170, 219);border-right: 1pt solid rgb(142, 170, 219);padding: 0cm 5.4pt;vertical-align: top;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:center;line-height:normal;'><span style='font-family:"Calibri Light",sans-serif;'>Etapa de crisis declarada, cuando el descontrol y los riesgos para s&iacute; o terceros implican la necesidad de contener f&iacute;sicamente al estudiante</span></p>
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 147.1pt;border-right: 1pt solid rgb(142, 170, 219);border-bottom: 1pt solid rgb(142, 170, 219);border-left: 1pt solid rgb(142, 170, 219);border-image: initial;border-top: none;background: rgb(217, 226, 243);padding: 0cm 5.4pt;vertical-align: top;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;line-height:  normal;'><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;</span></p>
+            </td>
+            <td style="width: 147.15pt;border-top: none;border-left: none;border-bottom: 1pt solid rgb(142, 170, 219);border-right: 1pt solid rgb(142, 170, 219);background: rgb(217, 226, 243);padding: 0cm 5.4pt;vertical-align: top;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;line-height:  normal;'><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;</span></p>
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;line-height:  normal;'><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;</span></p>
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;line-height:  normal;'><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;</span></p>
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;line-height:  normal;'><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;</span></p>
+            </td>
+            <td style="width: 147.15pt;border-top: none;border-left: none;border-bottom: 1pt solid rgb(142, 170, 219);border-right: 1pt solid rgb(142, 170, 219);background: rgb(217, 226, 243);padding: 0cm 5.4pt;vertical-align: top;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;line-height:  normal;'><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;</span></p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;'><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;</span></p>
+<table style="width: 4.4e+2pt;border-collapse:collapse;border:none;">
+    <tbody>
+        <tr>
+            <td style="width: 110.35pt;border: 1pt solid rgb(142, 170, 219);background: rgb(217, 226, 243);padding: 0cm 5.4pt;vertical-align: top;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:center;line-height:normal;'><span style='font-family:  "Calibri Light",sans-serif;color:black;'>Hora de inicio</span></p>
+            </td>
+            <td style="width: 110.35pt;border-top: 1pt solid rgb(142, 170, 219);border-right: 1pt solid rgb(142, 170, 219);border-bottom: 1pt solid rgb(142, 170, 219);border-image: initial;border-left: none;background: rgb(217, 226, 243);padding: 0cm 5.4pt;vertical-align: top;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:center;line-height:normal;'><span style='font-family:  "Calibri Light",sans-serif;color:black;'>Hora de llamada apoderado/a</span></p>
+            </td>
+            <td style="width: 110.35pt;border-top: 1pt solid rgb(142, 170, 219);border-right: 1pt solid rgb(142, 170, 219);border-bottom: 1pt solid rgb(142, 170, 219);border-image: initial;border-left: none;background: rgb(217, 226, 243);padding: 0cm 5.4pt;vertical-align: top;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:center;line-height:normal;'><span style='font-family:  "Calibri Light",sans-serif;color:black;'>Hora de llegada apoderado/a</span></p>
+            </td>
+            <td style="width: 110.35pt;border-top: 1pt solid rgb(142, 170, 219);border-right: 1pt solid rgb(142, 170, 219);border-bottom: 1pt solid rgb(142, 170, 219);border-image: initial;border-left: none;background: rgb(217, 226, 243);padding: 0cm 5.4pt;vertical-align: top;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:center;line-height:normal;'><span style='font-family:  "Calibri Light",sans-serif;color:black;'>Hora de termino</span></p>
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 110.35pt;border-right: 1pt solid rgb(142, 170, 219);border-bottom: 1pt solid rgb(142, 170, 219);border-left: 1pt solid rgb(142, 170, 219);border-image: initial;border-top: none;padding: 0cm 5.4pt;vertical-align: top;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;line-height:  normal;'><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;</span></p>
+            </td>
+            <td style="width: 110.35pt;border-top: none;border-left: none;border-bottom: 1pt solid rgb(142, 170, 219);border-right: 1pt solid rgb(142, 170, 219);padding: 0cm 5.4pt;vertical-align: top;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;line-height:  normal;'><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;</span></p>
+            </td>
+            <td style="width: 110.35pt;border-top: none;border-left: none;border-bottom: 1pt solid rgb(142, 170, 219);border-right: 1pt solid rgb(142, 170, 219);padding: 0cm 5.4pt;vertical-align: top;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;line-height:  normal;'><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;</span></p>
+            </td>
+            <td style="width: 110.35pt;border-top: none;border-left: none;border-bottom: 1pt solid rgb(142, 170, 219);border-right: 1pt solid rgb(142, 170, 219);padding: 0cm 5.4pt;vertical-align: top;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;line-height:  normal;'><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;</span></p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;'><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;'><span style='font-family:"Calibri Light",sans-serif;'>Se emite el presente certificado para ser presentado al empleador del apoderado/a por atender a la desregulaci&oacute;n emocional y/o conductual de su pupilo.</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;'><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;'><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;'><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;</span></p>
+<table style="width: 4.4e+2pt;border-collapse:collapse;border:none;">
+    <tbody>
+        <tr>
+            <td style="width: 147.1pt;border-right: none;border-bottom: none;border-left: none;border-image: initial;border-top: 1pt solid black;padding: 0cm 5.4pt;vertical-align: top;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:center;'><strong><span style='font-family:"Calibri Light",sans-serif;'>Firma apoderado/a</span></strong></p>
+            </td>
+            <td style="width: 147.15pt;border: none;padding: 0cm 5.4pt;vertical-align: top;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:center;'><strong><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;</span></strong></p>
+            </td>
+            <td style="width: 147.15pt;border-right: none;border-bottom: none;border-left: none;border-image: initial;border-top: 1pt solid black;padding: 0cm 5.4pt;vertical-align: top;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:center;'><strong><span style='font-family:"Calibri Light",sans-serif;'>Firma y timbre del &nbsp; &nbsp; representante establecimiento</span></strong></p>
+            </td>
+        </tr>
+    </tbody>
+</table>`;
+  }
   static autorizacionAbordajeDec(nombretutor, rut, nombreestudiante, curso) {
     return `<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:center;'><strong><span style='font-size:19px;line-height:107%;font-family:"Calibri Light",sans-serif;'>AUTORIZACI&Oacute;N</span></strong></p>
 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:center;'><strong><span style='font-size:19px;line-height:107%;font-family:"Calibri Light",sans-serif;'>Aplicaci&oacute;n del protocolo integral para la gesti&oacute;n de la desregulaci&oacute;n emocional y/o conductual</span></strong></p>

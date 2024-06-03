@@ -254,7 +254,7 @@ export default {
       if (this.document.name === 'AUTORIZACIÓN PARA EL ABORDAJE DEC.')
         this.document.html = Documentos.autorizacionAbordajeDec( this.student.tutorName, this.student.tutorRut, this.student.name, this.student.course)
       if (this.document.name === 'CERTIFICADO PARA EL EMPLEADOR')
-        this.document.html = Documentos.certificadoEmpleador( this.student.name, this.student.tutorName, '', date)
+        this.document.html = Documentos.certificadoEmpleador( this.student.name, this.student.tutorName, this.student.course, this.student.tutorRut)
       if (this.document.name === 'CONTRATO DE CONTIGENCIAS')
         this.document.html = Documentos.contratoContigencia( this.student.name, this.student.tutorName, '', date)
     },
