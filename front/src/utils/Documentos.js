@@ -1,4 +1,781 @@
 export class Documentos {
+  static planAcompanamiento( nombreEstudiante, rut, edad, curso, nacionalidad, nombreApoderado, contactoApoderado){
+    return `<style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+</style>
+<p><strong><u>PLAN DE ACOMPA&Ntilde;AMIENTO EMOCIONAL Y/O CONDUCTUAL.</u></strong></p>
+<ol>
+    <li><u>Antecedentes del o  estudiante:</u></li>
+</ol>
+<table border="1" cellspacing="0" cellpadding="0" width="589">
+    <tbody>
+        <tr>
+            <td width="38.435374149659864%" valign="top">
+                <p><strong>Nombre del o la estudiante</strong></p>
+            </td>
+            <td width="61.564625850340136%" valign="top">
+                <p>&nbsp; ${nombreEstudiante}</p>
+            </td>
+        </tr>
+        <tr>
+            <td width="38.435374149659864%" valign="top">
+                <p><strong>RUT</strong></p>
+            </td>
+            <td width="61.564625850340136%" valign="top">
+                <p>&nbsp; ${rut}</p>
+            </td>
+        </tr>
+        <tr>
+            <td width="38.435374149659864%" valign="top">
+                <p><strong>Edad</strong></p>
+            </td>
+            <td width="61.564625850340136%" valign="top">
+                <p>&nbsp; ${edad}</p>
+            </td>
+        </tr>
+        <tr>
+            <td width="38.435374149659864%" valign="top">
+                <p><strong>Curso</strong></p>
+            </td>
+            <td width="61.564625850340136%" valign="top">
+                <p>&nbsp; ${curso}</p>
+            </td>
+        </tr>
+        <tr>
+            <td width="38.435374149659864%" valign="top">
+                <p><strong>Nacionalidad</strong></p>
+            </td>
+            <td width="61.564625850340136%" valign="top">
+                <p>&nbsp;</p>
+            </td>
+        </tr>
+        <tr>
+            <td width="38.435374149659864%" valign="top">
+                <p><strong> apoderado/a</strong></p>
+            </td>
+            <td width="61.564625850340136%" valign="top">
+                <p>&nbsp; ${nombreApoderado}</p>
+            </td>
+        </tr>
+        <tr>
+            <td width="38.435374149659864%" valign="top">
+                <p><strong>Contacto apoderado/a</strong></p>
+            </td>
+            <td width="61.564625850340136%" valign="top">
+                <p>&nbsp; ${contactoApoderado}</p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p>&nbsp;</p>
+<ol>
+    <li><u>Caracterizaci&oacute;n del o la estudiante:</u></li>
+</ol>
+<table border="1" cellspacing="0" cellpadding="0" width="589">
+    <tbody>
+        <tr>
+            <td width="38.435374149659864%" valign="top">
+                <p><strong>Diagn&oacute;stico primario&nbsp;</strong></p>
+            </td>
+            <td width="61.564625850340136%" valign="top">
+                <p>&nbsp;</p>
+            </td>
+        </tr>
+        <tr>
+            <td width="38.435374149659864%" valign="top">
+                <p><strong>Diagn&oacute; secundario</strong></p>
+            </td>
+            <td width="61.564625850340136%" valign="top">
+                <p>&nbsp;</p>
+            </td>
+        </tr>
+        <tr>
+            <td width="38.435374149659864%" valign="top">
+                <p><strong> especializado o SOS</strong></p>
+            </td>
+            <td width="61.564625850340136%" valign="top">
+                <p>&nbsp;</p>
+            </td>
+        </tr>
+        <tr>
+            <td width="38.435374149659864%" valign="top">
+                <p><strong>Profesional  o  remplazante</strong></p>
+            </td>
+            <td width="61.564625850340136%" valign="top">
+                <p>&nbsp;</p>
+            </td>
+        </tr>
+        <tr>
+            <td width="38.435374149659864%" valign="top">
+                <p><strong>Profesor/a Jefe</strong></p>
+            </td>
+            <td width="61.564625850340136%" valign="top">
+                <p>&nbsp;</p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p>&nbsp;</p>
+<ol>
+    <li><u>Particularidades del o la estudiante:</u></li>
+</ol>
+<table border="1" cellspacing="0" cellpadding="0" width="589">
+    <tbody>
+        <tr>
+            <td width="38.435374149659864%" valign="top">
+                <p><strong>Indicar las particularidades  o  estudiante, por ejemplo: &nbsp;</strong>situaciones  y/o   lo o la desregulan, si  o no el contacto f&iacute;sico, caracter&iacute;sticas sensoriales,  presenta conductas de evitaci&oacute;n, si sus desregulaciones son con llantos, autolesiones o golpes,  otras.</p>
+            </td>
+            <td width="61.564625850340136%" valign="top">
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
+            </td>
+        </tr>
+        <tr>
+            <td width="38.435374149659864%" valign="top">
+                <p><strong>Indicar  estrategias  puedan facilitar su regulaci&oacute;n emocional y/o conductual, por ejemplo</strong>:  existe     agrade realizar, si  alg&uacute;n modulador sensorial, si existe alg&uacute;n lugar  donde se sienta comodo/a.</p>
+            </td>
+            <td width="61.564625850340136%" valign="top">
+                <p>&nbsp;</p>
+            </td>
+        </tr>
+        <tr>
+            <td width="38.435374149659864%" valign="top">
+                <p><strong>Manejo del ambiente,  por ejemplo:&nbsp;</strong> si  algo del ambiente donde  se  que genere  hiper o hipo reactividad.</p>
+            </td>
+            <td width="61.564625850340136%" valign="top">
+                <p>&nbsp;</p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p>&nbsp;</p>
+<ol>
+    <li><u>%  del o la estudiante:</u></li>
+</ol>
+<table border="1" cellspacing="0" cellpadding="0" width="588">
+    <tbody>
+        <tr>
+            <td width="10%" valign="top">
+                <p><strong>Mar</strong></p>
+            </td>
+            <td width="10%" valign="top">
+                <p><strong>Abr</strong></p>
+            </td>
+            <td width="10%" valign="top">
+                <p><strong>May</strong></p>
+            </td>
+            <td width="10%" valign="top">
+                <p><strong>Jun</strong></p>
+            </td>
+            <td width="10%" valign="top">
+                <p><strong>Jul</strong></p>
+            </td>
+            <td width="10%" valign="top">
+                <p><strong>Ago</strong></p>
+            </td>
+            <td width="10%" valign="top">
+                <p><strong>Sep</strong></p>
+            </td>
+            <td width="10%" valign="top">
+                <p><strong>Oct</strong></p>
+            </td>
+            <td width="10%" valign="top">
+                <p><strong>Nov</strong></p>
+            </td>
+            <td width="10%" valign="top">
+                <p><strong>Dic</strong></p>
+            </td>
+        </tr>
+        <tr>
+            <td width="10%" valign="top">
+                <p>&nbsp;</p>
+            </td>
+            <td width="10%" valign="top">
+                <p>&nbsp;</p>
+            </td>
+            <td width="10%" valign="top">
+                <p>&nbsp;</p>
+            </td>
+            <td width="10%" valign="top">
+                <p>&nbsp;</p>
+            </td>
+            <td width="10%" valign="top">
+                <p>&nbsp;</p>
+            </td>
+            <td width="10%" valign="top">
+                <p>&nbsp;</p>
+            </td>
+            <td width="10%" valign="top">
+                <p>&nbsp;</p>
+            </td>
+            <td width="10%" valign="top">
+                <p>&nbsp;</p>
+            </td>
+            <td width="10%" valign="top">
+                <p>&nbsp;</p>
+            </td>
+            <td width="10%" valign="top">
+                <p>&nbsp;</p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p>&nbsp;</p>
+<ol>
+    <li><u>Intervenciones realizadas durante el a&ntilde;o:</u></li>
+</ol>
+<table border="1" cellspacing="0" cellpadding="0" width="589">
+    <tbody>
+        <tr>
+            <td width="15.619694397283531%" valign="top">
+                <p><strong>Mes</strong></p>
+            </td>
+            <td width="24.787775891341255%" valign="top">
+                <p><strong> o profesional que interviene</strong></p>
+            </td>
+            <td width="15.959252971137522%" valign="top">
+                <p><strong>Cantidad de sesiones o entrevistas</strong></p>
+            </td>
+            <td width="43.63327674023769%" valign="top">
+                <p><strong>Indicar brevemente  de entrevista o   (Entendi&eacute;ndose   departamento debe dejar  propio registro).</strong></p>
+            </td>
+        </tr>
+        <tr>
+            <td width="15.619694397283531%" rowspan="5" valign="top">
+                <p><strong>Marzo</strong></p>
+            </td>
+            <td width="24.787775891341255%" valign="top">
+                <p>PIE</p>
+            </td>
+            <td width="15.959252971137522%" valign="top">
+                <p>&nbsp;</p>
+            </td>
+            <td width="43.63327674023769%" rowspan="5" valign="top">
+                <p>&nbsp;</p>
+            </td>
+        </tr>
+        <tr>
+            <td width="60.833333333333336%" valign="top">
+                <p>Conv. Escolar</p>
+            </td>
+            <td width="39.166666666666664%" valign="top">
+                <p>&nbsp;</p>
+            </td>
+        </tr>
+        <tr>
+            <td width="60.833333333333336%" valign="top">
+                <p>Inspector&iacute;a General</p>
+            </td>
+            <td width="39.166666666666664%" valign="top">
+                <p>&nbsp;</p>
+            </td>
+        </tr>
+        <tr>
+            <td width="60.833333333333336%" valign="top">
+                <p>Profesor/a Jefe</p>
+            </td>
+            <td width="39.166666666666664%" valign="top">
+                <p>&nbsp;</p>
+            </td>
+        </tr>
+        <tr>
+            <td width="60.833333333333336%" valign="top">
+                <p>Orientador/a</p>
+            </td>
+            <td width="39.166666666666664%" valign="top">
+                <p>&nbsp;</p>
+            </td>
+        </tr>
+        <tr>
+            <td width="15.619694397283531%" rowspan="5" valign="top">
+                <p><strong>Abril</strong></p>
+            </td>
+            <td width="24.787775891341255%" valign="top">
+                <p>PIE</p>
+            </td>
+            <td width="15.959252971137522%" valign="top">
+                <p>&nbsp;</p>
+            </td>
+            <td width="43.63327674023769%" rowspan="5" valign="top">
+                <p>&nbsp;</p>
+            </td>
+        </tr>
+        <tr>
+            <td width="60.833333333333336%" valign="top">
+                <p>Conv. Escolar</p>
+            </td>
+            <td width="39.166666666666664%" valign="top">
+                <p>&nbsp;</p>
+            </td>
+        </tr>
+        <tr>
+            <td width="60.833333333333336%" valign="top">
+                <p>Inspector&iacute;a General</p>
+            </td>
+            <td width="39.166666666666664%" valign="top">
+                <p>&nbsp;</p>
+            </td>
+        </tr>
+        <tr>
+            <td width="60.833333333333336%" valign="top">
+                <p>Profesor/a Jefe</p>
+            </td>
+            <td width="39.166666666666664%" valign="top">
+                <p>&nbsp;</p>
+            </td>
+        </tr>
+        <tr>
+            <td width="60.833333333333336%" valign="top">
+                <p>Orientador/a</p>
+            </td>
+            <td width="39.166666666666664%" valign="top">
+                <p>&nbsp;</p>
+            </td>
+        </tr>
+        <tr>
+            <td width="15.619694397283531%" rowspan="5" valign="top">
+                <p><strong>Mayo</strong></p>
+            </td>
+            <td width="24.787775891341255%" valign="top">
+                <p>PIE</p>
+            </td>
+            <td width="15.959252971137522%" valign="top">
+                <p>&nbsp;</p>
+            </td>
+            <td width="43.63327674023769%" rowspan="5" valign="top">
+                <p>&nbsp;</p>
+            </td>
+        </tr>
+        <tr>
+            <td width="60.833333333333336%" valign="top">
+                <p>Conv. Escolar</p>
+            </td>
+            <td width="39.166666666666664%" valign="top">
+                <p>&nbsp;</p>
+            </td>
+        </tr>
+        <tr>
+            <td width="60.833333333333336%" valign="top">
+                <p>Inspector&iacute;a General</p>
+            </td>
+            <td width="39.166666666666664%" valign="top">
+                <p>&nbsp;</p>
+            </td>
+        </tr>
+        <tr>
+            <td width="60.833333333333336%" valign="top">
+                <p>Profesor/a Jefe</p>
+            </td>
+            <td width="39.166666666666664%" valign="top">
+                <p>&nbsp;</p>
+            </td>
+        </tr>
+        <tr>
+            <td width="60.833333333333336%" valign="top">
+                <p>Orientador/a</p>
+            </td>
+            <td width="39.166666666666664%" valign="top">
+                <p>&nbsp;</p>
+            </td>
+        </tr>
+        <tr>
+            <td width="15.619694397283531%" rowspan="5" valign="top">
+                <p><strong>Junio</strong></p>
+            </td>
+            <td width="24.787775891341255%" valign="top">
+                <p>PIE</p>
+            </td>
+            <td width="15.959252971137522%" valign="top">
+                <p>&nbsp;</p>
+            </td>
+            <td width="43.63327674023769%" rowspan="5" valign="top">
+                <p>&nbsp;</p>
+            </td>
+        </tr>
+        <tr>
+            <td width="60.833333333333336%" valign="top">
+                <p>Conv. Escolar</p>
+            </td>
+            <td width="39.166666666666664%" valign="top">
+                <p>&nbsp;</p>
+            </td>
+        </tr>
+        <tr>
+            <td width="60.833333333333336%" valign="top">
+                <p>Inspector&iacute;a General</p>
+            </td>
+            <td width="39.166666666666664%" valign="top">
+                <p>&nbsp;</p>
+            </td>
+        </tr>
+        <tr>
+            <td width="60.833333333333336%" valign="top">
+                <p>Profesor/a Jefe</p>
+            </td>
+            <td width="39.166666666666664%" valign="top">
+                <p>&nbsp;</p>
+            </td>
+        </tr>
+        <tr>
+            <td width="60.833333333333336%" valign="top">
+                <p>Orientador/a</p>
+            </td>
+            <td width="39.166666666666664%" valign="top">
+                <p>&nbsp;</p>
+            </td>
+        </tr>
+        <tr>
+            <td width="15.619694397283531%" rowspan="5" valign="top">
+                <p><strong>Julio</strong></p>
+            </td>
+            <td width="24.787775891341255%" valign="top">
+                <p>PIE</p>
+            </td>
+            <td width="15.959252971137522%" valign="top">
+                <p>&nbsp;</p>
+            </td>
+            <td width="43.63327674023769%" rowspan="5" valign="top">
+                <p>&nbsp;</p>
+            </td>
+        </tr>
+        <tr>
+            <td width="60.833333333333336%" valign="top">
+                <p>Conv. Escolar</p>
+            </td>
+            <td width="39.166666666666664%" valign="top">
+                <p>&nbsp;</p>
+            </td>
+        </tr>
+        <tr>
+            <td width="60.833333333333336%" valign="top">
+                <p>Inspector&iacute;a General</p>
+            </td>
+            <td width="39.166666666666664%" valign="top">
+                <p>&nbsp;</p>
+            </td>
+        </tr>
+        <tr>
+            <td width="60.833333333333336%" valign="top">
+                <p>Profesor/a Jefe</p>
+            </td>
+            <td width="39.166666666666664%" valign="top">
+                <p>&nbsp;</p>
+            </td>
+        </tr>
+        <tr>
+            <td width="60.833333333333336%" valign="top">
+                <p>Orientador/a</p>
+            </td>
+            <td width="39.166666666666664%" valign="top">
+                <p>&nbsp;</p>
+            </td>
+        </tr>
+        <tr>
+            <td width="15.619694397283531%" rowspan="5" valign="top">
+                <p><strong>Agosto&nbsp;</strong></p>
+            </td>
+            <td width="24.787775891341255%" valign="top">
+                <p>PIE</p>
+            </td>
+            <td width="15.959252971137522%" valign="top">
+                <p>&nbsp;</p>
+            </td>
+            <td width="43.63327674023769%" rowspan="5" valign="top">
+                <p>&nbsp;</p>
+            </td>
+        </tr>
+        <tr>
+            <td width="60.833333333333336%" valign="top">
+                <p>Conv. Escolar</p>
+            </td>
+            <td width="39.166666666666664%" valign="top">
+                <p>&nbsp;</p>
+            </td>
+        </tr>
+        <tr>
+            <td width="60.833333333333336%" valign="top">
+                <p>Inspector&iacute;a General</p>
+            </td>
+            <td width="39.166666666666664%" valign="top">
+                <p>&nbsp;</p>
+            </td>
+        </tr>
+        <tr>
+            <td width="60.833333333333336%" valign="top">
+                <p>Profesor/a Jefe</p>
+            </td>
+            <td width="39.166666666666664%" valign="top">
+                <p>&nbsp;</p>
+            </td>
+        </tr>
+        <tr>
+            <td width="60.833333333333336%" valign="top">
+                <p>Orientador/a</p>
+            </td>
+            <td width="39.166666666666664%" valign="top">
+                <p>&nbsp;</p>
+            </td>
+        </tr>
+        <tr>
+            <td width="15.619694397283531%" rowspan="5" valign="top">
+                <p><strong>Septiembre&nbsp;</strong></p>
+            </td>
+            <td width="24.787775891341255%" valign="top">
+                <p>PIE</p>
+            </td>
+            <td width="15.959252971137522%" valign="top">
+                <p>&nbsp;</p>
+            </td>
+            <td width="43.63327674023769%" rowspan="5" valign="top">
+                <p>&nbsp;</p>
+            </td>
+        </tr>
+        <tr>
+            <td width="60.833333333333336%" valign="top">
+                <p>Conv. Escolar</p>
+            </td>
+            <td width="39.166666666666664%" valign="top">
+                <p>&nbsp;</p>
+            </td>
+        </tr>
+        <tr>
+            <td width="60.833333333333336%" valign="top">
+                <p>Inspector&iacute;a General</p>
+            </td>
+            <td width="39.166666666666664%" valign="top">
+                <p>&nbsp;</p>
+            </td>
+        </tr>
+        <tr>
+            <td width="60.833333333333336%" valign="top">
+                <p>Profesor/a Jefe</p>
+            </td>
+            <td width="39.166666666666664%" valign="top">
+                <p>&nbsp;</p>
+            </td>
+        </tr>
+        <tr>
+            <td width="60.833333333333336%" valign="top">
+                <p>Orientador/a</p>
+            </td>
+            <td width="39.166666666666664%" valign="top">
+                <p>&nbsp;</p>
+            </td>
+        </tr>
+        <tr>
+            <td width="15.619694397283531%" rowspan="5" valign="top">
+                <p><strong>Octubre&nbsp;</strong></p>
+            </td>
+            <td width="24.787775891341255%" valign="top">
+                <p>PIE</p>
+            </td>
+            <td width="15.959252971137522%" valign="top">
+                <p>&nbsp;</p>
+            </td>
+            <td width="43.63327674023769%" rowspan="5" valign="top">
+                <p>&nbsp;</p>
+            </td>
+        </tr>
+        <tr>
+            <td width="60.833333333333336%" valign="top">
+                <p>Conv. Escolar</p>
+            </td>
+            <td width="39.166666666666664%" valign="top">
+                <p>&nbsp;</p>
+            </td>
+        </tr>
+        <tr>
+            <td width="60.833333333333336%" valign="top">
+                <p>Inspector&iacute;a General</p>
+            </td>
+            <td width="39.166666666666664%" valign="top">
+                <p>&nbsp;</p>
+            </td>
+        </tr>
+        <tr>
+            <td width="60.833333333333336%" valign="top">
+                <p>Profesor/a Jefe</p>
+            </td>
+            <td width="39.166666666666664%" valign="top">
+                <p>&nbsp;</p>
+            </td>
+        </tr>
+        <tr>
+            <td width="60.833333333333336%" valign="top">
+                <p>Orientador/a</p>
+            </td>
+            <td width="39.166666666666664%" valign="top">
+                <p>&nbsp;</p>
+            </td>
+        </tr>
+        <tr>
+            <td width="15.619694397283531%" rowspan="5" valign="top">
+                <p><strong>Noviembre</strong></p>
+            </td>
+            <td width="24.787775891341255%" valign="top">
+                <p>PIE</p>
+            </td>
+            <td width="15.959252971137522%" valign="top">
+                <p>&nbsp;</p>
+            </td>
+            <td width="43.63327674023769%" rowspan="5" valign="top">
+                <p>&nbsp;</p>
+            </td>
+        </tr>
+        <tr>
+            <td width="60.833333333333336%" valign="top">
+                <p>Conv. Escolar</p>
+            </td>
+            <td width="39.166666666666664%" valign="top">
+                <p>&nbsp;</p>
+            </td>
+        </tr>
+        <tr>
+            <td width="60.833333333333336%" valign="top">
+                <p>Inspector&iacute;a General</p>
+            </td>
+            <td width="39.166666666666664%" valign="top">
+                <p>&nbsp;</p>
+            </td>
+        </tr>
+        <tr>
+            <td width="60.833333333333336%" valign="top">
+                <p>Profesor/a Jefe</p>
+            </td>
+            <td width="39.166666666666664%" valign="top">
+                <p>&nbsp;</p>
+            </td>
+        </tr>
+        <tr>
+            <td width="60.833333333333336%" valign="top">
+                <p>Orientador/a</p>
+            </td>
+            <td width="39.166666666666664%" valign="top">
+                <p>&nbsp;</p>
+            </td>
+        </tr>
+        <tr>
+            <td width="15.619694397283531%" rowspan="5" valign="top">
+                <p><strong>Diciembre</strong></p>
+            </td>
+            <td width="24.787775891341255%" valign="top">
+                <p>PIE</p>
+            </td>
+            <td width="15.959252971137522%" valign="top">
+                <p>&nbsp;</p>
+            </td>
+            <td width="43.63327674023769%" rowspan="5" valign="top">
+                <p>&nbsp;</p>
+            </td>
+        </tr>
+        <tr>
+            <td width="60.833333333333336%" valign="top">
+                <p>Conv. Escolar</p>
+            </td>
+            <td width="39.166666666666664%" valign="top">
+                <p>&nbsp;</p>
+            </td>
+        </tr>
+        <tr>
+            <td width="60.833333333333336%" valign="top">
+                <p>Inspector&iacute;a General</p>
+            </td>
+            <td width="39.166666666666664%" valign="top">
+                <p>&nbsp;</p>
+            </td>
+        </tr>
+        <tr>
+            <td width="60.833333333333336%" valign="top">
+                <p>Profesor/a Jefe</p>
+            </td>
+            <td width="39.166666666666664%" valign="top">
+                <p>&nbsp;</p>
+            </td>
+        </tr>
+        <tr>
+            <td width="60.833333333333336%" valign="top">
+                <p>Orientador/a</p>
+            </td>
+            <td width="39.166666666666664%" valign="top">
+                <p>&nbsp;</p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table  cellspacing="0" cellpadding="0" width="589" style="border: 0px solid black;text-align: center">
+    <tbody>
+        <tr>
+            <td width="33.333333333333336%" valign="top" style="border: 0px solid black;text-align: center">
+                <p>PROFESIONAL  1</p>
+            </td>
+            <td width="33.333333333333336%" valign="top" style="border: 0px solid black;text-align: center">
+                <p>&nbsp;</p>
+            </td>
+            <td width="33.333333333333336%" valign="top" style="border: 0px solid black;text-align: center">
+                <p> INVOLUCRADO 2</p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p>&nbsp;</p>
+<table  cellspacing="0" cellpadding="0" width="589" style="border: 0px solid black;text-align: center">
+    <tbody>
+        <tr>
+            <td width="33.333333333333336%" valign="top" style="border: 0px solid black;text-align: center">
+                <p> INVOLUCRADO 3</p>
+            </td>
+            <td width="33.333333333333336%" valign="top" style="border: 0px solid black;text-align: center">
+                <p>&nbsp;</p>
+            </td>
+            <td width="33.333333333333336%" valign="top" style="border: 0px solid black;text-align: center">
+                <p> INVOLUCRADO 4</p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p>&nbsp;</p>
+<table  cellspacing="0" cellpadding="0" width="589" style="border: 0px solid black;text-align: center">
+    <tbody>
+        <tr>
+            <td width="33.333333333333336%" valign="top" style="border: 0px solid black;text-align: center">
+                <p>&nbsp;</p>
+            </td>
+            <td width="33.333333333333336%" valign="top" style="border: 0px solid black;text-align: center">
+                <p>RESPONSABLE</p>
+            </td>
+            <td width="33.333333333333336%" valign="top" style="border: 0px solid black;text-align: center">
+                <p>&nbsp;</p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+`
+  }
   static fichaPai( nombreEstudiante, course, birthdate, date){
     return `<p><strong>Ficha del Plan de Apoyo Individualizado (PAI) para Estudiantes con TEA </strong></p>
 <p><strong>Informaci&oacute;n del Estudiante: </strong></p>
