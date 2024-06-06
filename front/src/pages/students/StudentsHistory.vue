@@ -73,10 +73,34 @@
                   <tbody>
                   <tr v-for="history in student.histories" :key="history.id">
                     <td>
-                      <q-btn-group>
-                        <q-btn flat icon="edit" class="q-pa-xs" size="10px" @click="historyClick(history)" />
-                        <q-btn flat icon="delete" class="q-pa-xs" size="10px" @click="deleteHistory(history.id)" />
-                      </q-btn-group>
+                      <q-btn-dropdown
+                        size="10px"
+                        color="positive"
+                        :loading="loading"
+                        auto-close
+                        class="q-mr-sm"
+                        label="Opciones"
+                        no-caps
+                      >
+                        <q-item clickable v-close-popup @click="deleteHistory(history)">
+                          <q-item-section avatar>
+                            <q-icon name="delete" />
+                          </q-item-section>
+                          <q-item-section>Eliminar</q-item-section>
+                        </q-item>
+                        <q-item clickable v-close-popup @click="historyClick(history)">
+                          <q-item-section avatar>
+                            <q-icon name="edit" />
+                          </q-item-section>
+                          <q-item-section>Editar</q-item-section>
+                        </q-item>
+                        <q-item clickable v-close-popup @click="sendWhatsapp(history)">
+                          <q-item-section avatar>
+                            <q-icon name="send" />
+                          </q-item-section>
+                          <q-item-section>Enviar por Whatsapp</q-item-section>
+                        </q-item>
+                      </q-btn-dropdown>
                     </td>
                     <td>
                       {{$filters.formatdMY(history.date)}}
@@ -207,6 +231,10 @@ export default {
           this.loading = false
         })
       })
+    },
+    sendWhatsapp(history) {
+      // appi whtasapp
+      window.open(`https://api.whatsapp.com/send?phone=+56${this.student.phone}&text=${history.description}`)
     },
     historyClick(history) {
       this.history = { ...history }
