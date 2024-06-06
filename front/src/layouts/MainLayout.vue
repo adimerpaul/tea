@@ -114,7 +114,7 @@ export default {
       essentialLinks: [
         { title: 'Inicio', icon: 'home', to: '/' },
         { title: 'Usuarios', icon: 'people', to: '/users' },
-        // { title: 'Historiales', icon: 'history', to: '/history' },
+        { title: 'Citas', icon: 'event', to: '/appointments' },
         { title: 'Estudiantes', icon: 'school', to: '/students' },
         // { title: 'Cursos', icon: 'class', to: '/courses' },
         // { title: 'Matriculas', icon: 'assignment', to: '/enrollments' },
@@ -150,11 +150,11 @@ export default {
     title() {
       const route = this.$route.path
       if (route === '/') return 'Inicio'
-      if (route === '/prestamos') return 'Prestamos'
-      else if (route === '/clients') return 'Clientes'
-      else if (route === '/debtors') return 'Deudores'
-      else if (route === '/payments') return 'Pagos'
-      else if (route === '/finished-loans') return 'Prestamos Finalizados'
+      else if (route === '/users') return 'Usuarios'
+      else if (route === '/students') return 'Estudiantes'
+      else if (route === '/reports') return 'Reportes'
+      else if (route === '/appointments') return 'Citas'
+      else
       return 'Inicio'
     },
   },

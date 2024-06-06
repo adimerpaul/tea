@@ -1,6 +1,6 @@
 <template>
   <q-page class="bg-grey-3 q-pa-md">
-    <q-table :rows="users" :columns="columns" title="Clientes" :rows-per-page-options="[0]" row-key="id" dense :filter="filter" :loading="loading">
+    <q-table :rows="users" :columns="columns" title="Usuarios" :rows-per-page-options="[0]" row-key="id" dense :filter="filter" :loading="loading">
       <template v-slot:body-cell-option="props">
           <q-td auto-width>
             <q-btn flat dense icon="edit" @click="userEdit(props.row)" >
