@@ -39,6 +39,11 @@ Route::group(['middleware' => 'auth:sanctum'], function(){
 
 
     Route::delete('/documents/{id}', [\App\Http\Controllers\DocumentController::class, 'destroy']);
+
+    Route::get('/appointments', [\App\Http\Controllers\AppointmentController::class, 'index']);
+    Route::post('/appointments', [\App\Http\Controllers\AppointmentController::class, 'store']);
+    Route::put('/appointments/{id}', [\App\Http\Controllers\AppointmentController::class, 'update']);
+    Route::delete('/appointments/{id}', [\App\Http\Controllers\AppointmentController::class, 'destroy']);
 });
 //Route::get('/documents/{codigo}/show', [\App\Http\Controllers\DocumentController::class, 'showMobile']);
 

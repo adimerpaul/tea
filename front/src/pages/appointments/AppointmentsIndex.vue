@@ -1,7 +1,7 @@
 <template>
   <q-page class="bg-grey-3 q-pa-md">
     <q-card>
-      <q-card-section class="q-pa-xs">
+      <q-card-section class="q-pa-md">
         <FullCalendar :options='calendarOptions' />
       </q-card-section>
     </q-card>
@@ -11,12 +11,12 @@
 <script>
 import FullCalendar from '@fullcalendar/vue3'
 import dayGridPlugin from '@fullcalendar/daygrid'
-import esLocale from '@fullcalendar/core/locales/es' // Importa el idioma español
+import esLocale from '@fullcalendar/core/locales/es'
 
 export default {
   name: 'AppointmentsIndex',
   components: {
-    FullCalendar // make the <FullCalendar> tag available
+    FullCalendar
   },
   data() {
     return {
@@ -24,7 +24,7 @@ export default {
         plugins: [dayGridPlugin],
         initialView: 'dayGridMonth',
         weekends: false,
-        locale: esLocale, // Configura el idioma a español
+        locale: esLocale,
         events: [
           {title: 'Meeting', start: new Date()}
         ]
