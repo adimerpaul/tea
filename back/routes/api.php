@@ -10,6 +10,8 @@ Route::post('/login', [\App\Http\Controllers\UserController::class, 'login']);
 Route::group(['middleware' => 'auth:sanctum'], function(){
     Route::get('/me', [\App\Http\Controllers\UserController::class, 'me']);
     Route::post('/logout', [\App\Http\Controllers\UserController::class, 'logout']);
+//    dashboard
+    Route::get('/dashboard', [\App\Http\Controllers\DashboardController::class, 'index']);
 
     Route::get('/users', [\App\Http\Controllers\UserController::class, 'index']);
     Route::post('/users', [\App\Http\Controllers\UserController::class, 'store']);

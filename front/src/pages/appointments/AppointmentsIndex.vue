@@ -14,13 +14,13 @@
             />
             <div class="row">
               <div class="col-12 q-pa-xs">
-                <card2-component color="orange" title="Pendientes" :subtitle="pedientesTotal" icon="event"/>
+                <card2-component color="orange" title="Pendientes" :subtitle="pedientesTotal" icon="pending_actions"/>
               </div>
               <div class="col-12 q-pa-xs">
-                <card2-component color="positive" title="Confirmadas" :subtitle="confirmadasTotal" icon="event"/>
+                <card2-component color="positive" title="Confirmadas" :subtitle="confirmadasTotal" icon="event_available"/>
               </div>
               <div class="col-12 q-pa-xs">
-                <card2-component color="red" title="Canceladas" :subtitle="canceladasTotal" icon="event"/>
+                <card2-component color="red" title="Canceladas" :subtitle="canceladasTotal" icon="event_busy"/>
               </div>
             </div>
           </div>

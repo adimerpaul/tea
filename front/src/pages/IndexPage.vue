@@ -2,21 +2,33 @@
   <q-page class="q-pa-md">
     <div class="row">
       <div class="col-12 col-md-4">
-        <CardComponent title="Usuarios" icon="o_people" to="/users" color="indigo" :amount="prestamos" />
+        <CardComponent title="Usuarios" icon="o_people" to="/users" color="indigo" :amount="users" />
       </div>
-<!--      <div class="col-12 col-md-4">-->
-<!--        <CardComponent title="Clientes" icon="o_people" to="/clients" color="green" :amount="clientes" />-->
-<!--      </div>-->
-<!--      <div class="col-12 col-md-4">-->
-<!--        <CardComponent title="Deudores" icon="o_people" to="/debtors" color="red" :amount="deudores" />-->
-<!--      </div>-->
-<!--      <div class="col-12 col-md-4">-->
-<!--        <CardComponent title="Pagos" icon="o_payment" to="/payments" color="blue" :amount="pagos" />-->
-<!--      </div>-->
-<!--      <div class="col-12 col-md-4">-->
-<!--        <CardComponent title="Prestamos Finalizados" icon="o_done_all" to="/finished-loans" color="purple" :amount="prestamosFinalizados" />-->
-<!--      </div>-->
+      <div class="col-12 col-md-4">
+        <CardComponent title="Estudiantes" icon="o_face" to="/students" color="green" :amount="students" />
+      </div>
+      <div class="col-12 col-md-4">
+        <CardComponent title="Citas" icon="o_event" to="/appointments" color="orange" :amount="appointments" />
+      </div>
+<!--      {-->
+<!--      "users": 4,-->
+<!--      "students": 3,-->
+<!--      "diagnoses": 8,-->
+<!--      "documents": 8,-->
+<!--      "appointments": 5,-->
+<!--      "histories": 8-->
+<!--      }-->
+      <div class="col-12 col-md-4">
+        <CardComponent title="Diagnósticos" icon="o_medical_services" to="/diagnoses" color="red" :amount="data.diagnoses" />
+      </div>
+      <div class="col-12 col-md-4">
+        <CardComponent title="Documentos" icon="o_description" to="/documents" color="purple" :amount="data.documents" />
+      </div>
+      <div class="col-12 col-md-4">
+        <CardComponent title="Historias" icon="o_history" to="/histories" color="blue" :amount="data.histories" />
+      </div>
     </div>
+<!--    <pre>{{data}}</pre>-->
   </q-page>
 </template>
 
@@ -29,25 +41,23 @@ export default defineComponent({
   components: {CardComponent},
   data() {
     return {
-      prestamos: 0,
-      clientes: 0,
-      deudores: 0,
-      pagos: 0,
-      prestamosFinalizados: 0
+      users: 0,
+      students: 0,
+      appointments: 0,
+      data: []
     }
   },
   mounted() {
-    // this.getDashboard();
+    this.getDashboard();
   },
   methods: {
     getDashboard() {
       this.$axios.get('dashboard')
         .then(response => {
-          this.prestamos = response.data.prestamos;
-          this.clientes = response.data.clientes;
-          this.deudores = response.data.deudores;
-          this.pagos = response.data.pagos;
-          this.prestamosFinalizados = response.data.prestamosFinalizados;
+          this.data = response.data;
+          this.users = response.data.users;
+          this.students = response.data.students;
+          this.appointments = response.data.appointments;
         })
     }
   }
