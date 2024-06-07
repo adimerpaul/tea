@@ -3,7 +3,7 @@
     <q-card>
       <q-card-section class="q-pa-md">
         <div class="row">
-          <div class="col-12 col-md-4">
+          <div :class="`col-12 col-md-4 text-right ${this.$q.screen.lt.md ? '' : 'q-pr-md'}`">
             <q-btn
               label="Nuevo Evento"
               @click="openDialog()"
@@ -21,30 +21,41 @@
     </q-card>
 
     <q-dialog v-model="dialog">
-      <q-card>
+      <q-card style="width: 350px;max-width: 95vh">
         <q-card-section class="q-pb-none row items-center">
           <div class="text-h6">{{ isEdit ? 'Editar' : 'Nuevo' }} Evento</div>
           <q-space />
           <q-btn flat round dense icon="close" @click="dialog = false" />
         </q-card-section>
-
         <q-card-section>
-          <q-input v-model="form.date" label="Fecha y Hora" type="datetime-local" />
-          <q-input v-model="form.description" label="Descripción" />
-          <q-input v-model="form.result" label="Resultado" />
+          <q-form @submit="saveEvent">
+          <q-input v-model="form.date" label="Fecha y Hora" type="datetime-local" outlined dense :rules="[val => !!val || 'Este campo es requerido']"/>
+          <q-input v-model="form.description" type="textarea" label="Descripción" outlined dense :rules="[val => !!val || 'Este campo es requerido']"/>
+          <q-input v-model="form.result" label="Resultado" outlined dense hint=""/>
           <q-select
             v-model="form.student_id"
             :options="students"
             option-label="name"
             option-value="id"
             label="Estudiante"
+            dense outlined
+            map-options
+            emit-value
+            use-input
+            :rules="[val => !!val || 'Este campo es requerido']"
+            @filter="filterStudents"
           />
+            <q-select v-model="form.status" label="Estado" outlined dense :rules="[val => !!val || 'Este campo es requerido']"
+                      :options="['PENDIENTE', 'CONFIRMADA', 'CANCELADA']" />
+            <q-card-actions align="right">
+              <q-btn label="Cancelar" color="red" v-close-popup no-caps icon="close" dense />
+              <q-btn label="Guardar" color="primary" type="submit" no-caps icon="save" dense />
+            </q-card-actions>
+          </q-form>
+<!--          <pre>-->
+<!--            {{ form }}-->
+<!--          </pre>-->
         </q-card-section>
-
-        <q-card-actions align="right">
-          <q-btn flat label="Cancelar" color="primary" v-close-popup />
-          <q-btn flat label="Guardar" color="primary" @click="saveEvent" />
-        </q-card-actions>
       </q-card>
     </q-dialog>
   </q-page>
@@ -67,6 +78,7 @@ export default {
     return {
       dialog: false,
       isEdit: false,
+      loading: false,
       form: {
         id: null,
         date: '',
@@ -90,16 +102,28 @@ export default {
         events: [],
         eventClick: this.handleEventClick,
         select: this.handleDateSelect,
-        // eventDrop: this.handleEventDrop,
-        // eventResize: this.handleEventResize
       }
     }
   },
   mounted() {
-    // this.fetchEvents();
     this.fetchStudents();
   },
   methods: {
+    filterStudents(val,update) {
+      console.log(val);
+      if (val === '') {
+        update(() => {
+          this.students = this.studentsAll;
+        });
+        return;
+      }
+      const students = this.studentsAll.filter(student => {
+        return student.name.toLowerCase().includes(val.toLowerCase());
+      });
+      update(() => {
+        this.students = students;
+      });
+    },
     fetchEvents() {
       this.$axios.get('appointments')
         .then(response => {
@@ -116,6 +140,7 @@ export default {
     },
     fetchStudents() {
       this.$axios.get('students').then(response => {
+        this.studentsAll = response.data;
         this.students = response.data;
       });
     },
@@ -133,25 +158,28 @@ export default {
         this.isEdit = false;
         this.form = {
           id: null,
-          date: moment().format('YYYY-MM-DDTHH:mm'),
-          description: '',
+          date: moment().format('YYYY-MM-DDTHH:00'),
+          description: 'Se cita al padre de familia',
           result: '',
-          student_id: null
+          student_id: null,
+          status: 'PENDIENTE'
         };
       }
       this.dialog = true;
     },
     saveEvent() {
       const method = this.isEdit ? 'put' : 'post';
-      const url = this.isEdit ? `/api/appointments/${this.form.id}` : '/api/appointments';
-      this.axios[method](url, this.form)
-        .then(() => {
-          this.fetchEvents();
-          this.dialog = false;
-        });
+      const url = this.isEdit ? `appointments/${this.form.id}` : 'appointments';
+      this.loading = true;
+      this.$axios[method](url, this.form).then(() => {
+        this.fetchEvents();
+        this.dialog = false;
+      }).finally(() => {
+        this.loading = false;
+      });
     },
     deleteEvent(id) {
-      this.$axios.delete(`/api/appointments/${id}`)
+      this.$axios.delete(`appointments/${id}`)
         .then(() => {
           this.fetchEvents();
         });
@@ -181,7 +209,7 @@ export default {
         result: event.extendedProps.result,
         student_id: event.extendedProps.student_id
       };
-      this.$axios.put(`/api/appointments/${event.id}`, updatedEvent)
+      this.$axios.put(`appointments/${event.id}`, updatedEvent)
         .then(() => {
           this.fetchEvents();
         });
