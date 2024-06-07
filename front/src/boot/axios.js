@@ -34,6 +34,10 @@ export default boot(({ app, router }) => {
       const meses = ['ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sep', 'oct', 'nov', 'dic']
       const date = new Date(value)
       return `${date.getDate()} ${meses[date.getMonth()]} ${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}`
+    },
+    capitalize: function (value) {
+      const lower = value.toLowerCase()
+      return value.charAt(0).toUpperCase() + lower.slice(1)
     }
   }
   const token = localStorage.getItem('tokenPrestamos')
