@@ -7,14 +7,26 @@
             <q-btn
               label="Nuevo Evento"
               @click="openDialogClick()"
-              color="positive"
+              color="primary"
               icon-right="add_circle_outline"
               no-caps
               class="text-bold"
             />
+            <div class="row">
+              <div class="col-12 q-pa-xs">
+                <card2-component color="orange" title="Pendientes" :subtitle="pedientesTotal" icon="event"/>
+              </div>
+              <div class="col-12 q-pa-xs">
+                <card2-component color="positive" title="Confirmadas" :subtitle="confirmadasTotal" icon="event"/>
+              </div>
+              <div class="col-12 q-pa-xs">
+                <card2-component color="red" title="Canceladas" :subtitle="canceladasTotal" icon="event"/>
+              </div>
+            </div>
           </div>
           <div class="col-12 col-md-8">
             <FullCalendar :options="calendarOptions" />
+<!--            <pre>{{events}}</pre>-->
           </div>
         </div>
       </q-card-section>
@@ -45,12 +57,11 @@
             :rules="[val => !!val || 'Este campo es requerido']"
             @filter="filterStudents"
           />
-<!--            <q-select v-model="form.status" label="Estado" outlined dense :rules="[val => !!val || 'Este campo es requerido']"-->
-<!--                      :options="['PENDIENTE', 'CONFIRMADA', 'CANCELADA']" />-->
+<!--            bottun apra enviar por whtass si selecionao estudiante-->
             <q-option-group v-model="form.status" :options="statusOption" label="Estado" type="radio" dense />
             <q-card-actions align="right">
-<!--              <q-btn size="11px" label="Cerrar" color="negative" @click="dialog = false" icon="close" dense />-->
-              <q-btn size="11px" label="Guardar" color="primary" type="submit" no-caps icon="save" dense v-if="isEdit===false" :loading="loading" />
+              <q-btn size="11px" icon="fa-brands fa-whatsapp" color="green-4" no-caps label="WhatsApp" dense v-if="form.student_id" @click="sendWhatsApp(form.student_id)" />
+              <q-btn size="11px" label="Guardar" color="green" type="submit" no-caps icon="save" dense v-if="isEdit===false" :loading="loading" />
               <q-btn size="11px" label="Actualizar" color="orange" type="submit" no-caps icon="save" dense v-if="isEdit===true" :loading="loading" />
               <q-btn size="11px" label="Eliminar" color="negative" @click="deleteEvent(form.id)" no-caps icon="delete" dense v-if="isEdit===true" :loading="loading" />
             </q-card-actions>
@@ -71,10 +82,12 @@ import timeGridPlugin from '@fullcalendar/timegrid'
 import interactionPlugin from '@fullcalendar/interaction'
 import esLocale from '@fullcalendar/core/locales/es'
 import moment from "moment";
+import Card2Component from "components/Card2Component.vue";
 
 export default {
   name: 'AppointmentsIndex',
   components: {
+    Card2Component,
     FullCalendar
   },
   data() {
@@ -84,6 +97,7 @@ export default {
         { label: 'Confimada', value: 'CONFIRMADA', color: 'positive' },
         { label: 'Cancelada', value: 'CANCELADA', color: 'negative' }
       ],
+      events: [],
       dialog: false,
       isEdit: false,
       loading: false,
@@ -118,6 +132,11 @@ export default {
     this.fetchEvents();
   },
   methods: {
+    sendWhatsApp(student_id) {
+      const student = this.students.find(student => student.id === student_id);
+      const url = `https://api.whatsapp.com/send?phone=+56${student.phone}&text=Hola ${student.tutorName}, te recordamos tu cita para el día ${moment(this.form.date).format('DD/MM/YYYY HH:mm')}`;
+      window.open(url, '_blank');
+    },
     openDialogClick() {
       this.openDialog({ startStr: moment().format('YYYY-MM-DDTHH:00') });
     },
@@ -139,6 +158,7 @@ export default {
     fetchEvents() {
       this.loading = true;
       this.$axios.get('appointments').then(response => {
+        this.events = response.data;
         this.calendarOptions.events = response.data.map(event => ({
           title: this.$filters.capitalize(event.student?.name),
           start: event.date,
@@ -220,15 +240,7 @@ export default {
     },
     handleDateSelect(selectInfo) {
       console.log(selectInfo);
-      console.log('aaaaaaa');
-      // extendedProps console log
-      // var eventObj = selectInfo.event;
-      // console.log(eventObj.extendedProps.id);
-      // this.openDialog({
-      //   startStr: selectInfo.startStr,
-      //   endStr: selectInfo.endStr,
-      //   id: null
-      // });
+      this.openDialog({ startStr: moment(selectInfo.startStr).format('YYYY-MM-DDT10:00') });
     },
     handleEventDrop({event}) {
       this.updateEvent(event);
@@ -248,6 +260,25 @@ export default {
         .then(() => {
           this.fetchEvents();
         });
+    }
+  },
+  computed: {
+    pedientesTotal() {
+      let total = 0;
+      this.events.forEach(event => {
+        if (event.status === 'PENDIENTE') {
+          total++;
+        }
+      });
+      return total+' Total';
+    },
+    confirmadasTotal() {
+      const total = this.events.filter(event => event.status === 'CONFIRMADA').length;
+      return total+' Total';
+    },
+    canceladasTotal() {
+      const total = this.events.filter(event => event.status === 'CANCELADA').length;
+      return total+' Total';
     }
   }
 }
