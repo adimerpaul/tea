@@ -26,7 +26,7 @@
                     <q-icon name="history" />
                   </q-item-section>
                   <q-item-section>
-                    <q-item-label>Historial</q-item-label>
+                    <q-item-label>Ficha</q-item-label>
                   </q-item-section>
                 </q-item>
               </q-list>

@@ -59,7 +59,7 @@
                 <div class="row items-center">
                   <div class="text-h6 text-bold">Antecedentes</div>
                   <q-space />
-                  <q-btn icon="add_circle_outline" @click="addHistory" label="Agregar" no-caps color="green" dense size="10px" />
+                  <q-btn icon="add_circle_outline" @click="addHistory" label="Agregar registro" no-caps color="green" dense size="10px" />
                 </div>
                 <q-markup-table dense wrap-cells>
                   <thead>

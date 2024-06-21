@@ -8,7 +8,7 @@
         <CardComponent title="Estudiantes" icon="o_face" to="/students" color="green" :amount="students" />
       </div>
       <div class="col-12 col-md-4">
-        <CardComponent title="Citas" icon="o_event" to="/appointments" color="orange" :amount="appointments" />
+        <CardComponent title="Reuniones" icon="o_event" to="/appointments" color="orange" :amount="appointments" />
       </div>
 <!--      {-->
 <!--      "users": 4,-->
@@ -22,10 +22,10 @@
         <CardComponent title="Diagnósticos" icon="o_medical_services" to="/diagnoses" color="red" :amount="data.diagnoses" />
       </div>
       <div class="col-12 col-md-4">
-        <CardComponent title="Documentos" icon="o_description" to="/documents" color="purple" :amount="data.documents" />
+        <CardComponent title="Protocolos" icon="o_description" to="/documents" color="purple" :amount="data.documents" />
       </div>
       <div class="col-12 col-md-4">
-        <CardComponent title="Historias" icon="o_history" to="/histories" color="blue" :amount="data.histories" />
+        <CardComponent title="Historiales" icon="o_history" to="/histories" color="blue" :amount="data.histories" />
       </div>
       <div class="col-12">
         <q-card class="q-mt-sm">
