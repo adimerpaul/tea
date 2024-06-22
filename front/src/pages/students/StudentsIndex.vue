@@ -52,6 +52,13 @@
           </template>
         </q-input>
       </template>
+      <template v-slot:body-cell-colegio="props">
+        <q-td auto-width>
+          <q-chip dense text-color="white" :style="`background-color: #${props.row.colegio?.color}`">
+            {{ props.row.colegio?.nombre}}
+          </q-chip>
+        </q-td>
+      </template>
     </q-table>
 <!--    <pre>{{students}}</pre>-->
     <q-dialog v-model="studentDialog" persistent>
@@ -88,8 +95,16 @@
             <div class="col-12 col-md-3">
               <q-input v-model="student.year" label="Año" outlined dense :rules="[val => !!val || 'Campo requerido']" />
             </div>
-            <div class="col-12">
+            <div class="col-12 col-md-9">
               <q-input v-model="student.address" label="Dirección" outlined dense :rules="[val => !!val || 'Campo requerido']" />
+            </div>
+            <div class="col-12 col-md-3">
+              <q-select v-model="student.colegio_id" label="Colegio" outlined dense :options="colegios"
+                        :rules="[val => !!val || 'Campo requerido']"
+                        emit-value map-options
+                        option-value="id"
+                        option-label="nombre"
+              />
             </div>
             <div class="col-12 col-md-6">
               <q-input v-model="student.phone" type="number" label="Celular" outlined dense :rules="[val => !!val || 'Campo requerido']" />
@@ -143,11 +158,12 @@ export default {
         { name: 'rut', label: 'Rut', align: 'left', field: row => row.rut },
         { name: 'name', label: 'Nombre', align: 'left', field: row => row.name },
         { name: 'birthdate', label: 'Fecha de Nacimiento', align: 'left', field: row => row.birthdate },
-        { name: 'year_PIE', label: 'Año PIE', align: 'left', field: row => row.year_PIE },
-        { name: 'course', label: 'Curso', align: 'left', field: row => row.course },
-        { name: 'year', label: 'Año', align: 'left', field: row => row.year },
-        { name: 'address', label: 'Dirección', align: 'left', field: row => row.address },
+        // { name: 'year_PIE', label: 'Año PIE', align: 'left', field: row => row.year_PIE },
+        // { name: 'course', label: 'Curso', align: 'left', field: row => row.course },
+        // { name: 'year', label: 'Año', align: 'left', field: row => row.year },
+        // { name: 'address', label: 'Dirección', align: 'left', field: row => row.address },
         { name: 'phone', label: 'Celular', align: 'left', field: row => row.phone },
+        { name: 'colegio', label: 'Colegio', align: 'left', field: row => row.colegio?.nombre },
       ],
       loading: false,
       students: [],
@@ -155,13 +171,25 @@ export default {
       studentDialog: false,
       clienDialogHistory: false,
       filter: '',
-      passwordShow: false
+      passwordShow: false,
+      colegios: []
     }
   },
   mounted() {
     this.studentGet()
+    this.colegiosGet()
   },
   methods: {
+    colegiosGet () {
+      this.loading = true
+      this.$axios.get('colegios').then(response => {
+        this.colegios = response.data
+      }).catch(error => {
+        this.$alert.error(error.response.data.message)
+      }).finally(() => {
+        this.loading = false
+      })
+    },
     studentSave () {
       this.loading = true
       if (this.student.id) {

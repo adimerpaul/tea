@@ -16,4 +16,10 @@ class Student extends Model
     public function diagnoses(){
         return $this->hasMany(Diagnosis::class)->orderBy('id', 'desc');
     }
+    public function documents(){
+        return $this->hasMany(Document::class)->orderBy('id', 'desc');
+    }
+    public function colegio(){
+        return $this->belongsTo(Colegio::class);
+    }
 }
