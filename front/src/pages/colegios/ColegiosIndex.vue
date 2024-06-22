@@ -1,6 +1,9 @@
 <template>
   <q-page class="bg-grey-3 q-pa-md">
-    <q-table :rows="colegios" :columns="columns" title="Colegios" :rows-per-page-options="[0]" row-key="id" dense :filter="filter" :loading="loading">
+    <q-table :rows="colegios" :columns="columns" title="Colegios" :rows-per-page-options="[0]"
+             row-key="id" dense :filter="filter" :loading="loading"
+             wrap-cells no-data-label="No hay datos">
+    >
       <template v-slot:body-cell-option="props">
         <q-td auto-width>
 <!--          <q-btn flat dense icon="edit" @click="colegioEdit(props.row)" >-->
@@ -56,6 +59,13 @@
           <a :href="$url+'../imagenes/'+props.row.logo" target="_blank">
             <q-img :src="$url+'../imagenes/'+props.row.logo" style="width: 50px; height: 50px" />
           </a>
+        </q-td>
+      </template>
+      <template v-slot:body-cell-nombre="props">
+        <q-td auto-width>
+          <q-chip dense text-color="white" :style="`background-color: #${props.row.color}`">
+            {{ props.row.nombre }}
+          </q-chip>
         </q-td>
       </template>
     </q-table>
