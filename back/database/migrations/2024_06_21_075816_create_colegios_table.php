@@ -13,9 +13,14 @@ return new class extends Migration
     {
         Schema::create('colegios', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre');
-            $table->string('codigo');
-            $table->string('url');
+            $table->string('nombre')->unique();
+            $table->string('codigo')->nullable();
+            $table->string('logo')->nullable()->default('default.jpg');
+            $table->string('direccion')->nullable();
+            $table->string('telefono')->nullable();
+            $table->string('email')->nullable();
+            $table->string('color')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }
