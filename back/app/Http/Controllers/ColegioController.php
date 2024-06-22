@@ -20,7 +20,7 @@ class ColegioController extends Controller{
         $colegio->telefono = $request->telefono;
         $colegio->email = $request->email;
         $colegio->save();
-        return $colegio;
+        return Colegio::where('id', $colegio->id)->first();
     }
     function update(Request $request, $id){
         $colegio = Colegio::find($id);
@@ -38,6 +38,9 @@ class ColegioController extends Controller{
         return $colegio;
     }
     function fotoColegio(Request $request, $id){
+        $validated = $request->validate([
+            'logo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
         $colegio = Colegio::find($id);
         $imagen = $request->file('logo');
         $nombre = time().'_'.$imagen->getClientOriginalName();

@@ -3,27 +3,42 @@
     <q-table :rows="colegios" :columns="columns" title="Colegios" :rows-per-page-options="[0]" row-key="id" dense :filter="filter" :loading="loading">
       <template v-slot:body-cell-option="props">
         <q-td auto-width>
-          <q-btn flat dense icon="edit" @click="colegioEdit(props.row)" >
-            <q-tooltip>Editar</q-tooltip>
-          </q-btn>
-          <q-btn flat dense icon="delete" @click="colegioDelete(props.row)" >
-            <q-tooltip>Eliminar</q-tooltip>
-          </q-btn>
-          <q-btn flat dense icon="vpn_key" @click="colegioChangePassword(props.row)" >
-            <q-tooltip>Cambiar Contraseña</q-tooltip>
-          </q-btn>
+<!--          <q-btn flat dense icon="edit" @click="colegioEdit(props.row)" >-->
+<!--            <q-tooltip>Editar</q-tooltip>-->
+<!--          </q-btn>-->
+<!--          <q-btn flat dense icon="delete" @click="colegioDelete(props.row)" >-->
+<!--            <q-tooltip>Eliminar</q-tooltip>-->
+<!--          </q-btn>-->
+          <q-btn-dropdown label="Opciones" color="primary" auto-close no-caps size="10px">
+            <q-item v-ripple clickable @click="colegioEdit(props.row)">
+              <q-item-section avatar>
+                <q-icon name="edit" />
+              </q-item-section>
+              <q-item-section>
+                <q-item-label>Editar</q-item-label>
+              </q-item-section>
+            </q-item>
+            <q-item v-ripple clickable @click="colegioDelete(props.row)">
+              <q-item-section avatar>
+                <q-icon name="delete" />
+              </q-item-section>
+              <q-item-section>
+                <q-item-label>Eliminar</q-item-label>
+              </q-item-section>
+            </q-item>
+            <q-item v-ripple clickable @click="fotoColegio(props.row)">
+              <q-item-section avatar>
+                <q-icon name="image" />
+              </q-item-section>
+              <q-item-section>
+                <q-item-label>Cambio de foto</q-item-label>
+              </q-item-section>
+            </q-item>
+          </q-btn-dropdown>
 
           <!--            <q-btn flat dense icon="history" @click="colegioHistory(props.row)" >-->
           <!--              <q-tooltip>Historial</q-tooltip>-->
           <!--            </q-btn>-->
-        </q-td>
-      </template>
-      <template v-slot:body-cell-role="props">
-        <q-td :props="props">
-          <q-chip dense label="Admin" color="primary" text-color="white" v-if="props.row.role === 'ADMIN'" />
-          <q-chip dense label="Tutor" color="indigo" text-color="white" v-if="props.row.role === 'ATTORNEY'" />
-          <q-chip dense label="Profesor" color="green" text-color="white" v-if="props.row.role === 'TEACHER'" />
-          <q-chip dense label="Doctor" color="red" text-color="white" v-if="props.row.role === 'DOCTOR'" />
         </q-td>
       </template>
       <template v-slot:top-right>
@@ -35,6 +50,13 @@
             <q-icon name="search" />
           </template>
         </q-input>
+      </template>
+      <template v-slot:body-cell-logo="props">
+        <q-td auto-width>
+          <a :href="$url+'../imagenes/'+props.row.logo" target="_blank">
+            <q-img :src="$url+'../imagenes/'+props.row.logo" style="width: 50px; height: 50px" />
+          </a>
+        </q-td>
       </template>
     </q-table>
     <!--    <pre>{{colegios}}</pre>-->
@@ -85,6 +107,7 @@ export default {
         { name: 'id', label: 'ID', align: 'left', field: row => row.id },
         { name: 'nombre', label: 'Nombre', align: 'left', field: row => row.nombre },
         { name: 'codigo', label: 'Código', align: 'left', field: row => row.codigo },
+        { name: 'logo', label: 'Logo', align: 'left', field: row => row.logo },
         { name: 'direccion', label: 'Dirección', align: 'left', field: row => row.direccion },
         { name: 'telefono', label: 'Teléfono', align: 'left', field: row => row.telefono },
         { name: 'email', label: 'Email', align: 'left', field: row => row.email },
@@ -102,6 +125,27 @@ export default {
     this.colegioGet()
   },
   methods: {
+    fotoColegio (colegio) {
+      this.$alert.prompt('Ingrese la URL de la foto').onOk(url => {
+        console.log(url)
+        this.loading = true
+        const formData = new FormData()
+        formData.append('logo', url[0])
+        this.$axios.post(`fotoColegio/${colegio.id}`, formData,{
+          headers: {
+            'Content-Type': 'multipart/form-data'
+          }
+        }).then(response => {
+          this.$alert.success('Foto cambiada con éxito')
+          const find = this.colegios.find(c => c.id === colegio.id)
+          find.logo = response.data.logo
+        }).catch(error => {
+          this.$alert.error(error.response.data.message)
+        }).finally(() => {
+          this.loading = false
+        })
+      })
+    },
     colegioSave () {
       this.loading = true
       if (this.colegio.id) {
@@ -141,7 +185,7 @@ export default {
       this.$alert.confirm('¿Está seguro de eliminar este colegioe?').onOk(() => {
         this.loading = true
         this.$axios.delete(`colegios/${colegio.id}`).then(response => {
-          const index = this.colegios.findIndex(colegio => colegio.id === colegio.id)
+          const index = this.colegios.findIndex(c => c.id === colegio.id)
           this.colegios.splice(index, 1)
         }).catch(error => {
           this.$alert.error(error.response.data.message)

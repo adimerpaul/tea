@@ -29,6 +29,27 @@ export class Alert {
     })
   }
 
+  static prompt (message) {
+    return Dialog.create({
+      title: 'Confirmación',
+      message,
+      prompt: {
+        model: '',
+        type: 'file',
+        placeholder: 'Escribe algo',
+      },
+      color: 'positive',
+      ok: {
+        label: 'Aceptar',
+        color: 'positive'
+      },
+      cancel: {
+        label: 'Cancelar',
+        color: 'negative'
+      },
+    })
+  }
+
   static confirm (message) {
     return Dialog.create({
       title: 'Confirmación',
