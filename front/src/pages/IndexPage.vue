@@ -84,23 +84,23 @@ export default defineComponent({
         // 'Protocolo-de-accion-en-caso-de-desregulacion-conductual-y-emocional 1.docx',
         {
           name: 'PROTOCOLO DESREGULACIÓN EMOCIONAL Y CONDUCTUAL 2.0',
-          url: 'PROTOCOLO DESREGULACIÓN EMOCIONAL Y CONDUCTUAL 2.0.docx'
+          url: 'a.docx'
         },
         {
           name: 'PROTOCOLO PARA ESTUDIANTES EN GENERAL',
-          url: 'PROTOCOLO PARA ESTUDIANTES EN GENERAL.docx'
+          url: 'b.docx'
         },
         {
           name: 'Protocolo para estudiasntes TEA',
-          url: 'Protocolo para estudiasntes TEA.docx'
+          url: 'c.docx'
         },
         {
           name: 'protocolo y acciones',
-          url: 'protocolo y acciones.docx'
+          url: 'ds.docx'
         },
         {
           name: 'Protocolo-de-accion-en-caso-de-desregulacion-conductual-y-emocional 1',
-          url: 'Protocolo-de-accion-en-caso-de-desregulacion-conductual-y-emocional 1.docx'
+          url: 'e.docx'
         }
       ]
     }
