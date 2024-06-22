@@ -8,6 +8,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Colegio extends Model{
     use HasFactory, SoftDeletes;
-    protected $fillable = ['nombre', 'codigo', 'logo', 'direccion', 'telefono', 'email'];
+    protected $fillable = ['nombre', 'codigo', 'logo', 'direccion', 'telefono', 'email', 'color'];
     protected $hidden = ['created_at', 'updated_at', 'deleted_at'];
 }

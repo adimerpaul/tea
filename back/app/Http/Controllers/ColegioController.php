@@ -10,15 +10,12 @@ class ColegioController extends Controller{
         return Colegio::orderBy('id', 'desc')->get();
     }
     function store(Request $request){
-////        subir imagen
-//        $imagen = $request->file('logo');
-//        $nombre = time().'_'.$imagen->getClientOriginalName();
-//        $imagen->move('imagenes', $nombre);
-
+        $colores =['F44336', 'E91E63', '9C27B0', '673AB7', '3F51B5', '2196F3', '03A9F4', '00BCD4', '009688', '4CAF50', '8BC34A', 'CDDC39', 'FFEB3B', 'FFC107', 'FF9800', 'FF5722', '795548', '9E9E9E', '607D8B'];
+        $color = $colores[rand(0, count($colores)-1)];
         $colegio = new Colegio();
         $colegio->nombre = $request->nombre;
         $colegio->codigo = $request->codigo;
-//        $colegio->logo = $nombre;
+        $colegio->color = $color;
         $colegio->direccion = $request->direccion;
         $colegio->telefono = $request->telefono;
         $colegio->email = $request->email;

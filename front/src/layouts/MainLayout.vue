@@ -116,7 +116,7 @@ export default {
         { title: 'Usuarios', icon: 'people', to: '/users' },
         { title: 'Citas', icon: 'event', to: '/appointments' },
         { title: 'Estudiantes', icon: 'school', to: '/students' },
-        { title: 'Colegio', icon: 'history_edu', to: '/schools' },
+        { title: 'Colegio', icon: 'history_edu', to: '/colegios' },
         // { title: 'Matriculas', icon: 'assignment', to: '/enrollments' },
         // { title: 'Pagos', icon: 'payment', to: '/payments' },
         { title: 'Reportes', icon: 'description', to: '/reports' },
@@ -152,7 +152,7 @@ export default {
       if (route === '/') return 'Inicio'
       else if (route === '/users') return 'Usuarios'
       else if (route === '/students') return 'Estudiantes'
-      else if (route === '/schools') return 'Colegios'
+      else if (route === '/colegios') return 'Colegios'
       else if (route === '/reports') return 'Reportes'
       else if (route === '/appointments') return 'Citas'
       else

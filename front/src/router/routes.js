@@ -9,7 +9,7 @@ const routes = [
       { path: 'students', component: () => import('pages/students/StudentsIndex.vue'), meta: { requiresAuth: true } },
       { path: 'appointments', component: () => import('pages/appointments/AppointmentsIndex.vue'), meta: { requiresAuth: true } },
       { path: 'students/history/:id', component: () => import('pages/students/StudentsHistory.vue'), meta: { requiresAuth: true } },
-      { path: 'schools', component: () => import('pages/schools/SchoolsIndex.vue'), meta: { requiresAuth: true } },
+      { path: 'colegios', component: () => import('pages/colegios/ColegiosIndex.vue'), meta: { requiresAuth: true } },
     ]
   },
   {

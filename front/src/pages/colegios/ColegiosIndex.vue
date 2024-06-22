@@ -41,7 +41,7 @@
     <q-dialog v-model="colegioDialog" persistent>
       <q-card style="width: 250px;max-width: 90vw;">
         <q-card-section class="row items-center q-pb-none">
-          <div class="text-h6">{{ colegio.id ? 'Editar' : 'Agregar' }} Cliente</div>
+          <div class="text-h6">{{ colegio.id ? 'Editar' : 'Agregar' }} Colegio</div>
           <q-space />
           <q-btn flat dense icon="close" @click="colegioDialog = false" />
         </q-card-section>
@@ -49,27 +49,19 @@
           <q-card-section>
             <div class="row">
               <div class="col-12">
-                <q-input v-model="colegio.name" label="Nombre" outlined dense :rules="[val => !!val || 'Campo requerido']" />
+                <q-input v-model="colegio.nombre" label="Nombre" outlined dense :rules="[val => !!val || 'Campo requerido']" />
               </div>
               <div class="col-12">
-                <q-input v-model="colegio.colegioname" label="Usuario" outlined dense :rules="[val => !!val || 'Campo requerido']" />
+                <q-input v-model="colegio.codigo" label="Código" outlined dense :rules="[val => !!val || 'Campo requerido']" />
               </div>
               <div class="col-12">
-                <q-input v-model="colegio.password" label="Contraseña" outlined dense
-                         :rules="[val => !!val || 'Campo requerido']" :type="passwordShow ? 'text' : 'password'"
-                         v-if="!colegio.id"
-                >
-                  <template v-slot:append>
-                    <q-icon :name="passwordShow ? 'visibility' : 'visibility_off'" @click="passwordShow = !passwordShow" />
-                  </template>
-                </q-input>
+                <q-input v-model="colegio.direccion" label="Dirección" outlined dense :rules="[val => !!val || 'Campo requerido']" />
               </div>
               <div class="col-12">
-                <q-select v-model="colegio.role" label="Rol" outlined dense
-                          :options="[{label: 'Admin', value: 'ADMIN'}, {label: 'Tutor', value: 'ATTORNEY'}, {label: 'Profesor', value: 'TEACHER'}, {label: 'Doctor', value: 'DOCTOR'}]"
-                          :rules="[val => !!val || 'Campo requerido']"
-                          emit-value map-options
-                />
+                <q-input v-model="colegio.telefono" label="Teléfono" outlined dense :rules="[val => !!val || 'Campo requerido']" />
+              </div>
+              <div class="col-12">
+                <q-input v-model="colegio.email" label="Email" outlined dense :rules="[val => !!val || 'Campo requerido']" />
               </div>
               <!--            <pre>{{colegio}}</pre>-->
             </div>
@@ -85,15 +77,17 @@
 </template>
 <script>
 export default {
-  name: 'ClientsIndex',
+  name: 'ColegiosIndex',
   data () {
     return {
       columns: [
         { name: 'option', label: 'Opciones', align: 'left', field: row => row.option },
         { name: 'id', label: 'ID', align: 'left', field: row => row.id },
-        { name: 'name', label: 'Nombre', align: 'left', field: row => row.name },
-        { name: 'colegioname', label: 'Usuario', align: 'left', field: row => row.colegioname },
-        { name: 'role', label: 'Rol', align: 'left', field: row => row.role }
+        { name: 'nombre', label: 'Nombre', align: 'left', field: row => row.nombre },
+        { name: 'codigo', label: 'Código', align: 'left', field: row => row.codigo },
+        { name: 'direccion', label: 'Dirección', align: 'left', field: row => row.direccion },
+        { name: 'telefono', label: 'Teléfono', align: 'left', field: row => row.telefono },
+        { name: 'email', label: 'Email', align: 'left', field: row => row.email },
       ],
       loading: false,
       colegios: [],
@@ -164,7 +158,10 @@ export default {
       this.colegioDialog = true
       this.colegio = {
         name: '',
-        ci: ''
+        codigo: '',
+        direccion: '',
+        telefono: '',
+        email: '',
       }
     },
     colegioGet () {
