@@ -9,7 +9,7 @@ class Student extends Model
 {
     use HasFactory;
     protected $hidden = ['created_at', 'updated_at'];
-    protected $fillable = ['rut', 'name', 'birthdate', 'year_PIE', 'course', 'year', 'address', 'phone', 'sex','tutorRut','tutorName','colegio_id'];
+    protected $fillable = ['rut', 'name', 'birthdate', 'year_PIE', 'course', 'year', 'address', 'phone', 'sex','tutorRut','tutorName','colegio_id','email','foto'];
     public function histories(){
         return $this->hasMany(History::class)->with('user')->orderBy('id', 'desc');
     }

@@ -1,6 +1,8 @@
 <template>
   <q-page class="bg-grey-3 q-pa-md">
-    <q-table :rows="students" :columns="columns" title="Estudiantes" :rows-per-page-options="[0]" row-key="id" dense :filter="filter" :loading="loading">
+    <q-table :rows="students" :columns="columns" title="Estudiantes" :rows-per-page-options="[0]" row-key="id" dense :filter="filter" :loading="loading"
+             wrap-cells
+    >
       <template v-slot:body-cell-option="props">
           <q-td auto-width>
             <q-btn-dropdown size="sm" label="Opciones" no-caps color="primary">
@@ -29,6 +31,14 @@
                     <q-item-label>Ficha</q-item-label>
                   </q-item-section>
                 </q-item>
+                <q-item v-ripple clickable @click="fotoColegio(props.row)">
+                  <q-item-section avatar>
+                    <q-icon name="image" />
+                  </q-item-section>
+                  <q-item-section>
+                    <q-item-label>Cambio de foto</q-item-label>
+                  </q-item-section>
+                </q-item>
               </q-list>
             </q-btn-dropdown>
 <!--            <q-btn flat dense icon="edit" @click="studentEdit(props.row)" label="Editar" no-caps :loading="loading" size="sm">-->
@@ -51,6 +61,14 @@
             <q-icon name="search" />
           </template>
         </q-input>
+      </template>
+      <template v-slot:body-cell-foto="props">
+        <q-td auto-width>
+<!--          <pre>{{$url+'../students/'+props.row.foto}}</pre>-->
+          <a :href="$url+'../students/'+props.row.foto" target="_blank">
+            <q-img :src="$url+'../students/'+props.row.foto" style="width: 50px; height: 50px" />
+          </a>
+        </q-td>
       </template>
       <template v-slot:body-cell-colegio="props">
         <q-td auto-width>
@@ -106,10 +124,13 @@
                         option-label="nombre"
               />
             </div>
-            <div class="col-12 col-md-6">
+            <div class="col-12 col-md-4">
               <q-input v-model="student.phone" type="number" label="Celular" outlined dense :rules="[val => !!val || 'Campo requerido']" />
             </div>
-            <div class="col-12 col-md-6">
+            <div class="col-12 col-md-4">
+              <q-input v-model="student.email" label="email" outlined dense :rules="[val => !!val || 'Campo requerido']" />
+            </div>
+            <div class="col-12 col-md-4">
 <!--              <q-select v-model="student.sex" label="Sexo" outlined dense-->
 <!--                        :options="[{label: 'Masculino', value: 'M'}, {label: 'Femenino', value: 'F'}]"-->
 <!--                        :rules="[val => !!val || 'Campo requerido']"-->
@@ -153,17 +174,19 @@ export default {
         '4TO SECUNDARIA',
       ],
       columns: [
-        { name: 'option', label: 'Opciones', align: 'left', field: row => row.option },
         { name: 'id', label: 'ID', align: 'left', field: row => row.id },
         { name: 'rut', label: 'Rut', align: 'left', field: row => row.rut },
         { name: 'name', label: 'Nombre', align: 'left', field: row => row.name },
-        { name: 'birthdate', label: 'Fecha de Nacimiento', align: 'left', field: row => row.birthdate },
-        // { name: 'year_PIE', label: 'Año PIE', align: 'left', field: row => row.year_PIE },
+        // { name: 'birthdate', label: 'Fecha de Nacimiento', align: 'left', field: row => row.birthdate },
+        { name: 'email', label: 'Email', align: 'left', field: row => row.email },
+        { name: 'foto', label: 'Foto', align: 'left', field: row => row.foto },
         // { name: 'course', label: 'Curso', align: 'left', field: row => row.course },
         // { name: 'year', label: 'Año', align: 'left', field: row => row.year },
         // { name: 'address', label: 'Dirección', align: 'left', field: row => row.address },
         { name: 'phone', label: 'Celular', align: 'left', field: row => row.phone },
         { name: 'colegio', label: 'Colegio', align: 'left', field: row => row.colegio?.nombre },
+        { name: 'option', label: 'Opciones', align: 'left', field: row => row.option },
+
       ],
       loading: false,
       students: [],
@@ -213,11 +236,20 @@ export default {
         })
       }
     },
-    studentChangePassword (student) {
-      this.$alert.promptPassword('Ingrese la nueva contraseña').onOk(password => {
+    fotoColegio (student) {
+      this.$alert.prompt('Ingrese la URL de la foto').onOk(url => {
+        console.log(url)
         this.loading = true
-        this.$axios.put(`passwordUpdate/${student.id}`, {password}).then(response => {
-          this.$alert.success('Contraseña cambiada con éxito')
+        const formData = new FormData()
+        formData.append('file', url[0])
+        this.$axios.post(`fotoStudent/${student.id}`, formData,{
+          headers: {
+            'Content-Type': 'multipart/form-data'
+          }
+        }).then(response => {
+          this.$alert.success('Foto cambiada con éxito')
+          const find = this.students.find(c => c.id === student.id)
+          find.logo = response.data.logo
         }).catch(error => {
           this.$alert.error(error.response.data.message)
         }).finally(() => {

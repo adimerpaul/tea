@@ -25,6 +25,7 @@ Route::group(['middleware' => 'auth:sanctum'], function(){
     Route::delete('/students/{id}', [\App\Http\Controllers\StudentController::class, 'destroy']);
     Route::get('/students/{id}', [\App\Http\Controllers\StudentController::class, 'show']);
     Route::post('/students/{id}/diagnoses', [\App\Http\Controllers\DiagnosisController::class, 'store']);
+    Route::post('/fotoStudent/{id}', [\App\Http\Controllers\StudentController::class, 'fotoStudent']);
 
     Route::delete('/diagnoses/{id}', [\App\Http\Controllers\DiagnosisController::class, 'destroy']);
     Route::get('/diagnoses/{id}/download', [\App\Http\Controllers\DiagnosisController::class, 'download']);

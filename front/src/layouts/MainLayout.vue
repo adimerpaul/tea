@@ -134,7 +134,7 @@ export default {
       essentialLinks: [
         { title: 'Inicio', icon: 'home', to: '/', can: 'ALL' },
         { title: 'Usuarios', icon: 'people', to: '/users',can: 'ADMIN' },
-        { title: 'Citas', icon: 'event', to: '/appointments', can: 'ALL' },
+        { title: 'Reuniones', icon: 'event', to: '/appointments', can: 'ALL' },
         { title: 'Estudiantes', icon: 'school', to: '/students', can: 'ALL'},
         { title: 'Colegio', icon: 'history_edu', to: '/colegios', can: 'ALL'},
         { title: 'Reportes', icon: 'description', to: '/reports', can: 'ALL'},
