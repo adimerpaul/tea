@@ -17,7 +17,7 @@
           </div>
         </q-toolbar-title>
         <div>
-          <q-btn flat dense round icon="o_account_circle" aria-label="Menu">
+          <q-btn flat dense icon="o_account_circle" aria-label="Menu" :label="$filters.capitalize($store.user?.name)" no-caps icon-right="arrow_drop_down">
             <q-menu>
               <q-list>
                 <q-item clickable v-ripple>
@@ -76,7 +76,7 @@
                     <q-chip dense label="Profesor" color="green" text-color="white" v-if="$store.user?.role === 'TEACHER'" icon="account_circle"/>
                     <q-chip dense label="Asis Educ" color="orange" text-color="white" v-if="$store.user?.role === 'ASIS EDUC'" icon="account_circle"/>
                   </q-item-label>
-                  <q-item-label caption class="text-white">{{ $store.user.name }}</q-item-label>
+                  <q-item-label caption class="text-white">{{ $store.user.colegio?.nombre }}</q-item-label>
                 </q-item-section>
               </q-item>
             </q-item-label>

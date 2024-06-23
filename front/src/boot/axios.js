@@ -36,6 +36,7 @@ export default boot(({ app, router }) => {
       return `${date.getDate()} ${meses[date.getMonth()]} ${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}`
     },
     capitalize: function (value) {
+      if (!value) return ''
       const lower = value.toLowerCase()
       return value.charAt(0).toUpperCase() + lower.slice(1)
     }
