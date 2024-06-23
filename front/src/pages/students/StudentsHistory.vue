@@ -3,21 +3,35 @@
     <q-card class="q-mb-md">
       <q-card-section>
         <div class="row">
-          <div class="col-12 col-md-3">
-            <label class="text-bold">Rut</label>
-            <div>{{student.rut}}</div>
-          </div>
-          <div class="col-12 col-md-9">
-            <label class="text-bold">Nombre Completo</label>
-            <div>{{student.name}}</div>
-          </div>
-          <div class="col-6 col-md-3">
-            <label class="text-bold">Rut Tutor</label>
-            <div>{{student.tutorRut}}</div>
-          </div>
-          <div class="col-6 col-md-9">
-            <label class="text-bold">Nombre Tutor</label>
-            <div>{{student.tutorName}}</div>
+          <div class="col-12">
+            <div class="row">
+              <div class="col-12 col-md-8">
+                <div class="row">
+                  <div class="col-6 col-md-4">
+                    <label class="text-bold">Rut</label>
+                    <div>{{student.rut}}</div>
+                  </div>
+                  <div class="col-6 col-md-8">
+                    <label class="text-bold">Nombre Completo</label>
+                    <div>{{student.name}}</div>
+                  </div>
+                  <div class="col-6 col-md-4">
+                    <label class="text-bold">Rut Tutor</label>
+                    <div>{{student.tutorRut}}</div>
+                  </div>
+                  <div class="col-6 col-md-8">
+                    <label class="text-bold">Nombre Tutor</label>
+                    <div>{{student.tutorName}}</div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-4 ">
+                <div class="text-bold">Fotografia</div>
+                <div class="flex flex-center">
+                  <q-img :src="$url+'../students/'+student.foto" style="width: 100px; height: 100px" />
+                </div>
+              </div>
+            </div>
           </div>
           <div class="col-6 col-md-3">
             <label class="text-bold">Fecha de Nacimiento</label>
@@ -39,11 +53,15 @@
             <label class="text-bold">Dirección</label>
             <div>{{student.address}}</div>
           </div>
-          <div class="col-6 col-md-6">
+          <div class="col-6 col-md-3">
             <label class="text-bold">Celular</label>
             <div>{{student.phone}}</div>
           </div>
-          <div class="col-6 col-md-6">
+          <div class="col-6 col-md-3">
+            <label class="text-bold">email</label>
+            <div>{{student.email}}</div>
+          </div>
+          <div class="col-6 col-md-3">
             <label class="text-bold">Sexo</label>
             <div>{{student.sex === 'M' ? 'Masculino' : 'Femenino'}}</div>
           </div>
@@ -103,7 +121,8 @@
                       </q-btn-dropdown>
                     </td>
                     <td>
-                      {{$filters.formatdMY(history.date)}}
+<!--                      <pre>{{ history }}</pre>-->
+                      {{$filters.formatdMYHMS(history.created_at)}}
                     </td>
                     <td>{{history.description}}</td>
                     <td>{{history.user?.name}}</td>

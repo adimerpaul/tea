@@ -15,5 +15,5 @@ class History extends Model
     public function user(){
         return $this->belongsTo(User::class);
     }
-    protected $hidden = ['created_at', 'updated_at'];
+    protected $hidden = [ 'updated_at'];
 }
