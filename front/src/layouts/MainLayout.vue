@@ -67,10 +67,14 @@
                 </q-item-section>
                 <q-item-section>
                   <q-item-label class="text-white text-bold">
-                    <q-chip label="Admin" color="primary" text-color="white" v-if="$store.user?.role === 'ADMIN'" icon="account_circle"/>
-                    <q-chip label="Tutor" color="indigo" text-color="white" v-if="$store.user?.role === 'ATTORNEY'" icon="account_circle"/>
-                    <q-chip label="Profesor" color="green" text-color="white" v-if="$store.user?.role === 'TEACHER'" icon="account_circle"/>
-                    <q-chip label="Doctor" color="red" text-color="white" v-if="$store.user?.role === 'DOCTOR'" icon="account_circle"/>
+<!--                    <q-chip dense label="Admin" color="red" text-color="white" v-if="props.row.role === 'ADMIN'" />-->
+<!--                    <q-chip dense label="Tutor" color="indigo" text-color="white" v-if="props.row.role === 'ATTORNEY'" />-->
+<!--                    <q-chip dense label="Profesor" color="green" text-color="white" v-if="props.row.role === 'TEACHER'" />-->
+<!--                    <q-chip dense label="Asis Educ" color="orange" text-color="white" v-if="props.row.role === 'ASIS EDUC'" />-->
+                    <q-chip dense label="Admin" color="red" text-color="white" v-if="$store.user?.role === 'ADMIN'" icon="account_circle"/>
+                    <q-chip dense label="Tutor" color="indigo" text-color="white" v-if="$store.user?.role === 'ATTORNEY'" icon="account_circle"/>
+                    <q-chip dense label="Profesor" color="green" text-color="white" v-if="$store.user?.role === 'TEACHER'" icon="account_circle"/>
+                    <q-chip dense label="Asis Educ" color="orange" text-color="white" v-if="$store.user?.role === 'ASIS EDUC'" icon="account_circle"/>
                   </q-item-label>
                   <q-item-label caption class="text-white">{{ $store.user.name }}</q-item-label>
                 </q-item-section>

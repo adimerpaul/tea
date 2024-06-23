@@ -20,10 +20,10 @@
       </template>
       <template v-slot:body-cell-role="props">
         <q-td :props="props">
-          <q-chip dense label="Admin" color="primary" text-color="white" v-if="props.row.role === 'ADMIN'" />
+          <q-chip dense label="Admin" color="red" text-color="white" v-if="props.row.role === 'ADMIN'" />
           <q-chip dense label="Tutor" color="indigo" text-color="white" v-if="props.row.role === 'ATTORNEY'" />
           <q-chip dense label="Profesor" color="green" text-color="white" v-if="props.row.role === 'TEACHER'" />
-          <q-chip dense label="Doctor" color="red" text-color="white" v-if="props.row.role === 'DOCTOR'" />
+          <q-chip dense label="Asis Educ" color="orange" text-color="white" v-if="props.row.role === 'ASIS EDUC'" />
         </q-td>
       </template>
       <template v-slot:top-right>
@@ -35,6 +35,13 @@
             <q-icon name="search" />
           </template>
         </q-input>
+      </template>
+      <template v-slot:body-cell-colegio="props">
+        <q-td auto-width>
+          <q-chip dense text-color="white" :style="`background-color: #${props.row.colegio?.color}`">
+            {{ props.row.colegio?.nombre}}
+          </q-chip>
+        </q-td>
       </template>
     </q-table>
 <!--    <pre>{{users}}</pre>-->
@@ -66,9 +73,18 @@
             </div>
             <div class="col-12">
               <q-select v-model="user.role" label="Rol" outlined dense
-                        :options="[{label: 'Admin', value: 'ADMIN'}, {label: 'Tutor', value: 'ATTORNEY'}, {label: 'Profesor', value: 'TEACHER'}, {label: 'Doctor', value: 'DOCTOR'}]"
+                        :options="roles"
                         :rules="[val => !!val || 'Campo requerido']"
                         emit-value map-options
+              />
+            </div>
+            <div class="col-12">
+              <q-select v-model="user.colegio_id" label="Colegio" outlined dense
+                        :options="colegios"
+                        :rules="[val => !!val || 'Campo requerido']"
+                        emit-value map-options
+                        option-value="id"
+                        option-label="nombre"
               />
             </div>
 <!--            <pre>{{user}}</pre>-->
@@ -93,7 +109,14 @@ export default {
         { name: 'id', label: 'ID', align: 'left', field: row => row.id },
         { name: 'name', label: 'Nombre', align: 'left', field: row => row.name },
         { name: 'username', label: 'Usuario', align: 'left', field: row => row.username },
-        { name: 'role', label: 'Rol', align: 'left', field: row => row.role }
+        { name: 'role', label: 'Rol', align: 'left', field: row => row.role },
+        { name: 'colegio', label: 'Colegio', align: 'left', field: row => row.colegio?.nombre },
+      ],
+      roles: [
+        {label: 'Admin', value: 'ADMIN'},
+        {label: 'Tutor', value: 'ATTORNEY'},
+        {label: 'Profesor', value: 'TEACHER'},
+        {label: 'Asis Educ', value: 'ASIS EDUC'}
       ],
       loading: false,
       users: [],
@@ -101,13 +124,25 @@ export default {
       userDialog: false,
       clienDialogHistory: false,
       filter: '',
-      passwordShow: false
+      passwordShow: false,
+      colegios: []
     }
   },
   mounted() {
     this.userGet()
+    this.colegioGet()
   },
   methods: {
+    colegioGet () {
+      this.loading = true
+      this.$axios.get('colegios').then(response => {
+        this.colegios = response.data
+      }).catch(error => {
+        this.$alert.error(error.response.data.message)
+      }).finally(() => {
+        this.loading = false
+      })
+    },
     userSave () {
       this.loading = true
       if (this.user.id) {
