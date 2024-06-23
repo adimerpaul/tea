@@ -63,7 +63,7 @@
             <q-item-label class="q-pa-xs">
               <q-item dense>
                 <q-item-section avatar>
-                  <q-img src="/logo.png" />
+                  <q-img :src="$url + '../imagenes/'+$store.user.colegio?.logo" class="bg-white" style="width: 50px; height: 50px; border-radius: 50%" />
                 </q-item-section>
                 <q-item-section>
                   <q-item-label class="text-white text-bold">
@@ -80,15 +80,31 @@
                 </q-item-section>
               </q-item>
             </q-item-label>
-            <q-item clickable dense v-ripple v-for="link in essentialLinks" :key="link.title" :to="link.to" exact :class="`text-white ${rutaActual==link.to?'bg-secondary':''}`">
-              <q-item-section avatar>
-                <q-avatar  text-color="white" :icon="`${rutaActual==link.to?link.icon:'o_'+link.icon}`" :size="`${rutaActual==link.to?'45px':'38px'}`" />
-              </q-item-section>
-              <q-item-section>
-                <q-item-label :class="`text-white ${rutaActual==link.to?'text-bold':''}`">{{ link.title }}</q-item-label>
-              </q-item-section>
-            </q-item>
-
+            <template v-if="$store.user.role">
+              <template v-for="link in essentialLinks" :key="link.title">
+<!--                el user solo visible para el storesuserid -->
+                <q-item clickable dense v-ripple v-if="link.can === 'ALL' || link.can === $store.user.role"
+                         :to="link.to" exact
+                        :class="`text-white ${rutaActual==link.to?'bg-secondary':''}`">
+                  <q-item-section avatar>
+                    <q-avatar  text-color="white" :icon="`${rutaActual==link.to?link.icon:'o_'+link.icon}`" :size="`${rutaActual==link.to?'45px':'38px'}`" />
+                  </q-item-section>
+                  <q-item-section>
+                    <q-item-label :class="`text-white ${rutaActual==link.to?'text-bold':''}`">{{ link.title }}</q-item-label>
+                  </q-item-section>
+                </q-item>
+              </template>
+<!--              <q-item clickable dense v-ripple v-for="link in essentialLinks"-->
+<!--                      :key="link.title" :to="link.to" exact-->
+<!--                      :class="`text-white ${rutaActual==link.to?'bg-secondary':''}`">-->
+<!--                <q-item-section avatar>-->
+<!--                  <q-avatar  text-color="white" :icon="`${rutaActual==link.to?link.icon:'o_'+link.icon}`" :size="`${rutaActual==link.to?'45px':'38px'}`" />-->
+<!--                </q-item-section>-->
+<!--                <q-item-section>-->
+<!--                  <q-item-label :class="`text-white ${rutaActual==link.to?'text-bold':''}`">{{ link.title }}</q-item-label>-->
+<!--                </q-item-section>-->
+<!--              </q-item>-->
+            </template>
           </q-list>
         </q-header>
         <q-footer>
@@ -116,14 +132,12 @@ export default {
     return {
       leftDrawerOpen: false,
       essentialLinks: [
-        { title: 'Inicio', icon: 'home', to: '/' },
-        { title: 'Usuarios', icon: 'people', to: '/users' },
-        { title: 'Citas', icon: 'event', to: '/appointments' },
-        { title: 'Estudiantes', icon: 'school', to: '/students' },
-        { title: 'Colegio', icon: 'history_edu', to: '/colegios' },
-        // { title: 'Matriculas', icon: 'assignment', to: '/enrollments' },
-        // { title: 'Pagos', icon: 'payment', to: '/payments' },
-        { title: 'Reportes', icon: 'description', to: '/reports' },
+        { title: 'Inicio', icon: 'home', to: '/', can: 'ALL' },
+        { title: 'Usuarios', icon: 'people', to: '/users',can: 'ADMIN' },
+        { title: 'Citas', icon: 'event', to: '/appointments', can: 'ALL' },
+        { title: 'Estudiantes', icon: 'school', to: '/students', can: 'ALL'},
+        { title: 'Colegio', icon: 'history_edu', to: '/colegios', can: 'ALL'},
+        { title: 'Reportes', icon: 'description', to: '/reports', can: 'ALL'},
       ],
     };
   },
