@@ -19,13 +19,13 @@
 <!--      "histories": 8-->
 <!--      }-->
       <div class="col-12 col-md-4">
-        <CardComponent title="Diagnósticos" icon="o_medical_services" to="/diagnoses" color="red" :amount="data.diagnoses" />
+        <CardComponent title="Diagnósticos" icon="o_medical_services" to="/students" color="red" :amount="data.diagnoses" />
       </div>
       <div class="col-12 col-md-4">
         <CardComponent title="Protocolos" icon="o_description" to="/protocolos" color="purple" :amount="5" />
       </div>
       <div class="col-12 col-md-4">
-        <CardComponent title="Historiales" icon="o_history" to="/histories" color="blue" :amount="data.histories" />
+        <CardComponent title="Historiales" icon="o_history" to="/students" color="blue" :amount="data.histories" />
       </div>
       <div class="col-12">
         <ProtocolosComponent />
