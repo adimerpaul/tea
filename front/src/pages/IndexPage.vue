@@ -27,8 +27,9 @@
       <div class="col-12 col-md-4">
         <CardComponent title="Historiales" icon="o_history" to="/students" color="blue" :amount="data.histories" />
       </div>
-      <div class="col-12">
-        <ProtocolosComponent />
+      <div class="col-12 flex flex-center">
+<!--        <ProtocolosComponent />-->
+        <q-img src="logo.jpeg" width="350px" />
       </div>
     </div>
 <!--    <pre>{{data}}</pre>-->
@@ -42,7 +43,7 @@ import ProtocolosComponent from "components/Protocolos.vue";
 
 export default defineComponent({
   name: 'IndexPage',
-  components: {ProtocolosComponent, CardComponent},
+  components: { CardComponent},
   data() {
     return {
       users: 0,
