@@ -61,6 +61,9 @@
             <q-option-group v-model="form.status" :options="statusOption" label="Estado" type="radio" dense />
             <q-card-actions align="right">
               <q-btn size="11px" icon="fa-brands fa-whatsapp" color="green-4" no-caps label="WhatsApp" dense v-if="form.student_id" @click="sendWhatsApp(form.student_id)" />
+              <q-btn size="11px" icon="fa-regular fa-envelope" color="indigo-4" no-caps label="Correo" dense v-if="form.student_id" @click="sendEmail(form.student_id)" />
+            </q-card-actions>
+            <q-card-actions align="right">
               <q-btn size="11px" label="Guardar" color="green" type="submit" no-caps icon="save" dense v-if="isEdit===false" :loading="loading" />
               <q-btn size="11px" label="Actualizar" color="orange" type="submit" no-caps icon="save" dense v-if="isEdit===true" :loading="loading" />
               <q-btn size="11px" label="Eliminar" color="negative" @click="deleteEvent(form.id)" no-caps icon="delete" dense v-if="isEdit===true" :loading="loading" />
@@ -132,6 +135,11 @@ export default {
     this.fetchEvents();
   },
   methods: {
+    sendEmail(student_id) {
+      const student = this.students.find(student => student.id === student_id);
+      const url = `mailto:${student.email}?subject=Recordatorio de cita&body=Hola ${student.tutorName}, te recordamos tu cita para el día ${moment(this.form.date).format('DD/MM/YYYY HH:mm')}`;
+      window.open(url, '_blank');
+    },
     sendWhatsApp(student_id) {
       const student = this.students.find(student => student.id === student_id);
       const url = `https://api.whatsapp.com/send?phone=+56${student.phone}&text=Hola ${student.tutorName}, te recordamos tu cita para el día ${moment(this.form.date).format('DD/MM/YYYY HH:mm')}`;
