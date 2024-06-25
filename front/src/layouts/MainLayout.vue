@@ -137,7 +137,7 @@ export default {
         { title: 'Reuniones', icon: 'event', to: '/appointments', can: 'ALL' },
         { title: 'Estudiantes', icon: 'school', to: '/students', can: 'ALL'},
         { title: 'Colegio', icon: 'history_edu', to: '/colegios', can: 'ALL'},
-        { title: 'Reportes', icon: 'description', to: '/reports', can: 'ALL'},
+        // { title: 'Reportes', icon: 'description', to: '/', can: 'ALL'},
       ],
     };
   },

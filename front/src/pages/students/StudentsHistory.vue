@@ -193,7 +193,7 @@
         <q-card-section class="row items-center q-pb-none">
           <div class="text-h6 text-bold">
             {{history.id ? 'Editar' : 'Agregar'}}
-            Antecedentes
+            Registro Anecdótico
           </div>
           <q-space />
           <q-btn flat icon="close" @click="historyDialog = false" />
@@ -300,7 +300,24 @@ export default {
     },
     uploadFile() {
       // Lógica para abrir el selector de archivos cuando se hace clic en la zona de carga
-      this.$refs.fileInput.click();
+      // this.$refs.fileInput.click();
+      this.$q.dialog({
+        title: 'Ingrese rut del estudiante',
+        message: 'Ingrese el rut del estudiante para subir el diagnóstico',
+        prompt: {
+          model: '',
+          type: 'text',
+          required: true,
+          rules: [
+            val => !!val || 'Campo requerido',
+            // val => val.length === 9 || 'Rut debe tener 9 caracteres'
+          ]
+        },
+        cancel: true,
+        persistent: true
+      }).onOk(rut => {
+        this.$refs.fileInput.click();
+      })
     },
     fileUpload() {
       const formData = new FormData();
