@@ -1,6 +1,28 @@
 <template>
   <q-page class="q-pa-md bg-grey-3">
     <div class="row">
+      <div class="col-12">
+<!--        <q-list dense bordered padding class="rounded-borders">-->
+<!--          <q-item clickable v-ripple dense>-->
+<!--            <q-item-section avatar clickable>-->
+<!--              <q-avatar size="40px">-->
+<!--                <q-img src="logo.jpeg" sizes="40px"/>-->
+<!--              </q-avatar>-->
+<!--            </q-item-section>-->
+<!--            <q-item-section>-->
+<!--              Bienvenido a la plataforma de diagnósticos-->
+<!--            </q-item-section>-->
+<!--          </q-item>-->
+<!--        </q-list>-->
+        <q-card>
+          <q-card-section class="bg-primary text-white row items-center">
+            <q-avatar size="50px">
+              <q-img src="logo.jpeg" class="q-mb-md" width="50px" />
+            </q-avatar>
+            <div class="text-h6 q-pl-md text-bold">Bienvenido a la plataforma</div>
+          </q-card-section>
+        </q-card>
+      </div>
       <div class="col-12 col-md-4">
         <CardComponent title="Usuarios" icon="o_people" to="/users" color="indigo" :amount="users" />
       </div>
@@ -27,10 +49,7 @@
       <div class="col-12 col-md-4">
         <CardComponent title="Historiales" icon="o_history" to="/students" color="blue" :amount="data.histories" />
       </div>
-      <div class="col-12 flex flex-center">
-<!--        <ProtocolosComponent />-->
-        <q-img src="logo.jpeg" width="350px" />
-      </div>
+
     </div>
 <!--    <pre>{{data}}</pre>-->
   </q-page>
