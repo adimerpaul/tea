@@ -53,7 +53,12 @@ Route::group(['middleware' => 'auth:sanctum'], function(){
     Route::put('/colegios/{id}', [\App\Http\Controllers\ColegioController::class, 'update']);
     Route::delete('/colegios/{id}', [\App\Http\Controllers\ColegioController::class, 'destroy']);
     Route::post('/fotoColegio/{id}', [\App\Http\Controllers\ColegioController::class, 'fotoColegio']);
+    //protocolos
+    Route::get('/protocolos', [\App\Http\Controllers\ProtocoloController::class, 'index']);
+    Route::put('/protocolos/{id}', [\App\Http\Controllers\ProtocoloController::class, 'update']);
 });
+Route::get('/protocolospdf/{id}', [\App\Http\Controllers\ProtocoloController::class, 'protocolospdf']);
+
 //Route::get('/documents/{codigo}/show', [\App\Http\Controllers\DocumentController::class, 'showMobile']);
 
 Route::get('/documents/{id}/show', [\App\Http\Controllers\DocumentController::class, 'download']);
