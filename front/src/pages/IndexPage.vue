@@ -17,7 +17,7 @@
         <q-card>
           <q-card-section class="bg-primary text-white row items-center">
             <q-avatar size="50px">
-              <q-img src="logo.jpeg" class="q-mb-md" width="50px" />
+              <q-img src="logo2.png" class="q-mb-md" width="50px" />
             </q-avatar>
             <div class="text-h6 q-pl-md text-bold">Bienvenido a la plataforma</div>
           </q-card-section>

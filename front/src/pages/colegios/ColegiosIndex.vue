@@ -84,7 +84,7 @@
                 <q-input v-model="colegio.nombre" label="Nombre" outlined dense :rules="[val => !!val || 'Campo requerido']" />
               </div>
               <div class="col-12">
-                <q-input v-model="colegio.codigo" label="RMB" outlined dense :rules="[val => !!val || 'Campo requerido']" />
+                <q-input v-model="colegio.codigo" label="RBD" outlined dense :rules="[val => !!val || 'Campo requerido']" />
               </div>
               <div class="col-12">
                 <q-input v-model="colegio.direccion" label="Dirección" outlined dense :rules="[val => !!val || 'Campo requerido']" />
