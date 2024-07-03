@@ -20,10 +20,15 @@
       </template>
       <template v-slot:body-cell-role="props">
         <q-td :props="props">
-          <q-chip dense label="Admin" color="red" text-color="white" v-if="props.row.role === 'ADMIN'" />
-          <q-chip dense label="Tutor" color="indigo" text-color="white" v-if="props.row.role === 'ATTORNEY'" />
-          <q-chip dense label="Profesor" color="green" text-color="white" v-if="props.row.role === 'TEACHER'" />
-          <q-chip dense label="Asis Educ" color="orange" text-color="white" v-if="props.row.role === 'ASIS EDUC'" />
+<!--          {label: 'Admin', value: 'ADMIN'},-->
+<!--          {label: 'Apoderado', value: 'APODERADO'},-->
+<!--          {label: 'Encargado PIE', value: 'ENCARGADO PIE'},-->
+<!--          {label: 'Docente', value: 'DOCENTE'},-->
+<!--          {label: 'Asistente Educativo', value: 'ASISTENTE EDUCATIVO'},-->
+          <q-chip dense text-color="white" :style="`background-color: ${props.row.role === 'ADMIN' ? 'red' : props.row.role === 'APODERADO' ? 'indigo' : props.row.role === 'ENCARGADO PIE' ? 'green' : props.row.role === 'DOCENTE' ? 'orange' : 'blue'}`">
+            {{ props.row.role }}
+          </q-chip>
+
         </q-td>
       </template>
       <template v-slot:top-right>
@@ -114,9 +119,10 @@ export default {
       ],
       roles: [
         {label: 'Admin', value: 'ADMIN'},
-        {label: 'Tutor', value: 'ATTORNEY'},
-        {label: 'Profesor', value: 'TEACHER'},
-        {label: 'Asis Educ', value: 'ASIS EDUC'}
+        {label: 'Apoderado', value: 'APODERADO'},
+        {label: 'Encargado PIE', value: 'ENCARGADO PIE'},
+        {label: 'Docente', value: 'DOCENTE'},
+        {label: 'Asistente Educativo', value: 'ASISTENTE EDUCATIVO'},
       ],
       loading: false,
       users: [],
