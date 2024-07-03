@@ -53,7 +53,7 @@
           </q-td>
       </template>
       <template v-slot:top-right>
-        <q-btn outline dense icon="add_circle" @click="studentAdd" label="Agregar" no-caps :loading="loading">
+        <q-btn outline dense icon="add_circle" @click="studentAdd" label="Agregar" no-caps :loading="loading" v-if="$store.user?.role=='ADMIN'">
           <q-tooltip>Agregar</q-tooltip>
         </q-btn>
         <q-input v-model="filter" dense class="q-ml-md" debounce="300" placeholder="Buscar" outlined clearable >

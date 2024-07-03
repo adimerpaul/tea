@@ -146,6 +146,7 @@
                  @dragover.prevent
                  @dragleave.prevent
                  @drop.prevent="handleDrop"
+                 v-if="$store.user.role=='ADMIN' || $store.user.role=='APODERADO' || $store.user.role=='ENCARGADO PIE'"
             >
               <q-icon name="cloud_upload" size="70px" />
               <div>Acá suba sus archivos</div>
