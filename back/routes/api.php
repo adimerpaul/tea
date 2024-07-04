@@ -56,6 +56,8 @@ Route::group(['middleware' => 'auth:sanctum'], function(){
     //protocolos
     Route::get('/protocolos', [\App\Http\Controllers\ProtocoloController::class, 'index']);
     Route::put('/protocolos/{id}', [\App\Http\Controllers\ProtocoloController::class, 'update']);
+    Route::get('/reporteEstudiantes', [\App\Http\Controllers\ReporteController::class, 'reporteEstudiantes']);
+    Route::get('/reportePorFechas', [\App\Http\Controllers\ReporteController::class, 'reportePorFechas']);
 });
 Route::get('/protocolospdf/{id}', [\App\Http\Controllers\ProtocoloController::class, 'protocolospdf']);
 

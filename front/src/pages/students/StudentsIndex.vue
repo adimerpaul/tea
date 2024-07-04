@@ -184,7 +184,7 @@ export default {
         // { name: 'birthdate', label: 'Fecha de Nacimiento', align: 'left', field: row => row.birthdate },
         { name: 'email', label: 'Email', align: 'left', field: row => row.email },
         { name: 'foto', label: 'Foto', align: 'left', field: row => row.foto },
-        // { name: 'course', label: 'Curso', align: 'left', field: row => row.course },
+        { name: 'course', label: 'Curso', align: 'left', field: row => row.course },
         // { name: 'year', label: 'Año', align: 'left', field: row => row.year },
         // { name: 'address', label: 'Dirección', align: 'left', field: row => row.address },
         { name: 'phone', label: 'Celular', align: 'left', field: row => row.phone },
