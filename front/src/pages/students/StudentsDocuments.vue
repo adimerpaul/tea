@@ -4,7 +4,9 @@
       <div class="row items-center">
         <div class="text-h6 text-bold">Documentos</div>
         <q-space />
-        <q-btn icon="add_circle_outline" @click="addDocument" label="Agregar" no-caps color="indigo" dense size="10px" :loading="loading" />
+        <q-btn icon="add_circle_outline" @click="addDocument" label="Agregar" no-caps color="indigo" dense size="10px" :loading="loading"
+               v-if="$store.user.role=='ADMIN' || $store.user.role=='APODERADO' || $store.user.role=='ENCARGADO PIE'"
+        />
       </div>
       <q-markup-table dense wrap-cells>
         <thead>
@@ -32,6 +34,7 @@
               class="q-mr-sm"
               label="Opciones"
               no-caps
+              v-if="$store.user.role=='ADMIN' || $store.user.role=='APODERADO' || $store.user.role=='ENCARGADO PIE'"
             >
               <q-item clickable v-close-popup @click="documentOpen(document)"
                       v-if="$store.user.role=='ADMIN'"
@@ -538,9 +541,10 @@ export default {
         }
         this.document.html = Documentos.planAcompanamiento( this.student.name, this.student.rut, age, this.student.course, this.student.tutorName,this.student.phone)
       }
-      if (this.document.name === 'FICHA DE SEGUIMIENTO INDIVIDUALIZADA PARA DESREGULACIÓN EMOCIONAL')
+      if (this.document.name === 'FICHA DE SEGUIMIENTO INDIVIDUALIZADA PARA DESREGULACIÓN EMOCIONAL'){
         this.document.html = ''
         this.showFomulario = true
+      }
     },
     documentShowMobile (document) {
       window.open(this.$url+'documents/'+document.codigo+'/show', '_blank')
@@ -643,6 +647,7 @@ export default {
       }
     },
     addDocument () {
+      this.showFomulario = false
       this.documentDialog = true
       this.document = {
         html: '',

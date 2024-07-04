@@ -23,13 +23,13 @@
           </q-card-section>
         </q-card>
       </div>
-      <div class="col-12 col-md-4">
+      <div class="col-12 col-md-4" v-if="$store.user?.role === 'ADMIN'">
         <CardComponent title="Usuarios" icon="o_people" to="/users" color="indigo" :amount="users" />
       </div>
-      <div class="col-12 col-md-4">
+      <div class="col-12 col-md-4" v-if="$store.user?.role === 'ADMIN'">
         <CardComponent title="Estudiantes" icon="o_face" to="/students" color="green" :amount="students" />
       </div>
-      <div class="col-12 col-md-4">
+      <div class="col-12 col-md-4" v-if="$store.user?.role === 'ADMIN'">
         <CardComponent title="Reuniones" icon="o_event" to="/appointments" color="orange" :amount="appointments" />
       </div>
 <!--      {-->
@@ -40,13 +40,13 @@
 <!--      "appointments": 5,-->
 <!--      "histories": 8-->
 <!--      }-->
-      <div class="col-12 col-md-4">
+      <div class="col-12 col-md-4" v-if="$store.user?.role === 'ADMIN'">
         <CardComponent title="Diagnósticos" icon="o_medical_services" to="/students" color="red" :amount="data.diagnoses" />
       </div>
-      <div class="col-12 col-md-4">
+      <div class="col-12 col-md-4" v-if="$store.user?.role === 'ADMIN'">
         <CardComponent title="Protocolos" icon="o_description" to="/protocolos" color="purple" :amount="5" />
       </div>
-      <div class="col-12 col-md-4">
+      <div class="col-12 col-md-4" v-if="$store.user?.role === 'ADMIN'">
         <CardComponent title="Historiales" icon="o_history" to="/students" color="blue" :amount="data.histories" />
       </div>
 

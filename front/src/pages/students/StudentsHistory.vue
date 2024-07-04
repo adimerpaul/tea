@@ -100,6 +100,7 @@
                         class="q-mr-sm"
                         label="Opciones"
                         no-caps
+                        v-if="$store.user.role=='ADMIN' || $store.user.role=='APODERADO' || $store.user.role=='ENCARGADO PIE'"
                       >
                         <q-item clickable v-close-popup @click="deleteHistory(history)"
                                 v-if="$store.user.role=='ADMIN'"

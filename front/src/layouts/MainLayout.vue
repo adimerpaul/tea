@@ -128,9 +128,9 @@ export default {
       essentialLinks: [
         { title: 'Inicio', icon: 'home', to: '/', can: 'ALL' },
         { title: 'Usuarios', icon: 'people', to: '/users',can: 'ADMIN' },
-        { title: 'Reuniones', icon: 'event', to: '/appointments', can: 'ALL' },
+        { title: 'Reuniones', icon: 'event', to: '/appointments', can: 'ADMIN' },
         { title: 'Estudiantes', icon: 'school', to: '/students', can: 'ALL'},
-        { title: 'Colegio', icon: 'history_edu', to: '/colegios', can: 'ALL'},
+        { title: 'Colegio', icon: 'history_edu', to: '/colegios', can: 'ADMIN'},
         { title: 'Reportes', icon: 'description', to: '/reportes', can: 'ALL'},
       ],
     };
