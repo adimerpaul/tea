@@ -77,7 +77,8 @@
                 <div class="row items-center">
                   <div class="text-h6 text-bold">Antecedentes</div>
                   <q-space />
-                  <q-btn icon="add_circle_outline" @click="addHistory" label="Agregar registro" no-caps color="green" dense size="10px" />
+                  <q-btn icon="add_circle_outline" @click="addHistory" label="Agregar registro" no-caps color="green"
+                         dense size="10px" v-if="$store.user.role=='ADMIN' || $store.user.role=='APODERADO' || $store.user.role=='ASISTENTE EDUCATIVO'"/>
                 </div>
                 <q-markup-table dense wrap-cells>
                   <thead>
@@ -100,19 +101,25 @@
                         label="Opciones"
                         no-caps
                       >
-                        <q-item clickable v-close-popup @click="deleteHistory(history)">
+                        <q-item clickable v-close-popup @click="deleteHistory(history)"
+                                v-if="$store.user.role=='ADMIN'"
+                        >
                           <q-item-section avatar>
                             <q-icon name="delete" />
                           </q-item-section>
                           <q-item-section>Eliminar</q-item-section>
                         </q-item>
-                        <q-item clickable v-close-popup @click="historyClick(history)">
+                        <q-item clickable v-close-popup @click="historyClick(history)"
+                                v-if="$store.user.role=='ADMIN'"
+                        >
                           <q-item-section avatar>
                             <q-icon name="edit" />
                           </q-item-section>
                           <q-item-section>Editar</q-item-section>
                         </q-item>
-                        <q-item clickable v-close-popup @click="sendWhatsapp(history)">
+                        <q-item clickable v-close-popup @click="sendWhatsapp(history)"
+                                v-if="$store.user.role=='ADMIN'"
+                        >
                           <q-item-section avatar>
                             <q-icon name="send" />
                           </q-item-section>

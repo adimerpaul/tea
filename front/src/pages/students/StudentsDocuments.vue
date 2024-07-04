@@ -33,7 +33,9 @@
               label="Opciones"
               no-caps
             >
-              <q-item clickable v-close-popup @click="documentOpen(document)">
+              <q-item clickable v-close-popup @click="documentOpen(document)"
+                      v-if="$store.user.role=='ADMIN'"
+              >
                 <q-item-section avatar>
                   <q-icon name="fa-solid fa-file-arrow-down" />
                 </q-item-section>

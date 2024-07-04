@@ -98,16 +98,6 @@
                   </q-item-section>
                 </q-item>
               </template>
-<!--              <q-item clickable dense v-ripple v-for="link in essentialLinks"-->
-<!--                      :key="link.title" :to="link.to" exact-->
-<!--                      :class="`text-white ${rutaActual==link.to?'bg-secondary':''}`">-->
-<!--                <q-item-section avatar>-->
-<!--                  <q-avatar  text-color="white" :icon="`${rutaActual==link.to?link.icon:'o_'+link.icon}`" :size="`${rutaActual==link.to?'45px':'38px'}`" />-->
-<!--                </q-item-section>-->
-<!--                <q-item-section>-->
-<!--                  <q-item-label :class="`text-white ${rutaActual==link.to?'text-bold':''}`">{{ link.title }}</q-item-label>-->
-<!--                </q-item-section>-->
-<!--              </q-item>-->
             </template>
           </q-list>
         </q-header>
