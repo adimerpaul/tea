@@ -78,7 +78,7 @@
                   <div class="text-h6 text-bold">Antecedentes</div>
                   <q-space />
                   <q-btn icon="add_circle_outline" @click="addHistory" label="Agregar registro" no-caps color="green"
-                         dense size="10px" v-if="$store.user.role=='ADMIN' || $store.user.role=='APODERADO' || $store.user.role=='ASISTENTE EDUCATIVO'"/>
+                         dense size="10px" v-if="$store.user.role=='ADMIN'  || $store.user.role=='ASISTENTE EDUCATIVO'"/>
                 </div>
                 <q-markup-table dense wrap-cells>
                   <thead>
@@ -100,7 +100,7 @@
                         class="q-mr-sm"
                         label="Opciones"
                         no-caps
-                        v-if="$store.user.role=='ADMIN' || $store.user.role=='APODERADO' || $store.user.role=='ENCARGADO PIE'"
+                        v-if="$store.user.role=='ADMIN'  || $store.user.role=='ENCARGADO PIE'"
                       >
                         <q-item clickable v-close-popup @click="deleteHistory(history)"
                                 v-if="$store.user.role=='ADMIN'"
@@ -154,7 +154,7 @@
                  @dragover.prevent
                  @dragleave.prevent
                  @drop.prevent="handleDrop"
-                 v-if="$store.user.role=='ADMIN' || $store.user.role=='APODERADO' || $store.user.role=='ENCARGADO PIE'"
+                 v-if="$store.user.role=='ADMIN'  || $store.user.role=='ENCARGADO PIE'"
             >
               <q-icon name="cloud_upload" size="70px" />
               <div>Acá suba sus archivos</div>

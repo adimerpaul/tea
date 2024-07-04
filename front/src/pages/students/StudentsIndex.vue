@@ -8,7 +8,7 @@
             <q-btn-dropdown size="sm" label="Opciones" no-caps color="primary">
               <q-list>
                 <q-item clickable v-close-popup @click="studentEdit(props.row)"
-                        v-if="$store.user.role=='ADMIN' || $store.user.role=='APODERADO' || $store.user.role=='ASISTENTE EDUCATIVO'"
+                        v-if="$store.user.role=='ADMIN' || $store.user.role=='ASISTENTE EDUCATIVO'"
                 >
                   <q-item-section avatar>
                     <q-icon name="edit" />
@@ -18,7 +18,7 @@
                   </q-item-section>
                 </q-item>
                 <q-item clickable v-close-popup @click="studentDelete(props.row)"
-                        v-if="$store.user.role=='ADMIN' || $store.user.role=='APODERADO' || $store.user.role=='ASISTENTE EDUCATIVO'"
+                        v-if="$store.user.role=='ADMIN' || $store.user.role=='ASISTENTE EDUCATIVO'"
                 >
                   <q-item-section avatar>
                     <q-icon name="delete" />
