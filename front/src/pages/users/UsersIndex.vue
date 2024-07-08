@@ -48,6 +48,17 @@
           </q-chip>
         </q-td>
       </template>
+      <template v-slot:body-cell-estudiantes="props">
+        <q-td auto-width>
+<!--            {{ props.row.students }}-->
+          <ul class="mp-0">
+            <li class="pm-0" v-for="student in props.row.students" :key="student.id">
+<!--              <pre>{{student}}</pre>-->
+              {{ $filters.capitalize( student.name) }}
+            </li>
+          </ul>
+        </q-td>
+      </template>
     </q-table>
 <!--    <pre>{{users}}</pre>-->
     <q-dialog v-model="userDialog" persistent>
@@ -115,6 +126,7 @@ export default {
         { name: 'name', label: 'Nombre', align: 'left', field: row => row.name },
         { name: 'username', label: 'Usuario', align: 'left', field: row => row.username },
         { name: 'role', label: 'Rol', align: 'left', field: row => row.role },
+        { name: 'estudiantes', label: 'Estudiantes', align: 'left', field: row => row.estudiantes },
         { name: 'colegio', label: 'Colegio', align: 'left', field: row => row.colegio?.nombre },
       ],
       roles: [

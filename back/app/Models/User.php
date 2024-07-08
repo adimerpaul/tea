@@ -28,4 +28,7 @@ class User extends Authenticatable
     public function colegio(){
         return $this->belongsTo(Colegio::class);
     }
+    public function students(){
+        return $this->hasMany(Student::class);
+    }
 }

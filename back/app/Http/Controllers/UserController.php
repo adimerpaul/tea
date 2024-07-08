@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Hash;
 class UserController extends Controller{
     public function login(Request $request){
         $credentials = $request->only('username', 'password');
-        $user = User::where('username', $credentials['username'])->with('colegio')->first();
+        $user = User::where('username', $credentials['username'])->with(['colegio','students'])->first();
         if(!$user || !password_verify($credentials['password'], $user->password)){
             return response()->json([
                 'message' => 'Usuario o password es incorrecto',
@@ -25,7 +25,7 @@ class UserController extends Controller{
         }
     }
     public function me(Request $request){
-        return User::where('id', $request->user()->id)->with('colegio')->first();
+        return User::where('id', $request->user()->id)->with(['colegio','students'])->first();
     }
     public function logout(Request $request){
         $request->user()->currentAccessToken()->delete();
@@ -34,7 +34,7 @@ class UserController extends Controller{
         ]);
     }
     public function index(){
-        return User::with('colegio')->orderBy('id', 'desc')->get();
+        return User::with(['colegio','students'])->orderBy('id', 'desc')->get();
     }
     public function store(Request $request){
         $user = new User();
@@ -46,7 +46,7 @@ class UserController extends Controller{
         $user->colegio_id = $request->colegio_id;
         $user->user_id = $request->user_id;
         $user->save();
-        return User::with('colegio')->find($user->id);
+        return User::with(['colegio','students'])->find($user->id);
     }
     public function update(Request $request, $id){
         $user = User::find($id);
@@ -57,7 +57,7 @@ class UserController extends Controller{
         $user->colegio_id = $request->colegio_id;
         $user->user_id = $request->user_id;
         $user->save();
-        return User::with('colegio')->find($user->id);
+        return User::with(['colegio','students'])->find($user->id);
     }
     public function delete($id){
         $user = User::find($id);
