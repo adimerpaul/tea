@@ -99,11 +99,19 @@
             <div class="col-12 col-md-8">
               <q-input v-model="student.name" label="Nombre Completo" outlined dense :rules="[val => !!val || 'Campo requerido']" />
             </div>
-            <div class="col-12 col-md-4">
+            <div class="col-12 col-md-2">
               <q-input v-model="student.tutorRut" label="Rut Tutor" outlined dense :rules="[val => !!val || 'Campo requerido']" />
             </div>
-            <div class="col-12 col-md-8">
+            <div class="col-12 col-md-6">
               <q-input v-model="student.tutorName" label="Nombre Completo Tutor" outlined dense :rules="[val => !!val || 'Campo requerido']" />
+            </div>
+            <div class="col-12 col-md-4">
+              <q-select v-model="student.user_id" label="Usuario" outlined dense :options="users"
+                        :rules="[val => !!val || 'Campo requerido']"
+                        emit-value map-options
+                        option-value="id"
+                        option-label="name"
+              />
             </div>
             <div class="col-12 col-md-3">
               <q-input v-model="student.birthdate" label="Fecha de Nacimiento" type="date" outlined dense :rules="[val => !!val || 'Campo requerido']" />
@@ -189,6 +197,7 @@ export default {
         // { name: 'address', label: 'Dirección', align: 'left', field: row => row.address },
         { name: 'phone', label: 'Celular', align: 'left', field: row => row.phone },
         { name: 'colegio', label: 'Colegio', align: 'left', field: row => row.colegio?.nombre },
+        { name: 'user', label: 'Usuario', align: 'left', field: row => row.user?.name },
         { name: 'option', label: 'Opciones', align: 'left', field: row => row.option },
 
       ],
@@ -199,14 +208,26 @@ export default {
       clienDialogHistory: false,
       filter: '',
       passwordShow: false,
-      colegios: []
+      colegios: [],
+      users: [],
     }
   },
   mounted() {
+    this.usersGet()
     this.studentGet()
     this.colegiosGet()
   },
   methods: {
+    usersGet () {
+      this.loading = true
+      this.$axios.get('users').then(response => {
+        this.users = response.data
+      }).catch(error => {
+        this.$alert.error(error.response.data.message)
+      }).finally(() => {
+        this.loading = false
+      })
+    },
     colegiosGet () {
       this.loading = true
       this.$axios.get('colegios').then(response => {

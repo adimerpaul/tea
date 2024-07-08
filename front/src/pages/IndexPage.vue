@@ -49,6 +49,10 @@
       <div class="col-12 col-md-4" v-if="$store.user?.role === 'ADMIN'">
         <CardComponent title="Historiales" icon="o_history" to="/students" color="blue" :amount="data.histories" />
       </div>
+      <div class="col-12 q-mt-lg">
+        <q-img src="logo.jpeg" class="q-mb-md" width="100px" />
+        <q-img src="logo2.png" class="q-mb-md" width="100px" />
+      </div>
 
     </div>
 <!--    <pre>{{data}}</pre>-->

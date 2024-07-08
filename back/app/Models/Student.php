@@ -9,7 +9,7 @@ class Student extends Model
 {
     use HasFactory;
     protected $hidden = ['created_at', 'updated_at'];
-    protected $fillable = ['rut', 'name', 'birthdate', 'year_PIE', 'course', 'year', 'address', 'phone', 'sex','tutorRut','tutorName','colegio_id','email','foto'];
+    protected $fillable = ['rut', 'name', 'birthdate', 'year_PIE', 'course', 'year', 'address', 'phone', 'sex','tutorRut','tutorName','colegio_id','email','foto','user_id'];
     public function histories(){
         return $this->hasMany(History::class)->with('user')->orderBy('id', 'desc');
     }
@@ -21,5 +21,8 @@ class Student extends Model
     }
     public function colegio(){
         return $this->belongsTo(Colegio::class);
+    }
+    public function user(){
+        return $this->belongsTo(User::class);
     }
 }
