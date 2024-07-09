@@ -170,8 +170,8 @@ export default {
   data () {
     return {
       cursos: [
-        'PREKINDER',
-        'KINDER',
+        'NT 1',
+        'NT 2',
         '1ER BASICO',
         '2DO BASICO',
         '3ER BASICO',

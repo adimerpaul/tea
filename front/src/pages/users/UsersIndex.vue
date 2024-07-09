@@ -26,7 +26,7 @@
 <!--          {label: 'Docente', value: 'DOCENTE'},-->
 <!--          {label: 'Asistente Educativo', value: 'ASISTENTE EDUCATIVO'},-->
           <q-chip dense text-color="white" :style="`background-color: ${props.row.role === 'ADMIN' ? 'red' : props.row.role === 'APODERADO' ? 'indigo' : props.row.role === 'ENCARGADO PIE' ? 'green' : props.row.role === 'DOCENTE' ? 'orange' : 'blue'}`">
-            {{ props.row.role }}
+            {{ props.row.role=== 'ADMIN' ? 'Admin' : props.row.role === 'APODERADO' ? 'Apoderado' : props.row.role === 'ENCARGADO PIE' ? 'Encargado PIE' : props.row.role === 'DOCENTE' ? 'Docente' : 'Asistente Educativo'}}
           </q-chip>
 
         </q-td>
@@ -134,7 +134,7 @@ export default {
         {label: 'Apoderado', value: 'APODERADO'},
         {label: 'Encargado PIE', value: 'ENCARGADO PIE'},
         {label: 'Docente', value: 'DOCENTE'},
-        {label: 'Asistente Educativo', value: 'ASISTENTE EDUCATIVO'},
+        {label: 'Asist educ', value: 'ASISTENTE EDUCATIVO'},
       ],
       loading: false,
       users: [],
