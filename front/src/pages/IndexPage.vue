@@ -47,7 +47,7 @@
         <CardComponent title="Protocolos" icon="o_description" to="/protocolos" color="purple" :amount="5" />
       </div>
       <div class="col-12 col-md-4" v-if="$store.user?.role === 'ADMIN'">
-        <CardComponent title="Historiales" icon="o_history" to="/students" color="blue" :amount="data.histories" />
+<!--        <CardComponent title="Historiales" icon="o_history" to="/students" color="blue" :amount="data.histories" />-->
       </div>
       <div class="col-12 q-mt-lg">
         <q-img src="logo3.png" class="q-mb-md" width="100px" />
