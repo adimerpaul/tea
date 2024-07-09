@@ -13,7 +13,7 @@
       </q-card-section>
     </q-card>
     <div>
-      <pre>{{data2}}</pre>
+<!--      <pre>{{data2}}</pre>-->
     </div>
   </q-page>
 </template>

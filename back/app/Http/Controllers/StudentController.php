@@ -28,7 +28,7 @@ class StudentController extends Controller{
                 ->get();
         } else {
             return Student::with(['colegio', 'user'])
-                ->where('colegio_id', $request->user()->colegio_id)
+                ->where('user_id', $request->user()->id)
                 ->orderBy('id', 'desc')
                 ->get();
         }
