@@ -50,7 +50,7 @@
         <CardComponent title="Historiales" icon="o_history" to="/students" color="blue" :amount="data.histories" />
       </div>
       <div class="col-12 q-mt-lg">
-        <q-img src="logo.jpeg" class="q-mb-md" width="100px" />
+        <q-img src="logo3.png" class="q-mb-md" width="100px" />
         <q-img src="logo2.png" class="q-mb-md" width="100px" />
       </div>
 
