@@ -32,7 +32,17 @@ export default {
       loading2: false,
       options : {
         responsive: true,
-        maintainAspectRatio: false
+        maintainAspectRatio: false,
+        scales: {
+          y: {
+            ticks: {
+              callback: function(value) {
+                return Number.isInteger(value) ? value : '';
+              },
+              stepSize: 1
+            }
+          }
+        }
       },
       data : {
         labels: [],
