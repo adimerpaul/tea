@@ -26,7 +26,13 @@ class StudentController extends Controller{
             return Student::with(['colegio', 'user'])
                 ->orderBy('id', 'desc')
                 ->get();
-        } else {
+//            ENCARGADO PIE
+        } else if($role == 'ENCARGADO PIE'){
+            return Student::with(['colegio', 'user'])
+                ->where('colegio_id', $request->user()->colegio_id)
+                ->orderBy('id', 'desc')
+                ->get();
+        } else{
             return Student::with(['colegio', 'user'])
                 ->where('user_id', $request->user()->id)
                 ->orderBy('id', 'desc')
