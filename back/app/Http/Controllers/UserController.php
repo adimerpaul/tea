@@ -44,7 +44,7 @@ class UserController extends Controller{
         $user->role = $request->role;
         $user->password = Hash::make($request->password);
         $user->colegio_id = $request->colegio_id;
-        $user->user_id = $request->user_id;
+//        $user->user_id = $request->user_id;
         $user->save();
         return User::with(['colegio','students'])->find($user->id);
     }
