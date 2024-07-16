@@ -29,6 +29,7 @@ Route::group(['middleware' => 'auth:sanctum'], function(){
 
     Route::delete('/diagnoses/{id}', [\App\Http\Controllers\DiagnosisController::class, 'destroy']);
     Route::get('/diagnoses/{id}/download', [\App\Http\Controllers\DiagnosisController::class, 'download']);
+    Route::get('/documents/{id}/firma', [\App\Http\Controllers\DiagnosisController::class, 'firma']);
 
     Route::post('/history', [\App\Http\Controllers\HistoryController::class, 'store']);
     Route::put('/history/{id}', [\App\Http\Controllers\HistoryController::class, 'update']);
@@ -39,7 +40,7 @@ Route::group(['middleware' => 'auth:sanctum'], function(){
     Route::put('/documents/{id}', [\App\Http\Controllers\DocumentController::class, 'update']);
     Route::get('/documents/{id}/download', [\App\Http\Controllers\DocumentController::class, 'download']);
     Route::get('/documents/{id}/download64', [\App\Http\Controllers\DocumentController::class, 'download64']);
-
+    Route::post('/documentsUpload', [\App\Http\Controllers\DocumentController::class, 'documentsUpload']);
 
     Route::delete('/documents/{id}', [\App\Http\Controllers\DocumentController::class, 'destroy']);
 

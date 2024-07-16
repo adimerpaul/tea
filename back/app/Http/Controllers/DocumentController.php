@@ -4,11 +4,22 @@ namespace App\Http\Controllers;
 
 use App\Models\Abordaje;
 use App\Models\Certificado;
+use App\Models\Diagnosis;
 use App\Models\Document;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 
 class DocumentController extends Controller{
+    function documentsUpload(Request $request){
+        $document_id = $request->input('document_id');
+        $file = $request->file('file');
+
+        $document = Document::find($document_id);
+        $name = time().'_'.$file->getClientOriginalName();
+        $file->move(public_path('documents'), $name);
+        $document->firma = 'documents/'.$name;
+        $document->save();
+    }
     public function index(Request $request){
         $student_id = $request->input('student_id');
         return Document::where('student_id', $student_id)

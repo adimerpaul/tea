@@ -15,6 +15,7 @@
           <th>Fecha</th>
           <th>Documento</th>
           <th>Usuario</th>
+          <th>Firma</th>
         </tr>
         </thead>
         <tbody>
@@ -68,6 +69,13 @@
                 </q-item-section>
                 <q-item-section>Editar</q-item-section>
               </q-item>
+<!--              Boton para cargar firma-->
+              <q-item clickable v-close-popup @click="cargarFirma(document)">
+                <q-item-section avatar>
+                  <q-icon name="fa-solid fa-signature" />
+                </q-item-section>
+                <q-item-section>Cargar Firma</q-item-section>
+              </q-item>
             </q-btn-dropdown>
           </td>
           <td>{{ $filters.formatdMYHMS(document.date) }}</td>
@@ -75,6 +83,9 @@
             {{ document.description }}
           </td>
           <td>{{ document.user?.name }}</td>
+          <td>
+            <q-btn flat dense @click="documentFirma(document)" icon="fa-solid fa-file-arrow-down" size="10px" color="green" :loading="loading" v-if="document.firma" />
+          </td>
         </tr>
         </tbody>
       </q-markup-table>
@@ -373,6 +384,7 @@
         </q-card-section>
       </q-card>
     </q-dialog>
+    <input type="file" id="archivo" class="file" @change="onFileChange" style="display: none" accept=".pdf" />
   </q-card>
 </template>
 <script>
@@ -506,7 +518,7 @@ export default {
       documentsSelect: [
         'AUTORIZACIÓN PARA EL ABORDAJE DEC.',
         'CERTIFICADO PARA EL EMPLEADOR',
-        'CONTRATO DE CONTIGENCIAS',
+        'CONTRATO DE CONTINGENCIAS',
         'FICHA DEL PLAN DE APOYO INDIVIDUALIZADO (PAI) PARA ESTUDIANTES CON TEA',
         'PLAN DE ACOMPAÑAMIENTO EMOCIONAL Y CONDUCTUAL',
         'FICHA DE SEGUIMIENTO INDIVIDUALIZADA PARA DESREGULACIÓN EMOCIONAL'
@@ -516,13 +528,34 @@ export default {
       iframe: false,
       document: {},
       documents : [],
-      showFomulario: false
+      showFomulario: false,
+      file: null
     }
   },
   mounted() {
     this.documentsGet()
   },
   methods: {
+    onFileChange(e) {
+      this.file = e.target.files[0];
+      // subir archivo por axios
+      const formData = new FormData();
+      formData.append('file', this.file);
+      formData.append('document_id', this.document.id);
+      this.$axios.post('documentsUpload', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      }).then(response => {
+        this.documentsGet()
+      }).catch(error => {
+        this.$alert.error(error.response.data.message)
+      })
+    },
+    cargarFirma(d) {
+      this.document = d
+      document.querySelector('#archivo').click();
+    },
     restoreHtml () {
       // nombreEstudiante, nombreApoderado, nombreRepresentanteEstablecimiento, fecha
       const date = moment().format('DD/MM/YYYY HH:mm:ss')
@@ -530,7 +563,7 @@ export default {
         this.document.html = Documentos.autorizacionAbordajeDec( this.student.tutorName, this.student.tutorRut, this.student.name, this.student.course)
       if (this.document.name === 'CERTIFICADO PARA EL EMPLEADOR')
         this.document.html = Documentos.certificadoEmpleador( this.student.name, this.student.tutorName, this.student.course, this.student.tutorRut)
-      if (this.document.name === 'CONTRATO DE CONTIGENCIAS')
+      if (this.document.name === 'CONTRATO DE CONTINGENCIAS')
         this.document.html = Documentos.contratoContigencia( this.student.name, this.student.tutorName, '', date)
       if (this.document.name === 'FICHA DEL PLAN DE APOYO INDIVIDUALIZADO (PAI) PARA ESTUDIANTES CON TEA')
         this.document.html = Documentos.fichaPai( this.student.name, this.student.course, this.student.birthdate, date)
@@ -581,6 +614,25 @@ export default {
     documentOpen(document) {
       this.loading = true
       this.$axios.get(`documents/${document.id}/download`, {
+        responseType: 'blob'
+      }).then(response => {
+        const url = window.URL.createObjectURL(new Blob([response.data], { type: 'application/pdf' }));
+        const link = window.document.createElement('a'); // Usa window.document para evitar conflictos
+        link.href = url;
+        link.setAttribute('download', `${document.description}.pdf`); // Asegúrate de agregar la extensión
+        window.document.body.appendChild(link);
+        link.click();
+        link.remove(); // Elimina el elemento del DOM
+        window.URL.revokeObjectURL(url); // Libera el URL del blob
+      }).catch(error => {
+        this.$alert.error(error.response.data.message);
+      }).finally(() => {
+        this.loading = false
+      })
+    },
+    documentFirma(document) {
+      this.loading = true
+      this.$axios.get(`documents/${document.id}/firma`, {
         responseType: 'blob'
       }).then(response => {
         const url = window.URL.createObjectURL(new Blob([response.data], { type: 'application/pdf' }));

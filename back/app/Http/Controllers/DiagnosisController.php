@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Diagnosis;
+use App\Models\Document;
 use Illuminate\Http\Request;
 
 class DiagnosisController extends Controller{
@@ -10,6 +11,14 @@ class DiagnosisController extends Controller{
         $diagnosis = Diagnosis::find($id);
         if ($diagnosis) {
             $pathToFile = public_path($diagnosis->url_diagnosis);
+            return response()->download($pathToFile);
+        }
+        return response()->json(['message' => 'Diagnosis not found'], 404);
+    }
+    function firma($id){
+        $document = Document::find($id);
+        if ($document) {
+            $pathToFile = public_path($document->firma);
             return response()->download($pathToFile);
         }
         return response()->json(['message' => 'Diagnosis not found'], 404);

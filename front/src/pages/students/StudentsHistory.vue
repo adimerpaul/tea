@@ -26,7 +26,7 @@
                 </div>
               </div>
               <div class="col-12 col-md-4 ">
-                <div class="text-bold">Fotografia</div>
+                <div class="text-bold text-center">Fotografia</div>
                 <div class="flex flex-center">
                   <q-img :src="$url+'../students/'+student.foto" style="width: 100px; height: 100px" />
                 </div>
