@@ -1,24 +1,23 @@
 export class Documentos {
-  static fichaSeguimiento( student, date ) {
+  static fichaSeguimiento( student, date, formulario ) {
     return `<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:center;line-height:150%;'><span style='font-size:19px;line-height:150%;font-family:"Calibri Light",sans-serif;'>FICHA DE SEGUIMIENTO INDIVIDUALIZADA</span></p>
 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:center;line-height:150%;'><span style='font-size:19px;line-height:150%;font-family:"Calibri Light",sans-serif;'>&nbsp;PARA DESREGULACI&Oacute;N EMOCIONAL</span></p>
 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:150%;'><span style='font-size:19px;line-height:150%;font-family:"Calibri Light",sans-serif;'>&nbsp;</span></p>
 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:150%;'><span style='font-size:19px;line-height:150%;font-family:"Calibri Light",sans-serif;'>Estudiante: ${student} </span></p>
 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:150%;'><span style='font-size:19px;line-height:150%;font-family:"Calibri Light",sans-serif;'>Fecha: ${date}</span></p>
-<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:150%;'><span style='font-size:19px;line-height:150%;font-family:"Calibri Light",sans-serif;'>Evaluador: (<span style="color:red;">Nombre completo del evaluador, cargo y profesi&oacute;n</span>).</span></p>
-<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:150%;'><span style='font-size:19px;line-height:150%;font-family:"Calibri Light",sans-serif;'>Contexto: (<span style="color:red;">Descripci&oacute;n detallada del contexto en el que se observa la desregulaci&oacute;n, incluyendo la actividad que estaba realizando el estudiante, las personas que estaban presentes y cualquier otro factor relevante</span>.)</span></p>
-<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:150%;'><span style='font-size:19px;line-height:150%;font-family:"Calibri Light",sans-serif;'>________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:150%;'><span style='font-size:19px;line-height:150%;font-family:"Calibri Light",sans-serif;'>Evaluador: ${formulario.evaluador}.</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:150%;'><span style='font-size:19px;line-height:150%;font-family:"Calibri Light",sans-serif;'>Contexto: ${formulario.contexto}</span></span></p>
 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:150%;'><span style='font-size:19px;line-height:150%;font-family:"Calibri Light",sans-serif;'>&nbsp;</span></p>
 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:150%;'><strong><span style='font-size:19px;line-height:150%;font-family:"Calibri Light",sans-serif;'>DESCRIPCI&Oacute;N DETALLADA DE LA DESREGULACI&Oacute;N:</span></strong></p>
 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:150%;'><strong><span style='font-size:19px;line-height:150%;font-family:"Calibri Light",sans-serif;'>1. Emoci&oacute;n predominante:</span></strong></p>
 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:150%;'><span style='font-size:19px;line-height:150%;font-family:"Calibri Light",sans-serif;'>Seleccionar la emoci&oacute;n principal que el estudiante experiment&oacute; durante la desregulaci&oacute;n:</span></p>
 <ol start="1" style="list-style-type: upper-alpha;">
-    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;'>Tristeza</span></li>
-    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;'>Ira</span></li>
-    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;'>Frustraci&oacute;n</span></li>
-    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;'>Ansiedad</span></li>
-    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;'>Miedo</span></li>
-    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;'>Otra: ________________________________________________</span></li>
+    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;text-decoration: ${formulario.emocion_predominante=='Tristeza'? 'underline': 'none'};'>Tristeza</span></li>
+    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;text-decoration: ${formulario.emocion_predominante=='Ira'? 'underline': 'none'};'>Ira</span></li>
+    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;text-decoration: ${formulario.emocion_predominante=='Frustracion'? 'underline': 'none'};'>Frustracion</span></li>
+    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;text-decoration: ${formulario.emocion_predominante=='Ansiedad'? 'underline': 'none'};'>Ansiedad</span></li>
+    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;text-decoration: ${formulario.emocion_predominante=='Miedo'? 'underline': 'none'};'>Miedo</span></li>
+    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;'>Otra: ${formulario.emocion_predominante_otros}</span></li>
 </ol>
 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:150%;'><span style='font-size:19px;line-height:150%;font-family:"Calibri Light",sans-serif;'>Describir la intensidad de la emoci&oacute;n en una escala de 1 a 10 (1 siendo la intensidad m&aacute;s baja y 10 la m&aacute;s alta): [<span style="color:red;">Especificar]</span></span></p>
 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:150%;'><span style='font-size:19px;line-height:150%;font-family:"Calibri Light",sans-serif;'>&nbsp;</span></p>
@@ -27,135 +26,150 @@ export class Documentos {
 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:150%;'><strong><span style='font-size:19px;line-height:150%;font-family:"Calibri Light",sans-serif;'>2. Manifestaciones f&iacute;sicas:</span></strong></p>
 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:150%;'><span style='font-size:19px;line-height:150%;font-family:"Calibri Light",sans-serif;'>Describir en detalle las manifestaciones f&iacute;sicas que el estudiante present&oacute; durante la desregulaci&oacute;n, incluyendo:</span></p>
 <ol start="1" style="list-style-type: upper-alpha;">
-    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;'>Llanto</span></li>
-    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;'>Temblor</span></li>
-    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;'>Sudoraci&oacute;n</span></li>
-    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;'>Aumento de la frecuencia card&iacute;aca</span></li>
-    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;'>Tensi&oacute;n muscular</span></li>
-    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;'>Rubor facial</span></li>
-    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;'>Dificultad para respirar</span></li>
-    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;'>N&aacute;useas</span></li>
-    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;'>Dolor de cabeza</span></li>
-    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;'>Otros: [Especificar]</span></li>
+    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;text-decoration:${formulario.manifestaciones_fisicas=='LLanto'? 'underline': 'none'};'>Llanto</span></li>
+    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;text-decoration:${formulario.manifestaciones_fisicas=='Temblor'? 'underline': 'none'};'>Temblor</span></li>
+    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;text-decoration:${formulario.manifestaciones_fisicas=='Sudoración'? 'underline': 'none'};'>Sudoraci&oacute;n</span></li>
+    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;text-decoration:${formulario.manifestaciones_fisicas=='Aumento de la frecuencia cardiaca'? 'underline': 'none'};'>Aumento de la frecuencia cardiaca</span></li>
+    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;text-decoration:${formulario.manifestaciones_fisicas=='Tensión muscular'? 'underline': 'none'};'>Tensi&oacute;n muscular</span></li>
+    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;text-decoration:${formulario.manifestaciones_fisicas=='Rubor facial'? 'underline': 'none'};'>Rubor facial</span></li>
+    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;text-decoration:${formulario.manifestaciones_fisicas=='Dificultad para respirar'? 'underline': 'none'};'>Dificultad para respirar</span></li>
+    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;text-decoration:${formulario.manifestaciones_fisicas=='Náuseas'? 'underline': 'none'};'>N&aacute;useas</span></li>
+    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;text-decoration:${formulario.manifestaciones_fisicas=='Dolor de cabeza'? 'underline': 'none'};'>Dolor de cabeza</span></li>
+    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;'>Otros: ${formulario.manifestaciones_fisicas_otros}</span></li>
 </ol>
 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:150%;'><span style='font-size:19px;line-height:150%;font-family:"Calibri Light",sans-serif;'>3. Manifestaciones conductuales:</span></p>
 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:150%;'><span style='font-size:19px;line-height:150%;font-family:"Calibri Light",sans-serif;'>Describir en detalle las manifestaciones conductuales que el estudiante present&oacute; durante la desregulaci&oacute;n, incluyendo:</span></p>
 <ol start="1" style="list-style-type: upper-alpha;">
-    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;'>Agresi&oacute;n verbal (insultos, gritos)</span></li>
-    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;'>Agresi&oacute;n f&iacute;sica (golpes, patadas)</span></li>
-    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;'>Autolesiones</span></li>
-    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;'>Aislamiento</span></li>
-    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;'>Llanto inconsolable</span></li>
-    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;'>Negativa a cooperar</span></li>
-    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;'>Desobediencia</span></li>
-    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;'>Comportamiento impulsivo</span></li>
-    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;'>Otros: ________________________________________________________________</span></li>
+    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;text-decoration:${formulario.manifestaciones_conductuales.includes('Agresión verbal (insultos, gritos)')? 'underline': 'none'};'>Agresi&oacute;n verbal (insultos, gritos)</span></li>
+    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;text-decoration:${formulario.manifestaciones_conductuales.includes('Agresión física (golpes, patadas)')? 'underline': 'none'};'>Agresi&oacute;n f&iacute;sica (golpes, patadas)</span></li>
+    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;text-decoration:${formulario.manifestaciones_conductuales.includes('Autolesiones')? 'underline': 'none'};'>Autolesiones</span></li>
+    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;text-decoration:${formulario.manifestaciones_conductuales.includes('Aislamiento')? 'underline': 'none'};'>Aislamiento</span></li>
+    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;text-decoration:${formulario.manifestaciones_conductuales.includes('Llanto inconsolable')? 'underline': 'none'};'>Llanto inconsolable</span></li>
+    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;text-decoration:${formulario.manifestaciones_conductuales.includes('Negativa a cooperar')? 'underline': 'none'};'>Negativa a cooperar</span></li>
+    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;text-decoration:${formulario.manifestaciones_conductuales.includes('Desobediencia')? 'underline': 'none'};'>Desobediencia</span></li>
+    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;text-decoration:${formulario.manifestaciones_conductuales.includes('Comportamiento impulsivo')? 'underline': 'none'};'>Comportamiento impulsivo</span></li>
+    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;'>Otros: ${formulario.manifestaciones_conductuales_otros}</span></li>
 </ol>
 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:36.0pt;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:150%;'><strong><span style='font-size:19px;line-height:150%;font-family:"Calibri Light",sans-serif;'>&nbsp;</span></strong></p>
 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:150%;'><strong><span style='font-size:19px;line-height:150%;font-family:"Calibri Light",sans-serif;'>4. Duraci&oacute;n:</span></strong></p>
 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:150%;'><span style='font-size:19px;line-height:150%;font-family:"Calibri Light",sans-serif;'>Indicar la duraci&oacute;n total de la desregulaci&oacute;n en minutos: (Especificar)</span></p>
-<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:150%;'><span style='font-size:19px;line-height:150%;font-family:"Calibri Light",sans-serif;'>________________________________________________________________________________________________________________________________________________________________</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:150%;'><span style='font-size:19px;line-height:150%;font-family:"Calibri Light",sans-serif;'>${formulario.duracion}</span></p>
 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:150%;'><span style='font-size:19px;line-height:150%;font-family:"Calibri Light",sans-serif;'>Intervenci&oacute;n realizada:</span></p>
 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:150%;'><span style='font-size:19px;line-height:150%;font-family:"Calibri Light",sans-serif;'>1. Estrategias utilizadas para calmar al estudiante:</span></p>
 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:150%;'><span style='font-size:19px;line-height:150%;font-family:"Calibri Light",sans-serif;'>Describir las estrategias espec&iacute;ficas que se utilizaron para calmar al estudiante durante la desregulaci&oacute;n, incluyendo:</span></p>
 <ol start="1" style="list-style-type: upper-alpha;">
-    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;'>Respiraci&oacute;n profunda</span></li>
-    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;'>T&eacute;cnicas de relajaci&oacute;n muscular</span></li>
-    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;'>Visualizaci&oacute;n</span></li>
-    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;'>Hablar con el estudiante en un tono calmado y tranquilizador</span></li>
-    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;'>Ofrecer apoyo emocional</span></li>
-    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;'>Brindar un espacio seguro y tranquilo</span></li>
-    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;'>Retirar al estudiante del contexto</span></li>
-    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;'>Otros: ___________________________________________________________________</span></li>
+    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;text-decoration:${formulario.intervencion_realizada.includes('Respiración profunda')? 'underline': 'none'};'>Respiraci&oacute;n profunda</span></li>
+    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;text-decoration:${formulario.intervencion_realizada.includes('Técnicas de relajación muscular')? 'underline': 'none'};'>T&eacute;cnicas de relajaci&oacute;n muscular</span></li>
+    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;text-decoration:${formulario.intervencion_realizada.includes('Visualización')? 'underline': 'none'};'>Visualizaci&oacute;n</span></li>
+    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;text-decoration:${formulario.intervencion_realizada.includes('Hablar con el estudiante en un tono calmado y tranquilizador')? 'underline': 'none'};'>Hablar con el estudiante en un tono calmado y tranquilizador</span></li>
+    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;text-decoration:${formulario.intervencion_realizada.includes('Ofrecer apoyo emocional')? 'underline': 'none'};'>Ofrecer apoyo emocional</span></li>
+    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;text-decoration:${formulario.intervencion_realizada.includes('Brindar un espacio seguro y tranquilo')? 'underline': 'none'};'>Brindar un espacio seguro y tranquilo</span></li>
+    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;text-decoration:${formulario.intervencion_realizada.includes('Retirar al estudiante del contexto')? 'underline': 'none'};'>Retirar al estudiante del contexto</span></li>
+    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;'>Otros: ${formulario.intervencion_realizada_otros}</span></li>
 </ol>
 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:150%;'><span style='font-size:19px;line-height:150%;font-family:"Calibri Light",sans-serif;'>2. Efectividad de las estrategias:</span></p>
 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:150%;'><span style='font-size:19px;line-height:150%;font-family:"Calibri Light",sans-serif;'>Evaluar la eficacia de las estrategias utilizadas para calmar al estudiante, indicando si fueron:</span></p>
 <ol start="1" style="list-style-type: upper-alpha;">
-    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;'>Muy efectivas</span></li>
-    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;'>Efectivas</span></li>
-    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;'>Poco efectivas</span></li>
-    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;'>Inefectivas</span></li>
+    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;text-decoration:${formulario.efectividad_estrategia=='Muy efectiva'? 'underline': 'none'};'>Muy efectivas</span></li>
+    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;text-decoration:${formulario.efectividad_estrategia=='Efectiva'? 'underline': 'none'};'>Efectivas</span></li>
+    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;text-decoration:${formulario.efectividad_estrategia=='Poco efectiva'? 'underline': 'none'};'>Poco efectivas</span></li>
+    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;text-decoration:${formulario.efectividad_estrategia=='Inefectiva'? 'underline': 'none'};'>Inefectivas</span></li>
 </ol>
 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:150%;'><span style='font-size:19px;line-height:150%;font-family:"Calibri Light",sans-serif;'>&nbsp;</span></p>
 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:150%;'><span style='font-size:19px;line-height:150%;font-family:"Calibri Light",sans-serif;'>&nbsp;</span></p>
 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:150%;'><span style='font-size:19px;line-height:150%;font-family:"Calibri Light",sans-serif;'>3. Necesidad de ayuda externa:</span></p>
 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:150%;'><span style='font-size:19px;line-height:150%;font-family:"Calibri Light",sans-serif;'>Indicar si se requiri&oacute; ayuda externa para controlar la desregulaci&oacute;n del estudiante:</span></p>
 <ol start="1" style="list-style-type: upper-alpha;">
-    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;'>S&iacute;</span></li>
-    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;'>No</span></li>
+    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;text-decoration:${formulario.necesidad_ayuda_externa=='Sí'? 'underline': 'none'};'>S&iacute;</span></li>
+    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;text-decoration:${formulario.necesidad_ayuda_externa=='No'? 'underline': 'none'};'>No</span></li>
 </ol>
 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:150%;'><span style='font-size:19px;line-height:150%;font-family:"Calibri Light",sans-serif;'>4. Si se requiri&oacute; ayuda externa, &iquest;de qu&eacute; tipo?:</span></p>
 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:150%;'><span style='font-size:19px;line-height:150%;font-family:"Calibri Light",sans-serif;'>Describir el tipo de ayuda externa que se requiri&oacute;, incluyendo:</span></p>
 <ol start="1" style="list-style-type: upper-alpha;">
-    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;'>Contacto con los padres o tutores</span></li>
-    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;'>Intervenci&oacute;n del psic&oacute;logo o pedagogo</span></li>
-    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;'>Intervenci&oacute;n del equipo directivo</span></li>
-    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;'>Asistencia m&eacute;dica</span></li>
-    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;'>Otros: ______________________________________________________</span></li>
+    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;text-decoration:${formulario.ayuda_externa.includes('Contacto con los padres o tutores')? 'underline': 'none'};'>Contacto con los padres o tutores</span></li>
+    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;text-decoration:${formulario.ayuda_externa.includes('Intervención del psicólogo o pedagogo')? 'underline': 'none'};'>Intervenci&oacute;n del psic&oacute;logo o pedagogo</span></li>
+    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;text-decoration:${formulario.ayuda_externa.includes('Intervención del equipo directivo')? 'underline': 'none'};'>Intervenci&oacute;n del equipo directivo</span></li>
+    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;text-decoration:${formulario.ayuda_externa.includes('Asistencia médica')? 'underline': 'none'};'>Asistencia m&eacute;dica</span></li>
+    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;'>Otros: ${formulario.ayuda_externa_otros}</span></li>
 </ol>
 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:150%;'><span style='font-size:19px;line-height:150%;font-family:"Calibri Light",sans-serif;'>Plan de acci&oacute;n individualizado:</span></p>
 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:150%;'><span style='font-size:19px;line-height:150%;font-family:"Calibri Light",sans-serif;'>1. Medidas a corto plazo:</span></p>
 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:150%;'><span style='font-size:19px;line-height:150%;font-family:"Calibri Light",sans-serif;'>Detallar las medidas espec&iacute;ficas que se implementar&aacute;n a corto plazo para prevenir futuras desregulaciones emocionales en el estudiante, incluyendo:</span></p>
 <ol start="1" style="list-style-type: upper-alpha;">
-    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;'>Implementaci&oacute;n de estrategias de autorregulaci&oacute;n emocional</span></li>
-    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;'>Adaptaciones en el aula</span></li>
-    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;'>Apoyo acad&eacute;mico individualizado</span></li>
-    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;'>Refuerzo positivo</span></li>
-    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;'>Seguimiento individualizado por parte del profesorado u otro profesional</span></li>
-    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;'>Intervenci&oacute;n con la familia</span></li>
-    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;'>Otros: __________________________________</span></li>
+    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;text-decoration: ${formulario.medidas_corto_plazo.includes('Implementación de estrategias de autorregulación emocional')? 'underline': 'none'};'>Implementaci&oacute;n de estrategias de autorregulaci&oacute;n emocional</span></li>
+    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;text-decoration: ${formulario.medidas_corto_plazo.includes('Adaptaciones en el aula')? 'underline': 'none'};'>Adaptaciones en el aula</span></li>
+    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;text-decoration: ${formulario.medidas_corto_plazo.includes('Apoyo académico individualizado')? 'underline': 'none'};'>Apoyo acad&eacute;mico individualizado</span></li>
+    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;text-decoration: ${formulario.medidas_corto_plazo.includes('Refuerzo positivo')? 'underline': 'none'};'>Refuerzo positivo</span></li>
+    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;text-decoration: ${formulario.medidas_corto_plazo.includes('Seguimiento individualizado por parte del profesorado u otro profesional')? 'underline': 'none'};'>Seguimiento individualizado por parte del profesorado u otro profesional</span></li>
+    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;text-decoration: ${formulario.medidas_corto_plazo.includes('Intervención con la familia')? 'underline': 'none'};'>Intervenci&oacute;n con la familia</span></li>
+    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;'>Otros: ${formulario.medidas_corto_plazo_otros}</span></li>
 </ol>
 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:150%;'><span style='font-size:19px;line-height:150%;font-family:"Calibri Light",sans-serif;'>2. Medidas a largo plazo:</span></p>
 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:150%;'><span style='font-size:19px;line-height:150%;font-family:"Calibri Light",sans-serif;'>Detallar las medidas espec&iacute;ficas que se implementar&aacute;n a largo plazo para abordar las causas de la desregulaci&oacute;n emocional en el estudiante, incluyendo:</span></p>
 <ol start="1" style="list-style-type: upper-alpha;">
-    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;'>Terapia individual o grupal</span></li>
-    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;'>Evaluaci&oacute;n por un profesional de la salud mental</span></li>
-    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;'>Intervenci&oacute;n psicopedag&oacute;gica</span></li>
-    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;'>Capacitaci&oacute;n a los padres o tutores en manejo de emociones</span></li>
-    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;'>Adaptaciones curriculares</span></li>
-    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;'>Otros: __________________________________________________________________</span></li>
+
+    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;text-decoration: ${formulario.medidas_largo_plazo.includes('Terapia individual o grupal')? 'underline': 'none'};'>Terapia individual o grupal</span></li>
+    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;text-decoration: ${formulario.medidas_largo_plazo.includes('Evaluación por un profesional de la salud mental')? 'underline': 'none'};'>Evaluaci&oacute;n por un profesional de la salud mental</span></li>
+    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;text-decoration: ${formulario.medidas_largo_plazo.includes('Intervención psicopedagógica')? 'underline': 'none'};'>Intervenci&oacute;n psicopedag&oacute;gica</span></li>
+    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;text-decoration: ${formulario.medidas_largo_plazo.includes('Capacitación a los padres o tutores en manejo de emociones')? 'underline': 'none'};'>Capacitaci&oacute;n a los padres o tutores en manejo de emociones</span></li>
+    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;text-decoration: ${formulario.medidas_largo_plazo.includes('Adaptaciones curriculares')? 'underline': 'none'};'>Adaptaciones curriculares</span></li>
+    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;'>Otros: ${formulario.medidas_largo_plazo_otros}</span></li>
 </ol>
 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:150%;'><span style='font-size:19px;line-height:150%;font-family:"Calibri Light",sans-serif;'>Seguimiento:</span></p>
 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:150%;'><span style='font-size:19px;line-height:150%;font-family:"Calibri Light",sans-serif;'>1. Fecha de la pr&oacute;xima evaluaci&oacute;n (Indicar la fecha en la que se realizar&aacute; la pr&oacute;xima evaluaci&oacute;n del estudiante):</span></p>
-<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:150%;'><span style='font-size:19px;line-height:150%;font-family:"Calibri Light",sans-serif;'>____________________________________________________________________________</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:150%;'><span style='font-size:19px;line-height:150%;font-family:"Calibri Light",sans-serif;'>
+${formulario.seguimiento_fecha}
+</span></p>
 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:150%;'><span style='font-size:19px;line-height:150%;font-family:"Calibri Light",sans-serif;'>2. Persona responsable del seguimiento (Indicar el nombre y cargo de la persona responsable del seguimiento del plan de acci&oacute;n).</span></p>
-<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:150%;'><span style='font-size:19px;line-height:150%;font-family:"Calibri Light",sans-serif;'>________________________________________________________________________________</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:150%;'><span style='font-size:19px;line-height:150%;font-family:"Calibri Light",sans-serif;'>
+${formulario.seguimiento_responsable}
+</span></p>
 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:150%;'><span style='font-size:19px;line-height:150%;font-family:"Calibri Light",sans-serif;'>&nbsp;</span></p>
 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:150%;'><span style='font-size:19px;line-height:150%;font-family:"Calibri Light",sans-serif;'>3. Frecuencia del seguimiento:</span></p>
 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:150%;'><span style='font-size:19px;line-height:150%;font-family:"Calibri Light",sans-serif;'>Indicar la frecuencia con la que se realizar&aacute; el seguimiento del plan de acci&oacute;n:</span></p>
 <ol start="1" style="list-style-type: upper-alpha;">
-    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;'>Diario</span></li>
-    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;'>Semanal</span></li>
-    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;'>Quincenal</span></li>
-    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;'>Mensual</span></li>
-    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;'>Otro: ____________________________________________________</span></li>
+    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;text-decoration:${formulario.frecuencia_seguimiento=='Diaria'? 'underline': 'none'};'>Diaria</span></li>
+    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;text-decoration:${formulario.frecuencia_seguimiento=='Semanal'? 'underline': 'none'};'>Semanal</span></li>
+    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;text-decoration:${formulario.frecuencia_seguimiento=='Quincenal'? 'underline': 'none'};'>Quincenal</span></li>
+    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;text-decoration:${formulario.frecuencia_seguimiento=='Mensual'? 'underline': 'none'};'>Mensual</span></li>
+    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;'>Otro: ${formulario.frecuencia_seguimiento_otro}</span></li>
 </ol>
 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:150%;'><span style='font-size:19px;line-height:150%;font-family:"Calibri Light",sans-serif;'>4. Instrumentos de evaluaci&oacute;n:</span></p>
 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:150%;'><span style='font-size:19px;line-height:150%;font-family:"Calibri Light",sans-serif;'>(Especificar los instrumentos que se utilizar&aacute;n para evaluar el progreso del estudiante, incluyendo):</span></p>
 <ol start="1" style="list-style-type: upper-alpha;">
-    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;'>Observaci&oacute;n directa</span></li>
-    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;'>Registros de comportamiento</span></li>
-    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;'>Escalas de evaluaci&oacute;n de emociones</span></li>
-    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;'>Entrevistas al estudiante</span></li>
-    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;'>Entrevistas a los padres o tutores</span></li>
-    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;'>Informes de los profesores</span></li>
-    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;'>Otros: _____________________________________________________</span></li>
+    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;text-decoration: ${formulario.instrumento_evaluacion.includes('Observación directa')? 'underline': 'none'};'>Observación directa</span></li>
+    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;text-decoration: ${formulario.instrumento_evaluacion.includes('Registros de comportamiento')? 'underline': 'none'};'>Registros de comportamiento</span></li>
+    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;text-decoration: ${formulario.instrumento_evaluacion.includes('Escalas de evaluación de emociones')? 'underline': 'none'};'>Escalas de evaluaci&oacute;n de emociones</span></li>
+    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;text-decoration: ${formulario.instrumento_evaluacion.includes('Entrevistas al estudiante')? 'underline': 'none'};'>Entrevistas al estudiante</span></li>
+    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;text-decoration: ${formulario.instrumento_evaluacion.includes('Entrevistas a los padres o tutores')? 'underline': 'none'};'>Entrevistas a los padres o tutores</span></li>
+    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;text-decoration: ${formulario.instrumento_evaluacion.includes('Informes de los profesores')? 'underline': 'none'};'>Informes de los profesores</span></li>
+    <li><span style='line-height:150%;font-family:"Calibri Light",sans-serif;'>Otros: ${formulario.instrumento_evaluacion_otros}</span></li>
 </ol>
 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:150%;'><span style='font-size:19px;line-height:150%;font-family:"Calibri Light",sans-serif;'>Observaciones adicionales:</span></p>
 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:150%;'><span style='font-size:19px;line-height:150%;font-family:"Calibri Light",sans-serif;'>Incluir cualquier otra informaci&oacute;n relevante que no se haya incluido en los apartados anteriores, como:</span></p>
 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:150%;'><span style='font-size:19px;line-height:150%;font-family:"Calibri Light",sans-serif;'>Historial de desregulaciones emocionales del estudiante:</span></p>
-<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:150%;'><span style='font-size:19px;line-height:150%;font-family:"Calibri Light",sans-serif;'>________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:150%;'><span style='font-size:19px;line-height:150%;font-family:"Calibri Light",sans-serif;'>
+${formulario.historial_desregulaciones}
+</span></p>
 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:150%;'><span style='font-size:19px;line-height:150%;font-family:"Calibri Light",sans-serif;'>Factores de riesgo asociados a la desregulaci&oacute;n:</span></p>
-<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:150%;'><span style='font-size:19px;line-height:150%;font-family:"Calibri Light",sans-serif;'>________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:150%;'><span style='font-size:19px;line-height:150%;font-family:"Calibri Light",sans-serif;'>
+${formulario.factores_riesgo}
+</span></p>
 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:150%;'><span style='font-size:19px;line-height:150%;font-family:"Calibri Light",sans-serif;'>Necesidades espec&iacute;ficas del estudiante:</span></p>
-<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:150%;'><span style='font-size:19px;line-height:150%;font-family:"Calibri Light",sans-serif;'>________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:150%;'><span style='font-size:19px;line-height:150%;font-family:"Calibri Light",sans-serif;'>
+${formulario.necesidades_especificas}
+</span></p>
 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:150%;'><span style='font-size:19px;line-height:150%;font-family:"Calibri Light",sans-serif;'>&nbsp;</span></p>
 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:150%;'><span style='font-size:19px;line-height:150%;font-family:"Calibri Light",sans-serif;'>Recursos disponibles en la instituci&oacute;n educativa:</span></p>
-<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:150%;'><span style='font-size:19px;line-height:150%;font-family:"Calibri Light",sans-serif;'>________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:150%;'><span style='font-size:19px;line-height:150%;font-family:"Calibri Light",sans-serif;'>
+${formulario.recursos_disponibles}
+</span></p>
 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:150%;'><span style='font-size:19px;line-height:150%;font-family:"Calibri Light",sans-serif;'>&nbsp;</span></p>
 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:150%;'><span style='font-size:19px;line-height:150%;font-family:"Calibri Light",sans-serif;'>&nbsp;</span></p>
 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:150%;'><span style='font-size:19px;line-height:150%;font-family:"Calibri Light",sans-serif;'>Coordinaci&oacute;n con otros profesionales:</span></p>
-<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:150%;'><span style='font-size:19px;line-height:150%;font-family:"Calibri Light",sans-serif;'>________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:150%;'><span style='font-size:19px;line-height:150%;font-family:"Calibri Light",sans-serif;'>
+${formulario.coordinacion_profesionales}
+</span></p>
 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:150%;'><span style='font-size:19px;line-height:150%;font-family:"Calibri Light",sans-serif;'>&nbsp;</span></p>
 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:150%;'><span style='font-size:19px;line-height:150%;font-family:"Calibri Light",sans-serif;'>Firma del evaluador:</span></p>
 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:150%;'><span style='font-size:19px;line-height:150%;font-family:"Calibri Light",sans-serif;'>Firma del responsable del seguimiento:</span></p>

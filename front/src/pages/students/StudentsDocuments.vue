@@ -84,7 +84,7 @@
           </td>
           <td>{{ document.user?.name }}</td>
           <td>
-            <q-btn flat dense @click="documentFirma(document)" icon="fa-solid fa-file-arrow-down" size="10px" color="green" :loading="loading" v-if="document.firma" />
+            <q-btn flat dense @click="documentFirma(document)" icon="fa-solid fa-signature" size="10px" color="purple" :loading="loading" v-if="document.firma" />
           </td>
         </tr>
         </tbody>
@@ -134,7 +134,7 @@
                                   :options="[
                                     { label: 'Tristeza',value: 'Tristeza'},
                                     { label: 'Ira',value: 'Ira'},
-                                    { label: 'Frustracaion',value: 'Frustracaion'},
+                                    { label: 'Frustracion',value: 'Frustracion'},
                                     { label: 'Ansiedad',value: 'Ansiedad'},
                                     { label: 'Miedo',value: 'Miedo'}
                                   ]"
@@ -257,7 +257,7 @@
                                 <label class="text-bold">Medidas a corto plazo</label>
                                 <q-option-group
                                   dense
-                                  v-model="formulario.medidadas_corto_plazo"
+                                  v-model="formulario.medidas_corto_plazo"
                                   :options="[
                                     { label: 'Implementación de estrategias de autorregulación emocional',value: 'Implementación de estrategias de autorregulación emocional'},
                                     { label: 'Adaptaciones en el aula',value: 'Adaptaciones en el aula'},
@@ -267,14 +267,14 @@
                                     { label: 'Intervención con la familia',value: 'Intervención con la familia'}
                                   ]"
                                   color="primary"
-                                  @update:modelValue="formulario.medidadas_corto_plazo_otros = ''" />
-                                <q-input v-model="formulario.medidadas_corto_plazo_otros" placeholder="Otra" outlined dense @update:modelValue="formulario.medidadas_corto_plazo = ''" />
+                                  @update:modelValue="formulario.medidas_corto_plazo_otros = ''" />
+                                <q-input v-model="formulario.medidas_corto_plazo_otros" placeholder="Otra" outlined dense @update:modelValue="formulario.medidas_corto_plazo = ''" />
                               </div>
                               <div class="col-12 col-md-4">
                                 <label class="text-bold">Medidas a largo plazo</label>
                                 <q-option-group
                                   dense
-                                  v-model="formulario.medidadas_largo_plazo"
+                                  v-model="formulario.medidas_largo_plazo"
                                   :options="[
                                     { label: 'Terapia individual o grupal',value: 'Terapia individual o grupal'},
                                     { label: 'Evaluación por un profesional de la salud mental',value: 'Evaluación por un profesional de la salud mental'},
@@ -283,8 +283,8 @@
                                     { label: 'Adaptaciones curriculares',value: 'Adaptaciones curriculares'}
                                   ]"
                                   color="primary"
-                                  @update:modelValue="formulario.medidadas_largo_plazo_otros = ''" />
-                                <q-input v-model="formulario.medidadas_largo_plazo_otros" placeholder="Otra" outlined dense @update:modelValue="formulario.medidadas_largo_plazo = ''" />
+                                  @update:modelValue="formulario.medidas_largo_plazo_otros = ''" />
+                                <q-input v-model="formulario.medidas_largo_plazo_otros" placeholder="Otra" outlined dense @update:modelValue="formulario.medidas_largo_plazo = ''" />
                               </div>
                               <div class="col-12 col-md-4">
                                 <label class="text-bold">Fecha de seguimiento</label>
@@ -362,7 +362,7 @@
                     :color="document.id ? 'orange' : 'green'"
                     type="submit" :loading="loading"
                     :icon="document.id ? 'edit' : 'save'"
-                    no-caps v-if="document.html !== ''" />
+                    no-caps v-if="document.html !== '' || showFomulario"/>
                 </q-card-actions>
               </q-form>
             </q-card-section>
@@ -416,8 +416,8 @@ export default {
         efectividad_estrategia:'',
         necesidad_ayuda_externa:'',
         ayuda_externa:'',
-        medidadas_corto_plazo:'',
-        medidadas_largo_plazo:'',
+        medidas_corto_plazo:'',
+        medidas_largo_plazo:'',
         seguimiento_fecha:'',
         seguimiento_responsable:'',
         frecuencia_seguimiento:'',
@@ -557,6 +557,7 @@ export default {
       document.querySelector('#archivo').click();
     },
     restoreHtml () {
+      this.showFomulario = false
       // nombreEstudiante, nombreApoderado, nombreRepresentanteEstablecimiento, fecha
       const date = moment().format('DD/MM/YYYY HH:mm:ss')
       if (this.document.name === 'AUTORIZACIÓN PARA EL ABORDAJE DEC.')
@@ -576,6 +577,29 @@ export default {
       }
       if (this.document.name === 'FICHA DE SEGUIMIENTO INDIVIDUALIZADA PARA DESREGULACIÓN EMOCIONAL'){
         this.document.html = ''
+        this.formulario = {
+          evaluador: '',
+          contexto:'',
+          emocion_predominante:'',
+          manifestaciones_fisicas:'',
+          manifestaciones_conductuales:'',
+          duracion:'',
+          intervencion_realizada:'',
+          efectividad_estrategia:'',
+          necesidad_ayuda_externa:'',
+          ayuda_externa:'',
+          medidas_corto_plazo:'',
+          medidas_largo_plazo:'',
+          seguimiento_fecha:'',
+          seguimiento_responsable:'',
+          frecuencia_seguimiento:'',
+          instrumento_evaluacion:'',
+          historial_desregulaciones:'',
+          factores_riesgo:'',
+          necesidades_especificas:'',
+          recursos_disponibles:'',
+          coordinacion_profesionales:'',
+        }
         this.showFomulario = true
       }
     },
@@ -666,6 +690,10 @@ export default {
     },
     documentCreate() {
       this.loading = true
+      if (this.showFomulario) {
+        const date = moment().format('DD/MM/YYYY HH:mm:ss')
+        this.document.html = Documentos.fichaSeguimiento(this.student.name, date, this.formulario)
+      }
       this.$axios.post('documents', {
         student_id: this.student_id,
         document: this.document
