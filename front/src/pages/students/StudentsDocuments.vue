@@ -72,7 +72,7 @@
 <!--              Boton para cargar firma-->
               <q-item clickable v-close-popup @click="cargarFirma(document)">
                 <q-item-section avatar>
-                  <q-icon name="fa-solid fa-signature" />
+                  <q-icon name="fa-solid fa-camera-retro" />
                 </q-item-section>
                 <q-item-section>Subir foto</q-item-section>
               </q-item>
@@ -84,7 +84,7 @@
           </td>
           <td>{{ document.user?.name }}</td>
           <td>
-            <q-btn flat dense @click="documentFirma(document)" icon="fa-solid fa-signature" size="10px" color="purple" :loading="loading" v-if="document.firma" />
+            <q-btn flat dense @click="documentFirma(document)" icon="fa-solid fa-camera-retro" size="10px" color="purple" :loading="loading" v-if="document.firma" />
           </td>
         </tr>
         </tbody>
