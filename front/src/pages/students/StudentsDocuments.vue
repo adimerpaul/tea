@@ -74,7 +74,7 @@
                 <q-item-section avatar>
                   <q-icon name="fa-solid fa-signature" />
                 </q-item-section>
-                <q-item-section>Cargar Firma</q-item-section>
+                <q-item-section>Subir foto</q-item-section>
               </q-item>
             </q-btn-dropdown>
           </td>
@@ -384,7 +384,7 @@
         </q-card-section>
       </q-card>
     </q-dialog>
-    <input type="file" id="archivo" class="file" @change="onFileChange" style="display: none" accept=".pdf" />
+    <input type="file" id="archivo" class="file" @change="onFileChange" style="display: none" />
   </q-card>
 </template>
 <script>
