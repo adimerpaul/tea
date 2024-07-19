@@ -384,7 +384,7 @@
         </q-card-section>
       </q-card>
     </q-dialog>
-    <input type="file" id="archivo" class="file" @change="onFileChange" style="display: none" />
+    <input type="file" id="archivo" class="file" @change="onFileChange" style="display: none" accept="image/*" />
   </q-card>
 </template>
 <script>
@@ -659,10 +659,11 @@ export default {
       this.$axios.get(`documents/${document.id}/firma`, {
         responseType: 'blob'
       }).then(response => {
-        const url = window.URL.createObjectURL(new Blob([response.data], { type: 'application/pdf' }));
+        // file image
+        const url = window.URL.createObjectURL(new Blob([response.data]));
         const link = window.document.createElement('a'); // Usa window.document para evitar conflictos
         link.href = url;
-        link.setAttribute('download', `${document.description}.pdf`); // Asegúrate de agregar la extensión
+        link.setAttribute('download', `${document.description}.png`); // Asegúrate de agregar la extensión
         window.document.body.appendChild(link);
         link.click();
         link.remove(); // Elimina el elemento del DOM
