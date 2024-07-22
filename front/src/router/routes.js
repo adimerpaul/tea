@@ -12,6 +12,7 @@ const routes = [
       { path: 'colegios', component: () => import('pages/colegios/ColegiosIndex.vue'), meta: { requiresAuth: true } },
       { path: 'protocolos', component: () => import('pages/protocolos/ProtocolosIndex.vue'), meta: { requiresAuth: true } },
       { path: 'reportes', component: () => import('pages/reportes/ReportesIndex.vue'), meta: { requiresAuth: true } },
+      { path: 'ayuda', component: () => import('pages/ayuda/AyudaIndex.vue'), meta: { requiresAuth: true } },
     ]
   },
   {

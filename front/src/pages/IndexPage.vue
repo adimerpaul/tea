@@ -41,7 +41,7 @@
 <!--      "histories": 8-->
 <!--      }-->
       <div class="col-12 col-md-4" v-if="$store.user?.role === 'ADMIN'">
-        <CardComponent title="Diagnósticos" icon="o_medical_services"  color="red" :amount="data.diagnoses" />
+        <CardComponent title="reportes" icon="o_assignment" to="/reports" color="red" :amount="5" />
       </div>
       <div class="col-12 col-md-4" v-if="$store.user?.role === 'ADMIN'">
         <CardComponent title="Protocolos" icon="o_description" to="/protocolos" color="purple" :amount="5" />
@@ -49,7 +49,7 @@
       <div class="col-12 col-md-4" v-if="$store.user?.role === 'ADMIN'">
 <!--        <CardComponent title="Historiales" icon="o_history" to="/students" color="blue" :amount="data.histories" />-->
 <!--        card de ayuda-->
-        <CardComponent title="Ayuda" icon="o_help" color="blue" :amount="data.histories" />
+        <CardComponent title="Ayuda" icon="o_help" color="blue" :amount="data.histories" :to="'/ayuda'"/>
       </div>
       <div class="col-12 q-mt-lg">
         <q-img src="logo3.png" class="q-mb-md" width="100px" />
