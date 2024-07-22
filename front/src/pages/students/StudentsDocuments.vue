@@ -89,7 +89,7 @@
         </tr>
         </tbody>
       </q-markup-table>
-<!--      <pre>{{documents}}</pre>-->
+      <pre>{{documents}}</pre>
 <!--      <pre>{{student}}</pre>-->
     </q-card-section>
     <q-dialog v-model="documentDialog" persistent>
@@ -655,6 +655,8 @@ export default {
       })
     },
     documentFirma(document) {
+      // firma": "documents/1721382684_bffb93e0-d867-4ad9-95d2-126c42d3d341.jpeg",
+      const nameFileDocument = document.firma.split('/')[1]
       this.loading = true
       this.$axios.get(`documents/${document.id}/firma`, {
         responseType: 'blob'
@@ -663,7 +665,7 @@ export default {
         const url = window.URL.createObjectURL(new Blob([response.data]));
         const link = window.document.createElement('a'); // Usa window.document para evitar conflictos
         link.href = url;
-        link.setAttribute('download', `${document.description}.png`); // Asegúrate de agregar la extensión
+        link.setAttribute('download', `${nameFileDocument}`); // Asegúrate de agregar la extensión
         window.document.body.appendChild(link);
         link.click();
         link.remove(); // Elimina el elemento del DOM
