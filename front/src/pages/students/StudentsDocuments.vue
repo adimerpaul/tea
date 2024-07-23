@@ -89,7 +89,7 @@
         </tr>
         </tbody>
       </q-markup-table>
-      <pre>{{documents}}</pre>
+<!--      <pre>{{documents}}</pre>-->
 <!--      <pre>{{student}}</pre>-->
     </q-card-section>
     <q-dialog v-model="documentDialog" persistent>
@@ -384,7 +384,7 @@
         </q-card-section>
       </q-card>
     </q-dialog>
-    <input type="file" id="archivo" class="file" @change="onFileChange" style="display: none" accept="image/*" />
+    <input type="file" id="archivo" class="file" @change="onFileChange" style="display: none"/>
   </q-card>
 </template>
 <script>
