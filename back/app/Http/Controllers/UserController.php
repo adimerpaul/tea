@@ -49,13 +49,15 @@ class UserController extends Controller{
         return User::with(['colegio','students'])->find($user->id);
     }
     public function update(Request $request, $id){
+//        $validatedData = $request->validate([
+//            'name' => 'required|string|max:255|unique:users,username,'.$id,
+//        ]);
         $user = User::find($id);
         $user->name = $request->name;
         $user->email = $request->email;
         $user->username = $request->username;
         $user->role = $request->role;
         $user->colegio_id = $request->colegio_id;
-        $user->user_id = $request->user_id;
         $user->save();
         return User::with(['colegio','students'])->find($user->id);
     }

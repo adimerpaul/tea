@@ -76,8 +76,18 @@
                     <!--          {label: 'Encargado PIE', value: 'ENCARGADO PIE'},-->
                     <!--          {label: 'Docente', value: 'DOCENTE'},-->
                     <!--          {label: 'Asistente Educativo', value: 'ASISTENTE EDUCATIVO'},-->
+<!--                    <q-chip dense text-color="white" :style="`background-color: ${$store.user.role === 'ADMIN' ? 'red' : $store.user.role === 'APODERADO' ? 'indigo' : $store.user.role === 'ENCARGADO PIE' ? 'green' : $store.user.role === 'DOCENTE' ? 'orange' : 'blue'}`">-->
+<!--                      {{ $store.user.role === 'ADMIN' ? 'Admin' : $store.user.role === 'APODERADO' ? 'Apoderado' : $store.user.role === 'ENCARGADO PIE' ? 'Encargado PIE' : $store.user.role === 'DOCENTE' ? 'Docente' : 'Asistente Educativo'}}-->
+<!--                    </q-chip>-->
+
                     <q-chip dense text-color="white" :style="`background-color: ${$store.user.role === 'ADMIN' ? 'red' : $store.user.role === 'APODERADO' ? 'indigo' : $store.user.role === 'ENCARGADO PIE' ? 'green' : $store.user.role === 'DOCENTE' ? 'orange' : 'blue'}`">
-                      {{ $store.user.role === 'ADMIN' ? 'Admin' : $store.user.role === 'APODERADO' ? 'Apoderado' : $store.user.role === 'ENCARGADO PIE' ? 'Encargado PIE' : $store.user.role === 'DOCENTE' ? 'Docente' : 'Asistente Educativo'}}
+                      {{
+                        $store.user.role=== 'ADMIN' ? 'Admin' :
+                          $store.user.role === 'APODERADO' ? 'Apoderado' :
+                            $store.user.role === 'ENCARGADO PIE' ? 'Encargado PIE' :
+                              $store.user.role === 'DOCENTE' ? 'Docente' :
+                                $store.user.role === 'ADMIN DOCENTE' ? 'Admin Docente' :
+                                  'Asistente Educativo'}}
                     </q-chip>
                   </q-item-label>
                   <q-item-label caption class="text-white">{{ $store.user.colegio?.nombre }}</q-item-label>
