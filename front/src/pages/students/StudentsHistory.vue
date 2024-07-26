@@ -310,23 +310,23 @@ export default {
     uploadFile() {
       // Lógica para abrir el selector de archivos cuando se hace clic en la zona de carga
       // this.$refs.fileInput.click();
-      this.$q.dialog({
-        title: 'Ingrese rut del estudiante',
-        message: 'Ingrese el rut del estudiante para subir el diagnóstico',
-        prompt: {
-          model: '',
-          type: 'text',
-          required: true,
-          rules: [
-            val => !!val || 'Campo requerido',
-            // val => val.length === 9 || 'Rut debe tener 9 caracteres'
-          ]
-        },
-        cancel: true,
-        persistent: true
-      }).onOk(rut => {
+      // this.$q.dialog({
+      //   title: 'Ingrese rut del estudiante',
+      //   message: 'Ingrese el rut del estudiante para subir el diagnóstico',
+      //   prompt: {
+      //     model: '',
+      //     type: 'text',
+      //     required: true,
+      //     rules: [
+      //       val => !!val || 'Campo requerido',
+      //       // val => val.length === 9 || 'Rut debe tener 9 caracteres'
+      //     ]
+      //   },
+      //   cancel: true,
+      //   persistent: true
+      // }).onOk(rut => {
         this.$refs.fileInput.click();
-      })
+      // })
     },
     fileUpload() {
       const formData = new FormData();
@@ -361,21 +361,42 @@ export default {
       })
     },
     downloadFile(diagnosis) {
-      this.loading = true
-      this.$axios.get(`diagnoses/${diagnosis.id}/download`, { responseType: 'blob' }).then(response => {
-        const url = window.URL.createObjectURL(new Blob([response.data], { type: response.headers['content-type'] }));
-        const link = document.createElement('a');
-        link.href = url;
-        link.setAttribute('download', diagnosis.name);
-        document.body.appendChild(link);
-        link.click();
-        link.remove();
-        window.URL.revokeObjectURL(url);
-      }).catch(error => {
-        this.$alert.error(error.response.data.message);
-      }).finally(() => {
-        this.loading = false
+      this.$q.dialog({
+        title: 'Ingrese rut del estudiante',
+        message: 'Ingrese el rut del estudiante para subir el diagnóstico',
+        prompt: {
+          model: '',
+          type: 'text',
+          required: true,
+          rules: [
+            val => !!val || 'Campo requerido',
+            // val => val.length === 9 || 'Rut debe tener 9 caracteres'
+          ]
+        },
+        cancel: true,
+        persistent: true
+      }).onOk(rut => {
+        if (rut !== this.student.rut.slice(0, 4)) {
+          this.$alert.error('El rut ingresado no coincide con el del estudiante');
+          return false;
+        }
+        this.loading = true
+        this.$axios.get(`diagnoses/${diagnosis.id}/download`, { responseType: 'blob' }).then(response => {
+          const url = window.URL.createObjectURL(new Blob([response.data], { type: response.headers['content-type'] }));
+          const link = document.createElement('a');
+          link.href = url;
+          link.setAttribute('download', diagnosis.name);
+          document.body.appendChild(link);
+          link.click();
+          link.remove();
+          window.URL.revokeObjectURL(url);
+        }).catch(error => {
+          this.$alert.error(error.response.data.message);
+        }).finally(() => {
+          this.loading = false
+        })
       })
+
     },
     deleteDiagnosis(id) {
       this.$alert.confirm('¿Está seguro de eliminar este diagnóstico?').onOk(() => {

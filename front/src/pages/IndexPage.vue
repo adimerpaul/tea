@@ -46,7 +46,7 @@
       <div class="col-12 col-md-4" v-if="$store.user?.role === 'ADMIN'">
         <CardComponent title="Protocolos" icon="o_description" to="/protocolos" color="purple" :amount="5" />
       </div>
-      <div class="col-12 col-md-4" v-if="$store.user?.role === 'ADMIN'">
+      <div class="col-12 col-md-4">
 <!--        <CardComponent title="Historiales" icon="o_history" to="/students" color="blue" :amount="data.histories" />-->
 <!--        card de ayuda-->
         <CardComponent title="Ayuda" icon="o_help" color="blue" :amount="data.histories" :to="'/ayuda'"/>
