@@ -41,7 +41,7 @@
 <!--      "histories": 8-->
 <!--      }-->
       <div class="col-12 col-md-4" v-if="$store.user?.role === 'ADMIN'">
-        <CardComponent title="reportes" icon="o_assignment" to="/reports" color="red" :amount="5" />
+        <CardComponent title="reportes" icon="o_assignment" color="red" :amount="5" />
       </div>
       <div class="col-12 col-md-4" v-if="$store.user?.role === 'ADMIN'">
         <CardComponent title="Protocolos" icon="o_description" to="/protocolos" color="purple" :amount="5" />
