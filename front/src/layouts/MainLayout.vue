@@ -138,10 +138,13 @@ export default {
       essentialLinks: [
         { title: 'Inicio', icon: 'home', to: '/', can: 'ALL' },
         { title: 'Usuarios', icon: 'people', to: '/users',can: 'ADMIN' },
+        // { title: 'Usuarios', icon: 'people', to: '/users',can: 'ADMIN COLEGIO' },
         { title: 'Reuniones', icon: 'event', to: '/appointments', can: 'ADMIN' },
+        { title: 'Reuniones', icon: 'event', to: '/appointments', can: 'ADMIN COLEGIO' },
         { title: 'Reuniones', icon: 'event', to: '/appointments', can: 'ENCARGADO PIE' },
         { title: 'Estudiantes', icon: 'school', to: '/students', can: 'ALL'},
         { title: 'Colegio', icon: 'history_edu', to: '/colegios', can: 'ADMIN'},
+        // { title: 'Colegio', icon: 'history_edu', to: '/colegios', can: 'ADMIN COLEGIO'},
         { title: 'Reportes', icon: 'description', to: '/reportes', can: 'ALL'},
       ],
     };
