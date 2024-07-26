@@ -31,7 +31,7 @@
               props.row.role === 'APODERADO' ? 'Apoderado' :
               props.row.role === 'ENCARGADO PIE' ? 'Encargado PIE' :
               props.row.role === 'DOCENTE' ? 'Docente' :
-              props.row.role === 'ADMIN DOCENTE' ? 'Admin Docente' :
+              props.row.role === 'ADMIN COLEGIO' ? 'Admin Colegio' :
               'Asistente Educativo'}}
           </q-chip>
 
@@ -137,7 +137,7 @@ export default {
       ],
       roles: [
         {label: 'Admin', value: 'ADMIN'},
-        {label: 'Admin Doce', value: 'ADMIN DOCENTE'},
+        {label: 'Admin Colegio', value: 'ADMIN COLEGIO'},
         {label: 'Apoderado', value: 'APODERADO'},
         {label: 'Encargado PIE', value: 'ENCARGADO PIE'},
         {label: 'Docente', value: 'DOCENTE'},

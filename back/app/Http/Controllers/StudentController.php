@@ -27,7 +27,7 @@ class StudentController extends Controller{
                 ->orderBy('id', 'desc')
                 ->get();
 //            ENCARGADO PIE
-        } else if($role == 'ENCARGADO PIE' || $role == 'DOCENTE' || $role == 'ASISTENTE EDUCATIVO' || $role == 'ADMIN DOCENTE'){
+        } else if($role == 'ENCARGADO PIE' || $role == 'DOCENTE' || $role == 'ASISTENTE EDUCATIVO' || $role == 'ADMIN COLEGIO'){
             return Student::with(['colegio', 'user'])
                 ->where('colegio_id', $request->user()->colegio_id)
                 ->orderBy('id', 'desc')

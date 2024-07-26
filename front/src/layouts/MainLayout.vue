@@ -86,7 +86,7 @@
                           $store.user.role === 'APODERADO' ? 'Apoderado' :
                             $store.user.role === 'ENCARGADO PIE' ? 'Encargado PIE' :
                               $store.user.role === 'DOCENTE' ? 'Docente' :
-                                $store.user.role === 'ADMIN DOCENTE' ? 'Admin Docente' :
+                                $store.user.role === 'ADMIN COLEGIO' ? 'Admin Colegio' :
                                   'Asistente Educativo'}}
                     </q-chip>
                   </q-item-label>
