@@ -5,7 +5,7 @@
         <div class="text-h6 text-bold">Documentos</div>
         <q-space />
         <q-btn icon="add_circle_outline" @click="addDocument" label="Agregar" no-caps color="indigo" dense size="10px" :loading="loading"
-               v-if="$store.user.role=='ADMIN' || $store.user.role=='APODERADO' || $store.user.role=='ENCARGADO PIE'"
+               v-if="$store.user.role=='ADMIN' || $store.user.role=='ENCARGADO PIE' || $store.user.role=='ADMIN COLEGIO'"
         />
       </div>
       <q-markup-table dense wrap-cells>
@@ -35,10 +35,10 @@
               class="q-mr-sm"
               label="Opciones"
               no-caps
-              v-if="$store.user.role=='ADMIN' || $store.user.role=='APODERADO' || $store.user.role=='ENCARGADO PIE'"
+              v-if="$store.user.role=='ADMIN' || $store.user.role=='ENCARGADO PIE' || $store.user.role=='ADMIN COLEGIO'"
             >
               <q-item clickable v-close-popup @click="documentOpen(document)"
-                      v-if="$store.user.role=='ADMIN'"
+                      v-if="$store.user.role=='ADMIN' || $store.user.role=='ENCARGADO PIE' || $store.user.role=='ADMIN COLEGIO'">
               >
                 <q-item-section avatar>
                   <q-icon name="fa-solid fa-file-arrow-down" />

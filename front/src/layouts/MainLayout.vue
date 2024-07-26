@@ -145,7 +145,9 @@ export default {
         { title: 'Estudiantes', icon: 'school', to: '/students', can: 'ALL'},
         { title: 'Colegio', icon: 'history_edu', to: '/colegios', can: 'ADMIN'},
         // { title: 'Colegio', icon: 'history_edu', to: '/colegios', can: 'ADMIN COLEGIO'},
-        { title: 'Reportes', icon: 'description', to: '/reportes', can: 'ALL'},
+        { title: 'Reportes', icon: 'description', to: '/reportes', can: 'ADMIN'},
+        { title: 'Reportes', icon: 'description', to: '/reportes', can: 'ADMIN COLEGIO'},
+        { title: 'Reportes', icon: 'description', to: '/reportes', can: 'ENCARGADO PIE'},
       ],
     };
   },

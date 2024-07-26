@@ -78,7 +78,7 @@
                   <div class="text-h6 text-bold">Antecedentes</div>
                   <q-space />
                   <q-btn icon="add_circle_outline" @click="addHistory" label="Agregar registro" no-caps color="green"
-                         dense size="10px" v-if="$store.user.role=='ADMIN'  || $store.user.role=='ASISTENTE EDUCATIVO'"/>
+                         dense size="10px" v-if="$store.user.role=='ADMIN COLEGIO'  || $store.user.role=='ADMIN'  || $store.user.role=='ASISTENTE EDUCATIVO'"/>
                 </div>
                 <q-markup-table dense wrap-cells>
                   <thead>
@@ -100,10 +100,10 @@
                         class="q-mr-sm"
                         label="Opciones"
                         no-caps
-                        v-if="$store.user.role=='ADMIN'  || $store.user.role=='ENCARGADO PIE'"
+                        v-if="$store.user.role=='ADMIN'  || $store.user.role=='ADMIN COLEGIO'  || $store.user.role=='ENCARGADO PIE'"
                       >
                         <q-item clickable v-close-popup @click="deleteHistory(history)"
-                                v-if="$store.user.role=='ADMIN'"
+                                v-if="$store.user.role=='ADMIN' || $store.user.role=='ADMIN COLEGIO'"
                         >
                           <q-item-section avatar>
                             <q-icon name="delete" />
@@ -111,7 +111,7 @@
                           <q-item-section>Eliminar</q-item-section>
                         </q-item>
                         <q-item clickable v-close-popup @click="historyClick(history)"
-                                v-if="$store.user.role=='ADMIN'"
+                                v-if="$store.user.role=='ADMIN' || $store.user.role=='ADMIN COLEGIO'"
                         >
                           <q-item-section avatar>
                             <q-icon name="edit" />
@@ -119,7 +119,7 @@
                           <q-item-section>Editar</q-item-section>
                         </q-item>
                         <q-item clickable v-close-popup @click="sendWhatsapp(history)"
-                                v-if="$store.user.role=='ADMIN'"
+                                v-if="$store.user.role=='ADMIN' || $store.user.role=='ADMIN COLEGIO'"
                         >
                           <q-item-section avatar>
                             <q-icon name="send" />
@@ -154,7 +154,7 @@
                  @dragover.prevent
                  @dragleave.prevent
                  @drop.prevent="handleDrop"
-                 v-if="$store.user.role=='ADMIN'  || $store.user.role=='ENCARGADO PIE'"
+                 v-if="$store.user.role=='ADMIN'  || $store.user.role=='ENCARGADO PIE' || $store.user.role=='ADMIN COLEGIO'"
             >
               <q-icon name="cloud_upload" size="70px" />
               <div>Acá suba sus archivos</div>
@@ -186,7 +186,7 @@
                       <q-item-label class="text-capitalize text-caption">{{diagnosis.name}}</q-item-label>
                     </q-item-section>
                     <q-item-section side>
-                      <q-btn flat icon="delete" @click="deleteDiagnosis(diagnosis.id)" color="red" :loading="loading" />
+                      <q-btn flat icon="delete" @click="deleteDiagnosis(diagnosis.id)" color="red" :loading="loading" v-if="$store.user.role=='ADMIN' || $store.user.role=='ADMIN COLEGIO'" />
                     </q-item-section>
                   </q-item>
                 </q-card-section>
