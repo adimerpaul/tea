@@ -8,6 +8,9 @@ use Illuminate\Http\Request;
 class ReporteController extends Controller{
     function reporteEstudiantes(Request $request){
         $cursos = [
+            'NT 1',
+            'NT 2',
+            'PREKINDER',
             'PREKINDER',
             'KINDER',
             '1ER BASICO',
@@ -24,6 +27,8 @@ class ReporteController extends Controller{
             '4TO SECUNDARIA',
         ];
         $cursosSort = [
+            'NT 1',
+            'NT 2',
             'PREKIN',
             'KIN',
             '1ER B',

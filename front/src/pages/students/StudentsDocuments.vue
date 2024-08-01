@@ -5,8 +5,7 @@
         <div class="text-h6 text-bold">Documentos</div>
         <q-space />
         <q-btn icon="add_circle_outline" @click="addDocument" label="Agregar" no-caps color="indigo" dense size="10px" :loading="loading"
-               v-if="$store.user.role=='ADMIN' || $store.user.role=='ENCARGADO PIE' || $store.user.role=='ADMIN COLEGIO'"
-        />
+               v-if="$store.user.role=='ADMIN' || $store.user.role=='ENCARGADO PIE' || $store.user.role=='ADMIN COLEGIO' || $store.user.role=='ASISTENTE EDUCATIVO'" />
       </div>
       <q-markup-table dense wrap-cells>
         <thead>
