@@ -23,13 +23,13 @@
           </q-card-section>
         </q-card>
       </div>
-      <div class="col-12 col-md-4" v-if="$store.user?.role === 'ADMIN'">
+      <div class="col-12 col-md-4" v-if="$store.user?.role === 'ADMIN' || $store.user?.role === 'ENCARGADO PIE'">
         <CardComponent title="Usuarios" icon="o_people" to="/users" color="indigo" :amount="users" />
       </div>
-      <div class="col-12 col-md-4" v-if="$store.user?.role === 'ADMIN'">
+      <div class="col-12 col-md-4" v-if="$store.user?.role === 'ADMIN' || $store.user?.role === 'ENCARGADO PIE'">
         <CardComponent title="Estudiantes" icon="o_face" to="/students" color="green" :amount="students" />
       </div>
-      <div class="col-12 col-md-4" v-if="$store.user?.role === 'ADMIN'">
+      <div class="col-12 col-md-4" v-if="$store.user?.role === 'ADMIN' || $store.user?.role === 'ENCARGADO PIE'">
         <CardComponent title="Reuniones" icon="o_event" to="/appointments" color="orange" :amount="appointments" />
       </div>
 <!--      {-->
@@ -40,13 +40,13 @@
 <!--      "appointments": 5,-->
 <!--      "histories": 8-->
 <!--      }-->
-      <div class="col-12 col-md-4" v-if="$store.user?.role === 'ADMIN'">
+      <div class="col-12 col-md-4" v-if="$store.user?.role === 'ADMIN' || $store.user?.role === 'ENCARGADO PIE'">
         <CardComponent title="reportes" icon="o_assignment" color="red" :amount="5" />
       </div>
-      <div class="col-12 col-md-4" v-if="$store.user?.role === 'ADMIN'">
+      <div class="col-12 col-md-4" v-if="$store.user?.role === 'ADMIN' || $store.user?.role === 'ENCARGADO PIE'">
         <CardComponent title="Protocolos" icon="o_description" to="/protocolos" color="purple" :amount="5" />
       </div>
-      <div class="col-12 col-md-4">
+      <div class="col-12 col-md-4" v-if="$store.user?.role === 'ADMIN' || $store.user?.role === 'ENCARGADO PIE'">
 <!--        <CardComponent title="Historiales" icon="o_history" to="/students" color="blue" :amount="data.histories" />-->
 <!--        card de ayuda-->
         <CardComponent title="Ayuda" icon="o_help" color="blue" :amount="data.histories" :to="'/ayuda'"/>

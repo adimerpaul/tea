@@ -147,7 +147,7 @@ export default {
         // { title: 'Colegio', icon: 'history_edu', to: '/colegios', can: 'ADMIN COLEGIO'},
         { title: 'Reportes', icon: 'description', to: '/reportes', can: 'ADMIN'},
         { title: 'Reportes', icon: 'description', to: '/reportes', can: 'ADMIN COLEGIO'},
-        { title: 'Reportes', icon: 'description', to: '/reportes', can: 'ENCARGADO PIE'},
+        // { title: 'Reportes', icon: 'description', to: '/reportes', can: 'ENCARGADO PIE'},
       ],
     };
   },
