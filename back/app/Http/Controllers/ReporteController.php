@@ -10,9 +10,9 @@ class ReporteController extends Controller{
         $cursos = [
             'NT 1',
             'NT 2',
-            'PREKINDER',
-            'PREKINDER',
-            'KINDER',
+//            'PREKINDER',
+//            'PREKINDER',
+//            'KINDER',
             '1ER BASICO',
             '2DO BASICO',
             '3ER BASICO',
@@ -29,8 +29,8 @@ class ReporteController extends Controller{
         $cursosSort = [
             'NT 1',
             'NT 2',
-            'PREKIN',
-            'KIN',
+//            'PREKIN',
+//            'KIN',
             '1ER B',
             '2DO B',
             '3ER B',

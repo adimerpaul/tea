@@ -141,6 +141,7 @@ export default {
         // { title: 'Usuarios', icon: 'people', to: '/users',can: 'ADMIN COLEGIO' },
         { title: 'Reuniones', icon: 'event', to: '/appointments', can: 'ADMIN' },
         { title: 'Reuniones', icon: 'event', to: '/appointments', can: 'ADMIN COLEGIO' },
+        { title: 'Reuniones', icon: 'event', to: '/appointments', can: 'DOCENTE' },
         { title: 'Reuniones', icon: 'event', to: '/appointments', can: 'ASISTENTE EDUCATIVO' },
         { title: 'Reuniones', icon: 'event', to: '/appointments', can: 'ENCARGADO PIE' },
         { title: 'Estudiantes', icon: 'school', to: '/students', can: 'ALL'},
