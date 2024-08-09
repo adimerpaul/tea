@@ -34,10 +34,10 @@
               class="q-mr-sm"
               label="Opciones"
               no-caps
-              v-if="$store.user.role=='ADMIN' || $store.user.role=='ENCARGADO PIE' || $store.user.role=='ADMIN COLEGIO'"
+              v-if="$store.user.role=='ADMIN' || $store.user.role=='ENCARGADO PIE' || $store.user.role=='ADMIN COLEGIO' || $store.user.role=='DOCENTE'"
             >
               <q-item clickable v-close-popup @click="documentOpen(document)"
-                      v-if="$store.user.role=='ADMIN' || $store.user.role=='ENCARGADO PIE' || $store.user.role=='ADMIN COLEGIO'">
+                      v-if="$store.user.role=='ADMIN' || $store.user.role=='ENCARGADO PIE' || $store.user.role=='ADMIN COLEGIO' || $store.user.role=='DOCENTE'">
               >
                 <q-item-section avatar>
                   <q-icon name="fa-solid fa-file-arrow-down" />
