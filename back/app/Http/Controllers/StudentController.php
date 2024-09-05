@@ -44,7 +44,7 @@ class StudentController extends Controller{
         return Student::with(['colegio', 'user'])->find($student->id);
     }
     public function show($id){
-        return Student::with(['histories', 'diagnoses'])->find($id);
+        return Student::with(['histories', 'diagnoses','colegio'])->find($id);
     }
     public function update(Request $request, $id){
         $student = Student::find($id);

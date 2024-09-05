@@ -38,7 +38,6 @@
             >
               <q-item clickable v-close-popup @click="documentOpen(document)"
                       v-if="$store.user.role=='ADMIN' || $store.user.role=='ENCARGADO PIE' || $store.user.role=='ADMIN COLEGIO' || $store.user.role=='DOCENTE'">
-              >
                 <q-item-section avatar>
                   <q-icon name="fa-solid fa-file-arrow-down" />
                 </q-item-section>
@@ -515,12 +514,18 @@ export default {
         ['viewsource']
       ],
       documentsSelect: [
-        'AUTORIZACIÓN PARA EL ABORDAJE DEC.',
-        'CERTIFICADO PARA EL EMPLEADOR',
-        'CONTRATO DE CONTINGENCIAS',
-        'FICHA DEL PLAN DE APOYO INDIVIDUALIZADO (PAI) PARA ESTUDIANTES CON TEA',
+        // 'AUTORIZACIÓN PARA EL ABORDAJE DEC.',
+        // 'CERTIFICADO PARA EL EMPLEADOR',
+        // 'CONTRATO DE CONTINGENCIAS',
+        // 'FICHA DEL PLAN DE APOYO INDIVIDUALIZADO (PAI) PARA ESTUDIANTES CON TEA',
+        // 'PLAN DE ACOMPAÑAMIENTO EMOCIONAL Y CONDUCTUAL',
+        // 'FICHA DE SEGUIMIENTO INDIVIDUALIZADA PARA DESREGULACIÓN EMOCIONAL'
+        'AUTORIZACION',
+        'certificado para el empleador',
+        'contrato de contingencia',
         'PLAN DE ACOMPAÑAMIENTO EMOCIONAL Y CONDUCTUAL',
-        'FICHA DE SEGUIMIENTO INDIVIDUALIZADA PARA DESREGULACIÓN EMOCIONAL'
+        'PROTOCOLO DE ADMINISTRACIÓN DE FÁRMACOS EN EL CONTEXTO ESCOLAR',
+        'Registro de Desencadenantes de Desregulación Emocional en Estudiantes con TEA',
       ],
       documentDialog: false,
       documentDialogPdf: false,
@@ -556,51 +561,64 @@ export default {
       document.querySelector('#archivo').click();
     },
     restoreHtml () {
+      this.document.html = ''
       this.showFomulario = false
       // nombreEstudiante, nombreApoderado, nombreRepresentanteEstablecimiento, fecha
       const date = moment().format('DD/MM/YYYY HH:mm:ss')
-      if (this.document.name === 'AUTORIZACIÓN PARA EL ABORDAJE DEC.')
-        this.document.html = Documentos.autorizacionAbordajeDec( this.student.tutorName, this.student.tutorRut, this.student.name, this.student.course)
-      if (this.document.name === 'CERTIFICADO PARA EL EMPLEADOR')
-        this.document.html = Documentos.certificadoEmpleador( this.student.name, this.student.tutorName, this.student.course, this.student.tutorRut)
-      if (this.document.name === 'CONTRATO DE CONTINGENCIAS')
-        this.document.html = Documentos.contratoContigencia( this.student.name, this.student.tutorName, '', date)
-      if (this.document.name === 'FICHA DEL PLAN DE APOYO INDIVIDUALIZADO (PAI) PARA ESTUDIANTES CON TEA')
-        this.document.html = Documentos.fichaPai( this.student.name, this.student.course, this.student.birthdate, date)
-      if (this.document.name === 'PLAN DE ACOMPAÑAMIENTO EMOCIONAL Y CONDUCTUAL'){
-        let age = 0
-        if (this.student.birthdate) {
-          age = moment().diff(this.student.birthdate, 'years')
-        }
-        this.document.html = Documentos.planAcompanamiento( this.student.name, this.student.rut, age, this.student.course, this.student.tutorName,this.student.phone)
-      }
-      if (this.document.name === 'FICHA DE SEGUIMIENTO INDIVIDUALIZADA PARA DESREGULACIÓN EMOCIONAL'){
-        this.document.html = ''
-        this.formulario = {
-          evaluador: '',
-          contexto:'',
-          emocion_predominante:'',
-          manifestaciones_fisicas:'',
-          manifestaciones_conductuales:'',
-          duracion:'',
-          intervencion_realizada:'',
-          efectividad_estrategia:'',
-          necesidad_ayuda_externa:'',
-          ayuda_externa:'',
-          medidas_corto_plazo:'',
-          medidas_largo_plazo:'',
-          seguimiento_fecha:'',
-          seguimiento_responsable:'',
-          frecuencia_seguimiento:'',
-          instrumento_evaluacion:'',
-          historial_desregulaciones:'',
-          factores_riesgo:'',
-          necesidades_especificas:'',
-          recursos_disponibles:'',
-          coordinacion_profesionales:'',
-        }
-        this.showFomulario = true
-      }
+      if (this.document.name === 'AUTORIZACION')
+        this.document.html = Documentos.AUTORIZACION( this.student)
+      if (this.document.name === 'certificado para el empleador')
+        this.document.html = Documentos.certificadoEmpleador( this.student)
+      if (this.document.name === 'contrato de contingencia')
+        this.document.html = Documentos.contratoContigencia( this.student)
+      if (this.document.name === 'PLAN DE ACOMPAÑAMIENTO EMOCIONAL Y CONDUCTUAL')
+        this.document.html = Documentos.planAcompanamiento( this.student)
+      if (this.document.name === 'PROTOCOLO DE ADMINISTRACIÓN DE FÁRMACOS EN EL CONTEXTO ESCOLAR')
+        this.document.html = Documentos.protocoloAdministracionFarmacos( this.student)
+      if (this.document.name === 'Registro de Desencadenantes de Desregulación Emocional en Estudiantes con TEA')
+        this.document.html = Documentos.registroDesencadenantesDesregulacionEmocional( this.student)
+      // if (this.document.name === 'AUTORIZACIÓN PARA EL ABORDAJE DEC.')
+      //   this.document.html = Documentos.autorizacionAbordajeDec( this.student.tutorName, this.student.tutorRut, this.student.name, this.student.course)
+      // if (this.document.name === 'CERTIFICADO PARA EL EMPLEADOR')
+      //   this.document.html = Documentos.certificadoEmpleador( this.student.name, this.student.tutorName, this.student.course, this.student.tutorRut)
+      // if (this.document.name === 'CONTRATO DE CONTINGENCIAS')
+      //   this.document.html = Documentos.contratoContigencia( this.student.name, this.student.tutorName, '', date)
+      // if (this.document.name === 'FICHA DEL PLAN DE APOYO INDIVIDUALIZADO (PAI) PARA ESTUDIANTES CON TEA')
+      //   this.document.html = Documentos.fichaPai( this.student.name, this.student.course, this.student.birthdate, date)
+      // if (this.document.name === 'PLAN DE ACOMPAÑAMIENTO EMOCIONAL Y CONDUCTUAL'){
+      //   let age = 0
+      //   if (this.student.birthdate) {
+      //     age = moment().diff(this.student.birthdate, 'years')
+      //   }
+      //   this.document.html = Documentos.planAcompanamiento( this.student.name, this.student.rut, age, this.student.course, this.student.tutorName,this.student.phone)
+      // }
+      // if (this.document.name === 'FICHA DE SEGUIMIENTO INDIVIDUALIZADA PARA DESREGULACIÓN EMOCIONAL'){
+      //   this.document.html = ''
+      //   this.formulario = {
+      //     evaluador: '',
+      //     contexto:'',
+      //     emocion_predominante:'',
+      //     manifestaciones_fisicas:'',
+      //     manifestaciones_conductuales:'',
+      //     duracion:'',
+      //     intervencion_realizada:'',
+      //     efectividad_estrategia:'',
+      //     necesidad_ayuda_externa:'',
+      //     ayuda_externa:'',
+      //     medidas_corto_plazo:'',
+      //     medidas_largo_plazo:'',
+      //     seguimiento_fecha:'',
+      //     seguimiento_responsable:'',
+      //     frecuencia_seguimiento:'',
+      //     instrumento_evaluacion:'',
+      //     historial_desregulaciones:'',
+      //     factores_riesgo:'',
+      //     necesidades_especificas:'',
+      //     recursos_disponibles:'',
+      //     coordinacion_profesionales:'',
+      //   }
+      //   this.showFomulario = true
+      // }
     },
     documentShowMobile (document) {
       window.open(this.$url+'documents/'+document.codigo+'/show', '_blank')

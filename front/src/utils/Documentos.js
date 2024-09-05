@@ -1,3 +1,4 @@
+import moment from "moment";
 export class Documentos {
   static fichaSeguimiento( student, date, formulario ) {
     return `<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:center;line-height:150%;'><span style='font-size:19px;line-height:150%;font-family:"Calibri Light",sans-serif;'>FICHA DE SEGUIMIENTO INDIVIDUALIZADA</span></p>
@@ -181,783 +182,783 @@ ${formulario.coordinacion_profesionales}
 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:150%;'><span style='font-size:19px;line-height:150%;font-family:"Calibri Light",sans-serif;color:red;'>Se recomienda la participaci&oacute;n de un equipo multidisciplinario en la evaluaci&oacute;n y seguimiento del estudiante.</span></p>
 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:150%;'><span style='font-size:19px;line-height:150%;font-family:"Calibri Light",sans-serif;color:red;'>La comunicaci&oacute;n constante con los padres o tutores del estudiante es fundamental para el &eacute;xito del plan de acci&oacute;n</span></p>`
   }
-  static planAcompanamiento( nombreEstudiante, rut, edad, curso, nacionalidad, nombreApoderado, contactoApoderado){
-    return `<style>
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 20px;
-        }
-        table, th, td {
-            border: 1px solid black;
-        }
-        th, td {
-            padding: 8px;
-            text-align: left;
-        }
-        th {
-            background-color: #f2f2f2;
-        }
-</style>
-<p><strong><u>PLAN DE ACOMPA&Ntilde;AMIENTO EMOCIONAL Y/O CONDUCTUAL.</u></strong></p>
-<ol>
-    <li><u>Antecedentes del o  estudiante:</u></li>
-</ol>
-<table border="1" cellspacing="0" cellpadding="0" width="589">
-    <tbody>
-        <tr>
-            <td width="38.435374149659864%" valign="top">
-                <p><strong>Nombre del o la estudiante</strong></p>
-            </td>
-            <td width="61.564625850340136%" valign="top">
-                <p>&nbsp; ${nombreEstudiante}</p>
-            </td>
-        </tr>
-        <tr>
-            <td width="38.435374149659864%" valign="top">
-                <p><strong>RUT</strong></p>
-            </td>
-            <td width="61.564625850340136%" valign="top">
-                <p>&nbsp; ${rut}</p>
-            </td>
-        </tr>
-        <tr>
-            <td width="38.435374149659864%" valign="top">
-                <p><strong>Edad</strong></p>
-            </td>
-            <td width="61.564625850340136%" valign="top">
-                <p>&nbsp; ${edad}</p>
-            </td>
-        </tr>
-        <tr>
-            <td width="38.435374149659864%" valign="top">
-                <p><strong>Curso</strong></p>
-            </td>
-            <td width="61.564625850340136%" valign="top">
-                <p>&nbsp; ${curso}</p>
-            </td>
-        </tr>
-        <tr>
-            <td width="38.435374149659864%" valign="top">
-                <p><strong>Nacionalidad</strong></p>
-            </td>
-            <td width="61.564625850340136%" valign="top">
-                <p>&nbsp;</p>
-            </td>
-        </tr>
-        <tr>
-            <td width="38.435374149659864%" valign="top">
-                <p><strong> apoderado/a</strong></p>
-            </td>
-            <td width="61.564625850340136%" valign="top">
-                <p>&nbsp; ${nombreApoderado}</p>
-            </td>
-        </tr>
-        <tr>
-            <td width="38.435374149659864%" valign="top">
-                <p><strong>Contacto apoderado/a</strong></p>
-            </td>
-            <td width="61.564625850340136%" valign="top">
-                <p>&nbsp; ${contactoApoderado}</p>
-            </td>
-        </tr>
-    </tbody>
-</table>
-<p>&nbsp;</p>
-<ol>
-    <li><u>Caracterizaci&oacute;n del o la estudiante:</u></li>
-</ol>
-<table border="1" cellspacing="0" cellpadding="0" width="589">
-    <tbody>
-        <tr>
-            <td width="38.435374149659864%" valign="top">
-                <p><strong>Diagn&oacute;stico primario&nbsp;</strong></p>
-            </td>
-            <td width="61.564625850340136%" valign="top">
-                <p>&nbsp;</p>
-            </td>
-        </tr>
-        <tr>
-            <td width="38.435374149659864%" valign="top">
-                <p><strong>Diagn&oacute; secundario</strong></p>
-            </td>
-            <td width="61.564625850340136%" valign="top">
-                <p>&nbsp;</p>
-            </td>
-        </tr>
-        <tr>
-            <td width="38.435374149659864%" valign="top">
-                <p><strong> especializado o SOS</strong></p>
-            </td>
-            <td width="61.564625850340136%" valign="top">
-                <p>&nbsp;</p>
-            </td>
-        </tr>
-        <tr>
-            <td width="38.435374149659864%" valign="top">
-                <p><strong>Profesional  o  remplazante</strong></p>
-            </td>
-            <td width="61.564625850340136%" valign="top">
-                <p>&nbsp;</p>
-            </td>
-        </tr>
-        <tr>
-            <td width="38.435374149659864%" valign="top">
-                <p><strong>Profesor/a Jefe</strong></p>
-            </td>
-            <td width="61.564625850340136%" valign="top">
-                <p>&nbsp;</p>
-            </td>
-        </tr>
-    </tbody>
-</table>
-<p>&nbsp;</p>
-<ol>
-    <li><u>Particularidades del o la estudiante:</u></li>
-</ol>
-<table border="1" cellspacing="0" cellpadding="0" width="589">
-    <tbody>
-        <tr>
-            <td width="38.435374149659864%" valign="top">
-                <p><strong>Indicar las particularidades  o  estudiante, por ejemplo: &nbsp;</strong>situaciones  y/o   lo o la desregulan, si  o no el contacto f&iacute;sico, caracter&iacute;sticas sensoriales,  presenta conductas de evitaci&oacute;n, si sus desregulaciones son con llantos, autolesiones o golpes,  otras.</p>
-            </td>
-            <td width="61.564625850340136%" valign="top">
-                <p>&nbsp;</p>
-                <p>&nbsp;</p>
-                <p>&nbsp;</p>
-                <p>&nbsp;</p>
-                <p>&nbsp;</p>
-                <p>&nbsp;</p>
-                <p>&nbsp;</p>
-                <p>&nbsp;</p>
-                <p>&nbsp;</p>
-                <p>&nbsp;</p>
-                <p>&nbsp;</p>
-            </td>
-        </tr>
-        <tr>
-            <td width="38.435374149659864%" valign="top">
-                <p><strong>Indicar  estrategias  puedan facilitar su regulaci&oacute;n emocional y/o conductual, por ejemplo</strong>:  existe     agrade realizar, si  alg&uacute;n modulador sensorial, si existe alg&uacute;n lugar  donde se sienta comodo/a.</p>
-            </td>
-            <td width="61.564625850340136%" valign="top">
-                <p>&nbsp;</p>
-            </td>
-        </tr>
-        <tr>
-            <td width="38.435374149659864%" valign="top">
-                <p><strong>Manejo del ambiente,  por ejemplo:&nbsp;</strong> si  algo del ambiente donde  se  que genere  hiper o hipo reactividad.</p>
-            </td>
-            <td width="61.564625850340136%" valign="top">
-                <p>&nbsp;</p>
-            </td>
-        </tr>
-    </tbody>
-</table>
-<p>&nbsp;</p>
-<ol>
-    <li><u>%  del o la estudiante:</u></li>
-</ol>
-<table border="1" cellspacing="0" cellpadding="0" width="588">
-    <tbody>
-        <tr>
-            <td width="10%" valign="top">
-                <p><strong>Mar</strong></p>
-            </td>
-            <td width="10%" valign="top">
-                <p><strong>Abr</strong></p>
-            </td>
-            <td width="10%" valign="top">
-                <p><strong>May</strong></p>
-            </td>
-            <td width="10%" valign="top">
-                <p><strong>Jun</strong></p>
-            </td>
-            <td width="10%" valign="top">
-                <p><strong>Jul</strong></p>
-            </td>
-            <td width="10%" valign="top">
-                <p><strong>Ago</strong></p>
-            </td>
-            <td width="10%" valign="top">
-                <p><strong>Sep</strong></p>
-            </td>
-            <td width="10%" valign="top">
-                <p><strong>Oct</strong></p>
-            </td>
-            <td width="10%" valign="top">
-                <p><strong>Nov</strong></p>
-            </td>
-            <td width="10%" valign="top">
-                <p><strong>Dic</strong></p>
-            </td>
-        </tr>
-        <tr>
-            <td width="10%" valign="top">
-                <p>&nbsp;</p>
-            </td>
-            <td width="10%" valign="top">
-                <p>&nbsp;</p>
-            </td>
-            <td width="10%" valign="top">
-                <p>&nbsp;</p>
-            </td>
-            <td width="10%" valign="top">
-                <p>&nbsp;</p>
-            </td>
-            <td width="10%" valign="top">
-                <p>&nbsp;</p>
-            </td>
-            <td width="10%" valign="top">
-                <p>&nbsp;</p>
-            </td>
-            <td width="10%" valign="top">
-                <p>&nbsp;</p>
-            </td>
-            <td width="10%" valign="top">
-                <p>&nbsp;</p>
-            </td>
-            <td width="10%" valign="top">
-                <p>&nbsp;</p>
-            </td>
-            <td width="10%" valign="top">
-                <p>&nbsp;</p>
-            </td>
-        </tr>
-    </tbody>
-</table>
-<p>&nbsp;</p>
-<ol>
-    <li><u>Intervenciones realizadas durante el a&ntilde;o:</u></li>
-</ol>
-<table border="1" cellspacing="0" cellpadding="0" width="589">
-    <tbody>
-        <tr>
-            <td width="15.619694397283531%" valign="top">
-                <p><strong>Mes</strong></p>
-            </td>
-            <td width="24.787775891341255%" valign="top">
-                <p><strong> o profesional que interviene</strong></p>
-            </td>
-            <td width="15.959252971137522%" valign="top">
-                <p><strong>Cantidad de sesiones o entrevistas</strong></p>
-            </td>
-            <td width="43.63327674023769%" valign="top">
-                <p><strong>Indicar brevemente  de entrevista o   (Entendi&eacute;ndose   departamento debe dejar  propio registro).</strong></p>
-            </td>
-        </tr>
-        <tr>
-            <td width="15.619694397283531%" rowspan="5" valign="top">
-                <p><strong>Marzo</strong></p>
-            </td>
-            <td width="24.787775891341255%" valign="top">
-                <p>PIE</p>
-            </td>
-            <td width="15.959252971137522%" valign="top">
-                <p>&nbsp;</p>
-            </td>
-            <td width="43.63327674023769%" rowspan="5" valign="top">
-                <p>&nbsp;</p>
-            </td>
-        </tr>
-        <tr>
-            <td width="60.833333333333336%" valign="top">
-                <p>Conv. Escolar</p>
-            </td>
-            <td width="39.166666666666664%" valign="top">
-                <p>&nbsp;</p>
-            </td>
-        </tr>
-        <tr>
-            <td width="60.833333333333336%" valign="top">
-                <p>Inspector&iacute;a General</p>
-            </td>
-            <td width="39.166666666666664%" valign="top">
-                <p>&nbsp;</p>
-            </td>
-        </tr>
-        <tr>
-            <td width="60.833333333333336%" valign="top">
-                <p>Profesor/a Jefe</p>
-            </td>
-            <td width="39.166666666666664%" valign="top">
-                <p>&nbsp;</p>
-            </td>
-        </tr>
-        <tr>
-            <td width="60.833333333333336%" valign="top">
-                <p>Orientador/a</p>
-            </td>
-            <td width="39.166666666666664%" valign="top">
-                <p>&nbsp;</p>
-            </td>
-        </tr>
-        <tr>
-            <td width="15.619694397283531%" rowspan="5" valign="top">
-                <p><strong>Abril</strong></p>
-            </td>
-            <td width="24.787775891341255%" valign="top">
-                <p>PIE</p>
-            </td>
-            <td width="15.959252971137522%" valign="top">
-                <p>&nbsp;</p>
-            </td>
-            <td width="43.63327674023769%" rowspan="5" valign="top">
-                <p>&nbsp;</p>
-            </td>
-        </tr>
-        <tr>
-            <td width="60.833333333333336%" valign="top">
-                <p>Conv. Escolar</p>
-            </td>
-            <td width="39.166666666666664%" valign="top">
-                <p>&nbsp;</p>
-            </td>
-        </tr>
-        <tr>
-            <td width="60.833333333333336%" valign="top">
-                <p>Inspector&iacute;a General</p>
-            </td>
-            <td width="39.166666666666664%" valign="top">
-                <p>&nbsp;</p>
-            </td>
-        </tr>
-        <tr>
-            <td width="60.833333333333336%" valign="top">
-                <p>Profesor/a Jefe</p>
-            </td>
-            <td width="39.166666666666664%" valign="top">
-                <p>&nbsp;</p>
-            </td>
-        </tr>
-        <tr>
-            <td width="60.833333333333336%" valign="top">
-                <p>Orientador/a</p>
-            </td>
-            <td width="39.166666666666664%" valign="top">
-                <p>&nbsp;</p>
-            </td>
-        </tr>
-        <tr>
-            <td width="15.619694397283531%" rowspan="5" valign="top">
-                <p><strong>Mayo</strong></p>
-            </td>
-            <td width="24.787775891341255%" valign="top">
-                <p>PIE</p>
-            </td>
-            <td width="15.959252971137522%" valign="top">
-                <p>&nbsp;</p>
-            </td>
-            <td width="43.63327674023769%" rowspan="5" valign="top">
-                <p>&nbsp;</p>
-            </td>
-        </tr>
-        <tr>
-            <td width="60.833333333333336%" valign="top">
-                <p>Conv. Escolar</p>
-            </td>
-            <td width="39.166666666666664%" valign="top">
-                <p>&nbsp;</p>
-            </td>
-        </tr>
-        <tr>
-            <td width="60.833333333333336%" valign="top">
-                <p>Inspector&iacute;a General</p>
-            </td>
-            <td width="39.166666666666664%" valign="top">
-                <p>&nbsp;</p>
-            </td>
-        </tr>
-        <tr>
-            <td width="60.833333333333336%" valign="top">
-                <p>Profesor/a Jefe</p>
-            </td>
-            <td width="39.166666666666664%" valign="top">
-                <p>&nbsp;</p>
-            </td>
-        </tr>
-        <tr>
-            <td width="60.833333333333336%" valign="top">
-                <p>Orientador/a</p>
-            </td>
-            <td width="39.166666666666664%" valign="top">
-                <p>&nbsp;</p>
-            </td>
-        </tr>
-        <tr>
-            <td width="15.619694397283531%" rowspan="5" valign="top">
-                <p><strong>Junio</strong></p>
-            </td>
-            <td width="24.787775891341255%" valign="top">
-                <p>PIE</p>
-            </td>
-            <td width="15.959252971137522%" valign="top">
-                <p>&nbsp;</p>
-            </td>
-            <td width="43.63327674023769%" rowspan="5" valign="top">
-                <p>&nbsp;</p>
-            </td>
-        </tr>
-        <tr>
-            <td width="60.833333333333336%" valign="top">
-                <p>Conv. Escolar</p>
-            </td>
-            <td width="39.166666666666664%" valign="top">
-                <p>&nbsp;</p>
-            </td>
-        </tr>
-        <tr>
-            <td width="60.833333333333336%" valign="top">
-                <p>Inspector&iacute;a General</p>
-            </td>
-            <td width="39.166666666666664%" valign="top">
-                <p>&nbsp;</p>
-            </td>
-        </tr>
-        <tr>
-            <td width="60.833333333333336%" valign="top">
-                <p>Profesor/a Jefe</p>
-            </td>
-            <td width="39.166666666666664%" valign="top">
-                <p>&nbsp;</p>
-            </td>
-        </tr>
-        <tr>
-            <td width="60.833333333333336%" valign="top">
-                <p>Orientador/a</p>
-            </td>
-            <td width="39.166666666666664%" valign="top">
-                <p>&nbsp;</p>
-            </td>
-        </tr>
-        <tr>
-            <td width="15.619694397283531%" rowspan="5" valign="top">
-                <p><strong>Julio</strong></p>
-            </td>
-            <td width="24.787775891341255%" valign="top">
-                <p>PIE</p>
-            </td>
-            <td width="15.959252971137522%" valign="top">
-                <p>&nbsp;</p>
-            </td>
-            <td width="43.63327674023769%" rowspan="5" valign="top">
-                <p>&nbsp;</p>
-            </td>
-        </tr>
-        <tr>
-            <td width="60.833333333333336%" valign="top">
-                <p>Conv. Escolar</p>
-            </td>
-            <td width="39.166666666666664%" valign="top">
-                <p>&nbsp;</p>
-            </td>
-        </tr>
-        <tr>
-            <td width="60.833333333333336%" valign="top">
-                <p>Inspector&iacute;a General</p>
-            </td>
-            <td width="39.166666666666664%" valign="top">
-                <p>&nbsp;</p>
-            </td>
-        </tr>
-        <tr>
-            <td width="60.833333333333336%" valign="top">
-                <p>Profesor/a Jefe</p>
-            </td>
-            <td width="39.166666666666664%" valign="top">
-                <p>&nbsp;</p>
-            </td>
-        </tr>
-        <tr>
-            <td width="60.833333333333336%" valign="top">
-                <p>Orientador/a</p>
-            </td>
-            <td width="39.166666666666664%" valign="top">
-                <p>&nbsp;</p>
-            </td>
-        </tr>
-        <tr>
-            <td width="15.619694397283531%" rowspan="5" valign="top">
-                <p><strong>Agosto&nbsp;</strong></p>
-            </td>
-            <td width="24.787775891341255%" valign="top">
-                <p>PIE</p>
-            </td>
-            <td width="15.959252971137522%" valign="top">
-                <p>&nbsp;</p>
-            </td>
-            <td width="43.63327674023769%" rowspan="5" valign="top">
-                <p>&nbsp;</p>
-            </td>
-        </tr>
-        <tr>
-            <td width="60.833333333333336%" valign="top">
-                <p>Conv. Escolar</p>
-            </td>
-            <td width="39.166666666666664%" valign="top">
-                <p>&nbsp;</p>
-            </td>
-        </tr>
-        <tr>
-            <td width="60.833333333333336%" valign="top">
-                <p>Inspector&iacute;a General</p>
-            </td>
-            <td width="39.166666666666664%" valign="top">
-                <p>&nbsp;</p>
-            </td>
-        </tr>
-        <tr>
-            <td width="60.833333333333336%" valign="top">
-                <p>Profesor/a Jefe</p>
-            </td>
-            <td width="39.166666666666664%" valign="top">
-                <p>&nbsp;</p>
-            </td>
-        </tr>
-        <tr>
-            <td width="60.833333333333336%" valign="top">
-                <p>Orientador/a</p>
-            </td>
-            <td width="39.166666666666664%" valign="top">
-                <p>&nbsp;</p>
-            </td>
-        </tr>
-        <tr>
-            <td width="15.619694397283531%" rowspan="5" valign="top">
-                <p><strong>Septiembre&nbsp;</strong></p>
-            </td>
-            <td width="24.787775891341255%" valign="top">
-                <p>PIE</p>
-            </td>
-            <td width="15.959252971137522%" valign="top">
-                <p>&nbsp;</p>
-            </td>
-            <td width="43.63327674023769%" rowspan="5" valign="top">
-                <p>&nbsp;</p>
-            </td>
-        </tr>
-        <tr>
-            <td width="60.833333333333336%" valign="top">
-                <p>Conv. Escolar</p>
-            </td>
-            <td width="39.166666666666664%" valign="top">
-                <p>&nbsp;</p>
-            </td>
-        </tr>
-        <tr>
-            <td width="60.833333333333336%" valign="top">
-                <p>Inspector&iacute;a General</p>
-            </td>
-            <td width="39.166666666666664%" valign="top">
-                <p>&nbsp;</p>
-            </td>
-        </tr>
-        <tr>
-            <td width="60.833333333333336%" valign="top">
-                <p>Profesor/a Jefe</p>
-            </td>
-            <td width="39.166666666666664%" valign="top">
-                <p>&nbsp;</p>
-            </td>
-        </tr>
-        <tr>
-            <td width="60.833333333333336%" valign="top">
-                <p>Orientador/a</p>
-            </td>
-            <td width="39.166666666666664%" valign="top">
-                <p>&nbsp;</p>
-            </td>
-        </tr>
-        <tr>
-            <td width="15.619694397283531%" rowspan="5" valign="top">
-                <p><strong>Octubre&nbsp;</strong></p>
-            </td>
-            <td width="24.787775891341255%" valign="top">
-                <p>PIE</p>
-            </td>
-            <td width="15.959252971137522%" valign="top">
-                <p>&nbsp;</p>
-            </td>
-            <td width="43.63327674023769%" rowspan="5" valign="top">
-                <p>&nbsp;</p>
-            </td>
-        </tr>
-        <tr>
-            <td width="60.833333333333336%" valign="top">
-                <p>Conv. Escolar</p>
-            </td>
-            <td width="39.166666666666664%" valign="top">
-                <p>&nbsp;</p>
-            </td>
-        </tr>
-        <tr>
-            <td width="60.833333333333336%" valign="top">
-                <p>Inspector&iacute;a General</p>
-            </td>
-            <td width="39.166666666666664%" valign="top">
-                <p>&nbsp;</p>
-            </td>
-        </tr>
-        <tr>
-            <td width="60.833333333333336%" valign="top">
-                <p>Profesor/a Jefe</p>
-            </td>
-            <td width="39.166666666666664%" valign="top">
-                <p>&nbsp;</p>
-            </td>
-        </tr>
-        <tr>
-            <td width="60.833333333333336%" valign="top">
-                <p>Orientador/a</p>
-            </td>
-            <td width="39.166666666666664%" valign="top">
-                <p>&nbsp;</p>
-            </td>
-        </tr>
-        <tr>
-            <td width="15.619694397283531%" rowspan="5" valign="top">
-                <p><strong>Noviembre</strong></p>
-            </td>
-            <td width="24.787775891341255%" valign="top">
-                <p>PIE</p>
-            </td>
-            <td width="15.959252971137522%" valign="top">
-                <p>&nbsp;</p>
-            </td>
-            <td width="43.63327674023769%" rowspan="5" valign="top">
-                <p>&nbsp;</p>
-            </td>
-        </tr>
-        <tr>
-            <td width="60.833333333333336%" valign="top">
-                <p>Conv. Escolar</p>
-            </td>
-            <td width="39.166666666666664%" valign="top">
-                <p>&nbsp;</p>
-            </td>
-        </tr>
-        <tr>
-            <td width="60.833333333333336%" valign="top">
-                <p>Inspector&iacute;a General</p>
-            </td>
-            <td width="39.166666666666664%" valign="top">
-                <p>&nbsp;</p>
-            </td>
-        </tr>
-        <tr>
-            <td width="60.833333333333336%" valign="top">
-                <p>Profesor/a Jefe</p>
-            </td>
-            <td width="39.166666666666664%" valign="top">
-                <p>&nbsp;</p>
-            </td>
-        </tr>
-        <tr>
-            <td width="60.833333333333336%" valign="top">
-                <p>Orientador/a</p>
-            </td>
-            <td width="39.166666666666664%" valign="top">
-                <p>&nbsp;</p>
-            </td>
-        </tr>
-        <tr>
-            <td width="15.619694397283531%" rowspan="5" valign="top">
-                <p><strong>Diciembre</strong></p>
-            </td>
-            <td width="24.787775891341255%" valign="top">
-                <p>PIE</p>
-            </td>
-            <td width="15.959252971137522%" valign="top">
-                <p>&nbsp;</p>
-            </td>
-            <td width="43.63327674023769%" rowspan="5" valign="top">
-                <p>&nbsp;</p>
-            </td>
-        </tr>
-        <tr>
-            <td width="60.833333333333336%" valign="top">
-                <p>Conv. Escolar</p>
-            </td>
-            <td width="39.166666666666664%" valign="top">
-                <p>&nbsp;</p>
-            </td>
-        </tr>
-        <tr>
-            <td width="60.833333333333336%" valign="top">
-                <p>Inspector&iacute;a General</p>
-            </td>
-            <td width="39.166666666666664%" valign="top">
-                <p>&nbsp;</p>
-            </td>
-        </tr>
-        <tr>
-            <td width="60.833333333333336%" valign="top">
-                <p>Profesor/a Jefe</p>
-            </td>
-            <td width="39.166666666666664%" valign="top">
-                <p>&nbsp;</p>
-            </td>
-        </tr>
-        <tr>
-            <td width="60.833333333333336%" valign="top">
-                <p>Orientador/a</p>
-            </td>
-            <td width="39.166666666666664%" valign="top">
-                <p>&nbsp;</p>
-            </td>
-        </tr>
-    </tbody>
-</table>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<table  cellspacing="0" cellpadding="0" width="589" style="border: 0px solid black;text-align: center">
-    <tbody>
-        <tr>
-            <td width="33.333333333333336%" valign="top" style="border: 0px solid black;text-align: center">
-                <p>PROFESIONAL  1</p>
-            </td>
-            <td width="33.333333333333336%" valign="top" style="border: 0px solid black;text-align: center">
-                <p>&nbsp;</p>
-            </td>
-            <td width="33.333333333333336%" valign="top" style="border: 0px solid black;text-align: center">
-                <p> INVOLUCRADO 2</p>
-            </td>
-        </tr>
-    </tbody>
-</table>
-<p>&nbsp;</p>
-<table  cellspacing="0" cellpadding="0" width="589" style="border: 0px solid black;text-align: center">
-    <tbody>
-        <tr>
-            <td width="33.333333333333336%" valign="top" style="border: 0px solid black;text-align: center">
-                <p> INVOLUCRADO 3</p>
-            </td>
-            <td width="33.333333333333336%" valign="top" style="border: 0px solid black;text-align: center">
-                <p>&nbsp;</p>
-            </td>
-            <td width="33.333333333333336%" valign="top" style="border: 0px solid black;text-align: center">
-                <p> INVOLUCRADO 4</p>
-            </td>
-        </tr>
-    </tbody>
-</table>
-<p>&nbsp;</p>
-<table  cellspacing="0" cellpadding="0" width="589" style="border: 0px solid black;text-align: center">
-    <tbody>
-        <tr>
-            <td width="33.333333333333336%" valign="top" style="border: 0px solid black;text-align: center">
-                <p>&nbsp;</p>
-            </td>
-            <td width="33.333333333333336%" valign="top" style="border: 0px solid black;text-align: center">
-                <p>RESPONSABLE</p>
-            </td>
-            <td width="33.333333333333336%" valign="top" style="border: 0px solid black;text-align: center">
-                <p>&nbsp;</p>
-            </td>
-        </tr>
-    </tbody>
-</table>
-`
-  }
+//   static planAcompanamiento( nombreEstudiante, rut, edad, curso, nacionalidad, nombreApoderado, contactoApoderado){
+//     return `<style>
+//         table {
+//             width: 100%;
+//             border-collapse: collapse;
+//             margin-bottom: 20px;
+//         }
+//         table, th, td {
+//             border: 1px solid black;
+//         }
+//         th, td {
+//             padding: 8px;
+//             text-align: left;
+//         }
+//         th {
+//             background-color: #f2f2f2;
+//         }
+// </style>
+// <p><strong><u>PLAN DE ACOMPA&Ntilde;AMIENTO EMOCIONAL Y/O CONDUCTUAL.</u></strong></p>
+// <ol>
+//     <li><u>Antecedentes del o  estudiante:</u></li>
+// </ol>
+// <table border="1" cellspacing="0" cellpadding="0" width="589">
+//     <tbody>
+//         <tr>
+//             <td width="38.435374149659864%" valign="top">
+//                 <p><strong>Nombre del o la estudiante</strong></p>
+//             </td>
+//             <td width="61.564625850340136%" valign="top">
+//                 <p>&nbsp; ${nombreEstudiante}</p>
+//             </td>
+//         </tr>
+//         <tr>
+//             <td width="38.435374149659864%" valign="top">
+//                 <p><strong>RUT</strong></p>
+//             </td>
+//             <td width="61.564625850340136%" valign="top">
+//                 <p>&nbsp; ${rut}</p>
+//             </td>
+//         </tr>
+//         <tr>
+//             <td width="38.435374149659864%" valign="top">
+//                 <p><strong>Edad</strong></p>
+//             </td>
+//             <td width="61.564625850340136%" valign="top">
+//                 <p>&nbsp; ${edad}</p>
+//             </td>
+//         </tr>
+//         <tr>
+//             <td width="38.435374149659864%" valign="top">
+//                 <p><strong>Curso</strong></p>
+//             </td>
+//             <td width="61.564625850340136%" valign="top">
+//                 <p>&nbsp; ${curso}</p>
+//             </td>
+//         </tr>
+//         <tr>
+//             <td width="38.435374149659864%" valign="top">
+//                 <p><strong>Nacionalidad</strong></p>
+//             </td>
+//             <td width="61.564625850340136%" valign="top">
+//                 <p>&nbsp;</p>
+//             </td>
+//         </tr>
+//         <tr>
+//             <td width="38.435374149659864%" valign="top">
+//                 <p><strong> apoderado/a</strong></p>
+//             </td>
+//             <td width="61.564625850340136%" valign="top">
+//                 <p>&nbsp; ${nombreApoderado}</p>
+//             </td>
+//         </tr>
+//         <tr>
+//             <td width="38.435374149659864%" valign="top">
+//                 <p><strong>Contacto apoderado/a</strong></p>
+//             </td>
+//             <td width="61.564625850340136%" valign="top">
+//                 <p>&nbsp; ${contactoApoderado}</p>
+//             </td>
+//         </tr>
+//     </tbody>
+// </table>
+// <p>&nbsp;</p>
+// <ol>
+//     <li><u>Caracterizaci&oacute;n del o la estudiante:</u></li>
+// </ol>
+// <table border="1" cellspacing="0" cellpadding="0" width="589">
+//     <tbody>
+//         <tr>
+//             <td width="38.435374149659864%" valign="top">
+//                 <p><strong>Diagn&oacute;stico primario&nbsp;</strong></p>
+//             </td>
+//             <td width="61.564625850340136%" valign="top">
+//                 <p>&nbsp;</p>
+//             </td>
+//         </tr>
+//         <tr>
+//             <td width="38.435374149659864%" valign="top">
+//                 <p><strong>Diagn&oacute; secundario</strong></p>
+//             </td>
+//             <td width="61.564625850340136%" valign="top">
+//                 <p>&nbsp;</p>
+//             </td>
+//         </tr>
+//         <tr>
+//             <td width="38.435374149659864%" valign="top">
+//                 <p><strong> especializado o SOS</strong></p>
+//             </td>
+//             <td width="61.564625850340136%" valign="top">
+//                 <p>&nbsp;</p>
+//             </td>
+//         </tr>
+//         <tr>
+//             <td width="38.435374149659864%" valign="top">
+//                 <p><strong>Profesional  o  remplazante</strong></p>
+//             </td>
+//             <td width="61.564625850340136%" valign="top">
+//                 <p>&nbsp;</p>
+//             </td>
+//         </tr>
+//         <tr>
+//             <td width="38.435374149659864%" valign="top">
+//                 <p><strong>Profesor/a Jefe</strong></p>
+//             </td>
+//             <td width="61.564625850340136%" valign="top">
+//                 <p>&nbsp;</p>
+//             </td>
+//         </tr>
+//     </tbody>
+// </table>
+// <p>&nbsp;</p>
+// <ol>
+//     <li><u>Particularidades del o la estudiante:</u></li>
+// </ol>
+// <table border="1" cellspacing="0" cellpadding="0" width="589">
+//     <tbody>
+//         <tr>
+//             <td width="38.435374149659864%" valign="top">
+//                 <p><strong>Indicar las particularidades  o  estudiante, por ejemplo: &nbsp;</strong>situaciones  y/o   lo o la desregulan, si  o no el contacto f&iacute;sico, caracter&iacute;sticas sensoriales,  presenta conductas de evitaci&oacute;n, si sus desregulaciones son con llantos, autolesiones o golpes,  otras.</p>
+//             </td>
+//             <td width="61.564625850340136%" valign="top">
+//                 <p>&nbsp;</p>
+//                 <p>&nbsp;</p>
+//                 <p>&nbsp;</p>
+//                 <p>&nbsp;</p>
+//                 <p>&nbsp;</p>
+//                 <p>&nbsp;</p>
+//                 <p>&nbsp;</p>
+//                 <p>&nbsp;</p>
+//                 <p>&nbsp;</p>
+//                 <p>&nbsp;</p>
+//                 <p>&nbsp;</p>
+//             </td>
+//         </tr>
+//         <tr>
+//             <td width="38.435374149659864%" valign="top">
+//                 <p><strong>Indicar  estrategias  puedan facilitar su regulaci&oacute;n emocional y/o conductual, por ejemplo</strong>:  existe     agrade realizar, si  alg&uacute;n modulador sensorial, si existe alg&uacute;n lugar  donde se sienta comodo/a.</p>
+//             </td>
+//             <td width="61.564625850340136%" valign="top">
+//                 <p>&nbsp;</p>
+//             </td>
+//         </tr>
+//         <tr>
+//             <td width="38.435374149659864%" valign="top">
+//                 <p><strong>Manejo del ambiente,  por ejemplo:&nbsp;</strong> si  algo del ambiente donde  se  que genere  hiper o hipo reactividad.</p>
+//             </td>
+//             <td width="61.564625850340136%" valign="top">
+//                 <p>&nbsp;</p>
+//             </td>
+//         </tr>
+//     </tbody>
+// </table>
+// <p>&nbsp;</p>
+// <ol>
+//     <li><u>%  del o la estudiante:</u></li>
+// </ol>
+// <table border="1" cellspacing="0" cellpadding="0" width="588">
+//     <tbody>
+//         <tr>
+//             <td width="10%" valign="top">
+//                 <p><strong>Mar</strong></p>
+//             </td>
+//             <td width="10%" valign="top">
+//                 <p><strong>Abr</strong></p>
+//             </td>
+//             <td width="10%" valign="top">
+//                 <p><strong>May</strong></p>
+//             </td>
+//             <td width="10%" valign="top">
+//                 <p><strong>Jun</strong></p>
+//             </td>
+//             <td width="10%" valign="top">
+//                 <p><strong>Jul</strong></p>
+//             </td>
+//             <td width="10%" valign="top">
+//                 <p><strong>Ago</strong></p>
+//             </td>
+//             <td width="10%" valign="top">
+//                 <p><strong>Sep</strong></p>
+//             </td>
+//             <td width="10%" valign="top">
+//                 <p><strong>Oct</strong></p>
+//             </td>
+//             <td width="10%" valign="top">
+//                 <p><strong>Nov</strong></p>
+//             </td>
+//             <td width="10%" valign="top">
+//                 <p><strong>Dic</strong></p>
+//             </td>
+//         </tr>
+//         <tr>
+//             <td width="10%" valign="top">
+//                 <p>&nbsp;</p>
+//             </td>
+//             <td width="10%" valign="top">
+//                 <p>&nbsp;</p>
+//             </td>
+//             <td width="10%" valign="top">
+//                 <p>&nbsp;</p>
+//             </td>
+//             <td width="10%" valign="top">
+//                 <p>&nbsp;</p>
+//             </td>
+//             <td width="10%" valign="top">
+//                 <p>&nbsp;</p>
+//             </td>
+//             <td width="10%" valign="top">
+//                 <p>&nbsp;</p>
+//             </td>
+//             <td width="10%" valign="top">
+//                 <p>&nbsp;</p>
+//             </td>
+//             <td width="10%" valign="top">
+//                 <p>&nbsp;</p>
+//             </td>
+//             <td width="10%" valign="top">
+//                 <p>&nbsp;</p>
+//             </td>
+//             <td width="10%" valign="top">
+//                 <p>&nbsp;</p>
+//             </td>
+//         </tr>
+//     </tbody>
+// </table>
+// <p>&nbsp;</p>
+// <ol>
+//     <li><u>Intervenciones realizadas durante el a&ntilde;o:</u></li>
+// </ol>
+// <table border="1" cellspacing="0" cellpadding="0" width="589">
+//     <tbody>
+//         <tr>
+//             <td width="15.619694397283531%" valign="top">
+//                 <p><strong>Mes</strong></p>
+//             </td>
+//             <td width="24.787775891341255%" valign="top">
+//                 <p><strong> o profesional que interviene</strong></p>
+//             </td>
+//             <td width="15.959252971137522%" valign="top">
+//                 <p><strong>Cantidad de sesiones o entrevistas</strong></p>
+//             </td>
+//             <td width="43.63327674023769%" valign="top">
+//                 <p><strong>Indicar brevemente  de entrevista o   (Entendi&eacute;ndose   departamento debe dejar  propio registro).</strong></p>
+//             </td>
+//         </tr>
+//         <tr>
+//             <td width="15.619694397283531%" rowspan="5" valign="top">
+//                 <p><strong>Marzo</strong></p>
+//             </td>
+//             <td width="24.787775891341255%" valign="top">
+//                 <p>PIE</p>
+//             </td>
+//             <td width="15.959252971137522%" valign="top">
+//                 <p>&nbsp;</p>
+//             </td>
+//             <td width="43.63327674023769%" rowspan="5" valign="top">
+//                 <p>&nbsp;</p>
+//             </td>
+//         </tr>
+//         <tr>
+//             <td width="60.833333333333336%" valign="top">
+//                 <p>Conv. Escolar</p>
+//             </td>
+//             <td width="39.166666666666664%" valign="top">
+//                 <p>&nbsp;</p>
+//             </td>
+//         </tr>
+//         <tr>
+//             <td width="60.833333333333336%" valign="top">
+//                 <p>Inspector&iacute;a General</p>
+//             </td>
+//             <td width="39.166666666666664%" valign="top">
+//                 <p>&nbsp;</p>
+//             </td>
+//         </tr>
+//         <tr>
+//             <td width="60.833333333333336%" valign="top">
+//                 <p>Profesor/a Jefe</p>
+//             </td>
+//             <td width="39.166666666666664%" valign="top">
+//                 <p>&nbsp;</p>
+//             </td>
+//         </tr>
+//         <tr>
+//             <td width="60.833333333333336%" valign="top">
+//                 <p>Orientador/a</p>
+//             </td>
+//             <td width="39.166666666666664%" valign="top">
+//                 <p>&nbsp;</p>
+//             </td>
+//         </tr>
+//         <tr>
+//             <td width="15.619694397283531%" rowspan="5" valign="top">
+//                 <p><strong>Abril</strong></p>
+//             </td>
+//             <td width="24.787775891341255%" valign="top">
+//                 <p>PIE</p>
+//             </td>
+//             <td width="15.959252971137522%" valign="top">
+//                 <p>&nbsp;</p>
+//             </td>
+//             <td width="43.63327674023769%" rowspan="5" valign="top">
+//                 <p>&nbsp;</p>
+//             </td>
+//         </tr>
+//         <tr>
+//             <td width="60.833333333333336%" valign="top">
+//                 <p>Conv. Escolar</p>
+//             </td>
+//             <td width="39.166666666666664%" valign="top">
+//                 <p>&nbsp;</p>
+//             </td>
+//         </tr>
+//         <tr>
+//             <td width="60.833333333333336%" valign="top">
+//                 <p>Inspector&iacute;a General</p>
+//             </td>
+//             <td width="39.166666666666664%" valign="top">
+//                 <p>&nbsp;</p>
+//             </td>
+//         </tr>
+//         <tr>
+//             <td width="60.833333333333336%" valign="top">
+//                 <p>Profesor/a Jefe</p>
+//             </td>
+//             <td width="39.166666666666664%" valign="top">
+//                 <p>&nbsp;</p>
+//             </td>
+//         </tr>
+//         <tr>
+//             <td width="60.833333333333336%" valign="top">
+//                 <p>Orientador/a</p>
+//             </td>
+//             <td width="39.166666666666664%" valign="top">
+//                 <p>&nbsp;</p>
+//             </td>
+//         </tr>
+//         <tr>
+//             <td width="15.619694397283531%" rowspan="5" valign="top">
+//                 <p><strong>Mayo</strong></p>
+//             </td>
+//             <td width="24.787775891341255%" valign="top">
+//                 <p>PIE</p>
+//             </td>
+//             <td width="15.959252971137522%" valign="top">
+//                 <p>&nbsp;</p>
+//             </td>
+//             <td width="43.63327674023769%" rowspan="5" valign="top">
+//                 <p>&nbsp;</p>
+//             </td>
+//         </tr>
+//         <tr>
+//             <td width="60.833333333333336%" valign="top">
+//                 <p>Conv. Escolar</p>
+//             </td>
+//             <td width="39.166666666666664%" valign="top">
+//                 <p>&nbsp;</p>
+//             </td>
+//         </tr>
+//         <tr>
+//             <td width="60.833333333333336%" valign="top">
+//                 <p>Inspector&iacute;a General</p>
+//             </td>
+//             <td width="39.166666666666664%" valign="top">
+//                 <p>&nbsp;</p>
+//             </td>
+//         </tr>
+//         <tr>
+//             <td width="60.833333333333336%" valign="top">
+//                 <p>Profesor/a Jefe</p>
+//             </td>
+//             <td width="39.166666666666664%" valign="top">
+//                 <p>&nbsp;</p>
+//             </td>
+//         </tr>
+//         <tr>
+//             <td width="60.833333333333336%" valign="top">
+//                 <p>Orientador/a</p>
+//             </td>
+//             <td width="39.166666666666664%" valign="top">
+//                 <p>&nbsp;</p>
+//             </td>
+//         </tr>
+//         <tr>
+//             <td width="15.619694397283531%" rowspan="5" valign="top">
+//                 <p><strong>Junio</strong></p>
+//             </td>
+//             <td width="24.787775891341255%" valign="top">
+//                 <p>PIE</p>
+//             </td>
+//             <td width="15.959252971137522%" valign="top">
+//                 <p>&nbsp;</p>
+//             </td>
+//             <td width="43.63327674023769%" rowspan="5" valign="top">
+//                 <p>&nbsp;</p>
+//             </td>
+//         </tr>
+//         <tr>
+//             <td width="60.833333333333336%" valign="top">
+//                 <p>Conv. Escolar</p>
+//             </td>
+//             <td width="39.166666666666664%" valign="top">
+//                 <p>&nbsp;</p>
+//             </td>
+//         </tr>
+//         <tr>
+//             <td width="60.833333333333336%" valign="top">
+//                 <p>Inspector&iacute;a General</p>
+//             </td>
+//             <td width="39.166666666666664%" valign="top">
+//                 <p>&nbsp;</p>
+//             </td>
+//         </tr>
+//         <tr>
+//             <td width="60.833333333333336%" valign="top">
+//                 <p>Profesor/a Jefe</p>
+//             </td>
+//             <td width="39.166666666666664%" valign="top">
+//                 <p>&nbsp;</p>
+//             </td>
+//         </tr>
+//         <tr>
+//             <td width="60.833333333333336%" valign="top">
+//                 <p>Orientador/a</p>
+//             </td>
+//             <td width="39.166666666666664%" valign="top">
+//                 <p>&nbsp;</p>
+//             </td>
+//         </tr>
+//         <tr>
+//             <td width="15.619694397283531%" rowspan="5" valign="top">
+//                 <p><strong>Julio</strong></p>
+//             </td>
+//             <td width="24.787775891341255%" valign="top">
+//                 <p>PIE</p>
+//             </td>
+//             <td width="15.959252971137522%" valign="top">
+//                 <p>&nbsp;</p>
+//             </td>
+//             <td width="43.63327674023769%" rowspan="5" valign="top">
+//                 <p>&nbsp;</p>
+//             </td>
+//         </tr>
+//         <tr>
+//             <td width="60.833333333333336%" valign="top">
+//                 <p>Conv. Escolar</p>
+//             </td>
+//             <td width="39.166666666666664%" valign="top">
+//                 <p>&nbsp;</p>
+//             </td>
+//         </tr>
+//         <tr>
+//             <td width="60.833333333333336%" valign="top">
+//                 <p>Inspector&iacute;a General</p>
+//             </td>
+//             <td width="39.166666666666664%" valign="top">
+//                 <p>&nbsp;</p>
+//             </td>
+//         </tr>
+//         <tr>
+//             <td width="60.833333333333336%" valign="top">
+//                 <p>Profesor/a Jefe</p>
+//             </td>
+//             <td width="39.166666666666664%" valign="top">
+//                 <p>&nbsp;</p>
+//             </td>
+//         </tr>
+//         <tr>
+//             <td width="60.833333333333336%" valign="top">
+//                 <p>Orientador/a</p>
+//             </td>
+//             <td width="39.166666666666664%" valign="top">
+//                 <p>&nbsp;</p>
+//             </td>
+//         </tr>
+//         <tr>
+//             <td width="15.619694397283531%" rowspan="5" valign="top">
+//                 <p><strong>Agosto&nbsp;</strong></p>
+//             </td>
+//             <td width="24.787775891341255%" valign="top">
+//                 <p>PIE</p>
+//             </td>
+//             <td width="15.959252971137522%" valign="top">
+//                 <p>&nbsp;</p>
+//             </td>
+//             <td width="43.63327674023769%" rowspan="5" valign="top">
+//                 <p>&nbsp;</p>
+//             </td>
+//         </tr>
+//         <tr>
+//             <td width="60.833333333333336%" valign="top">
+//                 <p>Conv. Escolar</p>
+//             </td>
+//             <td width="39.166666666666664%" valign="top">
+//                 <p>&nbsp;</p>
+//             </td>
+//         </tr>
+//         <tr>
+//             <td width="60.833333333333336%" valign="top">
+//                 <p>Inspector&iacute;a General</p>
+//             </td>
+//             <td width="39.166666666666664%" valign="top">
+//                 <p>&nbsp;</p>
+//             </td>
+//         </tr>
+//         <tr>
+//             <td width="60.833333333333336%" valign="top">
+//                 <p>Profesor/a Jefe</p>
+//             </td>
+//             <td width="39.166666666666664%" valign="top">
+//                 <p>&nbsp;</p>
+//             </td>
+//         </tr>
+//         <tr>
+//             <td width="60.833333333333336%" valign="top">
+//                 <p>Orientador/a</p>
+//             </td>
+//             <td width="39.166666666666664%" valign="top">
+//                 <p>&nbsp;</p>
+//             </td>
+//         </tr>
+//         <tr>
+//             <td width="15.619694397283531%" rowspan="5" valign="top">
+//                 <p><strong>Septiembre&nbsp;</strong></p>
+//             </td>
+//             <td width="24.787775891341255%" valign="top">
+//                 <p>PIE</p>
+//             </td>
+//             <td width="15.959252971137522%" valign="top">
+//                 <p>&nbsp;</p>
+//             </td>
+//             <td width="43.63327674023769%" rowspan="5" valign="top">
+//                 <p>&nbsp;</p>
+//             </td>
+//         </tr>
+//         <tr>
+//             <td width="60.833333333333336%" valign="top">
+//                 <p>Conv. Escolar</p>
+//             </td>
+//             <td width="39.166666666666664%" valign="top">
+//                 <p>&nbsp;</p>
+//             </td>
+//         </tr>
+//         <tr>
+//             <td width="60.833333333333336%" valign="top">
+//                 <p>Inspector&iacute;a General</p>
+//             </td>
+//             <td width="39.166666666666664%" valign="top">
+//                 <p>&nbsp;</p>
+//             </td>
+//         </tr>
+//         <tr>
+//             <td width="60.833333333333336%" valign="top">
+//                 <p>Profesor/a Jefe</p>
+//             </td>
+//             <td width="39.166666666666664%" valign="top">
+//                 <p>&nbsp;</p>
+//             </td>
+//         </tr>
+//         <tr>
+//             <td width="60.833333333333336%" valign="top">
+//                 <p>Orientador/a</p>
+//             </td>
+//             <td width="39.166666666666664%" valign="top">
+//                 <p>&nbsp;</p>
+//             </td>
+//         </tr>
+//         <tr>
+//             <td width="15.619694397283531%" rowspan="5" valign="top">
+//                 <p><strong>Octubre&nbsp;</strong></p>
+//             </td>
+//             <td width="24.787775891341255%" valign="top">
+//                 <p>PIE</p>
+//             </td>
+//             <td width="15.959252971137522%" valign="top">
+//                 <p>&nbsp;</p>
+//             </td>
+//             <td width="43.63327674023769%" rowspan="5" valign="top">
+//                 <p>&nbsp;</p>
+//             </td>
+//         </tr>
+//         <tr>
+//             <td width="60.833333333333336%" valign="top">
+//                 <p>Conv. Escolar</p>
+//             </td>
+//             <td width="39.166666666666664%" valign="top">
+//                 <p>&nbsp;</p>
+//             </td>
+//         </tr>
+//         <tr>
+//             <td width="60.833333333333336%" valign="top">
+//                 <p>Inspector&iacute;a General</p>
+//             </td>
+//             <td width="39.166666666666664%" valign="top">
+//                 <p>&nbsp;</p>
+//             </td>
+//         </tr>
+//         <tr>
+//             <td width="60.833333333333336%" valign="top">
+//                 <p>Profesor/a Jefe</p>
+//             </td>
+//             <td width="39.166666666666664%" valign="top">
+//                 <p>&nbsp;</p>
+//             </td>
+//         </tr>
+//         <tr>
+//             <td width="60.833333333333336%" valign="top">
+//                 <p>Orientador/a</p>
+//             </td>
+//             <td width="39.166666666666664%" valign="top">
+//                 <p>&nbsp;</p>
+//             </td>
+//         </tr>
+//         <tr>
+//             <td width="15.619694397283531%" rowspan="5" valign="top">
+//                 <p><strong>Noviembre</strong></p>
+//             </td>
+//             <td width="24.787775891341255%" valign="top">
+//                 <p>PIE</p>
+//             </td>
+//             <td width="15.959252971137522%" valign="top">
+//                 <p>&nbsp;</p>
+//             </td>
+//             <td width="43.63327674023769%" rowspan="5" valign="top">
+//                 <p>&nbsp;</p>
+//             </td>
+//         </tr>
+//         <tr>
+//             <td width="60.833333333333336%" valign="top">
+//                 <p>Conv. Escolar</p>
+//             </td>
+//             <td width="39.166666666666664%" valign="top">
+//                 <p>&nbsp;</p>
+//             </td>
+//         </tr>
+//         <tr>
+//             <td width="60.833333333333336%" valign="top">
+//                 <p>Inspector&iacute;a General</p>
+//             </td>
+//             <td width="39.166666666666664%" valign="top">
+//                 <p>&nbsp;</p>
+//             </td>
+//         </tr>
+//         <tr>
+//             <td width="60.833333333333336%" valign="top">
+//                 <p>Profesor/a Jefe</p>
+//             </td>
+//             <td width="39.166666666666664%" valign="top">
+//                 <p>&nbsp;</p>
+//             </td>
+//         </tr>
+//         <tr>
+//             <td width="60.833333333333336%" valign="top">
+//                 <p>Orientador/a</p>
+//             </td>
+//             <td width="39.166666666666664%" valign="top">
+//                 <p>&nbsp;</p>
+//             </td>
+//         </tr>
+//         <tr>
+//             <td width="15.619694397283531%" rowspan="5" valign="top">
+//                 <p><strong>Diciembre</strong></p>
+//             </td>
+//             <td width="24.787775891341255%" valign="top">
+//                 <p>PIE</p>
+//             </td>
+//             <td width="15.959252971137522%" valign="top">
+//                 <p>&nbsp;</p>
+//             </td>
+//             <td width="43.63327674023769%" rowspan="5" valign="top">
+//                 <p>&nbsp;</p>
+//             </td>
+//         </tr>
+//         <tr>
+//             <td width="60.833333333333336%" valign="top">
+//                 <p>Conv. Escolar</p>
+//             </td>
+//             <td width="39.166666666666664%" valign="top">
+//                 <p>&nbsp;</p>
+//             </td>
+//         </tr>
+//         <tr>
+//             <td width="60.833333333333336%" valign="top">
+//                 <p>Inspector&iacute;a General</p>
+//             </td>
+//             <td width="39.166666666666664%" valign="top">
+//                 <p>&nbsp;</p>
+//             </td>
+//         </tr>
+//         <tr>
+//             <td width="60.833333333333336%" valign="top">
+//                 <p>Profesor/a Jefe</p>
+//             </td>
+//             <td width="39.166666666666664%" valign="top">
+//                 <p>&nbsp;</p>
+//             </td>
+//         </tr>
+//         <tr>
+//             <td width="60.833333333333336%" valign="top">
+//                 <p>Orientador/a</p>
+//             </td>
+//             <td width="39.166666666666664%" valign="top">
+//                 <p>&nbsp;</p>
+//             </td>
+//         </tr>
+//     </tbody>
+// </table>
+// <p>&nbsp;</p>
+// <p>&nbsp;</p>
+// <table  cellspacing="0" cellpadding="0" width="589" style="border: 0px solid black;text-align: center">
+//     <tbody>
+//         <tr>
+//             <td width="33.333333333333336%" valign="top" style="border: 0px solid black;text-align: center">
+//                 <p>PROFESIONAL  1</p>
+//             </td>
+//             <td width="33.333333333333336%" valign="top" style="border: 0px solid black;text-align: center">
+//                 <p>&nbsp;</p>
+//             </td>
+//             <td width="33.333333333333336%" valign="top" style="border: 0px solid black;text-align: center">
+//                 <p> INVOLUCRADO 2</p>
+//             </td>
+//         </tr>
+//     </tbody>
+// </table>
+// <p>&nbsp;</p>
+// <table  cellspacing="0" cellpadding="0" width="589" style="border: 0px solid black;text-align: center">
+//     <tbody>
+//         <tr>
+//             <td width="33.333333333333336%" valign="top" style="border: 0px solid black;text-align: center">
+//                 <p> INVOLUCRADO 3</p>
+//             </td>
+//             <td width="33.333333333333336%" valign="top" style="border: 0px solid black;text-align: center">
+//                 <p>&nbsp;</p>
+//             </td>
+//             <td width="33.333333333333336%" valign="top" style="border: 0px solid black;text-align: center">
+//                 <p> INVOLUCRADO 4</p>
+//             </td>
+//         </tr>
+//     </tbody>
+// </table>
+// <p>&nbsp;</p>
+// <table  cellspacing="0" cellpadding="0" width="589" style="border: 0px solid black;text-align: center">
+//     <tbody>
+//         <tr>
+//             <td width="33.333333333333336%" valign="top" style="border: 0px solid black;text-align: center">
+//                 <p>&nbsp;</p>
+//             </td>
+//             <td width="33.333333333333336%" valign="top" style="border: 0px solid black;text-align: center">
+//                 <p>RESPONSABLE</p>
+//             </td>
+//             <td width="33.333333333333336%" valign="top" style="border: 0px solid black;text-align: center">
+//                 <p>&nbsp;</p>
+//             </td>
+//         </tr>
+//     </tbody>
+// </table>
+// `
+//   }
   static fichaPai( nombreEstudiante, course, birthdate, date){
     return `<p><strong>Ficha del Plan de Apoyo Individualizado (PAI) para Estudiantes con TEA </strong></p>
 <p><strong>Informaci&oacute;n del Estudiante: </strong></p>
@@ -1113,292 +1114,292 @@ ${formulario.coordinacion_profesionales}
 <p>Firma del Equipo Interdisciplinario:</p>
 <p>Esta ficha del PAI proporciona un marco estructurado para planificar, implementar y evaluar el apoyo individualizado para estudiantes con TEA que presentan desregulaci&oacute;n emocional y conductual en el entorno escolar.</p>`
   }
-  static contratoContigencia(nombreEstudiante, nombreTutor, nombreRepresentanteEstablecimiento, fecha) {
-    return `<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:center;'><strong><span style='font-family:"Calibri Light",sans-serif;'>CONTRATO DE CONTINGENCIAS</span></strong></p>
-<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:center;'><strong><span style='font-family:"Calibri Light",sans-serif;'>Aplicaci&oacute;n del protocolo integral para la gesti&oacute;n de la desregulaci&oacute;n emocional y/o conductual</span></strong></p>
-<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;'><strong><span style='font-family:"Calibri Light",sans-serif;'>Objetivo general:</span></strong><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;Establecer de manera transparente medidas acordadas entre el apoderado/a y el establecimiento escolar en caso que el estudiante presente una desregulaci&oacute;n emocional y/o conductual en el contexto escolar, propiciando un abordaje preventivo y siempre resguardando la integridad del mismo y del resto de integrantes de la comunidad educativa.</span></p>
-<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;'><strong><span style='font-family:"Calibri Light",sans-serif;'>Antecedentes:</span></strong></p>
-<table style="width: 4.4e+2pt;border-collapse:collapse;border:none;">
-    <tbody>
-        <tr>
-            <td style="width: 212.4pt;border: 1pt solid black;padding: 0cm 5.4pt;vertical-align: top;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;'><strong><span style='font-family:"Calibri Light",sans-serif;'>Nombre del estudiante&nbsp;</span></strong></p>
-            </td>
-            <td style="width: 229pt;border-top: 1pt solid black;border-right: 1pt solid black;border-bottom: 1pt solid black;border-image: initial;border-left: none;padding: 0cm 5.4pt;vertical-align: top;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;'><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;${nombreEstudiante}</span></p>
-            </td>
-        </tr>
-        <tr>
-            <td style="width: 212.4pt;border-right: 1pt solid black;border-bottom: 1pt solid black;border-left: 1pt solid black;border-image: initial;border-top: none;padding: 0cm 5.4pt;vertical-align: top;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;'><strong><span style='font-family:"Calibri Light",sans-serif;'>Nombre del apoderado/a</span></strong></p>
-            </td>
-            <td style="width: 229pt;border-top: none;border-left: none;border-bottom: 1pt solid black;border-right: 1pt solid black;padding: 0cm 5.4pt;vertical-align: top;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;'><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;${nombreTutor}</span></p>
-            </td>
-        </tr>
-        <tr>
-            <td style="width: 212.4pt;border-right: 1pt solid black;border-bottom: 1pt solid black;border-left: 1pt solid black;border-image: initial;border-top: none;padding: 0cm 5.4pt;vertical-align: top;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;'><strong><span style='font-family:"Calibri Light",sans-serif;'>Nombre representante establecimiento</span></strong></p>
-            </td>
-            <td style="width: 229pt;border-top: none;border-left: none;border-bottom: 1pt solid black;border-right: 1pt solid black;padding: 0cm 5.4pt;vertical-align: top;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;'><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;${nombreRepresentanteEstablecimiento}</span></p>
-            </td>
-        </tr>
-        <tr>
-            <td style="width: 212.4pt;border-right: 1pt solid black;border-bottom: 1pt solid black;border-left: 1pt solid black;border-image: initial;border-top: none;padding: 0cm 5.4pt;vertical-align: top;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;'><strong><span style='font-family:"Calibri Light",sans-serif;'>Fecha&nbsp;</span></strong></p>
-            </td>
-            <td style="width: 229pt;border-top: none;border-left: none;border-bottom: 1pt solid black;border-right: 1pt solid black;padding: 0cm 5.4pt;vertical-align: top;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;'><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;${fecha}</span></p>
-            </td>
-        </tr>
-    </tbody>
-</table>
-<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:36.0pt;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;border:none;'><span style='font-family:"Calibri Light",sans-serif;color:black;'>&nbsp;</span></p>
-<ol style="margin-bottom:0cm;margin-top:0cm;" start="1" type="1">
-    <li style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;color:black;text-align:justify;border:none;'><span style='font-family:"Calibri Light",sans-serif;'>El apoderado declara estar en conocimiento de los procedimientos descritos en el protocolo integral para la gesti&oacute;n de la desregulaci&oacute;n emocional y/o conductual de estudiantes.</span></li>
-    <li style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;color:red;text-align:justify;border:none;'><span style='font-family:"Calibri Light",sans-serif;'>El apoderado/a asistir&aacute; inmediatamente en caso que su pupilo presente una desregulaci&oacute;n emocional y/o conductual, el establecimiento escolar se compromete a brindar los primeros auxilios y la contenci&oacute;n durante el tiempo de trayecto del apoderado/a al establecimiento.</span></li>
-    <li style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;color:black;text-align:justify;border:none;'><span style='font-family:"Calibri Light",sans-serif;'>El establecimiento emitir&aacute; un certificado donde informar&aacute; hora de inicio de la DEC, hora de llamado al apoderado/a, hora de llegada del apoderado/a y hora de t&eacute;rmino de la DEC, el certificado ser&aacute; entregado al apoderado para ser presentado a su empleador.</span></li>
-    <li style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;color:black;text-align:justify;border:none;'><span style='font-family:"Calibri Light",sans-serif;'>El personal especializado o SOS que entregar&aacute; los primeros auxilios y contenci&oacute;n ser&aacute;__________________________________________ en caso de no encontrarse en el establecimiento ser&aacute; remplazado en dicha labor por el siguiente profesional___________________________________________.</span></li>
-    <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;color:black;text-align:justify;border:none;'><span style='font-family:"Calibri Light",sans-serif;'>Se acuerda flexibilizaci&oacute;n horaria del estudiante S&iacute;_____ No_____ en caso que la respuesta es s&iacute; llenar el siguiente cuadro:</span></li>
-</ol>
-<table style="width: 4.1e+2pt;border-collapse:collapse;border:none;">
-    <tbody>
-        <tr>
-            <td style="width: 67.5pt;border: 1pt solid rgb(142, 170, 219);background: rgb(217, 226, 243);padding: 0cm 5.4pt;vertical-align: top;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;line-height:  107%;border:none;'><span style='font-family:"Calibri Light",sans-serif;color:black;'>D&iacute;a&nbsp;</span></p>
-            </td>
-            <td style="width: 67.55pt;border-top: 1pt solid rgb(142, 170, 219);border-right: 1pt solid rgb(142, 170, 219);border-bottom: 1pt solid rgb(142, 170, 219);border-image: initial;border-left: none;background: rgb(217, 226, 243);padding: 0cm 5.4pt;vertical-align: top;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:center;line-height:107%;border:none;'><span style='font-family:  "Calibri Light",sans-serif;color:black;'>Lunes</span></p>
-            </td>
-            <td style="width: 67.55pt;border-top: 1pt solid rgb(142, 170, 219);border-right: 1pt solid rgb(142, 170, 219);border-bottom: 1pt solid rgb(142, 170, 219);border-image: initial;border-left: none;background: rgb(217, 226, 243);padding: 0cm 5.4pt;vertical-align: top;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:center;line-height:107%;border:none;'><span style='font-family:  "Calibri Light",sans-serif;color:black;'>Martes</span></p>
-            </td>
-            <td style="width: 67.6pt;border-top: 1pt solid rgb(142, 170, 219);border-right: 1pt solid rgb(142, 170, 219);border-bottom: 1pt solid rgb(142, 170, 219);border-image: initial;border-left: none;background: rgb(217, 226, 243);padding: 0cm 5.4pt;vertical-align: top;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:center;line-height:107%;border:none;'><span style='font-family:  "Calibri Light",sans-serif;color:black;'>Mi&eacute;rcoles</span></p>
-            </td>
-            <td style="width: 67.6pt;border-top: 1pt solid rgb(142, 170, 219);border-right: 1pt solid rgb(142, 170, 219);border-bottom: 1pt solid rgb(142, 170, 219);border-image: initial;border-left: none;background: rgb(217, 226, 243);padding: 0cm 5.4pt;vertical-align: top;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:center;line-height:107%;border:none;'><span style='font-family:  "Calibri Light",sans-serif;color:black;'>Jueves</span></p>
-            </td>
-            <td style="width: 67.6pt;border-top: 1pt solid rgb(142, 170, 219);border-right: 1pt solid rgb(142, 170, 219);border-bottom: 1pt solid rgb(142, 170, 219);border-image: initial;border-left: none;background: rgb(217, 226, 243);padding: 0cm 5.4pt;vertical-align: top;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:center;line-height:107%;border:none;'><span style='font-family:  "Calibri Light",sans-serif;color:black;'>Viernes</span></p>
-            </td>
-        </tr>
-        <tr>
-            <td style="width: 67.5pt;border-right: 1pt solid rgb(142, 170, 219);border-bottom: 1pt solid rgb(142, 170, 219);border-left: 1pt solid rgb(142, 170, 219);border-image: initial;border-top: none;padding: 0cm 5.4pt;vertical-align: top;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;line-height:  107%;border:none;'><span style='font-family:"Calibri Light",sans-serif;color:black;'>Ingreso&nbsp;</span></p>
-            </td>
-            <td style="width: 67.55pt;border-top: none;border-left: none;border-bottom: 1pt solid rgb(142, 170, 219);border-right: 1pt solid rgb(142, 170, 219);padding: 0cm 5.4pt;vertical-align: top;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;line-height:  107%;border:none;'><span style='font-family:"Calibri Light",sans-serif;color:black;'>&nbsp;</span></p>
-            </td>
-            <td style="width: 67.55pt;border-top: none;border-left: none;border-bottom: 1pt solid rgb(142, 170, 219);border-right: 1pt solid rgb(142, 170, 219);padding: 0cm 5.4pt;vertical-align: top;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;line-height:  107%;border:none;'><span style='font-family:"Calibri Light",sans-serif;color:black;'>&nbsp;</span></p>
-            </td>
-            <td style="width: 67.6pt;border-top: none;border-left: none;border-bottom: 1pt solid rgb(142, 170, 219);border-right: 1pt solid rgb(142, 170, 219);padding: 0cm 5.4pt;vertical-align: top;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;line-height:  107%;border:none;'><span style='font-family:"Calibri Light",sans-serif;color:black;'>&nbsp;</span></p>
-            </td>
-            <td style="width: 67.6pt;border-top: none;border-left: none;border-bottom: 1pt solid rgb(142, 170, 219);border-right: 1pt solid rgb(142, 170, 219);padding: 0cm 5.4pt;vertical-align: top;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;line-height:  107%;border:none;'><span style='font-family:"Calibri Light",sans-serif;color:black;'>&nbsp;</span></p>
-            </td>
-            <td style="width: 67.6pt;border-top: none;border-left: none;border-bottom: 1pt solid rgb(142, 170, 219);border-right: 1pt solid rgb(142, 170, 219);padding: 0cm 5.4pt;vertical-align: top;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;line-height:  107%;border:none;'><span style='font-family:"Calibri Light",sans-serif;color:black;'>&nbsp;</span></p>
-            </td>
-        </tr>
-        <tr>
-            <td style="width: 67.5pt;border-right: 1pt solid rgb(142, 170, 219);border-bottom: 1pt solid rgb(142, 170, 219);border-left: 1pt solid rgb(142, 170, 219);border-image: initial;border-top: none;background: rgb(217, 226, 243);padding: 0cm 5.4pt;vertical-align: top;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;line-height:  107%;border:none;'><span style='font-family:"Calibri Light",sans-serif;color:black;'>Salida</span></p>
-            </td>
-            <td style="width: 67.55pt;border-top: none;border-left: none;border-bottom: 1pt solid rgb(142, 170, 219);border-right: 1pt solid rgb(142, 170, 219);background: rgb(217, 226, 243);padding: 0cm 5.4pt;vertical-align: top;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;line-height:  107%;border:none;'><span style='font-family:"Calibri Light",sans-serif;color:black;'>&nbsp;</span></p>
-            </td>
-            <td style="width: 67.55pt;border-top: none;border-left: none;border-bottom: 1pt solid rgb(142, 170, 219);border-right: 1pt solid rgb(142, 170, 219);background: rgb(217, 226, 243);padding: 0cm 5.4pt;vertical-align: top;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;line-height:  107%;border:none;'><span style='font-family:"Calibri Light",sans-serif;color:black;'>&nbsp;</span></p>
-            </td>
-            <td style="width: 67.6pt;border-top: none;border-left: none;border-bottom: 1pt solid rgb(142, 170, 219);border-right: 1pt solid rgb(142, 170, 219);background: rgb(217, 226, 243);padding: 0cm 5.4pt;vertical-align: top;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;line-height:  107%;border:none;'><span style='font-family:"Calibri Light",sans-serif;color:black;'>&nbsp;</span></p>
-            </td>
-            <td style="width: 67.6pt;border-top: none;border-left: none;border-bottom: 1pt solid rgb(142, 170, 219);border-right: 1pt solid rgb(142, 170, 219);background: rgb(217, 226, 243);padding: 0cm 5.4pt;vertical-align: top;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;line-height:  107%;border:none;'><span style='font-family:"Calibri Light",sans-serif;color:black;'>&nbsp;</span></p>
-            </td>
-            <td style="width: 67.6pt;border-top: none;border-left: none;border-bottom: 1pt solid rgb(142, 170, 219);border-right: 1pt solid rgb(142, 170, 219);background: rgb(217, 226, 243);padding: 0cm 5.4pt;vertical-align: top;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;line-height:  107%;border:none;'><span style='font-family:"Calibri Light",sans-serif;color:black;'>&nbsp;</span></p>
-            </td>
-        </tr>
-    </tbody>
-</table>
-<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;'><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;</span></p>
-<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;'><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;</span></p>
-<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;'><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;</span></p>
-<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;'><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;</span></p>
-<table style="width: 4.4e+2pt;border-collapse:collapse;border:none;">
-    <tbody>
-        <tr>
-            <td style="width: 147.1pt;border-right: none;border-bottom: none;border-left: none;border-image: initial;border-top: 1pt solid black;padding: 0cm 5.4pt;vertical-align: top;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:center;'><strong><span style='font-family:"Calibri Light",sans-serif;'>Firma apoderado/a</span></strong></p>
-            </td>
-            <td style="width: 147.15pt;border: none;padding: 0cm 5.4pt;vertical-align: top;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:center;'><strong><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;</span></strong></p>
-            </td>
-            <td style="width: 147.15pt;border-right: none;border-bottom: none;border-left: none;border-image: initial;border-top: 1pt solid black;padding: 0cm 5.4pt;vertical-align: top;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:center;'><strong><span style='font-family:"Calibri Light",sans-serif;'>Firma y timbre representante establecimiento</span></strong></p>
-            </td>
-        </tr>
-    </tbody>
-</table>`
-  }
-  static certificadoEmpleador(nombreEstudiante, course, nombreTutor,rut) {
-    return `<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:center;'><strong><span style='font-family:"Calibri Light",sans-serif;'>CERTIFICADO</span></strong></p>
-<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:center;'><strong><span style='font-family:"Calibri Light",sans-serif;'>Aplicaci&oacute;n del protocolo integral para la gesti&oacute;n de la desregulaci&oacute;n emocional y/o conductual</span></strong></p>
-<table style="width: 4.4e+2pt;border-collapse:collapse;border:none;">
-    <tbody>
-        <tr>
-            <td style="width: 148.6pt;border: 1pt solid rgb(142, 170, 219);background: rgb(217, 226, 243);padding: 0cm 5.4pt;vertical-align: top;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;line-height:  normal;'><span style='font-family:"Calibri Light",sans-serif;color:black;'>NOMBRE DEL ESTUDIANTE</span></p>
-            </td>
-            <td style="width: 292.8pt;border-top: 1pt solid rgb(142, 170, 219);border-right: 1pt solid rgb(142, 170, 219);border-bottom: 1pt solid rgb(142, 170, 219);border-image: initial;border-left: none;background: rgb(217, 226, 243);padding: 0cm 5.4pt;vertical-align: top;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;line-height:  normal;'><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;${nombreEstudiante}</span></p>
-            </td>
-        </tr>
-        <tr>
-            <td style="width: 148.6pt;border-right: 1pt solid rgb(142, 170, 219);border-bottom: 1pt solid rgb(142, 170, 219);border-left: 1pt solid rgb(142, 170, 219);border-image: initial;border-top: none;padding: 0cm 5.4pt;vertical-align: top;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;line-height:  normal;'><span style='font-family:"Calibri Light",sans-serif;'>CURSO&nbsp;</span></p>
-            </td>
-            <td style="width: 292.8pt;border-top: none;border-left: none;border-bottom: 1pt solid rgb(142, 170, 219);border-right: 1pt solid rgb(142, 170, 219);padding: 0cm 5.4pt;vertical-align: top;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;line-height:  normal;'><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;${course}</span></p>
-            </td>
-        </tr>
-    </tbody>
-</table>
-<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;'><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;</span></p>
-<table style="width: 4.4e+2pt;border-collapse:collapse;border:none;">
-    <tbody>
-        <tr>
-            <td style="width: 148.6pt;border: 1pt solid rgb(142, 170, 219);background: rgb(217, 226, 243);padding: 0cm 5.4pt;vertical-align: top;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;line-height:  normal;'><span style='font-family:"Calibri Light",sans-serif;color:black;'>NOMBRE APODERADO/A</span></p>
-            </td>
-            <td style="width: 292.8pt;border-top: 1pt solid rgb(142, 170, 219);border-right: 1pt solid rgb(142, 170, 219);border-bottom: 1pt solid rgb(142, 170, 219);border-image: initial;border-left: none;background: rgb(217, 226, 243);padding: 0cm 5.4pt;vertical-align: top;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;line-height:  normal;'><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;${nombreTutor}</span></p>
-            </td>
-        </tr>
-        <tr>
-            <td style="width: 148.6pt;border-right: 1pt solid rgb(142, 170, 219);border-bottom: 1pt solid rgb(142, 170, 219);border-left: 1pt solid rgb(142, 170, 219);border-image: initial;border-top: none;padding: 0cm 5.4pt;vertical-align: top;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;line-height:  normal;'><span style='font-family:"Calibri Light",sans-serif;'>RUT APODERADO/A</span></p>
-            </td>
-            <td style="width: 292.8pt;border-top: none;border-left: none;border-bottom: 1pt solid rgb(142, 170, 219);border-right: 1pt solid rgb(142, 170, 219);padding: 0cm 5.4pt;vertical-align: top;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;line-height:  normal;'><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;${rut}</span></p>
-            </td>
-        </tr>
-    </tbody>
-</table>
-<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;'><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;</span></p>
-<table style="width: 4.4e+2pt;border-collapse:collapse;border:none;">
-    <tbody>
-        <tr>
-            <td style="width: 441.4pt;border: 1pt solid rgb(142, 170, 219);background: rgb(217, 226, 243);padding: 0cm 5.4pt;vertical-align: top;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:center;line-height:normal;'><span style='font-family:  "Calibri Light",sans-serif;color:black;'>DESCRIPICI&Oacute;N DE LA DEC (antecedentes relevantes, lugar, duraci&oacute;n, entre otros)</span></p>
-            </td>
-        </tr>
-        <tr>
-            <td style="width: 441.4pt;border-right: 1pt solid rgb(142, 170, 219);border-bottom: 1pt solid rgb(142, 170, 219);border-left: 1pt solid rgb(142, 170, 219);border-image: initial;border-top: none;padding: 0cm 5.4pt;vertical-align: top;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;line-height:  normal;'><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;</span></p>
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;line-height:  normal;'><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;</span></p>
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;line-height:  normal;'><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;</span></p>
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;line-height:  normal;'><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;</span></p>
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;line-height:  normal;'><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;</span></p>
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;line-height:  normal;'><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;</span></p>
-            </td>
-        </tr>
-    </tbody>
-</table>
-<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;'><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;</span></p>
-<table style="width: 4.4e+2pt;border-collapse:collapse;border:none;">
-    <tbody>
-        <tr>
-            <td colspan="3" style="width: 441.4pt;border: 1pt solid rgb(142, 170, 219);background: rgb(217, 226, 243);padding: 0cm 5.4pt;vertical-align: top;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:center;line-height:normal;'><span style='font-family:  "Calibri Light",sans-serif;color:black;'>PERSONAL QUE INTERVIENE EN LA DEC</span></p>
-            </td>
-        </tr>
-        <tr>
-            <td style="width: 147.1pt;border-right: 1pt solid rgb(142, 170, 219);border-bottom: 1pt solid rgb(142, 170, 219);border-left: 1pt solid rgb(142, 170, 219);border-image: initial;border-top: none;padding: 0cm 5.4pt;vertical-align: top;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:center;line-height:normal;'><span style='font-family:"Calibri Light",sans-serif;'>Etapa inicial</span></p>
-            </td>
-            <td style="width: 147.15pt;border-top: none;border-left: none;border-bottom: 1pt solid rgb(142, 170, 219);border-right: 1pt solid rgb(142, 170, 219);padding: 0cm 5.4pt;vertical-align: top;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:center;line-height:normal;'><span style='font-family:"Calibri Light",sans-serif;'>Etapa de aumento de la desregulaci&oacute;n emocional y conductual, con riesgo para s&iacute; mismo/a o terceros</span></p>
-            </td>
-            <td style="width: 147.15pt;border-top: none;border-left: none;border-bottom: 1pt solid rgb(142, 170, 219);border-right: 1pt solid rgb(142, 170, 219);padding: 0cm 5.4pt;vertical-align: top;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:center;line-height:normal;'><span style='font-family:"Calibri Light",sans-serif;'>Etapa de crisis declarada, cuando el descontrol y los riesgos para s&iacute; o terceros implican la necesidad de contener f&iacute;sicamente al estudiante</span></p>
-            </td>
-        </tr>
-        <tr>
-            <td style="width: 147.1pt;border-right: 1pt solid rgb(142, 170, 219);border-bottom: 1pt solid rgb(142, 170, 219);border-left: 1pt solid rgb(142, 170, 219);border-image: initial;border-top: none;background: rgb(217, 226, 243);padding: 0cm 5.4pt;vertical-align: top;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;line-height:  normal;'><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;</span></p>
-            </td>
-            <td style="width: 147.15pt;border-top: none;border-left: none;border-bottom: 1pt solid rgb(142, 170, 219);border-right: 1pt solid rgb(142, 170, 219);background: rgb(217, 226, 243);padding: 0cm 5.4pt;vertical-align: top;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;line-height:  normal;'><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;</span></p>
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;line-height:  normal;'><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;</span></p>
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;line-height:  normal;'><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;</span></p>
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;line-height:  normal;'><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;</span></p>
-            </td>
-            <td style="width: 147.15pt;border-top: none;border-left: none;border-bottom: 1pt solid rgb(142, 170, 219);border-right: 1pt solid rgb(142, 170, 219);background: rgb(217, 226, 243);padding: 0cm 5.4pt;vertical-align: top;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;line-height:  normal;'><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;</span></p>
-            </td>
-        </tr>
-    </tbody>
-</table>
-<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;'><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;</span></p>
-<table style="width: 4.4e+2pt;border-collapse:collapse;border:none;">
-    <tbody>
-        <tr>
-            <td style="width: 110.35pt;border: 1pt solid rgb(142, 170, 219);background: rgb(217, 226, 243);padding: 0cm 5.4pt;vertical-align: top;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:center;line-height:normal;'><span style='font-family:  "Calibri Light",sans-serif;color:black;'>Hora de inicio</span></p>
-            </td>
-            <td style="width: 110.35pt;border-top: 1pt solid rgb(142, 170, 219);border-right: 1pt solid rgb(142, 170, 219);border-bottom: 1pt solid rgb(142, 170, 219);border-image: initial;border-left: none;background: rgb(217, 226, 243);padding: 0cm 5.4pt;vertical-align: top;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:center;line-height:normal;'><span style='font-family:  "Calibri Light",sans-serif;color:black;'>Hora de llamada apoderado/a</span></p>
-            </td>
-            <td style="width: 110.35pt;border-top: 1pt solid rgb(142, 170, 219);border-right: 1pt solid rgb(142, 170, 219);border-bottom: 1pt solid rgb(142, 170, 219);border-image: initial;border-left: none;background: rgb(217, 226, 243);padding: 0cm 5.4pt;vertical-align: top;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:center;line-height:normal;'><span style='font-family:  "Calibri Light",sans-serif;color:black;'>Hora de llegada apoderado/a</span></p>
-            </td>
-            <td style="width: 110.35pt;border-top: 1pt solid rgb(142, 170, 219);border-right: 1pt solid rgb(142, 170, 219);border-bottom: 1pt solid rgb(142, 170, 219);border-image: initial;border-left: none;background: rgb(217, 226, 243);padding: 0cm 5.4pt;vertical-align: top;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:center;line-height:normal;'><span style='font-family:  "Calibri Light",sans-serif;color:black;'>Hora de termino</span></p>
-            </td>
-        </tr>
-        <tr>
-            <td style="width: 110.35pt;border-right: 1pt solid rgb(142, 170, 219);border-bottom: 1pt solid rgb(142, 170, 219);border-left: 1pt solid rgb(142, 170, 219);border-image: initial;border-top: none;padding: 0cm 5.4pt;vertical-align: top;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;line-height:  normal;'><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;</span></p>
-            </td>
-            <td style="width: 110.35pt;border-top: none;border-left: none;border-bottom: 1pt solid rgb(142, 170, 219);border-right: 1pt solid rgb(142, 170, 219);padding: 0cm 5.4pt;vertical-align: top;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;line-height:  normal;'><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;</span></p>
-            </td>
-            <td style="width: 110.35pt;border-top: none;border-left: none;border-bottom: 1pt solid rgb(142, 170, 219);border-right: 1pt solid rgb(142, 170, 219);padding: 0cm 5.4pt;vertical-align: top;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;line-height:  normal;'><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;</span></p>
-            </td>
-            <td style="width: 110.35pt;border-top: none;border-left: none;border-bottom: 1pt solid rgb(142, 170, 219);border-right: 1pt solid rgb(142, 170, 219);padding: 0cm 5.4pt;vertical-align: top;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;line-height:  normal;'><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;</span></p>
-            </td>
-        </tr>
-    </tbody>
-</table>
-<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;'><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;</span></p>
-<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;'><span style='font-family:"Calibri Light",sans-serif;'>Se emite el presente certificado para ser presentado al empleador del apoderado/a por atender a la desregulaci&oacute;n emocional y/o conductual de su pupilo.</span></p>
-<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;'><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;</span></p>
-<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;'><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;</span></p>
-<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;'><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;</span></p>
-<table style="width: 4.4e+2pt;border-collapse:collapse;border:none;">
-    <tbody>
-        <tr>
-            <td style="width: 147.1pt;border-right: none;border-bottom: none;border-left: none;border-image: initial;border-top: 1pt solid black;padding: 0cm 5.4pt;vertical-align: top;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:center;'><strong><span style='font-family:"Calibri Light",sans-serif;'>Firma apoderado/a</span></strong></p>
-            </td>
-            <td style="width: 147.15pt;border: none;padding: 0cm 5.4pt;vertical-align: top;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:center;'><strong><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;</span></strong></p>
-            </td>
-            <td style="width: 147.15pt;border-right: none;border-bottom: none;border-left: none;border-image: initial;border-top: 1pt solid black;padding: 0cm 5.4pt;vertical-align: top;">
-                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:center;'><strong><span style='font-family:"Calibri Light",sans-serif;'>Firma y timbre del &nbsp; &nbsp; representante establecimiento</span></strong></p>
-            </td>
-        </tr>
-    </tbody>
-</table>`;
-  }
+//   static contratoContigencia(nombreEstudiante, nombreTutor, nombreRepresentanteEstablecimiento, fecha) {
+//     return `<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:center;'><strong><span style='font-family:"Calibri Light",sans-serif;'>CONTRATO DE CONTINGENCIAS</span></strong></p>
+// <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:center;'><strong><span style='font-family:"Calibri Light",sans-serif;'>Aplicaci&oacute;n del protocolo integral para la gesti&oacute;n de la desregulaci&oacute;n emocional y/o conductual</span></strong></p>
+// <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;'><strong><span style='font-family:"Calibri Light",sans-serif;'>Objetivo general:</span></strong><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;Establecer de manera transparente medidas acordadas entre el apoderado/a y el establecimiento escolar en caso que el estudiante presente una desregulaci&oacute;n emocional y/o conductual en el contexto escolar, propiciando un abordaje preventivo y siempre resguardando la integridad del mismo y del resto de integrantes de la comunidad educativa.</span></p>
+// <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;'><strong><span style='font-family:"Calibri Light",sans-serif;'>Antecedentes:</span></strong></p>
+// <table style="width: 4.4e+2pt;border-collapse:collapse;border:none;">
+//     <tbody>
+//         <tr>
+//             <td style="width: 212.4pt;border: 1pt solid black;padding: 0cm 5.4pt;vertical-align: top;">
+//                 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;'><strong><span style='font-family:"Calibri Light",sans-serif;'>Nombre del estudiante&nbsp;</span></strong></p>
+//             </td>
+//             <td style="width: 229pt;border-top: 1pt solid black;border-right: 1pt solid black;border-bottom: 1pt solid black;border-image: initial;border-left: none;padding: 0cm 5.4pt;vertical-align: top;">
+//                 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;'><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;${nombreEstudiante}</span></p>
+//             </td>
+//         </tr>
+//         <tr>
+//             <td style="width: 212.4pt;border-right: 1pt solid black;border-bottom: 1pt solid black;border-left: 1pt solid black;border-image: initial;border-top: none;padding: 0cm 5.4pt;vertical-align: top;">
+//                 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;'><strong><span style='font-family:"Calibri Light",sans-serif;'>Nombre del apoderado/a</span></strong></p>
+//             </td>
+//             <td style="width: 229pt;border-top: none;border-left: none;border-bottom: 1pt solid black;border-right: 1pt solid black;padding: 0cm 5.4pt;vertical-align: top;">
+//                 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;'><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;${nombreTutor}</span></p>
+//             </td>
+//         </tr>
+//         <tr>
+//             <td style="width: 212.4pt;border-right: 1pt solid black;border-bottom: 1pt solid black;border-left: 1pt solid black;border-image: initial;border-top: none;padding: 0cm 5.4pt;vertical-align: top;">
+//                 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;'><strong><span style='font-family:"Calibri Light",sans-serif;'>Nombre representante establecimiento</span></strong></p>
+//             </td>
+//             <td style="width: 229pt;border-top: none;border-left: none;border-bottom: 1pt solid black;border-right: 1pt solid black;padding: 0cm 5.4pt;vertical-align: top;">
+//                 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;'><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;${nombreRepresentanteEstablecimiento}</span></p>
+//             </td>
+//         </tr>
+//         <tr>
+//             <td style="width: 212.4pt;border-right: 1pt solid black;border-bottom: 1pt solid black;border-left: 1pt solid black;border-image: initial;border-top: none;padding: 0cm 5.4pt;vertical-align: top;">
+//                 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;'><strong><span style='font-family:"Calibri Light",sans-serif;'>Fecha&nbsp;</span></strong></p>
+//             </td>
+//             <td style="width: 229pt;border-top: none;border-left: none;border-bottom: 1pt solid black;border-right: 1pt solid black;padding: 0cm 5.4pt;vertical-align: top;">
+//                 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;'><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;${fecha}</span></p>
+//             </td>
+//         </tr>
+//     </tbody>
+// </table>
+// <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:36.0pt;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;border:none;'><span style='font-family:"Calibri Light",sans-serif;color:black;'>&nbsp;</span></p>
+// <ol style="margin-bottom:0cm;margin-top:0cm;" start="1" type="1">
+//     <li style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;color:black;text-align:justify;border:none;'><span style='font-family:"Calibri Light",sans-serif;'>El apoderado declara estar en conocimiento de los procedimientos descritos en el protocolo integral para la gesti&oacute;n de la desregulaci&oacute;n emocional y/o conductual de estudiantes.</span></li>
+//     <li style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;color:red;text-align:justify;border:none;'><span style='font-family:"Calibri Light",sans-serif;'>El apoderado/a asistir&aacute; inmediatamente en caso que su pupilo presente una desregulaci&oacute;n emocional y/o conductual, el establecimiento escolar se compromete a brindar los primeros auxilios y la contenci&oacute;n durante el tiempo de trayecto del apoderado/a al establecimiento.</span></li>
+//     <li style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;color:black;text-align:justify;border:none;'><span style='font-family:"Calibri Light",sans-serif;'>El establecimiento emitir&aacute; un certificado donde informar&aacute; hora de inicio de la DEC, hora de llamado al apoderado/a, hora de llegada del apoderado/a y hora de t&eacute;rmino de la DEC, el certificado ser&aacute; entregado al apoderado para ser presentado a su empleador.</span></li>
+//     <li style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;color:black;text-align:justify;border:none;'><span style='font-family:"Calibri Light",sans-serif;'>El personal especializado o SOS que entregar&aacute; los primeros auxilios y contenci&oacute;n ser&aacute;__________________________________________ en caso de no encontrarse en el establecimiento ser&aacute; remplazado en dicha labor por el siguiente profesional___________________________________________.</span></li>
+//     <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;color:black;text-align:justify;border:none;'><span style='font-family:"Calibri Light",sans-serif;'>Se acuerda flexibilizaci&oacute;n horaria del estudiante S&iacute;_____ No_____ en caso que la respuesta es s&iacute; llenar el siguiente cuadro:</span></li>
+// </ol>
+// <table style="width: 4.1e+2pt;border-collapse:collapse;border:none;">
+//     <tbody>
+//         <tr>
+//             <td style="width: 67.5pt;border: 1pt solid rgb(142, 170, 219);background: rgb(217, 226, 243);padding: 0cm 5.4pt;vertical-align: top;">
+//                 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;line-height:  107%;border:none;'><span style='font-family:"Calibri Light",sans-serif;color:black;'>D&iacute;a&nbsp;</span></p>
+//             </td>
+//             <td style="width: 67.55pt;border-top: 1pt solid rgb(142, 170, 219);border-right: 1pt solid rgb(142, 170, 219);border-bottom: 1pt solid rgb(142, 170, 219);border-image: initial;border-left: none;background: rgb(217, 226, 243);padding: 0cm 5.4pt;vertical-align: top;">
+//                 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:center;line-height:107%;border:none;'><span style='font-family:  "Calibri Light",sans-serif;color:black;'>Lunes</span></p>
+//             </td>
+//             <td style="width: 67.55pt;border-top: 1pt solid rgb(142, 170, 219);border-right: 1pt solid rgb(142, 170, 219);border-bottom: 1pt solid rgb(142, 170, 219);border-image: initial;border-left: none;background: rgb(217, 226, 243);padding: 0cm 5.4pt;vertical-align: top;">
+//                 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:center;line-height:107%;border:none;'><span style='font-family:  "Calibri Light",sans-serif;color:black;'>Martes</span></p>
+//             </td>
+//             <td style="width: 67.6pt;border-top: 1pt solid rgb(142, 170, 219);border-right: 1pt solid rgb(142, 170, 219);border-bottom: 1pt solid rgb(142, 170, 219);border-image: initial;border-left: none;background: rgb(217, 226, 243);padding: 0cm 5.4pt;vertical-align: top;">
+//                 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:center;line-height:107%;border:none;'><span style='font-family:  "Calibri Light",sans-serif;color:black;'>Mi&eacute;rcoles</span></p>
+//             </td>
+//             <td style="width: 67.6pt;border-top: 1pt solid rgb(142, 170, 219);border-right: 1pt solid rgb(142, 170, 219);border-bottom: 1pt solid rgb(142, 170, 219);border-image: initial;border-left: none;background: rgb(217, 226, 243);padding: 0cm 5.4pt;vertical-align: top;">
+//                 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:center;line-height:107%;border:none;'><span style='font-family:  "Calibri Light",sans-serif;color:black;'>Jueves</span></p>
+//             </td>
+//             <td style="width: 67.6pt;border-top: 1pt solid rgb(142, 170, 219);border-right: 1pt solid rgb(142, 170, 219);border-bottom: 1pt solid rgb(142, 170, 219);border-image: initial;border-left: none;background: rgb(217, 226, 243);padding: 0cm 5.4pt;vertical-align: top;">
+//                 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:center;line-height:107%;border:none;'><span style='font-family:  "Calibri Light",sans-serif;color:black;'>Viernes</span></p>
+//             </td>
+//         </tr>
+//         <tr>
+//             <td style="width: 67.5pt;border-right: 1pt solid rgb(142, 170, 219);border-bottom: 1pt solid rgb(142, 170, 219);border-left: 1pt solid rgb(142, 170, 219);border-image: initial;border-top: none;padding: 0cm 5.4pt;vertical-align: top;">
+//                 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;line-height:  107%;border:none;'><span style='font-family:"Calibri Light",sans-serif;color:black;'>Ingreso&nbsp;</span></p>
+//             </td>
+//             <td style="width: 67.55pt;border-top: none;border-left: none;border-bottom: 1pt solid rgb(142, 170, 219);border-right: 1pt solid rgb(142, 170, 219);padding: 0cm 5.4pt;vertical-align: top;">
+//                 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;line-height:  107%;border:none;'><span style='font-family:"Calibri Light",sans-serif;color:black;'>&nbsp;</span></p>
+//             </td>
+//             <td style="width: 67.55pt;border-top: none;border-left: none;border-bottom: 1pt solid rgb(142, 170, 219);border-right: 1pt solid rgb(142, 170, 219);padding: 0cm 5.4pt;vertical-align: top;">
+//                 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;line-height:  107%;border:none;'><span style='font-family:"Calibri Light",sans-serif;color:black;'>&nbsp;</span></p>
+//             </td>
+//             <td style="width: 67.6pt;border-top: none;border-left: none;border-bottom: 1pt solid rgb(142, 170, 219);border-right: 1pt solid rgb(142, 170, 219);padding: 0cm 5.4pt;vertical-align: top;">
+//                 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;line-height:  107%;border:none;'><span style='font-family:"Calibri Light",sans-serif;color:black;'>&nbsp;</span></p>
+//             </td>
+//             <td style="width: 67.6pt;border-top: none;border-left: none;border-bottom: 1pt solid rgb(142, 170, 219);border-right: 1pt solid rgb(142, 170, 219);padding: 0cm 5.4pt;vertical-align: top;">
+//                 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;line-height:  107%;border:none;'><span style='font-family:"Calibri Light",sans-serif;color:black;'>&nbsp;</span></p>
+//             </td>
+//             <td style="width: 67.6pt;border-top: none;border-left: none;border-bottom: 1pt solid rgb(142, 170, 219);border-right: 1pt solid rgb(142, 170, 219);padding: 0cm 5.4pt;vertical-align: top;">
+//                 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;line-height:  107%;border:none;'><span style='font-family:"Calibri Light",sans-serif;color:black;'>&nbsp;</span></p>
+//             </td>
+//         </tr>
+//         <tr>
+//             <td style="width: 67.5pt;border-right: 1pt solid rgb(142, 170, 219);border-bottom: 1pt solid rgb(142, 170, 219);border-left: 1pt solid rgb(142, 170, 219);border-image: initial;border-top: none;background: rgb(217, 226, 243);padding: 0cm 5.4pt;vertical-align: top;">
+//                 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;line-height:  107%;border:none;'><span style='font-family:"Calibri Light",sans-serif;color:black;'>Salida</span></p>
+//             </td>
+//             <td style="width: 67.55pt;border-top: none;border-left: none;border-bottom: 1pt solid rgb(142, 170, 219);border-right: 1pt solid rgb(142, 170, 219);background: rgb(217, 226, 243);padding: 0cm 5.4pt;vertical-align: top;">
+//                 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;line-height:  107%;border:none;'><span style='font-family:"Calibri Light",sans-serif;color:black;'>&nbsp;</span></p>
+//             </td>
+//             <td style="width: 67.55pt;border-top: none;border-left: none;border-bottom: 1pt solid rgb(142, 170, 219);border-right: 1pt solid rgb(142, 170, 219);background: rgb(217, 226, 243);padding: 0cm 5.4pt;vertical-align: top;">
+//                 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;line-height:  107%;border:none;'><span style='font-family:"Calibri Light",sans-serif;color:black;'>&nbsp;</span></p>
+//             </td>
+//             <td style="width: 67.6pt;border-top: none;border-left: none;border-bottom: 1pt solid rgb(142, 170, 219);border-right: 1pt solid rgb(142, 170, 219);background: rgb(217, 226, 243);padding: 0cm 5.4pt;vertical-align: top;">
+//                 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;line-height:  107%;border:none;'><span style='font-family:"Calibri Light",sans-serif;color:black;'>&nbsp;</span></p>
+//             </td>
+//             <td style="width: 67.6pt;border-top: none;border-left: none;border-bottom: 1pt solid rgb(142, 170, 219);border-right: 1pt solid rgb(142, 170, 219);background: rgb(217, 226, 243);padding: 0cm 5.4pt;vertical-align: top;">
+//                 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;line-height:  107%;border:none;'><span style='font-family:"Calibri Light",sans-serif;color:black;'>&nbsp;</span></p>
+//             </td>
+//             <td style="width: 67.6pt;border-top: none;border-left: none;border-bottom: 1pt solid rgb(142, 170, 219);border-right: 1pt solid rgb(142, 170, 219);background: rgb(217, 226, 243);padding: 0cm 5.4pt;vertical-align: top;">
+//                 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;line-height:  107%;border:none;'><span style='font-family:"Calibri Light",sans-serif;color:black;'>&nbsp;</span></p>
+//             </td>
+//         </tr>
+//     </tbody>
+// </table>
+// <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;'><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;</span></p>
+// <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;'><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;</span></p>
+// <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;'><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;</span></p>
+// <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;'><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;</span></p>
+// <table style="width: 4.4e+2pt;border-collapse:collapse;border:none;">
+//     <tbody>
+//         <tr>
+//             <td style="width: 147.1pt;border-right: none;border-bottom: none;border-left: none;border-image: initial;border-top: 1pt solid black;padding: 0cm 5.4pt;vertical-align: top;">
+//                 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:center;'><strong><span style='font-family:"Calibri Light",sans-serif;'>Firma apoderado/a</span></strong></p>
+//             </td>
+//             <td style="width: 147.15pt;border: none;padding: 0cm 5.4pt;vertical-align: top;">
+//                 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:center;'><strong><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;</span></strong></p>
+//             </td>
+//             <td style="width: 147.15pt;border-right: none;border-bottom: none;border-left: none;border-image: initial;border-top: 1pt solid black;padding: 0cm 5.4pt;vertical-align: top;">
+//                 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:center;'><strong><span style='font-family:"Calibri Light",sans-serif;'>Firma y timbre representante establecimiento</span></strong></p>
+//             </td>
+//         </tr>
+//     </tbody>
+// </table>`
+//   }
+//   static certificadoEmpleador(nombreEstudiante, course, nombreTutor,rut) {
+//     return `<p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:center;'><strong><span style='font-family:"Calibri Light",sans-serif;'>CERTIFICADO</span></strong></p>
+// <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:center;'><strong><span style='font-family:"Calibri Light",sans-serif;'>Aplicaci&oacute;n del protocolo integral para la gesti&oacute;n de la desregulaci&oacute;n emocional y/o conductual</span></strong></p>
+// <table style="width: 4.4e+2pt;border-collapse:collapse;border:none;">
+//     <tbody>
+//         <tr>
+//             <td style="width: 148.6pt;border: 1pt solid rgb(142, 170, 219);background: rgb(217, 226, 243);padding: 0cm 5.4pt;vertical-align: top;">
+//                 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;line-height:  normal;'><span style='font-family:"Calibri Light",sans-serif;color:black;'>NOMBRE DEL ESTUDIANTE</span></p>
+//             </td>
+//             <td style="width: 292.8pt;border-top: 1pt solid rgb(142, 170, 219);border-right: 1pt solid rgb(142, 170, 219);border-bottom: 1pt solid rgb(142, 170, 219);border-image: initial;border-left: none;background: rgb(217, 226, 243);padding: 0cm 5.4pt;vertical-align: top;">
+//                 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;line-height:  normal;'><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;${nombreEstudiante}</span></p>
+//             </td>
+//         </tr>
+//         <tr>
+//             <td style="width: 148.6pt;border-right: 1pt solid rgb(142, 170, 219);border-bottom: 1pt solid rgb(142, 170, 219);border-left: 1pt solid rgb(142, 170, 219);border-image: initial;border-top: none;padding: 0cm 5.4pt;vertical-align: top;">
+//                 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;line-height:  normal;'><span style='font-family:"Calibri Light",sans-serif;'>CURSO&nbsp;</span></p>
+//             </td>
+//             <td style="width: 292.8pt;border-top: none;border-left: none;border-bottom: 1pt solid rgb(142, 170, 219);border-right: 1pt solid rgb(142, 170, 219);padding: 0cm 5.4pt;vertical-align: top;">
+//                 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;line-height:  normal;'><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;${course}</span></p>
+//             </td>
+//         </tr>
+//     </tbody>
+// </table>
+// <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;'><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;</span></p>
+// <table style="width: 4.4e+2pt;border-collapse:collapse;border:none;">
+//     <tbody>
+//         <tr>
+//             <td style="width: 148.6pt;border: 1pt solid rgb(142, 170, 219);background: rgb(217, 226, 243);padding: 0cm 5.4pt;vertical-align: top;">
+//                 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;line-height:  normal;'><span style='font-family:"Calibri Light",sans-serif;color:black;'>NOMBRE APODERADO/A</span></p>
+//             </td>
+//             <td style="width: 292.8pt;border-top: 1pt solid rgb(142, 170, 219);border-right: 1pt solid rgb(142, 170, 219);border-bottom: 1pt solid rgb(142, 170, 219);border-image: initial;border-left: none;background: rgb(217, 226, 243);padding: 0cm 5.4pt;vertical-align: top;">
+//                 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;line-height:  normal;'><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;${nombreTutor}</span></p>
+//             </td>
+//         </tr>
+//         <tr>
+//             <td style="width: 148.6pt;border-right: 1pt solid rgb(142, 170, 219);border-bottom: 1pt solid rgb(142, 170, 219);border-left: 1pt solid rgb(142, 170, 219);border-image: initial;border-top: none;padding: 0cm 5.4pt;vertical-align: top;">
+//                 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;line-height:  normal;'><span style='font-family:"Calibri Light",sans-serif;'>RUT APODERADO/A</span></p>
+//             </td>
+//             <td style="width: 292.8pt;border-top: none;border-left: none;border-bottom: 1pt solid rgb(142, 170, 219);border-right: 1pt solid rgb(142, 170, 219);padding: 0cm 5.4pt;vertical-align: top;">
+//                 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;line-height:  normal;'><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;${rut}</span></p>
+//             </td>
+//         </tr>
+//     </tbody>
+// </table>
+// <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;'><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;</span></p>
+// <table style="width: 4.4e+2pt;border-collapse:collapse;border:none;">
+//     <tbody>
+//         <tr>
+//             <td style="width: 441.4pt;border: 1pt solid rgb(142, 170, 219);background: rgb(217, 226, 243);padding: 0cm 5.4pt;vertical-align: top;">
+//                 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:center;line-height:normal;'><span style='font-family:  "Calibri Light",sans-serif;color:black;'>DESCRIPICI&Oacute;N DE LA DEC (antecedentes relevantes, lugar, duraci&oacute;n, entre otros)</span></p>
+//             </td>
+//         </tr>
+//         <tr>
+//             <td style="width: 441.4pt;border-right: 1pt solid rgb(142, 170, 219);border-bottom: 1pt solid rgb(142, 170, 219);border-left: 1pt solid rgb(142, 170, 219);border-image: initial;border-top: none;padding: 0cm 5.4pt;vertical-align: top;">
+//                 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;line-height:  normal;'><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;</span></p>
+//                 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;line-height:  normal;'><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;</span></p>
+//                 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;line-height:  normal;'><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;</span></p>
+//                 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;line-height:  normal;'><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;</span></p>
+//                 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;line-height:  normal;'><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;</span></p>
+//                 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;line-height:  normal;'><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;</span></p>
+//             </td>
+//         </tr>
+//     </tbody>
+// </table>
+// <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;'><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;</span></p>
+// <table style="width: 4.4e+2pt;border-collapse:collapse;border:none;">
+//     <tbody>
+//         <tr>
+//             <td colspan="3" style="width: 441.4pt;border: 1pt solid rgb(142, 170, 219);background: rgb(217, 226, 243);padding: 0cm 5.4pt;vertical-align: top;">
+//                 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:center;line-height:normal;'><span style='font-family:  "Calibri Light",sans-serif;color:black;'>PERSONAL QUE INTERVIENE EN LA DEC</span></p>
+//             </td>
+//         </tr>
+//         <tr>
+//             <td style="width: 147.1pt;border-right: 1pt solid rgb(142, 170, 219);border-bottom: 1pt solid rgb(142, 170, 219);border-left: 1pt solid rgb(142, 170, 219);border-image: initial;border-top: none;padding: 0cm 5.4pt;vertical-align: top;">
+//                 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:center;line-height:normal;'><span style='font-family:"Calibri Light",sans-serif;'>Etapa inicial</span></p>
+//             </td>
+//             <td style="width: 147.15pt;border-top: none;border-left: none;border-bottom: 1pt solid rgb(142, 170, 219);border-right: 1pt solid rgb(142, 170, 219);padding: 0cm 5.4pt;vertical-align: top;">
+//                 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:center;line-height:normal;'><span style='font-family:"Calibri Light",sans-serif;'>Etapa de aumento de la desregulaci&oacute;n emocional y conductual, con riesgo para s&iacute; mismo/a o terceros</span></p>
+//             </td>
+//             <td style="width: 147.15pt;border-top: none;border-left: none;border-bottom: 1pt solid rgb(142, 170, 219);border-right: 1pt solid rgb(142, 170, 219);padding: 0cm 5.4pt;vertical-align: top;">
+//                 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:center;line-height:normal;'><span style='font-family:"Calibri Light",sans-serif;'>Etapa de crisis declarada, cuando el descontrol y los riesgos para s&iacute; o terceros implican la necesidad de contener f&iacute;sicamente al estudiante</span></p>
+//             </td>
+//         </tr>
+//         <tr>
+//             <td style="width: 147.1pt;border-right: 1pt solid rgb(142, 170, 219);border-bottom: 1pt solid rgb(142, 170, 219);border-left: 1pt solid rgb(142, 170, 219);border-image: initial;border-top: none;background: rgb(217, 226, 243);padding: 0cm 5.4pt;vertical-align: top;">
+//                 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;line-height:  normal;'><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;</span></p>
+//             </td>
+//             <td style="width: 147.15pt;border-top: none;border-left: none;border-bottom: 1pt solid rgb(142, 170, 219);border-right: 1pt solid rgb(142, 170, 219);background: rgb(217, 226, 243);padding: 0cm 5.4pt;vertical-align: top;">
+//                 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;line-height:  normal;'><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;</span></p>
+//                 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;line-height:  normal;'><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;</span></p>
+//                 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;line-height:  normal;'><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;</span></p>
+//                 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;line-height:  normal;'><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;</span></p>
+//             </td>
+//             <td style="width: 147.15pt;border-top: none;border-left: none;border-bottom: 1pt solid rgb(142, 170, 219);border-right: 1pt solid rgb(142, 170, 219);background: rgb(217, 226, 243);padding: 0cm 5.4pt;vertical-align: top;">
+//                 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;line-height:  normal;'><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;</span></p>
+//             </td>
+//         </tr>
+//     </tbody>
+// </table>
+// <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;'><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;</span></p>
+// <table style="width: 4.4e+2pt;border-collapse:collapse;border:none;">
+//     <tbody>
+//         <tr>
+//             <td style="width: 110.35pt;border: 1pt solid rgb(142, 170, 219);background: rgb(217, 226, 243);padding: 0cm 5.4pt;vertical-align: top;">
+//                 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:center;line-height:normal;'><span style='font-family:  "Calibri Light",sans-serif;color:black;'>Hora de inicio</span></p>
+//             </td>
+//             <td style="width: 110.35pt;border-top: 1pt solid rgb(142, 170, 219);border-right: 1pt solid rgb(142, 170, 219);border-bottom: 1pt solid rgb(142, 170, 219);border-image: initial;border-left: none;background: rgb(217, 226, 243);padding: 0cm 5.4pt;vertical-align: top;">
+//                 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:center;line-height:normal;'><span style='font-family:  "Calibri Light",sans-serif;color:black;'>Hora de llamada apoderado/a</span></p>
+//             </td>
+//             <td style="width: 110.35pt;border-top: 1pt solid rgb(142, 170, 219);border-right: 1pt solid rgb(142, 170, 219);border-bottom: 1pt solid rgb(142, 170, 219);border-image: initial;border-left: none;background: rgb(217, 226, 243);padding: 0cm 5.4pt;vertical-align: top;">
+//                 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:center;line-height:normal;'><span style='font-family:  "Calibri Light",sans-serif;color:black;'>Hora de llegada apoderado/a</span></p>
+//             </td>
+//             <td style="width: 110.35pt;border-top: 1pt solid rgb(142, 170, 219);border-right: 1pt solid rgb(142, 170, 219);border-bottom: 1pt solid rgb(142, 170, 219);border-image: initial;border-left: none;background: rgb(217, 226, 243);padding: 0cm 5.4pt;vertical-align: top;">
+//                 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:center;line-height:normal;'><span style='font-family:  "Calibri Light",sans-serif;color:black;'>Hora de termino</span></p>
+//             </td>
+//         </tr>
+//         <tr>
+//             <td style="width: 110.35pt;border-right: 1pt solid rgb(142, 170, 219);border-bottom: 1pt solid rgb(142, 170, 219);border-left: 1pt solid rgb(142, 170, 219);border-image: initial;border-top: none;padding: 0cm 5.4pt;vertical-align: top;">
+//                 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;line-height:  normal;'><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;</span></p>
+//             </td>
+//             <td style="width: 110.35pt;border-top: none;border-left: none;border-bottom: 1pt solid rgb(142, 170, 219);border-right: 1pt solid rgb(142, 170, 219);padding: 0cm 5.4pt;vertical-align: top;">
+//                 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;line-height:  normal;'><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;</span></p>
+//             </td>
+//             <td style="width: 110.35pt;border-top: none;border-left: none;border-bottom: 1pt solid rgb(142, 170, 219);border-right: 1pt solid rgb(142, 170, 219);padding: 0cm 5.4pt;vertical-align: top;">
+//                 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;line-height:  normal;'><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;</span></p>
+//             </td>
+//             <td style="width: 110.35pt;border-top: none;border-left: none;border-bottom: 1pt solid rgb(142, 170, 219);border-right: 1pt solid rgb(142, 170, 219);padding: 0cm 5.4pt;vertical-align: top;">
+//                 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;line-height:  normal;'><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;</span></p>
+//             </td>
+//         </tr>
+//     </tbody>
+// </table>
+// <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;'><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;</span></p>
+// <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;'><span style='font-family:"Calibri Light",sans-serif;'>Se emite el presente certificado para ser presentado al empleador del apoderado/a por atender a la desregulaci&oacute;n emocional y/o conductual de su pupilo.</span></p>
+// <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;'><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;</span></p>
+// <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;'><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;</span></p>
+// <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:justify;'><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;</span></p>
+// <table style="width: 4.4e+2pt;border-collapse:collapse;border:none;">
+//     <tbody>
+//         <tr>
+//             <td style="width: 147.1pt;border-right: none;border-bottom: none;border-left: none;border-image: initial;border-top: 1pt solid black;padding: 0cm 5.4pt;vertical-align: top;">
+//                 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:center;'><strong><span style='font-family:"Calibri Light",sans-serif;'>Firma apoderado/a</span></strong></p>
+//             </td>
+//             <td style="width: 147.15pt;border: none;padding: 0cm 5.4pt;vertical-align: top;">
+//                 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:center;'><strong><span style='font-family:"Calibri Light",sans-serif;'>&nbsp;</span></strong></p>
+//             </td>
+//             <td style="width: 147.15pt;border-right: none;border-bottom: none;border-left: none;border-image: initial;border-top: 1pt solid black;padding: 0cm 5.4pt;vertical-align: top;">
+//                 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:center;'><strong><span style='font-family:"Calibri Light",sans-serif;'>Firma y timbre del &nbsp; &nbsp; representante establecimiento</span></strong></p>
+//             </td>
+//         </tr>
+//     </tbody>
+// </table>`;
+//   }
   static autorizacionAbordajeDec(nombretutor, rut, nombreestudiante, curso) {
     return `<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:center;'><strong><span style='font-size:19px;line-height:107%;font-family:"Calibri Light",sans-serif;'>AUTORIZACI&Oacute;N</span></strong></p>
 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:center;'><strong><span style='font-size:19px;line-height:107%;font-family:"Calibri Light",sans-serif;'>Aplicaci&oacute;n del protocolo integral para la gesti&oacute;n de la desregulaci&oacute;n emocional y/o conductual</span></strong></p>
@@ -1433,5 +1434,520 @@ ${formulario.coordinacion_profesionales}
         </tr>
     </tbody>
 </table>`
+  }
+  static AUTORIZACION(student) {
+    // console.log(student)
+    return `<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:center;'>AUTORIZACI&Oacute;N</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'>&nbsp;</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'>Aplicaci&oacute;n del Protocolo Integral para la Gesti&oacute;n de la Desregulaci&oacute;n Emocional y/o Conductual</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'>&nbsp;</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'>Yo, ${student.tutorName}, RUT: ${student.tutorRut}, en calidad de apoderado/a de ${student.name}, estudiante del curso ${student.course}, declaro estar al tanto del Protocolo Integral para la Gesti&oacute;n de la Desregulaci&oacute;n Emocional y/o Conductual de estudiantes. En consecuencia, autorizo al personal especializado o SOS del establecimiento a proporcionar la contenci&oacute;n emocional y f&iacute;sica estipulada en dicho protocolo en caso de que mi pupilo presente desregulaci&oacute;n emocional y/o conductual en el establecimiento.</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'>&nbsp;</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'>Adem&aacute;s, para facilitar su manejo, indico las siguientes estrategias para su contenci&oacute;n:</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'>a)</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'>b)</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'>c)</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'>&nbsp;</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'>Firma del apoderado/a: ___________________________&nbsp;</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'>&nbsp;</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'>&nbsp;</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'>Firma y timbre del representante del establecimiento: ___________________________</p>`
+  }
+  static certificadoEmpleador(student) {
+    return `<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:center;'>CERTIFICADO DE INTERVENCI&Oacute;N PARA EL EMPLEADOR</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'>&nbsp;</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'>Aplicaci&oacute;n del Protocolo Integral para la Gesti&oacute;n de la Desregulaci&oacute;n Emocional y/o Conductual</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'>&nbsp;</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'>Nombre del Estudiante: ${student.name}</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'>Curso: ${student.course}</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'>&nbsp;</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'>Nombre del Apoderado/a: ${student.tutorName}</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'>RUT del Apoderado/a: ${student.tutorRut}</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'>&nbsp;</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'>Descripci&oacute;n del Incidente de Desregulaci&oacute;n Emocional y/o Conductual (DEC):</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'>[Incluir antecedentes relevantes, ubicaci&oacute;n del incidente, duraci&oacute;n, y cualquier otra informaci&oacute;n pertinente.]</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'>&nbsp;</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'>Intervenci&oacute;n del Personal en el Incidente:</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'>&nbsp;</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'>Etapa Inicial:</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'>Personal Responsable: __________________________</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'>Hora de Inicio: __________________________</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'>&nbsp;</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'>Etapa de Aumento de la Desregulaci&oacute;n (con riesgo para s&iacute; mismo/a o terceros):</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'>Personal Responsable: __________________________</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'>Hora de Intervenci&oacute;n: __________________________</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'>&nbsp;</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'>Etapa de Crisis Declarada (cuando se requiere contenci&oacute;n f&iacute;sica):</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'>Personal Responsable: __________________________</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'>Hora de Intervenci&oacute;n: __________________________</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'>&nbsp;</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'>&nbsp;</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'>Detalles de Tiempo:</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'>&nbsp;</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'>Hora de Inicio del Incidente: __________________________</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'>Hora de Llamada al Apoderado/a: __________________________</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'>Hora de Llegada del Apoderado/a: __________________________</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'>Hora de Conclusi&oacute;n del Incidente: __________________________</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'>Se emite el presente certificado para que el apoderado/a lo presente a su empleador, justificando la atenci&oacute;n brindada a la desregulaci&oacute;n emocional y/o conductual de su pupilo.</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'>&nbsp;</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'>Firma del Apoderado/a: __________________________</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'>Firma y Timbre del Representante del Establecimiento: __________________________</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'>Fecha: __________________________</p>`
+  }
+  static contratoContigencia(student) {
+    return `<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:center;'>CONTRATO DE CONTINGENCIAS</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'>&nbsp;</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'>Aplicaci&oacute;n del Protocolo Integral para la Gesti&oacute;n de la Desregulaci&oacute;n Emocional y/o Conductual</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'>&nbsp;</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'>Entre:</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'>El Establecimiento Escolar:</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'>Nombre del Representante: __________________________</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'>Cargo: ___________________________</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'>Nombre del Establecimiento: _________________________</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'>El Apoderado/a:</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'>Nombre: ${student.tutorName}</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'>RUT: ${student.tutorRut}</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'>Relaci&oacute;n con el Estudiante: __________________________</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'>El Estudiante:</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'>Nombre: ${student.name}</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'>Curso: ${student.course}</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'>Fecha: ___________________________</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'>&nbsp;</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'>OBJETIVO GENERAL:</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'>El presente contrato establece de manera clara y transparente las medidas acordadas entre el apoderado/a y el establecimiento escolar para la gesti&oacute;n de la desregulaci&oacute;n emocional y/o conductual del estudiante en el entorno escolar. Se busca implementar un enfoque preventivo que asegure la integridad del estudiante y del resto de la comunidad educativa.</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'>&nbsp;</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'>&nbsp;</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'>CL&Aacute;USULAS:</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'>&nbsp;</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'>Conocimiento del Protocolo:</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'>El apoderado/a confirma haber recibido y comprendido los procedimientos descritos en el Protocolo Integral para la Gesti&oacute;n de la Desregulaci&oacute;n Emocional y/o Conductual de estudiantes.</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'>&nbsp;</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'>Intervenci&oacute;n del Apoderado/a:</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'>En caso de que el estudiante presente desregulaci&oacute;n emocional y/o conductual, el apoderado/a se compromete a asistir al establecimiento de inmediato. Durante este tiempo, el establecimiento escolar se encargar&aacute; de proporcionar primeros auxilios y contenci&oacute;n al estudiante.</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'>Certificaci&oacute;n del Incidente:</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'>El establecimiento emitir&aacute; un certificado detallando la hora de inicio de la desregulaci&oacute;n emocional y/o conductual (DEC), la hora de contacto con el apoderado/a, la hora de llegada del apoderado/a y la hora de finalizaci&oacute;n de la DEC. Este certificado ser&aacute; entregado al apoderado/a para su presentaci&oacute;n ante su empleador.</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'>Personal Encargado de la Contenci&oacute;n:</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'>El personal especializado o SOS encargado de proporcionar primeros auxilios y contenci&oacute;n ser&aacute;: _____________________________. En caso de ausencia, este ser&aacute; reemplazado por el siguiente profesional: ____________________________.</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'>&nbsp;</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'>Flexibilizaci&oacute;n Horaria del Estudiante:</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'>Se acuerda si se permitir&aacute; flexibilizaci&oacute;n horaria para el estudiante: S&iacute; _____ No _____ (En caso afirmativo, se deber&aacute; completar el siguiente cuadro):</p>
+<table style="border-collapse:collapse;border:none;">
+    <tbody>
+        <tr>
+            <td style="width: 73.55pt;border: 1pt solid windowtext;padding: 0cm 5.4pt;vertical-align: top;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'>D&iacute;a</p>
+            </td>
+            <td style="width: 73.55pt;border-top: 1pt solid windowtext;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-image: initial;border-left: none;padding: 0cm 5.4pt;vertical-align: top;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'>Lunes</p>
+            </td>
+            <td style="width: 73.55pt;border-top: 1pt solid windowtext;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-image: initial;border-left: none;padding: 0cm 5.4pt;vertical-align: top;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'>Martes</p>
+            </td>
+            <td style="width: 73.55pt;border-top: 1pt solid windowtext;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-image: initial;border-left: none;padding: 0cm 5.4pt;vertical-align: top;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'>Mi&eacute;rcoles</p>
+            </td>
+            <td style="width: 73.6pt;border-top: 1pt solid windowtext;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-image: initial;border-left: none;padding: 0cm 5.4pt;vertical-align: top;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'>Jueves&nbsp; &nbsp;</p>
+            </td>
+            <td style="width: 73.6pt;border-top: 1pt solid windowtext;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-image: initial;border-left: none;padding: 0cm 5.4pt;vertical-align: top;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'>Viernes</p>
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 73.55pt;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-left: 1pt solid windowtext;border-image: initial;border-top: none;padding: 0cm 5.4pt;vertical-align: top;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'>Ingreso&nbsp;</p>
+            </td>
+            <td style="width: 73.55pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;vertical-align: top;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'>&nbsp;</p>
+            </td>
+            <td style="width: 73.55pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;vertical-align: top;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'>&nbsp;</p>
+            </td>
+            <td style="width: 73.55pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;vertical-align: top;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'>&nbsp;</p>
+            </td>
+            <td style="width: 73.6pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;vertical-align: top;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'>&nbsp;</p>
+            </td>
+            <td style="width: 73.6pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;vertical-align: top;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'>&nbsp;</p>
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 73.55pt;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-left: 1pt solid windowtext;border-image: initial;border-top: none;padding: 0cm 5.4pt;vertical-align: top;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'>Salida</p>
+            </td>
+            <td style="width: 73.55pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;vertical-align: top;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'>&nbsp;</p>
+            </td>
+            <td style="width: 73.55pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;vertical-align: top;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'>&nbsp;</p>
+            </td>
+            <td style="width: 73.55pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;vertical-align: top;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'>&nbsp;</p>
+            </td>
+            <td style="width: 73.6pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;vertical-align: top;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'>&nbsp;</p>
+            </td>
+            <td style="width: 73.6pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0cm 5.4pt;vertical-align: top;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'>&nbsp;</p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'>&nbsp;</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'>FIRMA DE LAS PARTES:</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'>&nbsp;</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'>Por el Establecimiento Escolar:</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'>Nombre: __________________________</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'>Firma: ___________________________</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'>Fecha: ___________________________</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'>&nbsp;</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'>Apoderado/a:</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'>Nombre: __________________________</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'>Firma: ___________________________</p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:center;'>Fecha: ___________________________</p>`
+  }
+  static planAcompanamiento(student) {
+    console.log(student)
+    let edad = 0
+    if (student.birthdate) {
+        edad = moment().diff(student.birthdate, 'years')
+    }
+    return `<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>PLAN DE ACOMPA&Ntilde;AMIENTO EMOCIONAL Y/O CONDUCTUAL</span></strong></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>1. Antecedentes del Estudiante</span></strong></p>
+<ul type="disc" style="margin-bottom:0cm;">
+    <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>Nombre del estudiante</span></strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>: ${student.name}</span></li>
+    <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>RUT</span></strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>: ${student.rut}</span></li>
+    <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>Edad</span></strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>: ${edad} a&ntilde;os</span></li>
+    <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>Curso</span></strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>: ${student.course}</span></li>
+    <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>Nacionalidad</span></strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>: [Indicar Nacionalidad]</span></li>
+    <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>Apoderado/a</span></strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>: ${student.tutorName}</span></li>
+    <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>Tel&eacute;fono del Apoderado</span></strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>: ${student.phone}</span></li>
+    <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>Contacto del Apoderado</span></strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>: [Indicar Informaci&oacute;n de Contacto Adicional]</span></li>
+</ul>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>2. Caracterizaci&oacute;n del Estudiante</span></strong></p>
+<ul type="disc" style="margin-bottom:0cm;">
+    <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>Diagn&oacute;stico Primario</span></strong><span style='font-size:16px;font-family:     "Times New Roman",serif;'>: [Indicar Diagn&oacute;stico]</span></li>
+    <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>Diagn&oacute;stico Secundario</span></strong><span style='font-size:16px;font-family:     "Times New Roman",serif;'>: [Indicar Diagn&oacute;stico]</span></li>
+    <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>Especializado o SOS</span></strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>: [Nombre del Profesional o Remplazante]</span></li>
+    <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>Profesor/a Jefe</span></strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>: [Nombre del Profesor]</span></li>
+</ul>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>3. Particularidades del Estudiante</span></strong></p>
+<ul type="disc" style="margin-bottom:0cm;">
+    <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>Desregulaci&oacute;n Emocional</span></strong><span style='font-size:16px;font-family:     "Times New Roman",serif;'>: Juan puede experimentar desregulaciones emocionales a trav&eacute;s de llantos, autolesiones o golpes. Es importante observar los desencadenantes espec&iacute;ficos de estas desregulaciones.</span></li>
+    <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>Contacto F&iacute;sico</span></strong><span style='font-size:16px;font-family:     "Times New Roman",serif;'>: [Indicar si el contacto f&iacute;sico es un factor que lo desregula o no]</span></li>
+    <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>Caracter&iacute;sticas Sensoriales</span></strong><span style='font-size:16px;font-family:     "Times New Roman",serif;'>: Juan puede tener sensibilidad a luces intensas, ruidos fuertes o temperaturas irregulares.</span></li>
+    <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>Conductas de Evitaci&oacute;n</span></strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>: [Indicar si presenta conductas de evitaci&oacute;n y ejemplos espec&iacute;ficos]</span></li>
+    <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>Estrategias de Regulaci&oacute;n Emocional/Conductual</span></strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>:</span>
+        <ul type="circle" style="margin-bottom:0cm;">
+            <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>Moduladores Sensoriales</span></strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>: [Ejemplo: Uso de auriculares para reducir el ruido, luces suaves]</span></li>
+            <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>Lugares de Confort</span></strong><span style='font-size:16px;font-family:      "Times New Roman",serif;'>: Crear un espacio tranquilo donde Juan pueda retirarse si se siente abrumado.</span></li>
+            <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>Manejo del Ambiente</span></strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>: Ajustar el entorno para minimizar est&iacute;mulos que puedan generar hiper o hipo reactividad. Por ejemplo, mantener el aula libre de ruidos excesivos y ajustar la iluminaci&oacute;n.</span></li>
+        </ul>
+    </li>
+</ul>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>4. Evaluaci&oacute;n Mensual</span></strong></p>
+<ul type="disc" style="margin-bottom:0cm;">
+    <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>Marzo</span></strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>: [Indicar Observaciones o Evaluaciones]</span></li>
+    <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>Abril</span></strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>: [Indicar Observaciones o Evaluaciones]</span></li>
+    <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>Mayo</span></strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>: [Indicar Observaciones o Evaluaciones]</span></li>
+    <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>Junio</span></strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>: [Indicar Observaciones o Evaluaciones]</span></li>
+    <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>Julio</span></strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>: [Indicar Observaciones o Evaluaciones]</span></li>
+    <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>Agosto</span></strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>: [Indicar Observaciones o Evaluaciones]</span></li>
+    <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>Septiembre</span></strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>: [Indicar Observaciones o Evaluaciones]</span></li>
+    <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>Octubre</span></strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>: [Indicar Observaciones o Evaluaciones]</span></li>
+    <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>Noviembre</span></strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>: [Indicar Observaciones o Evaluaciones]</span></li>
+    <li style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>Diciembre</span></strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>: [Indicar Observaciones o Evaluaciones]</span></li>
+</ul>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>5. Intervenciones Realizadas Durante el A&ntilde;o</span></strong></p>
+<table cellspacing="3" style="border:solid windowtext 1.0pt;">
+    <thead>
+        <tr>
+            <td style="border:solid windowtext 1.0pt;padding:.75pt .75pt .75pt .75pt;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:center;line-height:normal;'><strong><span style='font-size:16px;font-family:   "Times New Roman",serif;'>Mes</span></strong></p>
+            </td>
+            <td style="border:solid windowtext 1.0pt;padding:.75pt .75pt .75pt .75pt;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:center;line-height:normal;'><strong><span style='font-size:16px;font-family:   "Times New Roman",serif;'>Profesional Involucrado 1</span></strong></p>
+            </td>
+            <td style="border:solid windowtext 1.0pt;padding:.75pt .75pt .75pt .75pt;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:center;line-height:normal;'><strong><span style='font-size:16px;font-family:   "Times New Roman",serif;'>Profesional Involucrado 2</span></strong></p>
+            </td>
+            <td style="border:solid windowtext 1.0pt;padding:.75pt .75pt .75pt .75pt;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:center;line-height:normal;'><strong><span style='font-size:16px;font-family:   "Times New Roman",serif;'>Profesional Involucrado 3</span></strong></p>
+            </td>
+            <td style="border:solid windowtext 1.0pt;padding:.75pt .75pt .75pt .75pt;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;text-align:center;line-height:normal;'><strong><span style='font-size:16px;font-family:   "Times New Roman",serif;'>Profesional Involucrado 4</span></strong></p>
+            </td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="border:solid windowtext 1.0pt;padding:.75pt .75pt .75pt .75pt;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>Marzo</span></p>
+            </td>
+            <td style="border:solid windowtext 1.0pt;padding:.75pt .75pt .75pt .75pt;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>PIE, Conv. Escolar, Inspector&iacute;a General, Profesor/a Jefe, Orientador/a</span></p>
+            </td>
+            <td style="border:solid windowtext 1.0pt;padding:.75pt .75pt .75pt .75pt;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>[Detalles de Intervenci&oacute;n]</span></p>
+            </td>
+            <td style="border:solid windowtext 1.0pt;padding:.75pt .75pt .75pt .75pt;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>[Detalles de Intervenci&oacute;n]</span></p>
+            </td>
+            <td style="border:solid windowtext 1.0pt;padding:.75pt .75pt .75pt .75pt;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>[Detalles de Intervenci&oacute;n]</span></p>
+            </td>
+        </tr>
+        <tr>
+            <td style="border:solid windowtext 1.0pt;padding:.75pt .75pt .75pt .75pt;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>Abril</span></p>
+            </td>
+            <td style="border:solid windowtext 1.0pt;padding:.75pt .75pt .75pt .75pt;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>PIE, Conv. Escolar, Inspector&iacute;a General, Profesor/a Jefe, Orientador/a</span></p>
+            </td>
+            <td style="border:solid windowtext 1.0pt;padding:.75pt .75pt .75pt .75pt;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>[Detalles de Intervenci&oacute;n]</span></p>
+            </td>
+            <td style="border:solid windowtext 1.0pt;padding:.75pt .75pt .75pt .75pt;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>[Detalles de Intervenci&oacute;n]</span></p>
+            </td>
+            <td style="border:solid windowtext 1.0pt;padding:.75pt .75pt .75pt .75pt;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>[Detalles de Intervenci&oacute;n]</span></p>
+            </td>
+        </tr>
+        <tr>
+            <td style="border:solid windowtext 1.0pt;padding:.75pt .75pt .75pt .75pt;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>Mayo</span></p>
+            </td>
+            <td style="border:solid windowtext 1.0pt;padding:.75pt .75pt .75pt .75pt;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>PIE, Conv. Escolar, Inspector&iacute;a General, Profesor/a Jefe, Orientador/a</span></p>
+            </td>
+            <td style="border:solid windowtext 1.0pt;padding:.75pt .75pt .75pt .75pt;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>[Detalles de Intervenci&oacute;n]</span></p>
+            </td>
+            <td style="border:solid windowtext 1.0pt;padding:.75pt .75pt .75pt .75pt;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>[Detalles de Intervenci&oacute;n]</span></p>
+            </td>
+            <td style="border:solid windowtext 1.0pt;padding:.75pt .75pt .75pt .75pt;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>[Detalles de Intervenci&oacute;n]</span></p>
+            </td>
+        </tr>
+        <tr>
+            <td style="border:solid windowtext 1.0pt;padding:.75pt .75pt .75pt .75pt;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>Junio</span></p>
+            </td>
+            <td style="border:solid windowtext 1.0pt;padding:.75pt .75pt .75pt .75pt;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>PIE, Conv. Escolar, Inspector&iacute;a General, Profesor/a Jefe, Orientador/a</span></p>
+            </td>
+            <td style="border:solid windowtext 1.0pt;padding:.75pt .75pt .75pt .75pt;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>[Detalles de Intervenci&oacute;n]</span></p>
+            </td>
+            <td style="border:solid windowtext 1.0pt;padding:.75pt .75pt .75pt .75pt;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>[Detalles de Intervenci&oacute;n]</span></p>
+            </td>
+            <td style="border:solid windowtext 1.0pt;padding:.75pt .75pt .75pt .75pt;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>[Detalles de Intervenci&oacute;n]</span></p>
+            </td>
+        </tr>
+        <tr>
+            <td style="border:solid windowtext 1.0pt;padding:.75pt .75pt .75pt .75pt;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>Julio</span></p>
+            </td>
+            <td style="border:solid windowtext 1.0pt;padding:.75pt .75pt .75pt .75pt;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>PIE, Conv. Escolar, Inspector&iacute;a General, Profesor/a Jefe, Orientador/a</span></p>
+            </td>
+            <td style="border:solid windowtext 1.0pt;padding:.75pt .75pt .75pt .75pt;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>[Detalles de Intervenci&oacute;n]</span></p>
+            </td>
+            <td style="border:solid windowtext 1.0pt;padding:.75pt .75pt .75pt .75pt;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>[Detalles de Intervenci&oacute;n]</span></p>
+            </td>
+            <td style="border:solid windowtext 1.0pt;padding:.75pt .75pt .75pt .75pt;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>[Detalles de Intervenci&oacute;n]</span></p>
+            </td>
+        </tr>
+        <tr>
+            <td style="border:solid windowtext 1.0pt;padding:.75pt .75pt .75pt .75pt;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>Agosto</span></p>
+            </td>
+            <td style="border:solid windowtext 1.0pt;padding:.75pt .75pt .75pt .75pt;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>PIE, Conv. Escolar, Inspector&iacute;a General, Profesor/a Jefe, Orientador/a</span></p>
+            </td>
+            <td style="border:solid windowtext 1.0pt;padding:.75pt .75pt .75pt .75pt;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>[Detalles de Intervenci&oacute;n]</span></p>
+            </td>
+            <td style="border:solid windowtext 1.0pt;padding:.75pt .75pt .75pt .75pt;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>[Detalles de Intervenci&oacute;n]</span></p>
+            </td>
+            <td style="border:solid windowtext 1.0pt;padding:.75pt .75pt .75pt .75pt;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>[Detalles de Intervenci&oacute;n]</span></p>
+            </td>
+        </tr>
+        <tr>
+            <td style="border:solid windowtext 1.0pt;padding:.75pt .75pt .75pt .75pt;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>Septiembre</span></p>
+            </td>
+            <td style="border:solid windowtext 1.0pt;padding:.75pt .75pt .75pt .75pt;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>PIE, Conv. Escolar, Inspector&iacute;a General, Profesor/a Jefe, Orientador/a</span></p>
+            </td>
+            <td style="border:solid windowtext 1.0pt;padding:.75pt .75pt .75pt .75pt;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>[Detalles de Intervenci&oacute;n]</span></p>
+            </td>
+            <td style="border:solid windowtext 1.0pt;padding:.75pt .75pt .75pt .75pt;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>[Detalles de Intervenci&oacute;n]</span></p>
+            </td>
+            <td style="border:solid windowtext 1.0pt;padding:.75pt .75pt .75pt .75pt;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>[Detalles de Intervenci&oacute;n]</span></p>
+            </td>
+        </tr>
+        <tr>
+            <td style="border:solid windowtext 1.0pt;padding:.75pt .75pt .75pt .75pt;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>Octubre</span></p>
+            </td>
+            <td style="border:solid windowtext 1.0pt;padding:.75pt .75pt .75pt .75pt;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>PIE, Conv. Escolar, Inspector&iacute;a General, Profesor/a Jefe, Orientador/a</span></p>
+            </td>
+            <td style="border:solid windowtext 1.0pt;padding:.75pt .75pt .75pt .75pt;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>[Detalles de Intervenci&oacute;n]</span></p>
+            </td>
+            <td style="border:solid windowtext 1.0pt;padding:.75pt .75pt .75pt .75pt;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>[Detalles de Intervenci&oacute;n]</span></p>
+            </td>
+            <td style="border:solid windowtext 1.0pt;padding:.75pt .75pt .75pt .75pt;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>[Detalles de Intervenci&oacute;n]</span></p>
+            </td>
+        </tr>
+        <tr>
+            <td style="border:solid windowtext 1.0pt;padding:.75pt .75pt .75pt .75pt;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>Noviembre</span></p>
+            </td>
+            <td style="border:solid windowtext 1.0pt;padding:.75pt .75pt .75pt .75pt;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>PIE, Conv. Escolar, Inspector&iacute;a General, Profesor/a Jefe, Orientador/a</span></p>
+            </td>
+            <td style="border:solid windowtext 1.0pt;padding:.75pt .75pt .75pt .75pt;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>[Detalles de Intervenci&oacute;n]</span></p>
+            </td>
+            <td style="border:solid windowtext 1.0pt;padding:.75pt .75pt .75pt .75pt;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>[Detalles de Intervenci&oacute;n]</span></p>
+            </td>
+            <td style="border:solid windowtext 1.0pt;padding:.75pt .75pt .75pt .75pt;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>[Detalles de Intervenci&oacute;n]</span></p>
+            </td>
+        </tr>
+        <tr>
+            <td style="border:solid windowtext 1.0pt;padding:.75pt .75pt .75pt .75pt;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>Diciembre</span></p>
+            </td>
+            <td style="border:solid windowtext 1.0pt;padding:.75pt .75pt .75pt .75pt;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>PIE, Conv. Escolar, Inspector&iacute;a General, Profesor/a Jefe, Orientador/a</span></p>
+            </td>
+            <td style="border:solid windowtext 1.0pt;padding:.75pt .75pt .75pt .75pt;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>[Detalles de Intervenci&oacute;n]</span></p>
+            </td>
+            <td style="border:solid windowtext 1.0pt;padding:.75pt .75pt .75pt .75pt;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>[Detalles de Intervenci&oacute;n]</span></p>
+            </td>
+            <td style="border:solid windowtext 1.0pt;padding:.75pt .75pt .75pt .75pt;">
+                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>[Detalles de Intervenci&oacute;n]</span></p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>Notas Adicionales</span></strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>: En cada mes, se deben documentar las sesiones y entrevistas realizadas, as&iacute; como cualquier ajuste necesario en el plan de acompa&ntilde;amiento. El seguimiento continuo y la coordinaci&oacute;n entre los diferentes profesionales involucrados son clave para asegurar el bienestar emocional y conductual de Juan.</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size:16px;font-family:"Times New Roman",serif;'>Conclusi&oacute;n</span></strong></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>Este plan de acompa&ntilde;amiento est&aacute; dise&ntilde;ado para proporcionar un enfoque integral y personalizado para apoyar a Juan en su desarrollo emocional y conductual. La colaboraci&oacute;n entre los profesionales de la educaci&oacute;n y el seguimiento constante son esenciales para lograr un entorno de aprendizaje positivo y inclusivo.</span></p>
+<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;'>&nbsp;</p>`
+  }
+  static protocoloAdministracionFarmacos (student) {
+    console.log(student)
+    const fecha = moment().format('DD/MM/YYYY')
+    return `<p>PROTOCOLO DE ADMINISTRACI&Oacute;N DE F&Aacute;RMACOS EN EL CONTEXTO ESCOLAR</p>
+<p><br></p>
+<p>Objetivo General:</p>
+<p><br></p>
+<p>Apoyar a los padres en la administraci&oacute;n adecuada de medicamentos recetados a estudiantes durante el horario escolar. Este apoyo se brindar&aacute; conforme a la solicitud del apoderado y de acuerdo con la prescripci&oacute;n m&eacute;dica, garantizando el respeto a los derechos del estudiante a recibir el tratamiento necesario para su bienestar. Tambi&eacute;n se asegurar&aacute; que los padres reciban la informaci&oacute;n y el apoyo necesario para cumplir con esta responsabilidad de manera segura y efectiva.</p>
+<p><br></p>
+<p>Criterios y Normas para la Administraci&oacute;n de F&aacute;rmacos en el Contexto Escolar:</p>
+<p><br></p>
+<p>Solicitud de Administraci&oacute;n:</p>
+<p><br></p>
+<p>Si el apoderado no puede administrar el medicamento al estudiante durante el horario escolar, deber&aacute; comunicarse con el establecimiento educativo para exponer la situaci&oacute;n y justificar la entrega de las dosis necesarias para su administraci&oacute;n. La evaluaci&oacute;n del caso se realizar&aacute; en funci&oacute;n de los antecedentes m&eacute;dicos proporcionados.</p>
+<p>Documentaci&oacute;n Requerida:</p>
+<p><br></p>
+<p>El apoderado debe presentar en el establecimiento educativo:</p>
+<p>Fotocopia del diagn&oacute;stico y receta m&eacute;dica actualizada, que incluya el nombre del estudiante, fecha de emisi&oacute;n, frecuencia de administraci&oacute;n, dosis y hora en que debe ser administrado el medicamento. Estos documentos deben estar firmados por el profesional tratante.</p>
+<p>Informar la duraci&oacute;n del tratamiento, considerando el estado y la fecha de caducidad del medicamento.</p>
+<p>Entrega y Almacenamiento de Medicamentos:</p>
+<p><br></p>
+<p>Los medicamentos deben ser enviados en su envase original o en un pastillero claramente marcado con los datos del estudiante para garantizar una administraci&oacute;n adecuada. Deben entregarse semanalmente al profesional responsable del protocolo.</p>
+<p>Responsabilidad del Establecimiento:</p>
+<p><br></p>
+<p>El establecimiento educativo no podr&aacute; hacerse responsable de la administraci&oacute;n del medicamento si no se cumplen los criterios establecidos.</p>
+<p>Carta de Autorizaci&oacute;n para la Administraci&oacute;n de Medicamentos</p>
+<p><br></p>
+<p>Estimado/a Sr./Sra. Apoderado/a:</p>
+<p><br></p>
+<p>Conforme al diagn&oacute;stico proporcionado por el m&eacute;dico tratante de su estudiante, usted ha solicitado que se administre un medicamento durante la jornada escolar. Para formalizar esta solicitud, le pedimos que se presente en el Establecimiento Educativo con una copia del diagn&oacute;stico y una receta m&eacute;dica actualizada. Esto permitir&aacute; respaldar la dosis necesaria para su hijo/a y formalizar su autorizaci&oacute;n para que un profesional del establecimiento administre el medicamento seg&uacute;n las indicaciones del especialista.</p>
+<p><br></p>
+<p>A continuaci&oacute;n, se detalla la autorizaci&oacute;n requerida:</p>
+<p><br></p>
+<p>Fecha: ${fecha}</p>
+<p><br></p>
+<p>Autorizaci&oacute;n:</p>
+<p><br></p>
+<p>Autorizo al profesional ${student.tutorName}, perteneciente al establecimiento educativo ${student.colegio?.nombre}, para que administre al estudiante ${student.name} del curso ${student.course} el/los medicamentos ___________________________________________ en los horarios _______________________________________, seg&uacute;n lo indicado por el especialista m&eacute;dico tratante, Dr. ________________________________________.</p>
+<p><br></p>
+<p>Nombre, Firma y RUT del Apoderado/a:</p>
+<p><br></p>
+<p>Firma:</p>
+<p><br></p>
+<p>RUT:</p>
+<p><br></p>
+<p>Este protocolo busca garantizar el cumplimiento seguro y efectivo de la administraci&oacute;n de medicamentos en el contexto escolar, asegurando el bienestar del estudiante y el cumplimiento de sus derechos. Agradecemos su colaboraci&oacute;n y comprensi&oacute;n en este proceso.</p>
+<p><br></p>`
+  }
+  static registroDesencadenantesDesregulacionEmocional (student) {
+    const fecha = moment().format('DD/MM/YYYY')
+    return `<p>Registro de Desencadenantes de Desregulaci&oacute;n Emocional en Estudiantes con TEA</p>
+<p>________________________________________</p>
+<p>Estudiante: ${student.name}</p>
+<p>Fecha: ${fecha}</p>
+<p>Observaciones: (Registrar aqu&iacute; las observaciones detalladas sobre el comportamiento del estudiante y los desencadenantes identificados durante el episodio de desregulaci&oacute;n.)</p>
+<p>Desencadenantes Identificados:</p>
+<p>1. &nbsp; &nbsp;Situaciones Estresantes:</p>
+<p>o &nbsp; &nbsp;Cambios inesperados en la rutina.</p>
+<p>o &nbsp; &nbsp;Demandas sociales intensas o situaciones sociales conflictivas.</p>
+<p>o &nbsp; &nbsp;Expectativas acad&eacute;micas o de rendimiento excesivas.</p>
+<p>o &nbsp; &nbsp;Exposici&oacute;n a situaciones desconocidas o desafiantes.</p>
+<p>o &nbsp; &nbsp;Otros: (Especificar)</p>
+<p>2. &nbsp; &nbsp;Cambios en la Rutina:</p>
+<p>o &nbsp; &nbsp;Alteraciones en el horario escolar.</p>
+<p>o &nbsp; &nbsp;Modificaciones en las actividades planificadas.</p>
+<p>o &nbsp; &nbsp;Interrupciones en los patrones de sue&ntilde;o o alimentaci&oacute;n.</p>
+<p>o &nbsp; &nbsp;Transiciones entre actividades o entornos.</p>
+<p>o &nbsp; &nbsp;Otros: (Especificar)</p>
+<p>3. &nbsp; &nbsp;Sobreestimulaci&oacute;n Sensorial:</p>
+<p>o &nbsp; &nbsp;Ambientes ruidosos o muy concurridos.</p>
+<p>o &nbsp; &nbsp;Luces brillantes o parpadeantes.</p>
+<p>o &nbsp; &nbsp;Texturas, olores o sabores desagradables.</p>
+<p>o &nbsp; &nbsp;Sensaciones t&aacute;ctiles intensas o invasivas.</p>
+<p>o &nbsp; &nbsp;Otros: (Especificar)</p>
+<p>4. &nbsp; &nbsp;Dificultades de Comunicaci&oacute;n:</p>
+<p>o &nbsp; &nbsp;Dificultades para expresar necesidades o emociones.</p>
+<p>o &nbsp; &nbsp;Falta de comprensi&oacute;n de instrucciones o informaci&oacute;n.</p>
+<p>o &nbsp; &nbsp;Barreras en la comunicaci&oacute;n no verbal.</p>
+<p>o &nbsp; &nbsp;Fracaso en la interpretaci&oacute;n de las se&ntilde;ales sociales.</p>
+<p>o &nbsp; &nbsp;Otros: (Especificar)</p>
+<p>Acciones Tomadas: (Registrar aqu&iacute; las acciones tomadas por el personal educativo y de apoyo para abordar los desencadenantes identificados y manejar el episodio de desregulaci&oacute;n.)</p>
+<p>Comentarios Adicionales: (Especificar cualquier comentario relevante o informaci&oacute;n adicional sobre el episodio de desregulaci&oacute;n y las estrategias utilizadas para gestionarlo.)</p>
+<p>________________________________________</p>
+<p>Este registro proporciona un formato estructurado para documentar los episodios de desregulaci&oacute;n emocional en estudiantes con TEA, facilitando la identificaci&oacute;n de patrones y la implementaci&oacute;n de estrategias efectivas para el manejo de estas situaciones.</p>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><br></p>`
   }
 }
