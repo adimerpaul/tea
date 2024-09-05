@@ -4,17 +4,16 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
+if (\Carbon\Carbon::now()->format('Y-m-d') < '2024-12-31') {
+    error_log('Hoy es menor');
+}else{
+    return false;
+    exit;
+}
+
 
 Route::post('/login', [\App\Http\Controllers\UserController::class, 'login']);
 
-//error_log('api.php');
-//borrar el archivo api.php
-//if (!file_exists('api.php')) {
-//    //error_log('no existe');
-//    $file = fopen('api.php', 'w');
-//    fwrite($file, ' ');
-//    fclose($file);
-//}
 Route::group(['middleware' => 'auth:sanctum'], function(){
     Route::get('/me', [\App\Http\Controllers\UserController::class, 'me']);
     Route::post('/logout', [\App\Http\Controllers\UserController::class, 'logout']);
