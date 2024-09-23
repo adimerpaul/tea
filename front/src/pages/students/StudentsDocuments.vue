@@ -519,7 +519,7 @@ export default {
         // 'CONTRATO DE CONTINGENCIAS',
         // 'FICHA DEL PLAN DE APOYO INDIVIDUALIZADO (PAI) PARA ESTUDIANTES CON TEA',
         // 'PLAN DE ACOMPAÑAMIENTO EMOCIONAL Y CONDUCTUAL',
-        // 'FICHA DE SEGUIMIENTO INDIVIDUALIZADA PARA DESREGULACIÓN EMOCIONAL'
+        'FICHA DE SEGUIMIENTO INDIVIDUALIZADA PARA DESREGULACIÓN EMOCIONAL',
         'AUTORIZACION',
         'certificado para el empleador',
         'contrato de contingencia',
@@ -592,33 +592,33 @@ export default {
       //   }
       //   this.document.html = Documentos.planAcompanamiento( this.student.name, this.student.rut, age, this.student.course, this.student.tutorName,this.student.phone)
       // }
-      // if (this.document.name === 'FICHA DE SEGUIMIENTO INDIVIDUALIZADA PARA DESREGULACIÓN EMOCIONAL'){
-      //   this.document.html = ''
-      //   this.formulario = {
-      //     evaluador: '',
-      //     contexto:'',
-      //     emocion_predominante:'',
-      //     manifestaciones_fisicas:'',
-      //     manifestaciones_conductuales:'',
-      //     duracion:'',
-      //     intervencion_realizada:'',
-      //     efectividad_estrategia:'',
-      //     necesidad_ayuda_externa:'',
-      //     ayuda_externa:'',
-      //     medidas_corto_plazo:'',
-      //     medidas_largo_plazo:'',
-      //     seguimiento_fecha:'',
-      //     seguimiento_responsable:'',
-      //     frecuencia_seguimiento:'',
-      //     instrumento_evaluacion:'',
-      //     historial_desregulaciones:'',
-      //     factores_riesgo:'',
-      //     necesidades_especificas:'',
-      //     recursos_disponibles:'',
-      //     coordinacion_profesionales:'',
-      //   }
-      //   this.showFomulario = true
-      // }
+      if (this.document.name === 'FICHA DE SEGUIMIENTO INDIVIDUALIZADA PARA DESREGULACIÓN EMOCIONAL'){
+        this.document.html = ''
+        this.formulario = {
+          evaluador: '',
+          contexto:'',
+          emocion_predominante:'',
+          manifestaciones_fisicas:'',
+          manifestaciones_conductuales:'',
+          duracion:'',
+          intervencion_realizada:'',
+          efectividad_estrategia:'',
+          necesidad_ayuda_externa:'',
+          ayuda_externa:'',
+          medidas_corto_plazo:'',
+          medidas_largo_plazo:'',
+          seguimiento_fecha:'',
+          seguimiento_responsable:'',
+          frecuencia_seguimiento:'',
+          instrumento_evaluacion:'',
+          historial_desregulaciones:'',
+          factores_riesgo:'',
+          necesidades_especificas:'',
+          recursos_disponibles:'',
+          coordinacion_profesionales:'',
+        }
+        this.showFomulario = true
+      }
     },
     documentShowMobile (document) {
       window.open(this.$url+'documents/'+document.codigo+'/show', '_blank')
