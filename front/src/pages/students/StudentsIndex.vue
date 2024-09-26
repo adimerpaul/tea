@@ -151,6 +151,7 @@
 <!--              sexo en radio button-->
               <q-radio v-model="student.sex" val="M" label="Masculino" />
               <q-radio v-model="student.sex" val="F" label="Femenino" />
+              <q-radio v-model="student.sex" val="O" label="Otro" />
             </div>
 <!--            <pre>{{student}}</pre>-->
           </div>

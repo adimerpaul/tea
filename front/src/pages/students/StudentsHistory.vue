@@ -63,7 +63,7 @@
           </div>
           <div class="col-6 col-md-3">
             <label class="text-bold">Sexo</label>
-            <div>{{student.sex === 'M' ? 'Masculino' : 'Femenino'}}</div>
+            <div>{{student.sex === 'M' ? 'Masculino' : student.sex === 'F' ? 'Femenino' : 'Otro'}}</div>
           </div>
         </div>
       </q-card-section>
