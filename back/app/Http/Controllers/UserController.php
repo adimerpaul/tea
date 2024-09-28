@@ -33,8 +33,13 @@ class UserController extends Controller{
             'message' => 'Token eliminado',
         ]);
     }
-    public function index(){
-        return User::with(['colegio','students'])->orderBy('id', 'desc')->get();
+    public function index(Request $request){
+        $user = $request->user();
+        if ($user->role == 'ADMIN') {
+            return User::with(['colegio','students'])->orderBy('id', 'desc')->get();
+        }else{
+            return User::where('colegio_id', $user->colegio_id)->with(['colegio','students'])->orderBy('id', 'desc')->get();
+        }
     }
     public function store(Request $request){
         $user = new User();
