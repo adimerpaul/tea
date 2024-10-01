@@ -20,22 +20,22 @@
           <q-btn flat dense icon="o_account_circle" aria-label="Menu" :label="$filters.capitalize($store.user?.name)" no-caps icon-right="arrow_drop_down">
             <q-menu>
               <q-list>
-                <q-item clickable v-ripple>
-                  <q-item-section avatar>
-                    <q-avatar icon="account_circle" />
-                  </q-item-section>
-                  <q-item-section>
-                    <q-item-label>Perfil</q-item-label>
-                  </q-item-section>
-                </q-item>
-                <q-item clickable v-ripple>
-                  <q-item-section avatar>
-                    <q-avatar icon="settings" />
-                  </q-item-section>
-                  <q-item-section>
-                    <q-item-label>Configuración</q-item-label>
-                  </q-item-section>
-                </q-item>
+<!--                <q-item clickable v-ripple>-->
+<!--                  <q-item-section avatar>-->
+<!--                    <q-avatar icon="account_circle" />-->
+<!--                  </q-item-section>-->
+<!--                  <q-item-section>-->
+<!--                    <q-item-label>Perfil</q-item-label>-->
+<!--                  </q-item-section>-->
+<!--                </q-item>-->
+<!--                <q-item clickable v-ripple>-->
+<!--                  <q-item-section avatar>-->
+<!--                    <q-avatar icon="settings" />-->
+<!--                  </q-item-section>-->
+<!--                  <q-item-section>-->
+<!--                    <q-item-label>Configuración</q-item-label>-->
+<!--                  </q-item-section>-->
+<!--                </q-item>-->
                 <q-item clickable v-ripple @click="logout">
                   <q-item-section avatar>
                     <q-avatar icon="logout" />

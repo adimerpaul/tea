@@ -6,8 +6,13 @@ use App\Models\Appointment;
 use Illuminate\Http\Request;
 
 class AppointmentController extends Controller{
-    public function index(){
-        return Appointment::with(['user', 'student'])->get();
+    public function index(Request $request){
+        $user = $request->user();
+        if ($user->role == 'ADMIN') {
+            return Appointment::with(['user', 'student'])->get();
+        }else{
+            return Appointment::with(['user', 'student'])->where('user_id', $user->id)->get();
+        }
     }
     public function store(Request $request){
         $appointment = new Appointment();
