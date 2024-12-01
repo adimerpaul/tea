@@ -17,6 +17,25 @@ export default boot(({ app, router }) => {
   app.config.globalProperties.$axios = axios.create({ baseURL: import.meta.env.VITE_API_BACK })
   app.config.globalProperties.$url = import.meta.env.VITE_API_BACK
   app.config.globalProperties.$alert = Alert
+  app.config.globalProperties.$cursos = [
+    'SC',
+    'NM',
+    'NT',
+    'NT 1',
+    'NT 2',
+    '1ER BASICO',
+    '2DO BASICO',
+    '3ER BASICO',
+    '4TO BASICO',
+    '5TO BASICO',
+    '6TO BASICO',
+    '7MO BASICO',
+    '8VO BASICO',
+    '1ER SECUNDARIA',
+    '2DO SECUNDARIA',
+    '3ER SECUNDARIA',
+    '4TO SECUNDARIA',
+  ]
   app.config.globalProperties.$store = useCounterStore()
   app.config.globalProperties.$filters = {
     currency: function (value) {

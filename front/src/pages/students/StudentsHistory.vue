@@ -103,7 +103,7 @@
                         v-if="$store.user.role=='ADMIN'  || $store.user.role=='ADMIN COLEGIO'  || $store.user.role=='ENCARGADO PIE' || $store.user.role=='DOCENTE'"
                       >
                         <q-item clickable v-close-popup @click="deleteHistory(history)"
-                                v-if="$store.user.role=='ADMIN' || $store.user.role=='ADMIN COLEGIO'"
+                                v-if="$store.user.role=='ADMIN' || $store.user.role=='ADMIN COLEGIO' || $store.user.role=='ENCARGADO PIE'"
                         >
                           <q-item-section avatar>
                             <q-icon name="delete" />
@@ -111,7 +111,7 @@
                           <q-item-section>Eliminar</q-item-section>
                         </q-item>
                         <q-item clickable v-close-popup @click="historyClick(history)"
-                                v-if="$store.user.role=='ADMIN' || $store.user.role=='ADMIN COLEGIO'"
+                                v-if="$store.user.role=='ADMIN' || $store.user.role=='ADMIN COLEGIO' || $store.user.role=='ENCARGADO PIE'"
                         >
                           <q-item-section avatar>
                             <q-icon name="edit" />
@@ -119,7 +119,7 @@
                           <q-item-section>Editar</q-item-section>
                         </q-item>
                         <q-item clickable v-close-popup @click="sendWhatsapp(history)"
-                                v-if="$store.user.role=='ADMIN' || $store.user.role=='ADMIN COLEGIO'"
+                                v-if="$store.user.role=='ADMIN' || $store.user.role=='ADMIN COLEGIO' || $store.user.role=='ENCARGADO PIE'"
                         >
                           <q-item-section avatar>
                             <q-icon name="send" />
