@@ -4,12 +4,12 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
-if (\Carbon\Carbon::now()->format('Y-m-d') < '2024-12-31') {
-    error_log('Hoy es menor');
-}else{
-    return false;
-    exit;
-}
+//if (\Carbon\Carbon::now()->format('Y-m-d') < '2024-12-31') {
+//    error_log('Hoy es menor');
+//}else{
+//    return false;
+//    exit;
+//}
 
 
 Route::post('/login', [\App\Http\Controllers\UserController::class, 'login']);
