@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('/login', [\App\Http\Controllers\UserController::class, 'login']);
 
-Route::group(['middleware' => 'auth:sanctum'], function(){
+Route::group(['middleware' => ['auth:sanctum', \App\Http\Middleware\UpdateLastActivity::class]], function(){
     Route::get('/me', [\App\Http\Controllers\UserController::class, 'me']);
     Route::post('/logout', [\App\Http\Controllers\UserController::class, 'logout']);
 //    dashboard
@@ -68,6 +68,8 @@ Route::group(['middleware' => 'auth:sanctum'], function(){
     Route::get('/reportePorFechas', [\App\Http\Controllers\ReporteController::class, 'reportePorFechas']);
 });
 Route::get('/protocolospdf/{id}', [\App\Http\Controllers\ProtocoloController::class, 'protocolospdf']);
+Route::get('/students/{id}/antecedentes-pdf', [\App\Http\Controllers\StudentController::class, 'printAntecedentes']);
+Route::get('/students/{id}/antecedentes-pdf/{historyId}', [\App\Http\Controllers\StudentController::class, 'printAntecedenteSingle']);
 
 //Route::get('/documents/{codigo}/show', [\App\Http\Controllers\DocumentController::class, 'showMobile']);
 

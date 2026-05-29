@@ -37,6 +37,7 @@ export default boot(({ app, router }) => {
     '4TO SECUNDARIA',
   ]
   app.config.globalProperties.$store = useCounterStore()
+  app.config.globalProperties.$version = import.meta.env.VITE_VERSION || '1.0.0'
   app.config.globalProperties.$filters = {
     currency: function (value) {
       return new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'EUR' }).format(value)
@@ -58,6 +59,17 @@ export default boot(({ app, router }) => {
       if (!value) return ''
       const lower = value.toLowerCase()
       return value.charAt(0).toUpperCase() + lower.slice(1)
+    },
+    color: function (role) {
+      const map = {
+        'ADMIN': 'red-7',
+        'ADMIN COLEGIO': 'blue-8',
+        'APODERADO': 'indigo-6',
+        'ENCARGADO PIE': 'green-7',
+        'DOCENTE': 'orange-7',
+        'ASISTENTE EDUCATIVO': 'teal-6',
+      }
+      return map[role] || 'blue-grey-6'
     }
   }
   const token = localStorage.getItem('tokenPrestamos')

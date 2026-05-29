@@ -17,6 +17,8 @@ class UserController extends Controller{
                 'message' => 'Usuario o password es incorrecto',
             ], 401);
         }else{
+            $user->last_login_at = now();
+            $user->save();
             $token = $user->createToken('auth_token')->plainTextToken;
             return response()->json([
                 'token' => $token,

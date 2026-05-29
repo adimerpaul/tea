@@ -54,6 +54,22 @@
           </q-chip>
         </q-td>
       </template>
+      <template v-slot:body-cell-last_login_at="props">
+        <q-td :props="props">
+          <span v-if="props.row.last_login_at" class="text-caption">
+            {{ formatDate(props.row.last_login_at) }}
+          </span>
+          <span v-else class="text-grey-5 text-caption">—</span>
+        </q-td>
+      </template>
+      <template v-slot:body-cell-last_activity_at="props">
+        <q-td :props="props">
+          <span v-if="props.row.last_activity_at" class="text-caption">
+            {{ formatDate(props.row.last_activity_at) }}
+          </span>
+          <span v-else class="text-grey-5 text-caption">—</span>
+        </q-td>
+      </template>
       <template v-slot:body-cell-estudiantes="props">
         <q-td auto-width>
 <!--            {{ props.row.students }}-->
@@ -134,6 +150,8 @@ export default {
         { name: 'role', label: 'Rol', align: 'left', field: row => row.role },
         { name: 'estudiantes', label: 'Estudiantes', align: 'left', field: row => row.estudiantes },
         { name: 'colegio', label: 'Colegio', align: 'left', field: row => row.colegio?.nombre },
+        { name: 'last_login_at', label: 'Último Acceso', align: 'left', field: row => row.last_login_at, sortable: true },
+        { name: 'last_activity_at', label: 'Última Actividad', align: 'left', field: row => row.last_activity_at, sortable: true },
       ],
       roles: [
         {label: 'Admin', value: 'ADMIN'},
@@ -236,6 +254,12 @@ export default {
       }).finally(() => {
           this.loading = false
       })
+    },
+    formatDate (value) {
+      if (!value) return '—'
+      const d = new Date(value)
+      const pad = n => String(n).padStart(2, '0')
+      return `${pad(d.getDate())}/${pad(d.getMonth() + 1)}/${d.getFullYear()} ${pad(d.getHours())}:${pad(d.getMinutes())}`
     }
   },
 };

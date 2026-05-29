@@ -12,7 +12,7 @@ class User extends Authenticatable
 {
     use HasFactory, Notifiable, HasApiTokens;
 
-    protected $fillable = ['name', 'email', 'username', 'role', 'password','colegio_id'];
+    protected $fillable = ['name', 'email', 'username', 'role', 'password', 'colegio_id', 'last_login_at', 'last_activity_at'];
 
     protected $hidden = [
         'password',
@@ -23,6 +23,8 @@ class User extends Authenticatable
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+            'last_login_at' => 'datetime',
+            'last_activity_at' => 'datetime',
         ];
     }
     public function colegio(){

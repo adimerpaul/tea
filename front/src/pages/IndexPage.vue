@@ -40,14 +40,14 @@
 <!--      "appointments": 5,-->
 <!--      "histories": 8-->
 <!--      }-->
-      <div class="col-12 col-md-4" v-if="$store.user?.role === 'ADMIN' || $store.user?.role === 'ENCARGADO PIE' || $store.user?.role === 'ADMIN COLEGIO'">
-        <CardComponent title="reportes" icon="o_assignment" color="red" :amount="5" />
-      </div>
+<!--      <div class="col-12 col-md-4" v-if="$store.user?.role === 'ADMIN' || $store.user?.role === 'ENCARGADO PIE' || $store.user?.role === 'ADMIN COLEGIO'">-->
+<!--        <CardComponent title="reportes" icon="o_assignment" color="red" :amount="5" />-->
+<!--      </div>-->
       <div class="col-12 col-md-4" v-if="$store.user?.role === 'ADMIN' || $store.user?.role === 'ENCARGADO PIE' || $store.user?.role === 'ADMIN COLEGIO'">
         <CardComponent title="Protocolos" icon="o_description" to="/protocolos" color="purple" :amount="5" />
       </div>
       <div class="col-12 col-md-4" v-if="$store.user?.role === 'ADMIN' || $store.user?.role === 'ENCARGADO PIE' || $store.user?.role === 'ADMIN COLEGIO'">
-        <CardComponent title="Historiales" icon="o_history" to="/students" color="blue" :amount="data.histories" />
+<!--        <CardComponent title="Historiales" icon="o_history" to="/students" color="blue" :amount="data.histories" />-->
 <!--        <CardComponent title="Historiales" icon="o_history" to="/students" color="blue" :amount="data.histories" />-->
 <!--        card de ayuda-->
         <CardComponent title="Ayuda" icon="o_help" color="blue" :amount="data.histories" :to="'/ayuda'"/>

@@ -1,10 +1,10 @@
 <template>
   <q-card>
     <q-card-section>
-      <div class="row items-center">
+      <div class="row items-center q-gutter-sm">
         <div class="text-h6 text-bold">Documentos</div>
         <q-space />
-        <q-btn icon="add_circle_outline" @click="addDocument" label="Agregar" no-caps color="indigo" dense size="10px" :loading="loading"
+        <q-btn icon="add_circle_outline" @click="addDocument" label="Agregar" no-caps color="indigo" dense size="10px" unelevated :loading="loading"
                v-if="$store.user.role=='ADMIN' || $store.user.role=='ENCARGADO PIE' || $store.user.role=='ADMIN COLEGIO' || $store.user.role=='ASISTENTE EDUCATIVO' || $store.user.role=='DOCENTE'" />
       </div>
       <q-markup-table dense wrap-cells>
@@ -62,17 +62,22 @@
                 <q-item-section>Eliminar</q-item-section>
               </q-item>
               <q-item clickable v-close-popup @click="documentClickEdit(document)">
-                <q-item-section avatar>
-                  <q-icon name="edit" />
-                </q-item-section>
+                <q-item-section avatar><q-icon name="edit" /></q-item-section>
                 <q-item-section>Editar</q-item-section>
               </q-item>
-<!--              Boton para cargar firma-->
               <q-item clickable v-close-popup @click="cargarFirma(document)">
-                <q-item-section avatar>
-                  <q-icon name="fa-solid fa-camera-retro" />
-                </q-item-section>
+                <q-item-section avatar><q-icon name="fa-solid fa-camera-retro" /></q-item-section>
                 <q-item-section>Subir foto</q-item-section>
+              </q-item>
+              <q-separator />
+              <q-item clickable v-close-popup @click="printDocument(document)">
+                <q-item-section avatar><q-icon name="picture_as_pdf" color="blue-9" /></q-item-section>
+                <q-item-section>Imprimir</q-item-section>
+              </q-item>
+              <q-item clickable v-close-popup @click="sendWhatsappDoc(document)"
+                      v-if="$store.user.role=='ADMIN' || $store.user.role=='ENCARGADO PIE' || $store.user.role=='ADMIN COLEGIO'">
+                <q-item-section avatar><q-icon name="fab fa-whatsapp" color="green-7" /></q-item-section>
+                <q-item-section>Enviar por WhatsApp</q-item-section>
               </q-item>
             </q-btn-dropdown>
           </td>
@@ -752,6 +757,21 @@ export default {
       this.document = {
         html: '',
       }
+    },
+    printDocument(doc) {
+      this.loading = true
+      this.$axios.get(`documents/${doc.id}/download`, { responseType: 'blob' })
+        .then(response => {
+          const url = window.URL.createObjectURL(new Blob([response.data], { type: 'application/pdf' }))
+          const win = window.open(url, '_blank')
+          if (win) win.onload = () => { win.print() }
+        })
+        .catch(error => this.$alert.error(error.response.data.message))
+        .finally(() => { this.loading = false })
+    },
+    sendWhatsappDoc(doc) {
+      const msg = `Estimado/a ${this.student.tutorName}, le enviamos el documento *${doc.description}* correspondiente a *${this.student.name}*. Puede solicitarlo en el establecimiento o comunicarse con el equipo PIE.`
+      window.open(`https://api.whatsapp.com/send?phone=56${this.student.phone}&text=${encodeURIComponent(msg)}`, '_blank')
     }
   }
 }

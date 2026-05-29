@@ -1,0 +1,105 @@
+<?php
+
+namespace Database\Seeders;
+
+use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+
+class StudentSeeder extends Seeder
+{
+    public function run(): void
+    {
+        DB::table('students')->insert([
+            [
+                'rut'        => '20.345.678-9',
+                'name'       => 'Matías Alejandro Torres Vega',
+                'birthdate'  => '2013-04-15',
+                'year_PIE'   => 2024,
+                'course'     => '5TO BASICO',
+                'year'       => 2024,
+                'address'    => 'Pasaje El Roble 234, Santiago',
+                'phone'      => '+56987654321',
+                'sex'        => 'M',
+                'tutorRut'   => '12.345.678-5',
+                'tutorName'  => 'Patricia Vega Mora',
+                'colegio_id' => 1,
+                'user_id'    => 3,
+                'email'      => 'tutor1@gmail.com',
+                'foto'       => 'default.jpg',
+                'created_at' => now(), 'updated_at' => now(),
+            ],
+            [
+                'rut'        => '21.456.789-0',
+                'name'       => 'Valentina Paz Rojas Ibáñez',
+                'birthdate'  => '2014-08-22',
+                'year_PIE'   => 2024,
+                'course'     => '4TO BASICO',
+                'year'       => 2024,
+                'address'    => 'Av. Las Palmas 567, Puente Alto',
+                'phone'      => '+56976543210',
+                'sex'        => 'F',
+                'tutorRut'   => '13.456.789-6',
+                'tutorName'  => 'Roberto Ibáñez Campos',
+                'colegio_id' => 1,
+                'user_id'    => 3,
+                'email'      => 'tutor2@gmail.com',
+                'foto'       => 'default.jpg',
+                'created_at' => now(), 'updated_at' => now(),
+            ],
+            [
+                'rut'        => '22.567.890-1',
+                'name'       => 'Sebastián Andrés Pérez Díaz',
+                'birthdate'  => '2012-11-30',
+                'year_PIE'   => 2023,
+                'course'     => '6TO BASICO',
+                'year'       => 2024,
+                'address'    => 'Calle Los Pinos 890, La Florida',
+                'phone'      => '+56965432109',
+                'sex'        => 'M',
+                'tutorRut'   => '14.567.890-7',
+                'tutorName'  => 'Carmen Díaz Fuentes',
+                'colegio_id' => 2,
+                'user_id'    => 4,
+                'email'      => 'tutor3@gmail.com',
+                'foto'       => 'default.jpg',
+                'created_at' => now(), 'updated_at' => now(),
+            ],
+            [
+                'rut'        => '23.678.901-2',
+                'name'       => 'Isidora Fernanda Castro López',
+                'birthdate'  => '2015-03-07',
+                'year_PIE'   => 2024,
+                'course'     => '3ER BASICO',
+                'year'       => 2024,
+                'address'    => 'Pasaje Las Flores 112, Maipú',
+                'phone'      => '+56954321098',
+                'sex'        => 'F',
+                'tutorRut'   => '15.678.901-8',
+                'tutorName'  => 'Hugo Castro Reyes',
+                'colegio_id' => 2,
+                'user_id'    => 5,
+                'email'      => 'tutor4@gmail.com',
+                'foto'       => 'default.jpg',
+                'created_at' => now(), 'updated_at' => now(),
+            ],
+            [
+                'rut'        => '24.789.012-3',
+                'name'       => 'Diego Ignacio Morales Silva',
+                'birthdate'  => '2011-07-19',
+                'year_PIE'   => 2022,
+                'course'     => '7MO BASICO',
+                'year'       => 2024,
+                'address'    => 'Av. Principal 445, Ñuñoa',
+                'phone'      => '+56943210987',
+                'sex'        => 'M',
+                'tutorRut'   => '16.789.012-9',
+                'tutorName'  => 'Lorena Silva Contreras',
+                'colegio_id' => 3,
+                'user_id'    => 3,
+                'email'      => 'tutor5@gmail.com',
+                'foto'       => 'default.jpg',
+                'created_at' => now(), 'updated_at' => now(),
+            ],
+        ]);
+    }
+}

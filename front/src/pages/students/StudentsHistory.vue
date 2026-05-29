@@ -74,11 +74,30 @@
           <div class="col-12">
             <q-card>
               <q-card-section>
-                <div class="row items-center">
+                <div class="row items-center q-gutter-sm">
                   <div class="text-h6 text-bold">Antecedentes</div>
                   <q-space />
+                  <q-btn
+                    icon="picture_as_pdf"
+                    label="Imprimir todo"
+                    no-caps dense size="10px"
+                    color="blue-9" unelevated
+                    @click="printAntecedentes"
+                  >
+                    <q-tooltip>Generar PDF con todos los antecedentes</q-tooltip>
+                  </q-btn>
+                  <q-btn
+                    icon="fab fa-whatsapp"
+                    label="Enviar PDF"
+                    no-caps dense size="10px"
+                    color="green-7" unelevated
+                    @click="sendWhatsappFull"
+                  >
+                    <q-tooltip>Enviar PDF completo al apoderado por WhatsApp</q-tooltip>
+                  </q-btn>
                   <q-btn icon="add_circle_outline" @click="addHistory" label="Agregar registro" no-caps color="green"
-                         dense size="10px" v-if="$store.user.role=='ADMIN COLEGIO'  || $store.user.role=='ADMIN'  || $store.user.role=='ASISTENTE EDUCATIVO' || $store.user.role=='ENCARGADO PIE' || $store.user.role=='DOCENTE'" />
+                         dense size="10px" unelevated
+                         v-if="$store.user.role=='ADMIN COLEGIO'  || $store.user.role=='ADMIN'  || $store.user.role=='ASISTENTE EDUCATIVO' || $store.user.role=='ENCARGADO PIE' || $store.user.role=='DOCENTE'" />
                 </div>
                 <q-markup-table dense wrap-cells>
                   <thead>
@@ -121,10 +140,19 @@
                         <q-item clickable v-close-popup @click="sendWhatsapp(history)"
                                 v-if="$store.user.role=='ADMIN' || $store.user.role=='ADMIN COLEGIO' || $store.user.role=='ENCARGADO PIE'"
                         >
-                          <q-item-section avatar>
-                            <q-icon name="send" />
-                          </q-item-section>
-                          <q-item-section>Enviar por Whatsapp</q-item-section>
+                          <q-item-section avatar><q-icon name="send" color="green" /></q-item-section>
+                          <q-item-section>Enviar texto por WhatsApp</q-item-section>
+                        </q-item>
+                        <q-separator />
+                        <q-item clickable v-close-popup @click="printSingle(history)">
+                          <q-item-section avatar><q-icon name="picture_as_pdf" color="blue-9" /></q-item-section>
+                          <q-item-section>Imprimir este registro</q-item-section>
+                        </q-item>
+                        <q-item clickable v-close-popup @click="sendWhatsappSingle(history)"
+                                v-if="$store.user.role=='ADMIN' || $store.user.role=='ADMIN COLEGIO' || $store.user.role=='ENCARGADO PIE'"
+                        >
+                          <q-item-section avatar><q-icon name="fab fa-whatsapp" color="green-7" /></q-item-section>
+                          <q-item-section>Enviar PDF por WhatsApp</q-item-section>
                         </q-item>
                       </q-btn-dropdown>
                     </td>
@@ -352,6 +380,24 @@ export default {
           this.$refs.fileInput.value = '';
           this.textProcess = '';
         });
+    },
+    printAntecedentes() {
+      const url = `${this.$url}students/${this.student_id}/antecedentes-pdf`
+      window.open(url, '_blank')
+    },
+    printSingle(history) {
+      const url = `${this.$url}students/${this.student_id}/antecedentes-pdf/${history.id}`
+      window.open(url, '_blank')
+    },
+    sendWhatsappFull() {
+      const pdfUrl = `${this.$url}students/${this.student_id}/antecedentes-pdf`
+      const msg = `Estimado/a ${this.student.tutorName}, le compartimos el registro completo de antecedentes de *${this.student.name}*:\n${pdfUrl}`
+      window.open(`https://api.whatsapp.com/send?phone=56${this.student.phone}&text=${encodeURIComponent(msg)}`, '_blank')
+    },
+    sendWhatsappSingle(history) {
+      const pdfUrl = `${this.$url}students/${this.student_id}/antecedentes-pdf/${history.id}`
+      const msg = `Estimado/a ${this.student.tutorName}, le compartimos el siguiente registro de *${this.student.name}*:\n${pdfUrl}`
+      window.open(`https://api.whatsapp.com/send?phone=56${this.student.phone}&text=${encodeURIComponent(msg)}`, '_blank')
     },
     studentGet() {
       this.$axios.get(`students/${this.student_id}`).then(response => {

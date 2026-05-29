@@ -3,9 +3,29 @@
 namespace App\Http\Controllers;
 
 use App\Models\Student;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 
 class StudentController extends Controller{
+
+    public function printAntecedentes($id)
+    {
+        $student  = Student::with(['histories.user', 'colegio'])->findOrFail($id);
+        $pdf      = Pdf::loadView('pdf.antecedentes', compact('student'))
+                        ->setPaper('letter', 'portrait');
+        $filename = 'antecedentes_' . str_replace([' ', '/'], '_', $student->rut) . '.pdf';
+        return $pdf->stream($filename);
+    }
+
+    public function printAntecedenteSingle($id, $historyId)
+    {
+        $student = Student::with(['colegio'])->findOrFail($id);
+        $history = \App\Models\History::with('user')->findOrFail($historyId);
+        $pdf     = Pdf::loadView('pdf.antecedente_single', compact('student', 'history'))
+                        ->setPaper('letter', 'portrait');
+        $filename = 'antecedente_' . str_replace([' ', '/'], '_', $student->rut) . '_' . $historyId . '.pdf';
+        return $pdf->stream($filename);
+    }
     function fotoStudent(Request $request, $id){
         $request->validate([
             'file' => 'required|file|mimes:jpeg,png,jpg|max:10240',
