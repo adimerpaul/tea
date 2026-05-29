@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
             FichaSeguimientoSeeder::class, // sin dependencias
             ProtocoloSeeder::class,     // depende: colegios
             DocumentSeeder::class,      // depende: students, users, certificados, contratos
+            TipoDocumentoSeeder::class, // sin dependencias
         ]);
     }
 }

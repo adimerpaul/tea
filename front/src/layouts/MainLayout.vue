@@ -196,6 +196,14 @@ const menuSections = [
       { title: 'Reportes', icon: 'description', to: '/reportes', roles: ['ADMIN', 'ADMIN COLEGIO'] },
     ],
   },
+  {
+    title: 'Configuración',
+    icon: 'settings',
+    defaultOpened: false,
+    links: [
+      { title: 'Tipos de documentos', icon: 'description', to: '/tipos-documentos', roles: ['ADMIN'] },
+    ],
+  },
 ]
 
 const userRole = computed(() => proxy.$store.user?.role || '')

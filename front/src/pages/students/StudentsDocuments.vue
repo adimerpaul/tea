@@ -518,20 +518,8 @@ export default {
         ['undo', 'redo'],
         ['viewsource']
       ],
-      documentsSelect: [
-        // 'AUTORIZACIÓN PARA EL ABORDAJE DEC.',
-        // 'CERTIFICADO PARA EL EMPLEADOR',
-        // 'CONTRATO DE CONTINGENCIAS',
-        // 'FICHA DEL PLAN DE APOYO INDIVIDUALIZADO (PAI) PARA ESTUDIANTES CON TEA',
-        // 'PLAN DE ACOMPAÑAMIENTO EMOCIONAL Y CONDUCTUAL',
-        'FICHA DE SEGUIMIENTO INDIVIDUALIZADA PARA DESREGULACIÓN EMOCIONAL',
-        'AUTORIZACION',
-        'certificado para el empleador',
-        'contrato de contingencia',
-        'PLAN DE ACOMPAÑAMIENTO EMOCIONAL Y CONDUCTUAL',
-        'PROTOCOLO DE ADMINISTRACIÓN DE FÁRMACOS EN EL CONTEXTO ESCOLAR',
-        'Registro de Desencadenantes de Desregulación Emocional en Estudiantes con TEA',
-      ],
+      documentsSelect: [],
+      tiposMap: {},
       documentDialog: false,
       documentDialogPdf: false,
       iframe: false,
@@ -543,6 +531,7 @@ export default {
   },
   mounted() {
     this.documentsGet()
+    this.tiposDocumentosGet()
   },
   methods: {
     onFileChange(e) {
@@ -568,59 +557,38 @@ export default {
     restoreHtml () {
       this.document.html = ''
       this.showFomulario = false
-      // nombreEstudiante, nombreApoderado, nombreRepresentanteEstablecimiento, fecha
+
+      // Prefer HTML template stored in DB
+      const dbHtml = this.tiposMap?.[this.document.name]
+      if (dbHtml) {
+        this.document.html = this.replacePlaceholders(dbHtml)
+        return
+      }
+
+      // Fall back to hardcoded templates for legacy document types
       const date = moment().format('DD/MM/YYYY HH:mm:ss')
       if (this.document.name === 'AUTORIZACION')
-        this.document.html = Documentos.AUTORIZACION( this.student)
+        this.document.html = Documentos.AUTORIZACION(this.student)
       if (this.document.name === 'certificado para el empleador')
-        this.document.html = Documentos.certificadoEmpleador( this.student)
+        this.document.html = Documentos.certificadoEmpleador(this.student)
       if (this.document.name === 'contrato de contingencia')
-        this.document.html = Documentos.contratoContigencia( this.student)
+        this.document.html = Documentos.contratoContigencia(this.student)
       if (this.document.name === 'PLAN DE ACOMPAÑAMIENTO EMOCIONAL Y CONDUCTUAL')
-        this.document.html = Documentos.planAcompanamiento( this.student)
+        this.document.html = Documentos.planAcompanamiento(this.student)
       if (this.document.name === 'PROTOCOLO DE ADMINISTRACIÓN DE FÁRMACOS EN EL CONTEXTO ESCOLAR')
-        this.document.html = Documentos.protocoloAdministracionFarmacos( this.student)
+        this.document.html = Documentos.protocoloAdministracionFarmacos(this.student)
       if (this.document.name === 'Registro de Desencadenantes de Desregulación Emocional en Estudiantes con TEA')
-        this.document.html = Documentos.registroDesencadenantesDesregulacionEmocional( this.student)
-      // if (this.document.name === 'AUTORIZACIÓN PARA EL ABORDAJE DEC.')
-      //   this.document.html = Documentos.autorizacionAbordajeDec( this.student.tutorName, this.student.tutorRut, this.student.name, this.student.course)
-      // if (this.document.name === 'CERTIFICADO PARA EL EMPLEADOR')
-      //   this.document.html = Documentos.certificadoEmpleador( this.student.name, this.student.tutorName, this.student.course, this.student.tutorRut)
-      // if (this.document.name === 'CONTRATO DE CONTINGENCIAS')
-      //   this.document.html = Documentos.contratoContigencia( this.student.name, this.student.tutorName, '', date)
-      // if (this.document.name === 'FICHA DEL PLAN DE APOYO INDIVIDUALIZADO (PAI) PARA ESTUDIANTES CON TEA')
-      //   this.document.html = Documentos.fichaPai( this.student.name, this.student.course, this.student.birthdate, date)
-      // if (this.document.name === 'PLAN DE ACOMPAÑAMIENTO EMOCIONAL Y CONDUCTUAL'){
-      //   let age = 0
-      //   if (this.student.birthdate) {
-      //     age = moment().diff(this.student.birthdate, 'years')
-      //   }
-      //   this.document.html = Documentos.planAcompanamiento( this.student.name, this.student.rut, age, this.student.course, this.student.tutorName,this.student.phone)
-      // }
-      if (this.document.name === 'FICHA DE SEGUIMIENTO INDIVIDUALIZADA PARA DESREGULACIÓN EMOCIONAL'){
+        this.document.html = Documentos.registroDesencadenantesDesregulacionEmocional(this.student)
+      if (this.document.name === 'FICHA DE SEGUIMIENTO INDIVIDUALIZADA PARA DESREGULACIÓN EMOCIONAL') {
         this.document.html = ''
         this.formulario = {
-          evaluador: '',
-          contexto:'',
-          emocion_predominante:'',
-          manifestaciones_fisicas:'',
-          manifestaciones_conductuales:'',
-          duracion:'',
-          intervencion_realizada:'',
-          efectividad_estrategia:'',
-          necesidad_ayuda_externa:'',
-          ayuda_externa:'',
-          medidas_corto_plazo:'',
-          medidas_largo_plazo:'',
-          seguimiento_fecha:'',
-          seguimiento_responsable:'',
-          frecuencia_seguimiento:'',
-          instrumento_evaluacion:'',
-          historial_desregulaciones:'',
-          factores_riesgo:'',
-          necesidades_especificas:'',
-          recursos_disponibles:'',
-          coordinacion_profesionales:'',
+          evaluador: '', contexto: '', emocion_predominante: '',
+          manifestaciones_fisicas: '', manifestaciones_conductuales: '', duracion: '',
+          intervencion_realizada: '', efectividad_estrategia: '', necesidad_ayuda_externa: '',
+          ayuda_externa: '', medidas_corto_plazo: '', medidas_largo_plazo: '',
+          seguimiento_fecha: '', seguimiento_responsable: '', frecuencia_seguimiento: '',
+          instrumento_evaluacion: '', historial_desregulaciones: '', factores_riesgo: '',
+          necesidades_especificas: '', recursos_disponibles: '', coordinacion_profesionales: '',
         }
         this.showFomulario = true
       }
@@ -750,6 +718,31 @@ export default {
       } else {
         this.documentCreate()
       }
+    },
+    tiposDocumentosGet() {
+      this.$axios.get('tipos-documentos').then(response => {
+        this.documentsSelect = response.data.map(t => t.nombre)
+        this.tiposMap = {}
+        response.data.forEach(t => { this.tiposMap[t.nombre] = t.html || '' })
+      }).catch(() => {})
+    },
+    replacePlaceholders(html) {
+      const s = this.student
+      const now = new Date()
+      const fecha = now.toLocaleDateString('es-CL')
+      const año = now.getFullYear().toString()
+      return html
+        .replace(/\{\{nombre\}\}/g,    s.name        || '')
+        .replace(/\{\{rut\}\}/g,       s.rut         || '')
+        .replace(/\{\{curso\}\}/g,     s.course      || '')
+        .replace(/\{\{año\}\}/g,       año)
+        .replace(/\{\{birthdate\}\}/g, s.birthdate   || '')
+        .replace(/\{\{tutor\}\}/g,     s.tutorName   || '')
+        .replace(/\{\{tutorRut\}\}/g,  s.tutorRut    || '')
+        .replace(/\{\{telefono\}\}/g,  s.phone       || '')
+        .replace(/\{\{direccion\}\}/g, s.address     || '')
+        .replace(/\{\{colegio\}\}/g,   s.colegio?.nombre || '')
+        .replace(/\{\{fecha\}\}/g,     fecha)
     },
     addDocument () {
       this.showFomulario = false

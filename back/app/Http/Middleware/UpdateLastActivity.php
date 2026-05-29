@@ -3,8 +3,8 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Symfony\Component\HttpFoundation\Response;
 
 class UpdateLastActivity
@@ -14,7 +14,9 @@ class UpdateLastActivity
         $response = $next($request);
 
         if ($user = $request->user()) {
-            User::where('id', $user->id)->update(['last_activity_at' => now()]);
+            DB::table('users')
+                ->where('id', $user->id)
+                ->update(['last_activity_at' => now()]);
         }
 
         return $response;

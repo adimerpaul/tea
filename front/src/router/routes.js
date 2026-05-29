@@ -13,6 +13,7 @@ const routes = [
       { path: 'protocolos', component: () => import('pages/protocolos/ProtocolosIndex.vue'), meta: { requiresAuth: true } },
       { path: 'reportes', component: () => import('pages/reportes/ReportesIndex.vue'), meta: { requiresAuth: true } },
       { path: 'ayuda', component: () => import('pages/ayuda/AyudaIndex.vue'), meta: { requiresAuth: true } },
+      { path: 'tipos-documentos', component: () => import('pages/tipos-documentos/TiposDocumentosIndex.vue'), meta: { requiresAuth: true } },
     ]
   },
   {

@@ -66,6 +66,11 @@ Route::group(['middleware' => ['auth:sanctum', \App\Http\Middleware\UpdateLastAc
     Route::put('/protocolos/{id}', [\App\Http\Controllers\ProtocoloController::class, 'update']);
     Route::get('/reporteEstudiantes', [\App\Http\Controllers\ReporteController::class, 'reporteEstudiantes']);
     Route::get('/reportePorFechas', [\App\Http\Controllers\ReporteController::class, 'reportePorFechas']);
+
+    Route::get('/tipos-documentos', [\App\Http\Controllers\TipoDocumentoController::class, 'index']);
+    Route::post('/tipos-documentos', [\App\Http\Controllers\TipoDocumentoController::class, 'store']);
+    Route::put('/tipos-documentos/{id}', [\App\Http\Controllers\TipoDocumentoController::class, 'update']);
+    Route::delete('/tipos-documentos/{id}', [\App\Http\Controllers\TipoDocumentoController::class, 'destroy']);
 });
 Route::get('/protocolospdf/{id}', [\App\Http\Controllers\ProtocoloController::class, 'protocolospdf']);
 Route::get('/students/{id}/antecedentes-pdf', [\App\Http\Controllers\StudentController::class, 'printAntecedentes']);
