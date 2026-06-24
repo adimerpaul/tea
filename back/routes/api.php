@@ -74,6 +74,7 @@ Route::group(['middleware' => ['auth:sanctum', \App\Http\Middleware\UpdateLastAc
 });
 Route::get('/protocolospdf/{id}', [\App\Http\Controllers\ProtocoloController::class, 'protocolospdf']);
 Route::get('/students/{id}/antecedentes-pdf', [\App\Http\Controllers\StudentController::class, 'printAntecedentes']);
+Route::get('/students/{id}/documentos-pdf', [\App\Http\Controllers\StudentController::class, 'printDocumentos']);
 Route::get('/students/{id}/antecedentes-pdf/{historyId}', [\App\Http\Controllers\StudentController::class, 'printAntecedenteSingle']);
 
 //Route::get('/documents/{codigo}/show', [\App\Http\Controllers\DocumentController::class, 'showMobile']);

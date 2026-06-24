@@ -4,6 +4,24 @@
       <div class="row items-center q-gutter-sm">
         <div class="text-h6 text-bold">Documentos</div>
         <q-space />
+        <q-btn
+          icon="picture_as_pdf"
+          label="Imprimir todo"
+          no-caps dense size="10px"
+          color="blue-9" unelevated
+          @click="printAllDocuments"
+        >
+          <q-tooltip>Generar PDF con todos los documentos</q-tooltip>
+        </q-btn>
+        <q-btn
+          icon="fab fa-whatsapp"
+          label="Enviar PDF"
+          no-caps dense size="10px"
+          color="green-7" unelevated
+          @click="sendWhatsappAllDocs"
+        >
+          <q-tooltip>Enviar PDF completo al apoderado por WhatsApp</q-tooltip>
+        </q-btn>
         <q-btn icon="add_circle_outline" @click="addDocument" label="Agregar" no-caps color="indigo" dense size="10px" unelevated :loading="loading"
                v-if="$store.user.role=='ADMIN' || $store.user.role=='ENCARGADO PIE' || $store.user.role=='ADMIN COLEGIO' || $store.user.role=='ASISTENTE EDUCATIVO' || $store.user.role=='DOCENTE'" />
       </div>
@@ -764,6 +782,15 @@ export default {
     },
     sendWhatsappDoc(doc) {
       const msg = `Estimado/a ${this.student.tutorName}, le enviamos el documento *${doc.description}* correspondiente a *${this.student.name}*. Puede solicitarlo en el establecimiento o comunicarse con el equipo PIE.`
+      window.open(`https://api.whatsapp.com/send?phone=56${this.student.phone}&text=${encodeURIComponent(msg)}`, '_blank')
+    },
+    printAllDocuments() {
+      const url = `${this.$url}students/${this.student_id}/documentos-pdf`
+      window.open(url, '_blank')
+    },
+    sendWhatsappAllDocs() {
+      const pdfUrl = `${this.$url}students/${this.student_id}/documentos-pdf`
+      const msg = `Estimado/a ${this.student.tutorName}, le compartimos el registro completo de documentos de *${this.student.name}*:\n${pdfUrl}`
       window.open(`https://api.whatsapp.com/send?phone=56${this.student.phone}&text=${encodeURIComponent(msg)}`, '_blank')
     }
   }

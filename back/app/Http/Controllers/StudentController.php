@@ -17,6 +17,19 @@ class StudentController extends Controller{
         return $pdf->stream($filename);
     }
 
+    public function printDocumentos($id)
+    {
+        $student   = Student::with(['colegio'])->findOrFail($id);
+        $documents = \App\Models\Document::where('student_id', $id)
+                        ->orderBy('date', 'desc')
+                        ->with('user')
+                        ->get();
+        $pdf       = Pdf::loadView('pdf.documentos', compact('student', 'documents'))
+                        ->setPaper('letter', 'portrait');
+        $filename  = 'documentos_' . str_replace([' ', '/'], '_', $student->rut) . '.pdf';
+        return $pdf->stream($filename);
+    }
+
     public function printAntecedenteSingle($id, $historyId)
     {
         $student = Student::with(['colegio'])->findOrFail($id);

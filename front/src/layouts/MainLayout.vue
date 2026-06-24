@@ -14,7 +14,7 @@
         />
         <div class="row items-center q-gutter-sm q-ml-sm">
           <div class="text-subtitle1 text-weight-medium" style="line-height: 0.9">
-            Dashboard de Gestión <br>
+<!--            Dashboard de Gestión <br>-->
             <q-badge color="warning" text-color="black" class="text-bold" style="font-size:10px">
               {{ $store.user.role || '' }}
             </q-badge>

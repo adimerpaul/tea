@@ -16,7 +16,7 @@
             <div class="login-image-overlay">
               <div class="login-brand">
                 <q-icon name="psychology" size="3rem" color="white" />
-                <div class="login-title q-mt-sm">Sistema TEA</div>
+                <div class="login-title q-mt-sm">espectrun.cl</div>
                 <div class="login-subtitle q-mt-xs">
                   Gestión Integral de Estudiantes<br />con Trastorno del Espectro Autista
                 </div>
