@@ -18,11 +18,11 @@
                 <q-icon name="psychology" size="3rem" color="white" />
                 <div class="login-title q-mt-sm">espectrun.cl</div>
                 <div class="login-subtitle q-mt-xs">
-                  Gestión Integral de Estudiantes<br />con Trastorno del Espectro Autista
+<!--                  Gestión Integral de Estudiantes<br />con Trastorno del Espectro Autista-->
                 </div>
               </div>
               <div class="login-image-footer text-caption">
-                Programa de Integración Escolar · PIE
+<!--                Programa de Integración Escolar · PIE-->
               </div>
             </div>
           </div>
@@ -92,7 +92,7 @@
             </q-btn>
 
             <div class="text-caption text-grey-5 text-center q-mt-xl">
-              Sistema de gestión escolar PIE &copy; {{ new Date().getFullYear() }}
+              Sistema de &copy; {{ new Date().getFullYear() }}
             </div>
           </div>
 
