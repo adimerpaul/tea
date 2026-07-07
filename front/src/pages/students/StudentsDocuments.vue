@@ -749,11 +749,13 @@ export default {
       const now = new Date()
       const fecha = now.toLocaleDateString('es-CL')
       const año = now.getFullYear().toString()
+      const edad = s.birthdate ? moment().diff(s.birthdate, 'years').toString() : ''
       return html
         .replace(/\{\{nombre\}\}/g,    s.name        || '')
         .replace(/\{\{rut\}\}/g,       s.rut         || '')
         .replace(/\{\{curso\}\}/g,     s.course      || '')
         .replace(/\{\{año\}\}/g,       año)
+        .replace(/\{\{edad\}\}/g,      edad)
         .replace(/\{\{birthdate\}\}/g, s.birthdate   || '')
         .replace(/\{\{tutor\}\}/g,     s.tutorName   || '')
         .replace(/\{\{tutorRut\}\}/g,  s.tutorRut    || '')

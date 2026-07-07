@@ -71,8 +71,8 @@
               <q-img src="/logo.png" />
             </q-avatar>
             <div class="drawer-brand__text">
-              <div class="drawer-brand__title">Sistema TEA</div>
-              <div class="drawer-brand__caption">Gestión Educativa</div>
+              <div class="drawer-brand__title">Espectrun.cl</div>
+<!--              <div class="drawer-brand__caption">Gestión Educativa</div>-->
             </div>
           </div>
 

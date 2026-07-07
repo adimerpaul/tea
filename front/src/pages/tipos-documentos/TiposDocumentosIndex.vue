@@ -182,6 +182,7 @@ export default {
         { key: '{{rut}}',          label: 'RUT del estudiante' },
         { key: '{{curso}}',        label: 'Curso' },
         { key: '{{año}}',          label: 'Año' },
+        { key: '{{edad}}',         label: 'Edad (calculada desde fecha de nacimiento)' },
         { key: '{{birthdate}}',    label: 'Fecha de nacimiento' },
         { key: '{{tutor}}',        label: 'Nombre del tutor/apoderado' },
         { key: '{{tutorRut}}',     label: 'RUT del tutor/apoderado' },
